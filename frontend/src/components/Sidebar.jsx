@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { NavLink, useParams } from 'react-router-dom'
+import { AnimatePresence, motion } from 'framer-motion'
 import { api } from '../api'
 
 function DatabaseGroup({ db, onNavigate }) {
@@ -24,23 +25,29 @@ function DatabaseGroup({ db, onNavigate }) {
         <span className="nav-count">{db.n_tables}</span>
         <span className={`nav-caret ${open ? 'up' : ''}`}>▾</span>
       </button>
-      {open && detail && (
-        <div className="nav-themes">
-          {detail.themes.map((t) => (
-            <div key={t.theme_key} className="nav-theme">
-              <div className="nav-theme-label">{t.theme_label}</div>
-              {t.tables.map((tb) => (
-                <NavLink key={tb.table} onClick={onNavigate}
-                  to={`/db/${db.schema}/${tb.table}`}
-                  className={({ isActive }) => 'nav-table' + (isActive ? ' active' : '')}
-                  title={tb.title}>
-                  {tb.title}
-                </NavLink>
-              ))}
-            </div>
-          ))}
-        </div>
-      )}
+      <AnimatePresence initial={false}>
+        {open && detail && (
+          <motion.div className="nav-themes"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.28, ease: [0.22, 0.61, 0.36, 1] }}>
+            {detail.themes.map((t) => (
+              <div key={t.theme_key} className="nav-theme">
+                <div className="nav-theme-label">{t.theme_label}</div>
+                {t.tables.map((tb) => (
+                  <NavLink key={tb.table} onClick={onNavigate}
+                    to={`/db/${db.schema}/${tb.table}`}
+                    className={({ isActive }) => 'nav-table' + (isActive ? ' active' : '')}
+                    title={tb.title}>
+                    {tb.title}
+                  </NavLink>
+                ))}
+              </div>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   )
 }

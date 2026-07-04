@@ -1,49 +1,80 @@
 import { useNavigate } from 'react-router-dom'
+import { motion } from 'framer-motion'
+import CountUp from './CountUp'
+import PeruMapHero from './PeruMapHero'
 
-const HIGHLIGHTS = [
-  { k: '5', l: 'bases de datos oficiales' },
-  { k: '200+', l: 'indicadores analíticos' },
-  { k: '2001–2026', l: 'cobertura temporal' },
-  { k: '0.00pp', l: 'error vs cifras INEI' },
-]
+const container = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.09, delayChildren: 0.1 } },
+}
+const item = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 0.61, 0.36, 1] } },
+}
 
 export default function Home({ databases }) {
   const nav = useNavigate()
+  const total = databases.reduce((s, d) => s + (d.n_tables || 0), 0)
+
   return (
     <div className="home">
       <section className="hero">
-        <h1>Observatorio de Datos del Perú</h1>
-        <p className="hero-lead">
-          Veinte años de encuestas oficiales del INEI —hogares, salud, empleo y
-          empresas— limpiadas, armonizadas y validadas contra las estadísticas
-          publicadas. Explora los indicadores de forma interactiva.
-        </p>
-        <div className="hero-stats">
-          {HIGHLIGHTS.map((h) => (
-            <div key={h.l} className="stat">
-              <div className="stat-k">{h.k}</div>
-              <div className="stat-l">{h.l}</div>
+        <motion.div variants={container} initial="hidden" animate="show">
+          <motion.div className="hero-eyebrow" variants={item}>
+            Observatorio abierto · microdatos INEI
+          </motion.div>
+          <motion.h1 variants={item}>
+            El Perú, <em>en datos</em> que se pueden explorar.
+          </motion.h1>
+          <motion.p className="hero-lead" variants={item}>
+            Veinte años de encuestas oficiales —hogares, salud, empleo y empresas—
+            limpiadas, armonizadas y contrastadas contra las cifras publicadas.
+            Elige un indicador y míralo cambiar.
+          </motion.p>
+          <motion.div className="hero-stats" variants={item}>
+            <div>
+              <div className="stat-k"><CountUp to={databases.length || 5} /></div>
+              <div className="stat-l">bases de datos</div>
             </div>
-          ))}
-        </div>
+            <div>
+              <div className="stat-k"><CountUp to={total || 207} /></div>
+              <div className="stat-l">indicadores</div>
+            </div>
+            <div>
+              <div className="stat-k"><CountUp to={25} /></div>
+              <div className="stat-l">años · 2001–2026</div>
+            </div>
+            <div>
+              <div className="stat-k"><CountUp to={100} decimals={0} suffix="%" /></div>
+              <div className="stat-l">validado vs INEI</div>
+            </div>
+          </motion.div>
+        </motion.div>
+        <PeruMapHero />
       </section>
 
-      <section className="db-grid">
-        {databases.map((db) => (
-          <button key={db.schema} className="db-card"
+      <div className="section-label">Explora por fuente</div>
+      <motion.section className="db-grid"
+        variants={container} initial="hidden" animate="show">
+        {databases.map((db, i) => (
+          <motion.button key={db.schema} className="db-card"
+            variants={item}
+            whileHover={{ y: -5 }}
+            whileTap={{ scale: 0.985 }}
+            transition={{ type: 'spring', stiffness: 320, damping: 22 }}
             style={{ '--accent': db.color }}
             onClick={() => nav(`/db/${db.schema}`)}>
-            <div className="db-card-bar" style={{ background: db.color }} />
+            <div className="db-card-idx">0{i + 1}</div>
             <h3>{db.title}</h3>
-            <div className="db-card-source">{db.source}</div>
+            <div className="db-card-source" style={{ color: db.color }}>{db.source}</div>
             <p>{db.desc}</p>
             <div className="db-card-foot">
               <span>{db.n_tables} indicadores</span>
-              <span className="db-card-go">Explorar →</span>
+              <span className="db-card-go" style={{ color: db.color }}>Explorar →</span>
             </div>
-          </button>
+          </motion.button>
         ))}
-      </section>
+      </motion.section>
     </div>
   )
 }

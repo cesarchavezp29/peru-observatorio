@@ -18,35 +18,35 @@ DATABASES = {
         "source": "ENAHO - Encuesta Nacional de Hogares",
         "desc": "Ingreso real, pobreza, educacion, salud, confianza, vivienda, "
                 "consumo, participacion y elecciones. Corte transversal 2004-2025.",
-        "color": "#1f4e79",
+        "color": "#c85a34",
     },
     "panel": {
         "title": "Dinamica de Pobreza",
         "source": "ENAHO Panel (longitudinal)",
         "desc": "Hogares reentrevistados: pobreza cronica vs transitoria, "
                 "transiciones, movilidad de ingresos y de seguro. 2007-2023.",
-        "color": "#7a4419",
+        "color": "#9c6b2f",
     },
     "endes": {
         "title": "Salud y Fertilidad",
         "source": "ENDES - Encuesta Demografica y de Salud",
         "desc": "Fecundidad, salud materno-infantil, desnutricion, anticoncepcion "
                 "y violencia. Indicadores nacionales y por departamento 2004-2024.",
-        "color": "#2e6b5e",
+        "color": "#157a6e",
     },
     "epen": {
         "title": "Empleo y Mercado Laboral",
         "source": "EPE / EPEN - Encuesta Permanente de Empleo",
         "desc": "Lima trimestre movil 2001-2026 (desempleo, ingreso, informalidad) "
                 "y corte departamental 2022-2025.",
-        "color": "#8a2846",
+        "color": "#8a4a6b",
     },
     "eea": {
         "title": "Empresas",
         "source": "EEA - Encuesta Economica Anual",
         "desc": "Lado empresa: productividad, valor agregado, concentracion, "
                 "brecha de genero y remuneraciones por sector. Ano fiscal 2023.",
-        "color": "#5a4a86",
+        "color": "#3f5aa6",
     },
 }
 

@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
+import { motion } from 'framer-motion'
 import { api } from '../api'
 import EChart from './EChart'
 import MapChart from './MapChart'
@@ -13,31 +14,53 @@ const CHART_TYPES = [
 ]
 const MAP_TYPE = { k: 'map', l: 'Mapa' }
 
+const stagger = { hidden: {}, show: { transition: { staggerChildren: 0.035 } } }
+const rise = {
+  hidden: { opacity: 0, y: 14 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: [0.22, 0.61, 0.36, 1] } },
+}
+
 function DatabaseOverview({ schema }) {
   const nav = useNavigate()
   const [detail, setDetail] = useState(null)
   useEffect(() => { setDetail(null); api.database(schema).then(setDetail).catch(() => {}) }, [schema])
-  if (!detail) return <div className="loading">Cargando…</div>
+  if (!detail) return (
+    <div className="db-overview">
+      <div className="skeleton sk-line" style={{ width: 300, height: 34, marginBottom: 16 }} />
+      <div className="table-cards">
+        {Array.from({ length: 8 }).map((_, i) =>
+          <div key={i} className="skeleton" style={{ height: 74, borderRadius: 12 }} />)}
+      </div>
+    </div>
+  )
   const db = detail.database
   return (
     <div className="db-overview">
-      <div className="db-head" style={{ '--accent': db.color }}>
+      <motion.div className="db-head" style={{ '--accent': db.color }}
+        initial={{ opacity: 0, x: -12 }} animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.45, ease: [0.22, 0.61, 0.36, 1] }}>
         <h1>{db.title}</h1>
-        <div className="db-source">{db.source}</div>
+        <div className="db-source" style={{ color: db.color }}>{db.source}</div>
         <p>{db.desc}</p>
-      </div>
+      </motion.div>
       {detail.themes.map((t) => (
         <section key={t.theme_key} className="theme-block">
           <h2>{t.theme_label}</h2>
-          <div className="table-cards">
+          <motion.div className="table-cards"
+            variants={stagger} initial="hidden" animate="show">
             {t.tables.map((tb) => (
-              <button key={tb.table} className="table-card"
+              <motion.button key={tb.table} className="table-card" variants={rise}
+                whileHover={{ y: -3 }} whileTap={{ scale: 0.98 }}
+                style={{ '--accent': db.color }}
                 onClick={() => nav(`/db/${schema}/${tb.table}`)}>
                 <div className="table-card-title">{tb.title}</div>
-                <div className="table-card-meta">{tb.n_rows} filas · {tb.n_cols} columnas</div>
-              </button>
+                <div className="table-card-meta">
+                  {tb.n_rows} filas · {tb.n_cols} columnas
+                  {tb.mappable && <span className="tc-map"> · mapa</span>}
+                </div>
+              </motion.button>
             ))}
-          </div>
+          </motion.div>
         </section>
       ))}
     </div>
@@ -52,17 +75,9 @@ function TableExplorer({ schema, table }) {
   const [yCols, setYCols] = useState([])
   const [ctype, setCtype] = useState('line')
   const [showTable, setShowTable] = useState(false)
-  const [dark, setDark] = useState(() => document.documentElement.dataset.theme !== 'light')
   const [mapRes, setMapRes] = useState(null)
   const [period, setPeriod] = useState(null)
   const [periods, setPeriods] = useState([])
-
-  useEffect(() => {
-    const obs = new MutationObserver(() =>
-      setDark(document.documentElement.dataset.theme !== 'light'))
-    obs.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] })
-    return () => obs.disconnect()
-  }, [])
 
   // load meta + data on table change
   useEffect(() => {
@@ -126,12 +141,12 @@ function TableExplorer({ schema, table }) {
     return buildOption({
       rows: cleanRows, x: xCol, series: yCols,
       type: ctype === 'scatter' ? 'scatter' : ctype,
-      ytitle: yCols.length === 1 ? yCols[0] : '', dark,
+      ytitle: yCols.length === 1 ? yCols[0] : '',
     })
-  }, [cleanRows, xCol, yCols, ctype, dark])
+  }, [cleanRows, xCol, yCols, ctype])
 
   if (err) return <div className="error">No se pudo cargar: {err}</div>
-  if (!meta) return <div className="loading">Cargando indicador…</div>
+  if (!meta) return <TableSkeleton />
 
   const allCols = meta.columns
   const numCols = allCols.filter((c) => isNumeric(types[c]))
@@ -158,7 +173,9 @@ function TableExplorer({ schema, table }) {
         </div>
       </div>
 
-      <div className="exp-body">
+      <motion.div className="exp-body"
+        initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4, ease: [0.22, 0.61, 0.36, 1] }}>
         <div className="controls">
           <div className="ctrl">
             <label>Tipo de gráfico</label>
@@ -204,7 +221,7 @@ function TableExplorer({ schema, table }) {
           {isMap
             ? (mapRes && mapRes.data.length
                 ? <MapChart data={mapRes.data} title={mapValueCol}
-                    min={mapRes.min} max={mapRes.max} dark={dark} />
+                    min={mapRes.min} max={mapRes.max} />
                 : <div className="loading">Sin datos departamentales para esta selección.</div>)
             : (option ? <EChart option={option} />
                 : <div className="loading">Selecciona al menos una serie numérica.</div>)}
@@ -225,6 +242,22 @@ function TableExplorer({ schema, table }) {
             </table>
           </div>
         )}
+      </motion.div>
+    </div>
+  )
+}
+
+function TableSkeleton() {
+  return (
+    <div className="explorer">
+      <div className="exp-head">
+        <div className="skeleton sk-line" style={{ width: 90 }} />
+        <div className="skeleton sk-line" style={{ width: 340, height: 26, margin: '10px 0' }} />
+        <div className="skeleton sk-line" style={{ width: 220 }} />
+      </div>
+      <div className="exp-body">
+        <div className="skeleton sk-line" style={{ width: '55%', height: 34 }} />
+        <div className="skeleton sk-chart" style={{ marginTop: 18 }} />
       </div>
     </div>
   )

@@ -52,8 +52,8 @@ export function guessChartType(x, columns, types) {
 }
 
 // Build an ECharts option from rows + chosen encoding.
-export function buildOption({ rows, x, series, type, ytitle, dark }) {
-  const t = tokens(dark)
+export function buildOption({ rows, x, series, type, ytitle }) {
+  const t = tokens()
   const axisColor = t.axis
   const gridColor = t.grid
   const cats = rows.map((r) => r[x])
@@ -93,7 +93,7 @@ export function buildOption({ rows, x, series, type, ytitle, dark }) {
     color: PALETTE,
     textStyle: { fontFamily: FONT },
     grid: { left: 58, right: 24, top: series.length > 1 ? 52 : 30, bottom: 64 },
-    tooltip: tooltip(dark, 'axis'),
+    tooltip: tooltip('axis'),
     legend: series.length > 1
       ? { top: 12, textStyle: { color: axisColor }, type: 'scroll' } : undefined,
     dataZoom: (base === 'line' && cats.length > 30)
@@ -106,13 +106,13 @@ export function buildOption({ rows, x, series, type, ytitle, dark }) {
 }
 
 // Build a choropleth option. `data` = [{name, value}], mapName registered on echarts.
-export function buildMapOption({ data, mapName, title, min, max, dark }) {
-  const t = tokens(dark)
-  const ramp = dark ? SEQ.dark : SEQ.light
+export function buildMapOption({ data, mapName, title, min, max }) {
+  const t = tokens()
+  const ramp = SEQ.light
   return {
     textStyle: { fontFamily: FONT },
     tooltip: {
-      ...tooltip(dark, 'item'),
+      ...tooltip('item'),
       formatter: (p) => {
         const v = p.value
         return `<b>${p.name}</b><br/>${title}: ` +
@@ -135,8 +135,8 @@ export function buildMapOption({ data, mapName, title, min, max, dark }) {
       label: { show: false },
       itemStyle: { borderColor: t.mapBorder, borderWidth: 0.6, areaColor: t.mapEmpty },
       emphasis: {
-        label: { show: true, color: t.mapLabel, fontSize: 11, fontWeight: 600 },
-        itemStyle: { areaColor: dark ? '#e0a53a' : '#e0603a' },
+        label: { show: true, color: t.mapLabel, fontSize: 11.5, fontWeight: 700 },
+        itemStyle: { areaColor: '#157a6e' },
       },
       select: { disabled: true },
     }],

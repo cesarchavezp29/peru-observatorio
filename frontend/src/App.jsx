@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
-import { Routes, Route, NavLink, useNavigate } from 'react-router-dom'
+import { Routes, Route, NavLink, useLocation } from 'react-router-dom'
+import { AnimatePresence, motion } from 'framer-motion'
 import { api } from './api'
 import Sidebar from './components/Sidebar'
 import Home from './components/Home'
@@ -7,17 +8,14 @@ import Explorer from './components/Explorer'
 
 export default function App() {
   const [databases, setDatabases] = useState([])
-  const [dark, setDark] = useState(() => localStorage.getItem('obs-theme') !== 'light')
   const [navOpen, setNavOpen] = useState(false)
+  const location = useLocation()
 
   useEffect(() => {
     api.databases().then(setDatabases).catch(() => setDatabases([]))
   }, [])
 
-  useEffect(() => {
-    document.documentElement.dataset.theme = dark ? 'dark' : 'light'
-    localStorage.setItem('obs-theme', dark ? 'dark' : 'light')
-  }, [dark])
+  useEffect(() => { setNavOpen(false) }, [location.pathname])
 
   return (
     <div className="app">
@@ -32,19 +30,24 @@ export default function App() {
         </NavLink>
         <div className="topbar-spacer" />
         <a className="topbar-link" href="https://github.com/cesarchavezp29" target="_blank" rel="noreferrer">GitHub</a>
-        <button className="theme-toggle" onClick={() => setDark((d) => !d)} aria-label="tema">
-          {dark ? '☀' : '☾'}
-        </button>
       </header>
 
       <div className="layout">
         <Sidebar databases={databases} open={navOpen} onNavigate={() => setNavOpen(false)} />
         <main className="content">
-          <Routes>
-            <Route path="/" element={<Home databases={databases} />} />
-            <Route path="/db/:schema" element={<Explorer />} />
-            <Route path="/db/:schema/:table" element={<Explorer />} />
-          </Routes>
+          <AnimatePresence mode="wait">
+            <motion.div key={location.pathname}
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.32, ease: [0.22, 0.61, 0.36, 1] }}>
+              <Routes location={location}>
+                <Route path="/" element={<Home databases={databases} />} />
+                <Route path="/db/:schema" element={<Explorer />} />
+                <Route path="/db/:schema/:table" element={<Explorer />} />
+              </Routes>
+            </motion.div>
+          </AnimatePresence>
           <footer className="site-footer">
             Fuente: microdatos INEI (ENAHO, ENAHO Panel, ENDES, EPE/EPEN, EEA).
             Indicadores propios validados contra estadísticas oficiales.

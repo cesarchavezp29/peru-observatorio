@@ -1,45 +1,47 @@
-// Single source of truth for chart styling. Both the xy charts (chartLogic)
-// and the choropleth maps (MapChart) pull tokens from here so the whole app
-// reads as one design system in light and dark.
+// Single source of truth for chart styling — warm Andean palette on light paper.
+// Both the xy charts (chartLogic) and the choropleth maps (MapChart) read from
+// here so the whole app is one design system.
 
 export const PALETTE = [
-  '#2563eb', '#e0603a', '#2e9e83', '#e0a53a', '#8256c4',
-  '#3aa0e0', '#d1477a', '#5aa02e', '#9c7b3a', '#54617a',
+  '#c85a34', // terracotta
+  '#157a6e', // teal
+  '#d99a2b', // ochre
+  '#8a4a6b', // plum
+  '#6f8f4e', // sage
+  '#3f5aa6', // indigo
+  '#e0895f', // coral
+  '#a23b34', // brick
+  '#4c7a86', // slate teal
+  '#9c6b2f', // bronze
 ]
 
-// sequential ramp for choropleths (low -> high), tuned per theme
+// warm sequential ramp for choropleths (low -> high)
 export const SEQ = {
-  light: ['#eef4fb', '#c7dcf2', '#8fb8e3', '#4f8bd0', '#1f5fae', '#123f77'],
-  dark: ['#16233a', '#1e3a63', '#2b5a8f', '#3f7fc0', '#6fa8e0', '#a9ccf2'],
+  light: ['#f6ecd9', '#f0d3a6', '#e6ac6b', '#d97f3f', '#c25728', '#8f3416'],
+  dark: ['#f6ecd9', '#f0d3a6', '#e6ac6b', '#d97f3f', '#c25728', '#8f3416'],
 }
 
-export function tokens(dark) {
-  return dark
-    ? {
-        text: '#e6eaf2', axis: '#8a93a6', grid: '#232a38',
-        tooltipBg: '#141a24', tooltipBorder: '#2b3446',
-        mapBorder: '#0e1420', mapEmpty: '#1b2432', mapLabel: '#c3ccdb',
-      }
-    : {
-        text: '#1a2230', axis: '#5a6472', grid: '#e7ebf1',
-        tooltipBg: '#ffffff', tooltipBorder: '#dfe4ec',
-        mapBorder: '#ffffff', mapEmpty: '#eef1f6', mapLabel: '#3a4453',
-      }
+export function tokens() {
+  return {
+    text: '#34291c', axis: '#8a7c68', grid: '#ece1cd',
+    tooltipBg: '#fffdf7', tooltipBorder: '#e7dcc6',
+    mapBorder: '#fffdf7', mapEmpty: '#efe5d2', mapLabel: '#34291c',
+  }
 }
 
-// shared tooltip block
-export function tooltip(dark, trigger = 'axis') {
-  const t = tokens(dark)
+export function tooltip(trigger = 'axis') {
+  const t = tokens()
   return {
     trigger,
     backgroundColor: t.tooltipBg,
     borderColor: t.tooltipBorder,
     borderWidth: 1,
-    textStyle: { color: t.text, fontSize: 12.5 },
-    axisPointer: { type: 'shadow' },
-    extraCssText: 'box-shadow:0 4px 18px rgba(0,0,0,.18);border-radius:8px;',
+    padding: [9, 13],
+    textStyle: { color: t.text, fontSize: 12.5, fontWeight: 500 },
+    axisPointer: { type: 'shadow', shadowStyle: { color: 'rgba(200,90,52,.06)' } },
+    extraCssText: 'box-shadow:0 8px 26px -8px rgba(80,50,20,.28);border-radius:11px;',
   }
 }
 
 export const FONT =
-  '"Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif'
+  '"Hanken Grotesk Variable", "Hanken Grotesk", system-ui, sans-serif'
