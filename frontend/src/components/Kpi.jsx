@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { api } from '../api'
-import { fmtNum } from '../chartLogic'
+import { fmtNum, toNum } from '../chartLogic'
 import MiniSpark from './MiniSpark'
 
 // A live KPI tile: pulls a temporal series, shows the latest value, the change
@@ -16,8 +16,8 @@ export default function Kpi({ schema, table, col, tcol, label, unit = '', color,
     api.data(schema, table, { cols: [tcol, col], order: tcol, limit: 4000 })
       .then((d) => {
         if (!alive) return
-        const rows = d.rows.filter((r) => Number.isFinite(Number(r[col])))
-        const pts = rows.map((r) => Number(r[col]))
+        const rows = d.rows.filter((r) => Number.isFinite(toNum(r[col])))
+        const pts = rows.map((r) => toNum(r[col]))
         if (!pts.length) return
         const yr = (v) => String(v).slice(0, 4) // year from year or YYYYMM
         setS({

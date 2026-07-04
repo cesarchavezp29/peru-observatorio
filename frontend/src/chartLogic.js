@@ -3,6 +3,11 @@ import { PALETTE, SEQ, tokens, tooltip, FONT } from './echartsTheme'
 
 const TEMPORAL = ['year', 'anio', 'ano', 'ym', 'periodo', 'period', 'trimestre', 'fecha', 'window', 'label']
 
+// null/'' -> NaN (so Number.isFinite filters them out; Number(null) is 0!)
+export function toNum(v) {
+  return (v == null || v === '') ? NaN : Number(v)
+}
+
 export function isNumeric(type) {
   if (!type) return false
   const t = type.toUpperCase()

@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { api } from '../api'
 import EChart from './EChart'
 import MapChart from './MapChart'
+import SectionHero from './SectionHero'
 import { guessX, numericCols, defaultSeries, smartDefaultSeries, guessChartType, buildOption, isNumeric, isTemporal, labelFor, isHiddenSeries, fmtNum } from '../chartLogic'
 
 const CHART_TYPES = [
@@ -43,6 +44,8 @@ function DatabaseOverview({ schema }) {
         <div className="db-source" style={{ color: db.color }}>{db.source}</div>
         <p>{db.desc}</p>
       </motion.div>
+      <SectionHero schema={schema} />
+      <div className="section-label" style={{ marginTop: 36 }}>Todos los indicadores</div>
       {detail.themes.map((t) => (
         <section key={t.theme_key} className="theme-block">
           <h2>{t.theme_label}</h2>

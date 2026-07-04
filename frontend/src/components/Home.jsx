@@ -3,6 +3,8 @@ import { motion } from 'framer-motion'
 import CountUp from './CountUp'
 import PeruMapHero from './PeruMapHero'
 import Kpi from './Kpi'
+import Finding from './Finding'
+import { FINDINGS } from '../content'
 
 // live national snapshot — validated temporal series, pulled from the API
 const PANORAMA = [
@@ -68,6 +70,13 @@ export default function Home({ databases }) {
         variants={container} initial="hidden" whileInView="show"
         viewport={{ once: true, margin: '-60px' }}>
         {PANORAMA.map((k) => <Kpi key={k.table + k.col} {...k} variants={item} />)}
+      </motion.section>
+
+      <div className="section-label">Hallazgos · lo que dicen los datos</div>
+      <motion.section className="findings-grid"
+        variants={container} initial="hidden" whileInView="show"
+        viewport={{ once: true, margin: '-60px' }}>
+        {FINDINGS.map((f) => <Finding key={f.title} {...f} variants={item} />)}
       </motion.section>
 
       <div className="section-label">Explora por fuente</div>

@@ -15,7 +15,7 @@ export default function App() {
     api.databases().then(setDatabases).catch(() => setDatabases([]))
   }, [])
 
-  useEffect(() => { setNavOpen(false) }, [location.pathname])
+  useEffect(() => { setNavOpen(false); window.scrollTo({ top: 0 }) }, [location.pathname])
 
   return (
     <div className="app">
