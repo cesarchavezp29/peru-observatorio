@@ -58,8 +58,10 @@ EXCLUDE = {
     "endes_mujeres_2004_2024",
     "endes_mujeres_2004_2006",
     "enaho_panel_hogar_long_sample",
-    "module_keys",       # internal merge-key reference, not an indicator
-    "panel_file_keys",   # internal panel-file reference, not an indicator
+    "module_keys",         # internal merge-key reference, not an indicator
+    "panel_file_keys",     # internal panel-file reference, not an indicator
+    "epen_codciudad_dict",     # city-code lookup, not an indicator
+    "epen_codciudad_inferred", # city-inference reference, not an indicator
 }
 MAX_MB = 8.0  # any CSV larger than this is treated as microdata and skipped
 

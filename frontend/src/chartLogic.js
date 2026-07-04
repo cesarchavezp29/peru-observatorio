@@ -77,6 +77,9 @@ const LABELS = {
   analfabetismo_15: 'Analfabetismo (%)', ingreso_real_pc: 'Ingreso real per cápita',
   lengua_indigena: 'Lengua indígena (%)', pct_sis: 'Afiliación SIS (%)',
   pct_60mas: 'Población 60+ (%)', educ_anios_25: 'Años de educación (25+)',
+  // vivienda (verified in source builder, validated vs INEI)
+  p110: 'Agua de red pública (dentro)', p1121: 'Alumbrado eléctrico',
+  p1142: 'Teléfono celular',
 }
 const SUFFIX = [
   ['_pct', ' (%)'], ['_h', ' (hombres)'], ['_m', ' (mujeres)'],
@@ -92,6 +95,31 @@ export function labelFor(col) {
   if (LABELS[c]) return LABELS[c] + suff
   c = c.replace(/_/g, ' ').trim()
   return (c.charAt(0).toUpperCase() + c.slice(1)) + suff
+}
+
+// Refine the default series using the actual data: if the candidate columns
+// span wildly different magnitudes (e.g. a count, a total in billions, and a
+// ratio) plotting them together is unreadable, so fall back to a single series
+// — preferring the one whose name matches the table title.
+export function smartDefaultSeries(rows, candidates, title = '') {
+  if (candidates.length <= 1 || !rows.length) return candidates
+  const median = (c) => {
+    const v = rows.map((r) => Math.abs(Number(r[c])))
+      .filter((x) => Number.isFinite(x) && x > 0).sort((a, b) => a - b)
+    return v.length ? v[Math.floor(v.length / 2)] : 0
+  }
+  const meds = candidates.map(median).filter((x) => x > 0)
+  const keepAll = candidates.slice(0, candidates.length <= 6 ? candidates.length : 4)
+  if (meds.length < 2 || Math.max(...meds) / Math.min(...meds) <= 30) return keepAll
+
+  const words = (title.toLowerCase().match(/[a-záéíóúñ]{4,}/gi) || [])
+  const scored = candidates.map((c) => {
+    const hay = (labelFor(c) + ' ' + c).toLowerCase()
+    let score = words.reduce((s, w) => s + (hay.includes(w) ? w.length : 0), 0)
+    if (/_x_|pct|per_|productiv/.test(c)) score += 0.5 // nudge toward derived metrics
+    return [c, score]
+  }).sort((a, b) => b[1] - a[1])
+  return [scored[0][1] > 0 ? scored[0][0] : candidates[0]]
 }
 
 // compact number formatting for axes / tooltips

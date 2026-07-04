@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import { api } from '../api'
 import EChart from './EChart'
 import MapChart from './MapChart'
-import { guessX, numericCols, defaultSeries, guessChartType, buildOption, isNumeric, isTemporal, labelFor, isHiddenSeries } from '../chartLogic'
+import { guessX, numericCols, defaultSeries, smartDefaultSeries, guessChartType, buildOption, isNumeric, isTemporal, labelFor, isHiddenSeries } from '../chartLogic'
 
 const CHART_TYPES = [
   { k: 'line', l: 'Líneas' },
@@ -87,11 +87,13 @@ function TableExplorer({ schema, table }) {
     setMapRes(null); setPeriod(null); setPeriods([])
     setCategory(null); setCategories([])
     let alive = true
+    let capMeta, capX, capYs
     api.tableMeta(schema, table).then((m) => {
       if (!alive) return
       const types = m.column_types
       const x = guessX(m.columns, types)
       const ys = defaultSeries(m.columns, types, [x, m.dept_col])
+      capMeta = m; capX = x; capYs = ys
       setMeta(m); setXCol(x); setYCols(ys)
       // dept-keyed tables open as a map (avoids a 1..25 code axis)
       setCtype(m.mappable ? 'map' : guessChartType(x, m.columns, types))
@@ -113,8 +115,15 @@ function TableExplorer({ schema, table }) {
       return api.data(schema, table, {
         order: isTemporal(x) ? x : undefined, limit: 8000,
       })
-    }).then((d) => { if (alive && d) setData(d) })
-      .catch((e) => alive && setErr(String(e)))
+    }).then((d) => {
+      if (!alive || !d) return
+      setData(d)
+      // refine default series now that we can see magnitudes (skip long-format)
+      if (capMeta && !capMeta.category_col && capYs.length > 1) {
+        const refined = smartDefaultSeries(d.rows, capYs, capMeta.title)
+        if (refined.length && refined.length !== capYs.length) setYCols(refined)
+      }
+    }).catch((e) => alive && setErr(String(e)))
     return () => { alive = false }
   }, [schema, table])
 
