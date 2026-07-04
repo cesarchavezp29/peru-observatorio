@@ -3,12 +3,24 @@ import { motion } from 'framer-motion'
 
 const W = 480, PAD = 12
 
-// project the departments geojson into SVG paths (equirectangular w/ cos-lat).
+// department -> predominant natural region (dominant-region convention)
+const REGION_DEPTS = {
+  Costa: ['Tumbes', 'Piura', 'Lambayeque', 'La Libertad', 'Lima', 'Callao',
+    'Ica', 'Moquegua', 'Tacna'],
+  Sierra: ['Cajamarca', 'Ancash', 'Huanuco', 'Pasco', 'Junin', 'Huancavelica',
+    'Ayacucho', 'Apurimac', 'Cusco', 'Puno', 'Arequipa'],
+  Selva: ['Amazonas', 'San Martin', 'Loreto', 'Ucayali', 'Madre de Dios'],
+}
+const REGION_OF = {}
+for (const [reg, list] of Object.entries(REGION_DEPTS)) list.forEach((d) => { REGION_OF[d] = reg })
+const REGION_COLOR = { Costa: '#e3c07a', Sierra: '#c0824a', Selva: '#83b25f' }
+const REGION_HOVER = { Costa: '#d9ad57', Sierra: '#a86d38', Selva: '#6fa14a' }
+const REGIONS = ['Costa', 'Sierra', 'Selva']
+
 function project(geo) {
   let minLon = 180, maxLon = -180, minLat = 90, maxLat = -90
   const rings = []
   const push = (coords, name) => {
-    // coords: array of [lon,lat]
     for (const [lon, lat] of coords) {
       if (lon < minLon) minLon = lon; if (lon > maxLon) maxLon = lon
       if (lat < minLat) minLat = lat; if (lat > maxLat) maxLat = lat
@@ -27,7 +39,6 @@ function project(geo) {
   const H = latH * scale + 2 * PAD
   const X = (lon) => PAD + (lon * k - minLon * k) * scale
   const Y = (lat) => PAD + (maxLat - lat) * scale
-  // group rings back by department so each dept is one <path> (draws as a unit)
   const byDept = {}
   for (const { coords, name } of rings) {
     const d = coords.map(([lon, lat], i) =>
@@ -46,36 +57,47 @@ export default function PeruMapHero() {
   const proj = useMemo(() => (geo ? project(geo) : null), [geo])
   if (!proj) return <div className="hero-map" />
 
+  const hoverReg = hover ? REGION_OF[hover] : null
+
   return (
     <div className="hero-map">
       <svg viewBox={`0 0 ${W} ${proj.H}`} className="peru-svg"
-        style={{ width: '100%', maxWidth: 460 }}>
-        <defs>
-          <linearGradient id="andes" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="#e6ac6b" />
-            <stop offset="55%" stopColor="#d97f3f" />
-            <stop offset="100%" stopColor="#c25728" />
-          </linearGradient>
-        </defs>
-        {proj.paths.map((p, i) => (
-          <motion.path key={p.name} d={p.d}
-            initial={{ pathLength: 0, fillOpacity: 0 }}
-            animate={{ pathLength: 1, fillOpacity: hover === p.name ? 0.95 : 0.85 }}
-            transition={{
-              pathLength: { delay: 0.15 + i * 0.045, duration: 1.1, ease: [0.22, 0.61, 0.36, 1] },
-              fillOpacity: { delay: hover === p.name ? 0 : 0.9 + i * 0.045, duration: 0.5 },
-            }}
-            onMouseEnter={() => setHover(p.name)}
-            onMouseLeave={() => setHover(null)}
-            fill={hover === p.name ? '#157a6e' : 'url(#andes)'}
-            stroke="#fffdf7" strokeWidth={0.8}
-            style={{ cursor: 'pointer' }} />
-        ))}
+        style={{ width: '100%', maxWidth: 440 }}>
+        {proj.paths.map((p, i) => {
+          const reg = REGION_OF[p.name] || 'Sierra'
+          const on = hover === p.name
+          return (
+            <motion.path key={p.name} d={p.d}
+              initial={{ pathLength: 0, fillOpacity: 0 }}
+              animate={{ pathLength: 1, fillOpacity: on ? 1 : 0.9 }}
+              transition={{
+                pathLength: { delay: 0.15 + i * 0.045, duration: 1.1, ease: [0.22, 0.61, 0.36, 1] },
+                fillOpacity: { delay: on ? 0 : 0.9 + i * 0.045, duration: 0.5 },
+              }}
+              onMouseEnter={() => setHover(p.name)}
+              onMouseLeave={() => setHover(null)}
+              fill={on ? REGION_HOVER[reg] : REGION_COLOR[reg]}
+              stroke={on ? '#c85a34' : '#fffdf7'} strokeWidth={on ? 1.5 : 0.8}
+              style={{ cursor: 'pointer' }} />
+          )
+        })}
       </svg>
+
+      <motion.div className="hero-legend"
+        initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1.6, duration: 0.5 }}>
+        {REGIONS.map((r) => (
+          <span key={r} className={'leg-item' + (hoverReg && hoverReg !== r ? ' dim' : '')}>
+            <span className="leg-dot" style={{ background: REGION_COLOR[r] }} />
+            {r}
+          </span>
+        ))}
+      </motion.div>
+
       <motion.div className="hero-map-tag"
         initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 2 }}>
-        {hover || '25 departamentos'}
+        {hover ? `${hover} · ${hoverReg}` : '3 regiones naturales'}
       </motion.div>
     </div>
   )

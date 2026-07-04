@@ -143,13 +143,22 @@ h1, h2, h3, .brand-text strong { font-family: var(--font-display); font-weight: 
 .stat-k { font-family: var(--font-display); font-size: 30px; font-weight: 800; color: var(--ink); letter-spacing: -1px; }
 .stat-k span { color: var(--terracotta); }
 .stat-l { font-size: 12px; color: var(--text-mute); font-weight: 600; margin-top: 2px; }
-.hero-map { position: relative; display: grid; place-items: center; min-height: 380px; }
-.peru-svg { filter: drop-shadow(0 18px 34px rgba(194, 87, 40, .28)); overflow: visible; }
-.peru-svg path { transition: fill .25s var(--ease); }
+.hero-map {
+  position: relative; display: flex; flex-direction: column; align-items: center;
+  justify-content: center; gap: 15px; min-height: 380px;
+}
+.peru-svg { filter: drop-shadow(0 16px 30px rgba(90, 60, 25, .22)); overflow: visible; }
+.peru-svg path { transition: fill .25s var(--ease), stroke .2s var(--ease); }
+.hero-legend { display: flex; gap: 18px; flex-wrap: wrap; justify-content: center; }
+.leg-item {
+  display: inline-flex; align-items: center; gap: 7px; font-family: var(--font-display);
+  font-size: 13.5px; font-weight: 700; color: var(--text-dim); transition: opacity .2s var(--ease);
+}
+.leg-item.dim { opacity: .32; }
+.leg-dot { width: 13px; height: 13px; border-radius: 4px; }
 .hero-map-tag {
-  position: absolute; bottom: 6px; left: 50%; transform: translateX(-50%);
   font-family: var(--font-display); font-size: 13px; font-weight: 700; color: var(--text-dim);
-  background: var(--panel); border: 1px solid var(--border); padding: 5px 14px; border-radius: 20px;
+  background: var(--panel); border: 1px solid var(--border); padding: 5px 15px; border-radius: 20px;
   box-shadow: var(--shadow-sm); white-space: nowrap;
 }
 
