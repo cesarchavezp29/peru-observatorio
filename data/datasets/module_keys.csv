@@ -1,0 +1,30 @@
+module,folder,label,n_rows,n_hogares,rows_per_hh,granularidad,merge_key,extra_key,factor07,n_cols
+01,vivienda_hogar,Caracteristicas de la Vivienda y el Hogar,44599,44599,1.0,HOGAR,conglome+vivienda+hogar,,si,336
+02,miembros,Caracteristicas de los Miembros del Hogar,115145,33702,3.42,PERSONA,conglome+vivienda+hogar+codperso,,no,40
+03,educacion,Educacion,104446,33702,3.1,PERSONA,conglome+vivienda+hogar+codperso,,si,495
+04,salud,Salud,107802,33702,3.2,PERSONA,conglome+vivienda+hogar+codperso,,si,884
+05,empleo_ingreso,Empleo e Ingreso,84853,33702,2.52,PERSONA,conglome+vivienda+hogar+codperso,,no,1413
+07,gastos_alimentos,Gastos en Alimentos y Bebidas comprados (p601),8996977,33702,266.96,HOGAR-ITEM,conglome+vivienda+hogar+p601a,p601a,si,39
+08,gastos_alim_no_comprado,"Alimentos/bebidas sin compra: autoconsumo, donacion, institucion (p602)",539232,33702,16.0,HOGAR-ITEM,conglome+vivienda+hogar+p602n,p602n,si,27
+09,gastos_mant_vivienda,Mantenimiento de la Vivienda (p603),505530,33702,15.0,HOGAR-ITEM,conglome+vivienda+hogar+p603n,p603n,si,47
+10,gastos_transp_comunic,Transportes y Comunicaciones (p604),404424,33702,12.0,HOGAR-ITEM,conglome+vivienda+hogar+p604n,p604n,si,48
+11,gastos_serv_vivienda,Servicios a la Vivienda (p605),269616,33702,8.0,HOGAR-ITEM,conglome+vivienda+hogar+p605n,p605n,si,38
+12,gastos_esparcimiento,"Esparcimiento, Diversion y Cultura (p606)",303318,33702,9.0,HOGAR-ITEM,conglome+vivienda+hogar+p606n,p606n,si,47
+13,gastos_vestido_calzado,Vestido y Calzado (p607),235912,33702,7.0,HOGAR-ITEM,conglome+vivienda+hogar+p607n,p607n,si,47
+15,gastos_transferencias,Gastos de Transferencias (p609),303318,33702,9.0,HOGAR-ITEM,conglome+vivienda+hogar+p609n,p609n,si,17
+16,gastos_muebles_enseres,Muebles y Enseres (p610),202212,33702,6.0,HOGAR-ITEM,conglome+vivienda+hogar+p610n,p610n,si,47
+17,gastos_otros_byss,Otros Bienes y Servicios (p611),370722,33702,11.0,HOGAR-ITEM,conglome+vivienda+hogar+p611n,p611n,si,44
+18,equipamiento_hogar,Equipamiento del Hogar (p612),943656,33702,28.0,HOGAR-ITEM,conglome+vivienda+hogar+p612n,p612n,si,24
+22,prod_agricola,Produccion Agricola (persona x cultivo p2100a),71593,10114,7.08,ITEM,conglome+vivienda+hogar+codperso+p2100a,p2100a,no,36
+23,subprod_agricola,Subproductos Agricolas (persona x item p2200a),27800,6556,4.24,ITEM,conglome+vivienda+hogar+codperso+p2200a,p2200a,no,30
+24,prod_forestal,Produccion Forestal (persona x item p2300a),6460,2728,2.37,ITEM,conglome+vivienda+hogar+codperso+p2300a,p2300a,no,21
+25,gastos_agropecuarios,Gastos en Actividades Agropecuarias y Forestales,10399,10130,1.03,PERSONA,conglome+vivienda+hogar+codperso,,no,28
+26,prod_pecuaria,Produccion Pecuaria (persona x especie p2500a),36151,10277,3.52,ITEM,conglome+vivienda+hogar+codperso+p2500a,p2500a,no,48
+27,subprod_pecuario,Subproductos Pecuarios (persona x item p2600a),27362,8904,3.07,ITEM,conglome+vivienda+hogar+codperso+p2600a,p2600a,no,28
+28,trabajadores_agro,Trabajadores y Equipo Agropecuario (por persona),10266,10068,1.02,PERSONA,conglome+vivienda+hogar+codperso,,no,21
+34,sumaria,Sumaria - Variables Calculadas (ingreso/gasto/pobreza),33702,33702,1.0,HOGAR,conglome+vivienda+hogar,,si,161
+37,programas_sociales,Programas Sociales,33702,33702,1.0,HOGAR,conglome+vivienda+hogar,,si,44
+77,agro_actividad_persona,Productor Agropecuario: actividad por persona (codperso x actividad),288992,13616,21.22,OTRO/MULTI,conglome+vivienda+hogar+codperso,,no,20
+78,gastos_cuidados_pers,Bienes y Servicios de Cuidados Personales (p606 en este modulo),370722,33702,11.0,HOGAR-ITEM,conglome+vivienda+hogar+p606n,p606n,si,47
+84,participacion_ciudadana,"Participacion Ciudadana (Capitulo 800, p801)",33702,33702,1.0,HOGAR,conglome+vivienda+hogar,,si,34
+85,gobernabilidad,"Gobernabilidad, Democracia y Transparencia",33702,33702,1.0,HOGAR,conglome+vivienda+hogar,,no,244

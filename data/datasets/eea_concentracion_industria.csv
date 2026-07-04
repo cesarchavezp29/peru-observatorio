@@ -1,0 +1,113 @@
+ciiu,n,ventas_mmM,cr4,cr8,hhi,industria,sec
+1103,8.0,8.1,99.3,99.4,6645.0,Cerveza y bebidas malteadas,Manufactura
+1920,12.0,32.9,99.2,99.9,4471.0,Refinacion de petroleo,Manufactura
+2431,11.0,2.7,95.5,96.6,8148.0,Fundicion de hierro y acero,Manufactura
+2410,15.0,6.0,89.4,91.2,5717.0,Siderurgia (hierro y acero),Manufactura
+1104,27.0,5.4,88.1,96.1,2733.0,Bebidas no alcoholicas y aguas,Manufactura
+5223,6.0,2.7,84.2,87.8,3030.0,Servicios para transporte aereo,Transp./Comunic.
+6120,8.0,6.4,80.0,80.1,4590.0,Telecomunicaciones moviles,Transp./Comunic.
+1050,17.0,9.3,77.8,79.4,3232.0,Productos lacteos,Manufactura
+6110,30.0,9.2,77.7,79.7,5135.0,Telecomunicaciones fijas,Transp./Comunic.
+9200,51.0,6.7,77.5,84.0,4992.0,Juegos de azar y apuestas,Otros servicios
+4711,58.0,28.9,76.9,83.4,2183.0,Supermercados / minorista no espec.,Comercio
+6190,48.0,9.8,74.2,77.1,4422.0,Otras telecomunicaciones,Transp./Comunic.
+1702,20.0,2.5,74.0,86.5,2416.0,Papel y carton ondulado,Manufactura
+0910,23.0,2.5,73.6,78.5,4421.0,Apoyo a extraccion de petroleo/gas,Mineria/Hidroc.
+0163,31.0,2.3,71.7,83.0,1789.0,Actividades poscosecha,Agro/Pesca
+2432,17.0,3.8,70.8,77.2,2520.0,Fundicion de metales no ferrosos,Manufactura
+2420,6.0,6.5,70.5,70.8,5863.0,Metales preciosos y no ferrosos,Manufactura
+1040,25.0,11.8,70.4,77.7,3315.0,Aceites y grasas,Manufactura
+1709,29.0,2.8,70.2,78.0,1898.0,Otros articulos de papel,Manufactura
+5110,28.0,10.7,69.7,78.4,2878.0,Transporte aereo de pasajeros,Transp./Comunic.
+2029,33.0,6.4,66.9,73.8,1569.0,Otros productos quimicos,Manufactura
+0620,10.0,8.5,65.8,80.6,2595.0,Extraccion de gas natural,Mineria/Hidroc.
+3600,61.0,5.0,63.3,70.5,3410.0,CIIU 3600,Electr./Agua
+1080,14.0,4.4,61.6,66.6,1386.0,CIIU 1080,Manufactura
+4771,60.0,12.5,59.9,70.4,1375.0,CIIU 4771,Comercio
+2023,26.0,3.5,57.7,68.8,1366.0,CIIU 2023,Manufactura
+5222,22.0,3.2,57.4,74.6,1333.0,CIIU 5222,Transp./Comunic.
+1072,8.0,3.8,55.9,87.5,1257.0,CIIU 1072,Manufactura
+0610,9.0,3.0,55.3,69.2,1419.0,CIIU 0610,Mineria/Hidroc.
+4799,16.0,2.9,54.5,60.4,1445.0,CIIU 4799,Comercio
+2395,26.0,2.7,54.4,58.2,1989.0,CIIU 2395,Manufactura
+4661,122.0,57.9,54.0,66.6,956.0,CIIU 4661,Comercio
+2011,23.0,2.6,52.0,73.0,1006.0,CIIU 2011,Manufactura
+4772,79.0,20.8,51.8,56.8,953.0,CIIU 4772,Comercio
+5221,15.0,2.3,47.7,66.6,747.0,CIIU 5221,Transp./Comunic.
+1073,17.0,3.6,46.0,55.0,905.0,CIIU 1073,Manufactura
+4662,44.0,41.3,45.3,53.9,786.0,CIIU 4662,Comercio
+2100,39.0,4.1,44.5,63.1,682.0,CIIU 2100,Manufactura
+1061,29.0,5.9,42.6,60.8,778.0,CIIU 1061,Manufactura
+4759,39.0,7.5,41.2,44.3,696.0,CIIU 4759,Comercio
+3510,112.0,33.0,40.7,53.9,564.0,CIIU 3510,Electr./Agua
+1010,26.0,11.5,40.0,47.7,944.0,CIIU 1010,Manufactura
+2394,19.0,15.3,37.5,42.2,1511.0,CIIU 2394,Manufactura
+1311,28.0,3.3,37.2,59.8,601.0,CIIU 1311,Manufactura
+1071,40.0,2.1,36.3,44.6,821.0,CIIU 1071,Manufactura
+4312,17.0,3.9,36.1,41.2,855.0,CIIU 4312,Construccion
+4752,134.0,14.6,35.6,37.9,621.0,CIIU 4752,Comercio
+7830,56.0,2.3,34.2,45.6,412.0,CIIU 7830,Otros servicios
+4651,39.0,6.6,33.8,44.5,452.0,CIIU 4651,Comercio
+8610,52.0,6.6,32.9,49.1,472.0,CIIU 8610,Otros servicios
+4210,63.0,8.3,32.4,42.8,592.0,CIIU 4210,Construccion
+8530,109.0,15.2,31.9,48.0,419.0,CIIU 8530,Otros servicios
+8010,74.0,5.6,31.8,45.6,432.0,CIIU 8010,Otros servicios
+3312,56.0,2.0,31.0,40.7,445.0,CIIU 3312,Manufactura
+5210,43.0,4.6,30.6,44.0,380.0,CIIU 5210,Transp./Comunic.
+4659,117.0,28.9,29.9,38.0,404.0,CIIU 4659,Comercio
+5629,34.0,3.6,29.6,33.3,632.0,CIIU 5629,Aloj./Restaurantes
+8220,23.0,3.5,29.4,47.0,424.0,CIIU 8220,Otros servicios
+1020,105.0,13.5,27.2,41.1,333.0,CIIU 1020,Manufactura
+2599,37.0,2.6,27.1,35.2,347.0,CIIU 2599,Manufactura
+2021,13.0,2.4,26.1,31.3,727.0,CIIU 2021,Manufactura
+8690,80.0,7.0,25.7,33.6,281.0,CIIU 8690,Otros servicios
+7710,37.0,2.1,25.7,36.2,357.0,CIIU 7710,Otros servicios
+4290,95.0,14.7,25.4,36.6,324.0,CIIU 4290,Construccion
+4652,32.0,9.7,25.3,30.1,448.0,CIIU 4652,Comercio
+6209,51.0,5.8,24.9,37.7,275.0,CIIU 6209,Transp./Comunic.
+4540,64.0,3.2,24.8,35.3,235.0,CIIU 4540,Comercio
+4510,110.0,36.3,24.0,36.5,293.0,CIIU 4510,Comercio
+4741,46.0,6.7,23.3,28.1,173.0,CIIU 4741,Comercio
+4620,94.0,20.2,23.0,27.3,199.0,CIIU 4620,Comercio
+1079,51.0,9.4,22.7,30.4,308.0,CIIU 1079,Manufactura
+7490,64.0,4.0,22.5,30.2,353.0,CIIU 7490,Otros servicios
+2220,119.0,14.4,20.7,28.6,205.0,CIIU 2220,Manufactura
+8521,131.0,3.8,20.0,26.6,184.0,CIIU 8521,Otros servicios
+4649,124.0,31.9,18.8,28.4,155.0,CIIU 4649,Comercio
+4669,71.0,14.3,18.1,26.2,157.0,CIIU 4669,Comercio
+1030,119.0,22.9,17.0,24.5,141.0,CIIU 1030,Manufactura
+5510,155.0,3.3,16.9,24.8,140.0,CIIU 5510,Aloj./Restaurantes
+4390,87.0,7.1,16.0,25.5,167.0,CIIU 4390,Construccion
+2511,120.0,6.1,15.8,23.5,132.0,CIIU 2511,Manufactura
+4520,70.0,2.3,15.8,17.7,168.0,CIIU 4520,Comercio
+1811,82.0,2.5,15.2,19.6,104.0,CIIU 1811,Manufactura
+6910,87.0,3.0,14.8,22.9,101.0,CIIU 6910,Otros servicios
+4641,55.0,16.3,14.7,20.9,126.0,CIIU 4641,Comercio
+7730,130.0,6.3,13.9,19.9,118.0,CIIU 7730,Otros servicios
+4730,296.0,36.9,13.5,16.9,86.0,CIIU 4730,Comercio
+8299,71.0,5.9,13.4,18.5,96.0,CIIU 8299,Otros servicios
+6202,56.0,6.1,13.4,18.8,93.0,CIIU 6202,Transp./Comunic.
+4921,24.0,2.2,13.1,22.8,241.0,CIIU 4921,Transp./Comunic.
+4721,40.0,2.0,12.7,18.1,141.0,CIIU 4721,Comercio
+1410,149.0,9.4,12.3,20.8,102.0,CIIU 1410,Manufactura
+4321,39.0,2.3,11.4,16.5,73.0,CIIU 4321,Construccion
+9609,43.0,2.5,11.3,16.1,71.0,CIIU 9609,Otros servicios
+4530,242.0,18.3,11.2,16.6,54.0,CIIU 4530,Comercio
+5229,88.0,8.3,11.2,17.5,73.0,CIIU 5229,Transp./Comunic.
+4653,17.0,2.4,10.8,13.3,107.0,CIIU 4653,Comercio
+4630,440.0,85.3,10.7,14.2,48.0,CIIU 4630,Comercio
+4690,109.0,27.5,10.7,15.6,59.0,CIIU 4690,Comercio
+6810,236.0,18.8,10.3,15.5,61.0,CIIU 6810,Otros servicios
+8620,69.0,3.4,10.3,14.9,61.0,CIIU 8620,Otros servicios
+5610,206.0,12.8,9.8,14.7,58.0,CIIU 5610,Aloj./Restaurantes
+4220,101.0,17.5,9.8,12.4,131.0,CIIU 4220,Construccion
+4719,33.0,4.9,9.3,14.3,82.0,CIIU 4719,Comercio
+7020,125.0,15.7,9.2,13.9,52.0,CIIU 7020,Otros servicios
+4773,99.0,7.1,9.0,13.4,41.0,CIIU 4773,Comercio
+4663,324.0,43.2,8.4,11.5,38.0,CIIU 4663,Comercio
+7310,87.0,6.3,7.8,11.1,39.0,CIIU 7310,Otros servicios
+4922,62.0,12.7,7.3,11.6,93.0,CIIU 4922,Transp./Comunic.
+6820,37.0,4.2,6.9,8.4,46.0,CIIU 6820,Otros servicios
+4923,246.0,40.3,4.8,6.5,12.0,CIIU 4923,Transp./Comunic.
+4100,245.0,31.7,4.6,7.7,20.0,CIIU 4100,Construccion
+7110,191.0,19.4,3.8,6.9,19.0,CIIU 7110,Otros servicios

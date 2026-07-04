@@ -1,0 +1,16 @@
+# python
+__pycache__/
+*.pyc
+# node
+node_modules/
+frontend/dist/
+# built artifacts (rebuilt from data/datasets on deploy)
+data/observatorio.duckdb
+# microdata / large parquet never belong here
+*.parquet
+# local tooling
+frontend/smoke.mjs
+*.png
+!docs/*.png
+*.output
+.DS_Store

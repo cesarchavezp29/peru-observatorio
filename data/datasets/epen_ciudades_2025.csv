@@ -1,0 +1,51 @@
+codciudad,ciudad,fuente,confianza,oficial,pet,n,desempleo,informalidad,ingreso
+26,Lima Metropolitana y Callao,oficial,OFICIAL,1,9181317,53697,5.9,54.8,2220
+6,Arequipa,oficial,OFICIAL,1,940134,12992,5.9,57.1,2071
+24,Trujillo,oficial,OFICIAL,1,814566,13028,3.3,62.5,1919
+25,Chiclayo,oficial,OFICIAL,1,479094,10469,6.8,68.0,1537
+39,Piura,oficial,OFICIAL,1,452674,11557,6.1,64.1,1687
+21,Huancayo,oficial,OFICIAL,1,437570,7410,6.4,64.2,1799
+12,Cusco,oficial,OFICIAL,1,386595,7443,7.1,61.6,1941
+33,Iquitos,oficial,OFICIAL,1,332960,9809,3.7,68.8,1729
+3,Chimbote,oficial,OFICIAL,1,317174,8200,6.9,67.2,1731
+49,Pucallpa,oficial,OFICIAL,1,306889,9024,4.1,73.8,1616
+17,Ica,oficial,OFICIAL,1,284064,8990,6.4,54.0,1990
+47,Tacna,oficial,OFICIAL,1,272900,8894,5.6,68.6,1684
+44,Juliaca,oficial,OFICIAL,1,260934,6318,7.1,82.3,1263
+10,Cajamarca,oficial,OFICIAL,1,195525,6849,9.4,63.5,1873
+9,Ayacucho,oficial,OFICIAL,1,194587,7561,6.5,71.9,1634
+32,Lima Provincias (Huacho/Huaura?),inferida,BAJA,0,194521,498,7.2,73.9,1482
+41,Sullana,inferida,ALTA,0,189603,779,8.4,71.9,1347
+15,Huánuco,oficial,OFICIAL,1,186687,6841,5.2,64.9,1878
+29,Lima Provincias (Canete?),inferida,BAJA,0,150989,411,2.9,76.6,1537
+46,Tarapoto,oficial,OFICIAL,1,139985,9488,3.6,62.4,1925
+18,Chincha,inferida,ALTA,0,125351,930,5.5,62.8,1787
+20,Pisco,inferida,ALTA,0,121930,927,8.6,64.5,1766
+2,Huaraz,oficial,OFICIAL,1,112883,8887,6.0,64.0,1825
+43,Puno,oficial,OFICIAL,1,111124,5313,6.6,65.1,1775
+30,Lima Provincias (Huaral?),inferida,BAJA,0,106105,241,7.6,71.1,1560
+31,Lima Provincias (?),inferida,BAJA,0,101879,245,5.1,60.4,1915
+35,Puerto Maldonado,oficial,OFICIAL,1,100832,9222,4.2,68.3,2135
+48,Tumbes,oficial,OFICIAL,1,80959,9492,6.2,70.3,1733
+42,Talara,inferida,MEDIA,0,72691,282,11.1,78.5,1271
+4,Abancay,oficial,OFICIAL,1,70718,6957,6.2,64.8,1875
+36,Moquegua,oficial,OFICIAL,1,70665,8592,8.4,54.8,2206
+37,Ilo,inferida,ALTA,0,65417,606,6.2,54.2,2215
+34,Yurimaguas,inferida,ALTA,0,64120,508,2.9,82.7,1469
+40,Paita,inferida,MEDIA,0,64046,279,12.2,70.4,1627
+11,Jaen,inferida,ALTA,0,63223,189,3.6,80.2,1559
+7,Camana,inferida,MEDIA,0,53988,209,10.3,74.5,1854
+5,Andahuaylas,inferida,ALTA,0,50883,494,8.6,84.2,1406
+27,Lima Provincias (Barranca?),inferida,BAJA,0,50765,108,2.6,75.3,1541
+16,Tingo Maria,inferida,ALTA,0,50346,273,2.7,74.4,1573
+45,Moyobamba,oficial,OFICIAL,1,48775,8517,4.0,69.0,1652
+38,Pasco,oficial,OFICIAL,1,46284,7200,9.0,59.6,1729
+14,Huancavelica,oficial,OFICIAL,1,45814,7324,9.4,62.7,1788
+19,Nazca,inferida,ALTA,0,42913,341,4.4,69.1,1821
+1,Chachapoyas,oficial,OFICIAL,1,31667,8197,6.0,59.9,2149
+28,Lima Provincias (Chancay/Sayan?),inferida,BAJA,0,31521,75,3.9,72.3,1671
+13,Sicuani,inferida,BAJA,0,29174,72,1.5,65.7,1652
+22,La Merced (Chanchamayo),inferida,BAJA,0,27284,138,4.8,73.6,1649
+8,Mollendo,inferida,MEDIA,0,25898,124,4.6,74.1,1606
+50,Aguaytia,inferida,MEDIA,0,23929,6145,5.0,72.0,1660
+23,La Oroya o Jauja,inferida,BAJA,0,8035,44,1.7,52.3,1662

@@ -1,0 +1,24 @@
+cod,ciudad_inferida,depto,conf,razon
+5,Andahuaylas,Apurimac,ALTA,unica 2da ciudad de Apurimac
+7,Camana,Arequipa,MEDIA,prov Camana (02)
+8,Mollendo,Arequipa,MEDIA,Islay (07)
+11,Jaen,Cajamarca,ALTA,mayor 2da ciudad de Cajamarca
+13,Sicuani,Cusco,BAJA,2da urbana Cusco; PET ambiguo (Quillabamba?)
+16,Tingo Maria,Huanuco,ALTA,Leoncio Prado (08)
+18,Chincha,Ica,ALTA,"prov 02, orden+PET"
+19,Nazca,Ica,ALTA,prov 03
+20,Pisco,Ica,ALTA,prov 05
+22,La Merced (Chanchamayo),Junin,BAJA,Junin secundaria
+23,La Oroya o Jauja,Junin,BAJA,"PET~8k, n minimo; informalidad baja sugiere La Oroya (minero)"
+27,Lima Provincias (Barranca?),Lima,BAJA,"Lima region, prov chica"
+28,Lima Provincias (Chancay/Sayan?),Lima,BAJA,Lima region
+29,Lima Provincias (Canete?),Lima,BAJA,Lima region
+30,Lima Provincias (Huaral?),Lima,BAJA,Lima region
+31,Lima Provincias (?),Lima,BAJA,Lima region; perfil formal atipico
+32,Lima Provincias (Huacho/Huaura?),Lima,BAJA,"Lima region, mayor PET"
+34,Yurimaguas,Loreto,ALTA,Alto Amazonas (02)
+37,Ilo,Moquegua,ALTA,Ilo (03); perfil costero formal lo confirma
+40,Paita,Piura,MEDIA,prov 05
+41,Sullana,Piura,ALTA,"clara 2da de Piura, PET~190k"
+42,Talara,Piura,MEDIA,prov 07
+50,Aguaytia,Ucayali,MEDIA,Padre Abad; n alto atipico

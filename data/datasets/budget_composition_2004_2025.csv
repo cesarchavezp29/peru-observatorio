@@ -1,0 +1,177 @@
+year,codigo,grupo,share
+2004,1,Alimentos,35.69860799909284
+2004,2,Vestido y calzado,4.479580065728681
+2004,3,"Alquiler, vivienda y combustible",24.48160539537086
+2004,4,Muebles y enseres,4.237985506908907
+2004,5,Salud,9.804189671629219
+2004,6,Transporte y comunicaciones,8.209850446452311
+2004,7,"Esparcimiento, educacion y cultura",8.277562868345836
+2004,8,Otros bienes y servicios,4.810618046471342
+2005,1,Alimentos,37.54768120090425
+2005,2,Vestido y calzado,4.295459254207561
+2005,3,"Alquiler, vivienda y combustible",24.56958612586156
+2005,4,Muebles y enseres,4.078353181397282
+2005,5,Salud,8.852884944274255
+2005,6,Transporte y comunicaciones,8.36424164544862
+2005,7,"Esparcimiento, educacion y cultura",7.475094309315512
+2005,8,Otros bienes y servicios,4.816699338590957
+2006,1,Alimentos,35.544030752265115
+2006,2,Vestido y calzado,4.242247151930314
+2006,3,"Alquiler, vivienda y combustible",23.730890198549666
+2006,4,Muebles y enseres,4.048874832799123
+2006,5,Salud,10.020634327821478
+2006,6,Transporte y comunicaciones,9.378511545826246
+2006,7,"Esparcimiento, educacion y cultura",8.386253549943778
+2006,8,Otros bienes y servicios,4.64855764086428
+2007,1,Alimentos,34.493631929566355
+2007,2,Vestido y calzado,4.751285580745105
+2007,3,"Alquiler, vivienda y combustible",21.885949590473878
+2007,4,Muebles y enseres,4.495907674988523
+2007,5,Salud,10.646612514400374
+2007,6,Transporte y comunicaciones,8.668568773093945
+2007,7,"Esparcimiento, educacion y cultura",9.836907282852374
+2007,8,Otros bienes y servicios,5.221136653879437
+2008,1,Alimentos,35.81312973404097
+2008,2,Vestido y calzado,4.867767990538244
+2008,3,"Alquiler, vivienda y combustible",20.822672310486805
+2008,4,Muebles y enseres,4.377081590723536
+2008,5,Salud,11.246242743263526
+2008,6,Transporte y comunicaciones,8.271864210923372
+2008,7,"Esparcimiento, educacion y cultura",9.43527835367272
+2008,8,Otros bienes y servicios,5.165963066350824
+2009,1,Alimentos,34.635883620744984
+2009,2,Vestido y calzado,5.276019251561348
+2009,3,"Alquiler, vivienda y combustible",20.7435694092141
+2009,4,Muebles y enseres,4.903183776409585
+2009,5,Salud,10.695774383209875
+2009,6,Transporte y comunicaciones,8.488236785725293
+2009,7,"Esparcimiento, educacion y cultura",9.866985439218366
+2009,8,Otros bienes y servicios,5.390347333916445
+2010,1,Alimentos,34.28545151718244
+2010,2,Vestido y calzado,5.593891182034765
+2010,3,"Alquiler, vivienda y combustible",20.105746010529295
+2010,4,Muebles y enseres,4.88414127159227
+2010,5,Salud,11.13813507306516
+2010,6,Transporte y comunicaciones,8.063174238204233
+2010,7,"Esparcimiento, educacion y cultura",10.237873809631118
+2010,8,Otros bienes y servicios,5.691586897760715
+2011,1,Alimentos,34.78513165254282
+2011,2,Vestido y calzado,5.226371485623561
+2011,3,"Alquiler, vivienda y combustible",20.934452527395244
+2011,4,Muebles y enseres,4.572110294125003
+2011,5,Salud,10.840189598235556
+2011,6,Transporte y comunicaciones,7.9883887398205635
+2011,7,"Esparcimiento, educacion y cultura",10.405139002080494
+2011,8,Otros bienes y servicios,5.248216700176762
+2012,1,Alimentos,34.148678077160504
+2012,2,Vestido y calzado,5.480706288297924
+2012,3,"Alquiler, vivienda y combustible",20.90189719964122
+2012,4,Muebles y enseres,4.8197386979957395
+2012,5,Salud,10.7001633303128
+2012,6,Transporte y comunicaciones,8.770187270371089
+2012,7,"Esparcimiento, educacion y cultura",9.862511790208751
+2012,8,Otros bienes y servicios,5.316117346011963
+2013,1,Alimentos,34.39476526835853
+2013,2,Vestido y calzado,5.540015752739366
+2013,3,"Alquiler, vivienda y combustible",21.870656699444545
+2013,4,Muebles y enseres,4.511620961745216
+2013,5,Salud,10.004431854339499
+2013,6,Transporte y comunicaciones,8.730138302759853
+2013,7,"Esparcimiento, educacion y cultura",9.686583022022946
+2013,8,Otros bienes y servicios,5.2617881385900445
+2014,1,Alimentos,33.55622349673532
+2014,2,Vestido y calzado,5.3665641068579255
+2014,3,"Alquiler, vivienda y combustible",22.422545932917814
+2014,4,Muebles y enseres,4.790390011917818
+2014,5,Salud,9.769073699108118
+2014,6,Transporte y comunicaciones,8.74516551522179
+2014,7,"Esparcimiento, educacion y cultura",9.94294423336242
+2014,8,Otros bienes y servicios,5.407093003878797
+2015,1,Alimentos,34.155170828365044
+2015,2,Vestido y calzado,5.307692135073422
+2015,3,"Alquiler, vivienda y combustible",23.10894916836956
+2015,4,Muebles y enseres,4.905013338247637
+2015,5,Salud,9.595497336397065
+2015,6,Transporte y comunicaciones,8.371027591624495
+2015,7,"Esparcimiento, educacion y cultura",9.148373993182082
+2015,8,Otros bienes y servicios,5.408275608740701
+2016,1,Alimentos,33.32860588389641
+2016,2,Vestido y calzado,5.067365839595992
+2016,3,"Alquiler, vivienda y combustible",23.354232313032902
+2016,4,Muebles y enseres,4.755144048420303
+2016,5,Salud,9.993899126020006
+2016,6,Transporte y comunicaciones,8.4610576464892
+2016,7,"Esparcimiento, educacion y cultura",9.672010075057484
+2016,8,Otros bienes y servicios,5.367685067487715
+2017,1,Alimentos,32.59139515075735
+2017,2,Vestido y calzado,5.153043911619842
+2017,3,"Alquiler, vivienda y combustible",23.66372533057952
+2017,4,Muebles y enseres,4.685214606750093
+2017,5,Salud,9.951351051961542
+2017,6,Transporte y comunicaciones,8.67344714478931
+2017,7,"Esparcimiento, educacion y cultura",9.9182304505986
+2017,8,Otros bienes y servicios,5.363592352943742
+2018,1,Alimentos,32.19447970318242
+2018,2,Vestido y calzado,5.017454091545784
+2018,3,"Alquiler, vivienda y combustible",23.890471901681007
+2018,4,Muebles y enseres,4.726226061294995
+2018,5,Salud,10.3758352492555
+2018,6,Transporte y comunicaciones,8.26656174554901
+2018,7,"Esparcimiento, educacion y cultura",10.127422285790862
+2018,8,Otros bienes y servicios,5.40154896170043
+2019,1,Alimentos,31.963178780930566
+2019,2,Vestido y calzado,5.166396345136521
+2019,3,"Alquiler, vivienda y combustible",23.932987561698564
+2019,4,Muebles y enseres,4.768748417488157
+2019,5,Salud,10.20459811675433
+2019,6,Transporte y comunicaciones,8.480207248363115
+2019,7,"Esparcimiento, educacion y cultura",9.805124934785965
+2019,8,Otros bienes y servicios,5.678758594842787
+2020,1,Alimentos,36.201596652126405
+2020,2,Vestido y calzado,3.50592976177521
+2020,3,"Alquiler, vivienda y combustible",26.654727278855972
+2020,4,Muebles y enseres,4.56365628624579
+2020,5,Salud,10.330851853153014
+2020,6,Transporte y comunicaciones,7.391928539691561
+2020,7,"Esparcimiento, educacion y cultura",6.589370392348531
+2020,8,Otros bienes y servicios,4.7619392358035215
+2021,1,Alimentos,37.954968050150455
+2021,2,Vestido y calzado,3.723105549994497
+2021,3,"Alquiler, vivienda y combustible",28.594617885935808
+2021,4,Muebles y enseres,4.552118642564866
+2021,5,Salud,5.056749486812958
+2021,6,Transporte y comunicaciones,8.31216281907582
+2021,7,"Esparcimiento, educacion y cultura",6.756113885895774
+2021,8,Otros bienes y servicios,5.050163679569821
+2022,1,Alimentos,35.338747384927636
+2022,2,Vestido y calzado,3.6524424394833166
+2022,3,"Alquiler, vivienda y combustible",26.881015206220063
+2022,4,Muebles y enseres,4.2813037511304834
+2022,5,Salud,10.496589365287193
+2022,6,Transporte y comunicaciones,7.910671678793861
+2022,7,"Esparcimiento, educacion y cultura",6.892388181147675
+2022,8,Otros bienes y servicios,4.546841993009775
+2023,1,Alimentos,35.765887662176034
+2023,2,Vestido y calzado,3.7407068433407606
+2023,3,"Alquiler, vivienda y combustible",25.825137176768227
+2023,4,Muebles y enseres,4.444307271741964
+2023,5,Salud,10.176542663115342
+2023,6,Transporte y comunicaciones,7.925168378632039
+2023,7,"Esparcimiento, educacion y cultura",7.465104643526648
+2023,8,Otros bienes y servicios,4.657145360698993
+2024,1,Alimentos,35.587915100891124
+2024,2,Vestido y calzado,3.8310619462089
+2024,3,"Alquiler, vivienda y combustible",25.773739570142556
+2024,4,Muebles y enseres,4.159346563814629
+2024,5,Salud,10.048731248906881
+2024,6,Transporte y comunicaciones,7.605471823323975
+2024,7,"Esparcimiento, educacion y cultura",8.32544184084935
+2024,8,Otros bienes y servicios,4.668291905862585
+2025,1,Alimentos,35.20634512771452
+2025,2,Vestido y calzado,3.8023362961822462
+2025,3,"Alquiler, vivienda y combustible",25.47510081912791
+2025,4,Muebles y enseres,4.266980250336342
+2025,5,Salud,10.199561563114386
+2025,6,Transporte y comunicaciones,7.619239798593725
+2025,7,"Esparcimiento, educacion y cultura",8.486057256338984
+2025,8,Otros bienes y servicios,4.944378888591894

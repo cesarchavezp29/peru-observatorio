@@ -1,0 +1,178 @@
+year,rev,pond,sector,n,peso,share
+2001,3,False,Aloj./Restaurantes,3828,3828,11.48
+2001,3,False,Comercio,15816,15816,47.42
+2001,3,False,Construccion,651,651,1.95
+2001,3,False,Electricidad/Agua,43,43,0.13
+2001,3,False,Manufactura,6336,6336,19.0
+2001,3,False,Mineria,25,25,0.07
+2001,3,False,Otros servicios,5185,5185,15.55
+2001,3,False,Transp./Comunic.,1470,1470,4.41
+2002,3,False,Aloj./Restaurantes,3252,3252,14.83
+2002,3,False,Comercio,8032,8032,36.63
+2002,3,False,Construccion,771,771,3.52
+2002,3,False,Electricidad/Agua,77,77,0.35
+2002,3,False,Manufactura,4668,4668,21.29
+2002,3,False,Mineria,26,26,0.12
+2002,3,False,Otros servicios,3402,3402,15.51
+2002,3,False,Transp./Comunic.,1700,1700,7.75
+2003,3,False,Aloj./Restaurantes,816,816,6.49
+2003,3,False,Comercio,5964,5964,47.43
+2003,3,False,Construccion,385,385,3.06
+2003,3,False,Electricidad/Agua,66,66,0.52
+2003,3,False,Manufactura,1664,1664,13.23
+2003,3,False,Mineria,14,14,0.11
+2003,3,False,Otros servicios,2290,2290,18.21
+2003,3,False,Transp./Comunic.,1376,1376,10.94
+2004,3,False,Aloj./Restaurantes,358,358,4.6
+2004,3,False,Comercio,1520,1520,19.52
+2004,3,False,Construccion,913,913,11.72
+2004,3,False,Electricidad/Agua,83,83,1.07
+2004,3,False,Manufactura,2128,2128,27.32
+2004,3,False,Mineria,18,18,0.23
+2004,3,False,Otros servicios,2255,2255,28.95
+2004,3,False,Transp./Comunic.,513,513,6.59
+2005,3,False,Aloj./Restaurantes,955,955,7.5
+2005,3,False,Comercio,2677,2677,21.01
+2005,3,False,Construccion,803,803,6.3
+2005,3,False,Electricidad/Agua,91,91,0.71
+2005,3,False,Manufactura,4624,4624,36.3
+2005,3,False,Mineria,20,20,0.16
+2005,3,False,Otros servicios,2083,2083,16.35
+2005,3,False,Transp./Comunic.,1487,1487,11.67
+2006,3,False,Aloj./Restaurantes,410,410,4.78
+2006,3,False,Comercio,2788,2788,32.54
+2006,3,False,Construccion,175,175,2.04
+2006,3,False,Electricidad/Agua,86,86,1.0
+2006,3,False,Manufactura,2586,2586,30.18
+2006,3,False,Mineria,21,21,0.25
+2006,3,False,Otros servicios,1675,1675,19.55
+2006,3,False,Transp./Comunic.,828,828,9.66
+2007,3,False,Aloj./Restaurantes,725,725,5.83
+2007,3,False,Comercio,5207,5207,41.84
+2007,3,False,Construccion,455,455,3.66
+2007,3,False,Electricidad/Agua,30,30,0.24
+2007,3,False,Manufactura,2295,2295,18.44
+2007,3,False,Mineria,33,33,0.27
+2007,3,False,Otros servicios,2330,2330,18.72
+2007,3,False,Transp./Comunic.,1369,1369,11.0
+2008,4,False,Aloj./Restaurantes,530,530,3.45
+2008,4,False,Comercio,5194,5194,33.81
+2008,4,False,Construccion,342,342,2.23
+2008,4,False,Electricidad/Agua,103,103,0.67
+2008,4,False,Manufactura,5473,5473,35.63
+2008,4,False,Otros servicios,2496,2496,16.25
+2008,4,False,Transp./Comunic.,1224,1224,7.97
+2009,4,False,Aloj./Restaurantes,860,860,5.9
+2009,4,False,Comercio,6063,6063,41.6
+2009,4,False,Construccion,296,296,2.03
+2009,4,False,Electricidad/Agua,61,61,0.42
+2009,4,False,Manufactura,3545,3545,24.32
+2009,4,False,Otros servicios,2631,2631,18.05
+2009,4,False,Transp./Comunic.,1120,1120,7.68
+2010,4,False,Aloj./Restaurantes,5142,5142,25.98
+2010,4,False,Comercio,5653,5653,28.56
+2010,4,False,Construccion,499,499,2.52
+2010,4,False,Electricidad/Agua,126,126,0.64
+2010,4,False,Manufactura,4365,4365,22.05
+2010,4,False,Otros servicios,2829,2829,14.29
+2010,4,False,Transp./Comunic.,1180,1180,5.96
+2011,4,False,Aloj./Restaurantes,6084,6084,28.95
+2011,4,False,Comercio,5849,5849,27.83
+2011,4,False,Construccion,670,670,3.19
+2011,4,False,Electricidad/Agua,132,132,0.63
+2011,4,False,Manufactura,4334,4334,20.62
+2011,4,False,Otros servicios,2642,2642,12.57
+2011,4,False,Transp./Comunic.,1308,1308,6.22
+2012,4,True,Aloj./Restaurantes,1067,1766,3.01
+2012,4,True,Comercio,2565,25914,44.24
+2012,4,True,Construccion,692,4475,7.64
+2012,4,True,Electricidad/Agua,149,317,0.54
+2012,4,True,Manufactura,4161,7814,13.34
+2012,4,True,Otros servicios,1965,12211,20.85
+2012,4,True,Transp./Comunic.,874,6073,10.37
+2013,4,True,Aloj./Restaurantes,1357,1928,3.15
+2013,4,True,Comercio,2371,28099,45.86
+2013,4,True,Construccion,648,4782,7.8
+2013,4,True,Electricidad/Agua,116,331,0.54
+2013,4,True,Manufactura,3699,8041,13.12
+2013,4,True,Otros servicios,1549,11403,18.61
+2013,4,True,Transp./Comunic.,733,6691,10.92
+2014,4,True,Aloj./Restaurantes,1459,2329,3.46
+2014,4,True,Comercio,2413,28119,41.73
+2014,4,True,Construccion,632,5008,7.43
+2014,4,True,Electricidad/Agua,141,223,0.33
+2014,4,True,Manufactura,4417,10260,15.23
+2014,4,True,Otros servicios,1965,14603,21.67
+2014,4,True,Transp./Comunic.,884,6837,10.15
+2015,4,True,Aloj./Restaurantes,1410,2540,3.35
+2015,4,True,Comercio,2976,32954,43.48
+2015,4,True,Construccion,666,5415,7.14
+2015,4,True,Electricidad/Agua,177,395,0.52
+2015,4,True,Manufactura,3606,9674,12.76
+2015,4,True,Otros servicios,2291,15625,20.61
+2015,4,True,Transp./Comunic.,1097,9196,12.13
+2016,4,True,Aloj./Restaurantes,1840,2670,3.47
+2016,4,True,Comercio,3278,30779,40.03
+2016,4,True,Construccion,756,6915,8.99
+2016,4,True,Electricidad/Agua,182,348,0.45
+2016,4,True,Manufactura,3886,9337,12.14
+2016,4,True,Otros servicios,2500,17062,22.19
+2016,4,True,Transp./Comunic.,1102,9775,12.71
+2017,4,True,Aloj./Restaurantes,1906,9043,9.33
+2017,4,True,Comercio,2947,37917,39.11
+2017,4,True,Construccion,780,7962,8.21
+2017,4,True,Electricidad/Agua,165,519,0.54
+2017,4,True,Manufactura,3836,13429,13.85
+2017,4,True,Otros servicios,2290,17107,17.65
+2017,4,True,Transp./Comunic.,1144,10966,11.31
+2018,4,True,Aloj./Restaurantes,2003,8030,8.95
+2018,4,True,Comercio,2973,33542,37.37
+2018,4,True,Construccion,703,6327,7.05
+2018,4,True,Electricidad/Agua,166,374,0.42
+2018,4,True,Manufactura,3490,12125,13.51
+2018,4,True,Otros servicios,2461,18624,20.75
+2018,4,True,Transp./Comunic.,1011,10725,11.95
+2019,4,True,Aloj./Restaurantes,1643,10087,9.17
+2019,4,True,Comercio,1988,41898,38.1
+2019,4,True,Construccion,478,8158,7.42
+2019,4,True,Electricidad/Agua,215,465,0.42
+2019,4,True,Manufactura,3806,14192,12.91
+2019,4,True,Otros servicios,2795,22979,20.9
+2019,4,True,Transp./Comunic.,1238,12184,11.08
+2020,4,True,Aloj./Restaurantes,1455,6507,6.27
+2020,4,True,Comercio,5579,44527,42.94
+2020,4,True,Construccion,980,8156,7.86
+2020,4,True,Electricidad/Agua,160,206,0.2
+2020,4,True,Manufactura,3232,12793,12.34
+2020,4,True,Otros servicios,2142,18798,18.13
+2020,4,True,Transp./Comunic.,1296,12714,12.26
+2021,4,False,Aloj./Restaurantes,1552,1552,11.98
+2021,4,False,Comercio,2897,2897,22.36
+2021,4,False,Construccion,843,843,6.51
+2021,4,False,Electricidad/Agua,223,223,1.72
+2021,4,False,Manufactura,3694,3694,28.51
+2021,4,False,Otros servicios,2526,2526,19.5
+2021,4,False,Transp./Comunic.,1220,1220,9.42
+2022,4,True,Aloj./Restaurantes,377,1595,2.22
+2022,4,True,Comercio,7050,33035,45.99
+2022,4,True,Construccion,1303,6033,8.4
+2022,4,True,Electricidad/Agua,213,387,0.54
+2022,4,True,Manufactura,2594,9063,12.62
+2022,4,True,Otros servicios,3541,13070,18.2
+2022,4,True,Transp./Comunic.,1694,8646,12.04
+2023,4,True,Agro/Pesca,138,1038,1.01
+2023,4,True,Aloj./Restaurantes,1236,4889,4.77
+2023,4,True,Comercio,2333,43475,42.41
+2023,4,True,Construccion,418,7373,7.19
+2023,4,True,Electricidad/Agua,270,551,0.54
+2023,4,True,Manufactura,3899,15994,15.6
+2023,4,True,Mineria,59,70,0.07
+2023,4,True,Otros servicios,2056,15726,15.34
+2023,4,True,Transp./Comunic.,844,13387,13.06
+2024,4,True,Aloj./Restaurantes,1946,12121,4.96
+2024,4,True,Comercio,3095,105185,43.03
+2024,4,True,Construccion,703,18880,7.72
+2024,4,True,Electricidad/Agua,277,1260,0.52
+2024,4,True,Manufactura,3903,32160,13.16
+2024,4,True,Otros servicios,2406,45836,18.75
+2024,4,True,Transp./Comunic.,1055,28985,11.86
