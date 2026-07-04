@@ -211,7 +211,7 @@ h1, h2, h3, .brand-text strong { font-family: var(--font-display); font-weight: 
 .exp-dl { color: var(--accent); font-weight: 700; }
 .exp-dl:hover { text-decoration: underline; }
 
-.exp-body { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow-sm); }
+.exp-body { background: #faf1de; border: 1px solid var(--border-strong); border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow-sm); }
 .controls { display: flex; gap: 24px; flex-wrap: wrap; align-items: flex-start; margin-bottom: 8px; }
 .ctrl { display: flex; flex-direction: column; gap: 8px; }
 .ctrl.grow { flex: 1; min-width: 260px; }
