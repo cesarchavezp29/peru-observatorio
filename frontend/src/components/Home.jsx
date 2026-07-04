@@ -2,6 +2,16 @@ import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import CountUp from './CountUp'
 import PeruMapHero from './PeruMapHero'
+import Kpi from './Kpi'
+
+// live national snapshot — validated temporal series, pulled from the API
+const PANORAMA = [
+  { schema: 'enaho', table: 'official_poverty_replication', col: 'poverty_pct', tcol: 'year', label: 'Pobreza monetaria', unit: '%', color: '#c85a34' },
+  { schema: 'endes', table: 'endes_indicadores', col: 'tfr', tcol: 'anio', label: 'Fecundidad (hijos por mujer)', unit: '', color: '#157a6e' },
+  { schema: 'endes', table: 'endes_indicadores', col: 'desnutricion', tcol: 'anio', label: 'Desnutrición crónica infantil', unit: '%', color: '#9c6b2f' },
+  { schema: 'epen', table: 'epen_lima_movil_2001_2026', col: 'tasa_desempleo', tcol: 'ym', label: 'Desempleo · Lima', unit: '%', color: '#8a4a6b' },
+  { schema: 'endes', table: 'endes_indicadores', col: 'educ_anios', tcol: 'anio', label: 'Años de educación', unit: '', color: '#3f5aa6' },
+]
 
 const container = {
   hidden: {},
@@ -52,6 +62,13 @@ export default function Home({ databases }) {
         </motion.div>
         <PeruMapHero />
       </section>
+
+      <div className="section-label">Panorama nacional · dos décadas de cambio</div>
+      <motion.section className="kpi-grid"
+        variants={container} initial="hidden" whileInView="show"
+        viewport={{ once: true, margin: '-60px' }}>
+        {PANORAMA.map((k) => <Kpi key={k.table + k.col} {...k} variants={item} />)}
+      </motion.section>
 
       <div className="section-label">Explora por fuente</div>
       <motion.section className="db-grid"

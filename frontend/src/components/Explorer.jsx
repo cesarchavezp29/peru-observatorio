@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import { api } from '../api'
 import EChart from './EChart'
 import MapChart from './MapChart'
-import { guessX, numericCols, defaultSeries, smartDefaultSeries, guessChartType, buildOption, isNumeric, isTemporal, labelFor, isHiddenSeries } from '../chartLogic'
+import { guessX, numericCols, defaultSeries, smartDefaultSeries, guessChartType, buildOption, isNumeric, isTemporal, labelFor, isHiddenSeries, fmtNum } from '../chartLogic'
 
 const CHART_TYPES = [
   { k: 'line', l: 'Líneas' },
@@ -182,6 +182,18 @@ function TableExplorer({ schema, table }) {
     })
   }, [viewRows, xCol, yCols, ctype, meta])
 
+  // summary stats for a temporal single-series view
+  const summary = useMemo(() => {
+    if (ctype === 'map' || !isTemporal(xCol) || !yCols.length || viewRows.length < 2) return null
+    const col = yCols[0]
+    const pts = viewRows.map((r) => Number(r[col])).filter((v) => Number.isFinite(v))
+    if (pts.length < 2) return null
+    return {
+      col, latest: pts[pts.length - 1], first: pts[0],
+      min: Math.min(...pts), max: Math.max(...pts),
+    }
+  }, [viewRows, xCol, yCols, ctype])
+
   if (err) return <div className="error">No se pudo cargar: {err}</div>
   if (!meta) return <TableSkeleton />
 
@@ -264,6 +276,19 @@ function TableExplorer({ schema, table }) {
             </div>
           </div>
         </div>
+
+        {summary && (
+          <div className="exp-stats">
+            <div className="stat-cell"><span className="stat-lbl">Último</span><span className="stat-num">{fmtNum(summary.latest)}</span></div>
+            <div className="stat-cell"><span className="stat-lbl">Cambio</span>
+              <span className={'stat-num ' + (summary.latest >= summary.first ? 'up' : 'down')}>
+                {summary.latest >= summary.first ? '▲' : '▼'} {fmtNum(Math.abs(summary.latest - summary.first))}
+              </span></div>
+            <div className="stat-cell"><span className="stat-lbl">Máximo</span><span className="stat-num">{fmtNum(summary.max)}</span></div>
+            <div className="stat-cell"><span className="stat-lbl">Mínimo</span><span className="stat-num">{fmtNum(summary.min)}</span></div>
+            <div className="stat-cell stat-series"><span className="stat-lbl">Serie</span><span className="stat-num-sm">{labelFor(summary.col)}</span></div>
+          </div>
+        )}
 
         <div className="chart-wrap">
           {isMap

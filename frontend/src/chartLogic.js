@@ -167,6 +167,23 @@ export function buildOption({ rows, x, series, type, ytitle, xIsDept }) {
     emphasis: { focus: 'series' },
   }))
 
+  // subtle COVID-2020 marker on temporal line charts
+  if (base === 'line' && !horizontal) {
+    let covid = cats.find((c) => String(c) === '2020')
+    if (!covid) {
+      const y20 = cats.filter((c) => String(c).startsWith('2020'))
+      covid = y20.find((c) => String(c) === '202003') || y20[Math.floor(y20.length / 2)]
+    }
+    if (covid != null && seriesArr[0]) {
+      seriesArr[0].markLine = {
+        symbol: 'none', silent: true,
+        lineStyle: { color: axisColor, type: 'dashed', width: 1, opacity: 0.5 },
+        label: { formatter: 'COVID', color: axisColor, fontSize: 10, position: 'insideEndTop' },
+        data: [{ xAxis: covid }],
+      }
+    }
+  }
+
   const catAxis = {
     type: 'category', data: cats, boundaryGap: base === 'bar',
     axisLine: { lineStyle: { color: gridColor } },

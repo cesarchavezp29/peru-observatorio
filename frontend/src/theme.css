@@ -168,6 +168,27 @@ h1, h2, h3, .brand-text strong { font-family: var(--font-display); font-weight: 
 }
 .section-label::after { content: ""; flex: 1; height: 1px; background: var(--border); }
 
+/* KPI panorama */
+.kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+.kpi {
+  position: relative; text-align: left; cursor: pointer; padding: 18px 18px 14px;
+  background: color-mix(in srgb, var(--kpi) 8%, #fbf1df);
+  border: 1px solid color-mix(in srgb, var(--kpi) 22%, var(--border));
+  border-radius: 14px; overflow: hidden; transition: box-shadow .2s var(--ease);
+}
+.kpi:hover { box-shadow: var(--shadow-sm); }
+.kpi-label { font-size: 11.5px; font-weight: 700; color: var(--text-dim); line-height: 1.3; min-height: 30px; }
+.kpi-value {
+  font-family: var(--font-display); font-size: 34px; font-weight: 800; letter-spacing: -1px;
+  color: var(--ink); line-height: 1; margin: 6px 0 2px;
+}
+.kpi-unit { font-size: 17px; font-weight: 700; color: var(--kpi); margin-left: 2px; }
+.kpi-spark { margin: 4px -4px 2px; }
+.kpi-delta { font-size: 11.5px; font-weight: 700; display: flex; align-items: center; gap: 6px; }
+.kpi-delta.up { color: #b0472a; }
+.kpi-delta.down { color: #157a6e; }
+.kpi-span { color: var(--text-mute); font-weight: 600; }
+
 .db-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 20px; }
 .db-card {
   position: relative; text-align: left;
@@ -241,6 +262,22 @@ h1, h2, h3, .brand-text strong { font-family: var(--font-display); font-weight: 
 }
 .chip.on { background: var(--accent); color: #fff; border-color: var(--accent); }
 .chip:hover { border-color: var(--accent); transform: translateY(-1px); }
+
+.exp-stats {
+  display: flex; flex-wrap: wrap; gap: 10px; margin: 18px 0 4px;
+  border-top: 1px solid var(--border); padding-top: 16px;
+}
+.stat-cell {
+  display: flex; flex-direction: column; gap: 3px; padding: 4px 20px 4px 0;
+  border-right: 1px solid var(--border); min-width: 90px;
+}
+.stat-cell:last-child { border-right: none; }
+.stat-lbl { font-size: 10px; text-transform: uppercase; letter-spacing: .6px; color: var(--text-mute); font-weight: 800; }
+.stat-num { font-family: var(--font-display); font-size: 22px; font-weight: 800; color: var(--ink); letter-spacing: -.5px; }
+.stat-num.up { color: #b0472a; }
+.stat-num.down { color: #157a6e; }
+.stat-num-sm { font-size: 13px; font-weight: 700; color: var(--text-dim); }
+.stat-series { flex: 1; align-items: flex-end; text-align: right; border-right: none; }
 
 .chart-wrap { margin: 18px 0 6px; }
 .table-toggle {
