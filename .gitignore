@@ -9,7 +9,7 @@ data/observatorio.duckdb
 # microdata / large parquet never belong here
 *.parquet
 # local tooling
-frontend/smoke.mjs
+frontend/smoke*.mjs
 *.png
 !docs/*.png
 *.output

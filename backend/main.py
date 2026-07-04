@@ -42,7 +42,10 @@ def get_table_meta(schema: str, table: str):
     if not db.valid_table(schema, table):
         raise HTTPException(404, "table not found")
     meta = db.CATALOG[(schema, table)]
-    return {**meta, "column_types": db.columns(schema, table)}
+    return {**meta, "column_types": db.columns(schema, table),
+            "dept_col": db.dept_col(schema, table),
+            "temporal_col": db.temporal_col(schema, table),
+            "mappable": db.is_mappable(schema, table)}
 
 
 @app.get("/api/distinct/{schema}/{table}/{col}")
@@ -74,6 +77,21 @@ def get_data(
     try:
         return db.fetch(schema, table, cols=col_list, filters=filt,
                         order=order, desc=desc, limit=limit, offset=offset)
+    except ValueError as e:
+        raise HTTPException(404, str(e))
+
+
+@app.get("/api/map/{schema}/{table}")
+def get_map(schema: str, table: str, value_col: str,
+            filters: str | None = Query(None)):
+    filt = None
+    if filters:
+        try:
+            filt = json.loads(filters)
+        except json.JSONDecodeError:
+            raise HTTPException(400, "filters must be valid JSON")
+    try:
+        return db.map_data(schema, table, value_col, filters=filt)
     except ValueError as e:
         raise HTTPException(404, str(e))
 

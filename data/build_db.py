@@ -41,17 +41,16 @@ def eligible(src: Path) -> list[Path]:
 
 def main():
     LOCAL.mkdir(exist_ok=True)
-    if BUILD_FROM_LOCAL:
-        files = eligible(LOCAL)
-        print(f"{len(files)} eligible CSVs (from local ./datasets)")
-    else:
-        files = eligible(SRC)
-        print(f"{len(files)} eligible CSVs")
-        # 1. copy into repo so it stays self-contained / deployable
-        for p in files:
+    if not BUILD_FROM_LOCAL:
+        # copy source CSVs into the repo so it stays self-contained / deployable
+        for p in eligible(SRC):
             dst = LOCAL / p.name
             if not dst.exists() or dst.stat().st_mtime < p.stat().st_mtime:
                 shutil.copy2(p, dst)
+    # LOCAL now holds the source copies + any local-only additions (e.g. the
+    # derived ENDES aggregate tables) -> build from LOCAL as the single source
+    files = eligible(LOCAL)
+    print(f"{len(files)} eligible CSVs (from ./datasets)")
 
     # 2. + 3. build DB
     if DB_PATH.exists():

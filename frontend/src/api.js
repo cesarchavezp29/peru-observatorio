@@ -21,5 +21,11 @@ export const api = {
     const qs = p.toString()
     return j(`/api/data/${schema}/${table}${qs ? '?' + qs : ''}`)
   },
+  map: (schema, table, valueCol, filters) => {
+    const p = new URLSearchParams({ value_col: valueCol })
+    if (filters) p.set('filters', JSON.stringify(filters))
+    return j(`/api/map/${schema}/${table}?${p.toString()}`)
+  },
+  distinct: (schema, table, col) => j(`/api/distinct/${schema}/${table}/${col}`),
   downloadUrl: (schema, table) => `${BASE}/api/download/${schema}/${table}.csv`,
 }

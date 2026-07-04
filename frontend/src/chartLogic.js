@@ -1,4 +1,5 @@
 // Heuristics that turn an arbitrary analytical table into a sensible chart.
+import { PALETTE, SEQ, tokens, tooltip, FONT } from './echartsTheme'
 
 const TEMPORAL = ['year', 'anio', 'ano', 'ym', 'periodo', 'period', 'trimestre', 'fecha', 'window', 'label']
 
@@ -24,6 +25,21 @@ export function numericCols(columns, types, exclude = []) {
   return columns.filter((c) => isNumeric(types[c]) && !exclude.includes(c))
 }
 
+// sample-size / id / weight columns that shouldn't be plotted by default
+// (they stay selectable, just off unless the user turns them on)
+const COUNT_LIKE = /^(n|nn|obs|count|total|wt|peso|pop|poblacion|population|id|codigo|cod|code|cluster|caseid)$/i
+export function isCountLike(col) {
+  return COUNT_LIKE.test(col.trim())
+}
+
+// choose default series: numeric, not the x, not count-like; keep a handful
+export function defaultSeries(columns, types, exclude = []) {
+  const nums = numericCols(columns, types, exclude)
+  const signal = nums.filter((c) => !isCountLike(c))
+  const pick = signal.length ? signal : nums
+  return pick.slice(0, pick.length <= 6 ? pick.length : 4)
+}
+
 export function isTemporal(col) {
   if (!col) return false
   const c = col.toLowerCase()
@@ -35,13 +51,11 @@ export function guessChartType(x, columns, types) {
   return isTemporal(x) ? 'line' : 'bar'
 }
 
-const PALETTE = ['#2563eb', '#e0603a', '#2e9e83', '#e0a53a', '#8256c4',
-  '#3aa0e0', '#d1477a', '#5aa02e', '#9c7b3a', '#54617a']
-
 // Build an ECharts option from rows + chosen encoding.
 export function buildOption({ rows, x, series, type, ytitle, dark }) {
-  const axisColor = dark ? '#8a93a6' : '#5a6472'
-  const gridColor = dark ? '#232a38' : '#e7ebf1'
+  const t = tokens(dark)
+  const axisColor = t.axis
+  const gridColor = t.grid
   const cats = rows.map((r) => r[x])
   const horizontal = type === 'barh'
   const base = type === 'barh' ? 'bar' : type
@@ -77,10 +91,9 @@ export function buildOption({ rows, x, series, type, ytitle, dark }) {
 
   return {
     color: PALETTE,
+    textStyle: { fontFamily: FONT },
     grid: { left: 58, right: 24, top: series.length > 1 ? 52 : 30, bottom: 64 },
-    tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' },
-      backgroundColor: dark ? '#141a24' : '#fff',
-      borderColor: gridColor, textStyle: { color: dark ? '#e6eaf2' : '#1a2230' } },
+    tooltip: tooltip(dark, 'axis'),
     legend: series.length > 1
       ? { top: 12, textStyle: { color: axisColor }, type: 'scroll' } : undefined,
     dataZoom: (base === 'line' && cats.length > 30)
@@ -88,6 +101,45 @@ export function buildOption({ rows, x, series, type, ytitle, dark }) {
     xAxis: horizontal ? valAxis : catAxis,
     yAxis: horizontal ? catAxis : valAxis,
     series: seriesArr,
+    animationDuration: 500,
+  }
+}
+
+// Build a choropleth option. `data` = [{name, value}], mapName registered on echarts.
+export function buildMapOption({ data, mapName, title, min, max, dark }) {
+  const t = tokens(dark)
+  const ramp = dark ? SEQ.dark : SEQ.light
+  return {
+    textStyle: { fontFamily: FONT },
+    tooltip: {
+      ...tooltip(dark, 'item'),
+      formatter: (p) => {
+        const v = p.value
+        return `<b>${p.name}</b><br/>${title}: ` +
+          (v == null || Number.isNaN(v) ? 'sin dato'
+            : (Math.abs(v) >= 100 ? Math.round(v).toLocaleString() : v.toFixed(2)))
+      },
+    },
+    visualMap: {
+      type: 'continuous', min: min ?? 0, max: max ?? 1,
+      left: 16, bottom: 24, calculable: true,
+      itemWidth: 12, itemHeight: 150,
+      text: ['alto', 'bajo'],
+      textStyle: { color: t.axis, fontSize: 11 },
+      inRange: { color: ramp },
+    },
+    series: [{
+      type: 'map', map: mapName, roam: true,
+      data,
+      nameProperty: 'name',
+      label: { show: false },
+      itemStyle: { borderColor: t.mapBorder, borderWidth: 0.6, areaColor: t.mapEmpty },
+      emphasis: {
+        label: { show: true, color: t.mapLabel, fontSize: 11, fontWeight: 600 },
+        itemStyle: { areaColor: dark ? '#e0a53a' : '#e0603a' },
+      },
+      select: { disabled: true },
+    }],
     animationDuration: 500,
   }
 }

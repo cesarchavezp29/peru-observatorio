@@ -167,6 +167,10 @@ _TITLES = {
     "eea_productividad_sector": "Productividad por sector (VA/trabajador)",
     "eea_concentracion_industria": "Concentracion por industria (CR4)",
     "indicadores_departamento_2025": "Sintesis de indicadores por departamento (2025)",
+    "endes_adol_maternidad_riqueza_2016_2024": "Maternidad adolescente por quintil de riqueza",
+    "endes_hijos_educacion_tiempo": "Hijos por mujer segun educacion (2004-2024)",
+    "endes_hijos_area_tiempo": "Hijos por mujer: urbano vs rural (2004-2024)",
+    "endes_edad_primer_hijo_educacion": "Edad al primer hijo segun educacion",
 }
 
 
