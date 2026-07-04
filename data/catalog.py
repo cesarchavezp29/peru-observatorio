@@ -50,13 +50,16 @@ DATABASES = {
     },
 }
 
-# microdata (individual-level, huge, not chart-ready) -> excluded from web DB
+# microdata (individual-level, huge, not chart-ready) + internal key tables
+# -> excluded from the web DB
 EXCLUDE = {
     "endes_miembros_2004_2024",
     "endes_nacimientos_2004_2024",
     "endes_mujeres_2004_2024",
     "endes_mujeres_2004_2006",
     "enaho_panel_hogar_long_sample",
+    "module_keys",       # internal merge-key reference, not an indicator
+    "panel_file_keys",   # internal panel-file reference, not an indicator
 }
 MAX_MB = 8.0  # any CSV larger than this is treated as microdata and skipped
 

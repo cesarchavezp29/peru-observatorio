@@ -54,9 +54,15 @@ def _load_catalog() -> None:
         ).fetchall()
         cols = {row[1]: row[2] for row in info}
         _COLS[(schema, table)] = cols
+        # a column named like a department is only a real dept key if its
+        # values actually canonicalize (guards e.g. `dep`=dependency ratio)
         dc = gd.detect_dept_col(list(cols))
         if dc:
-            _DEPT[(schema, table)] = dc
+            vals = [v[0] for v in _con.execute(
+                f'SELECT DISTINCT "{dc}" FROM {schema}.{table} '
+                f'WHERE "{dc}" IS NOT NULL LIMIT 60').fetchall()]
+            if vals and sum(1 for v in vals if gd.canonical(v) is not None) / len(vals) >= 0.6:
+                _DEPT[(schema, table)] = dc
         for c in cols:
             if c.lower() in _TEMPORAL_KEYS:
                 _TEMPORAL[(schema, table)] = c
@@ -157,6 +163,18 @@ def fetch(schema: str, table: str, *, cols: list[str] | None = None,
         "types": {c: tcols[c] for c in names},
         "rows": rows, "returned": len(rows), "total": total,
     }
+
+
+_CATEGORY_NAMES = ("indicator", "indicador", "variable", "concepto")
+
+
+def category_col(schema: str, table: str) -> str | None:
+    """A 'long format' category column (one row per category x period), whose
+    sibling `value` column stacks many indicators — needs a selector to chart."""
+    for c in _COLS.get((schema, table), {}):
+        if c.lower() in _CATEGORY_NAMES:
+            return c
+    return None
 
 
 def dept_col(schema: str, table: str) -> str | None:

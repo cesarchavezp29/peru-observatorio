@@ -32,12 +32,76 @@ export function isCountLike(col) {
   return COUNT_LIKE.test(col.trim())
 }
 
-// choose default series: numeric, not the x, not count-like; keep a handful
+// helper / internal columns that shouldn't be offered as chart series
+const HIDE = new Set(['cob_peso', 'wt', 'wt_raw', 'cluster', 'caseid', 'codigo',
+  'n_obs', 'n_depto', 'p103_missing', 'fuente'])
+export function isHiddenSeries(col) {
+  return HIDE.has(col) || col.endsWith('_missing') || col.endsWith('_raw')
+}
+
+// choose default series: numeric, not the x, not count-like, not hidden
 export function defaultSeries(columns, types, exclude = []) {
   const nums = numericCols(columns, types, exclude)
-  const signal = nums.filter((c) => !isCountLike(c))
-  const pick = signal.length ? signal : nums
+  const signal = nums.filter((c) => !isCountLike(c) && !isHiddenSeries(c))
+  const pick = signal.length ? signal : nums.filter((c) => !isHiddenSeries(c))
   return pick.slice(0, pick.length <= 6 ? pick.length : 4)
+}
+
+// ---- human-readable labels for cryptic column names --------------------
+const DEPT_NAMES = ['', 'Amazonas', 'Ancash', 'Apurimac', 'Arequipa', 'Ayacucho',
+  'Cajamarca', 'Callao', 'Cusco', 'Huancavelica', 'Huanuco', 'Ica', 'Junin',
+  'La Libertad', 'Lambayeque', 'Lima', 'Loreto', 'Madre de Dios', 'Moquegua',
+  'Pasco', 'Piura', 'Puno', 'San Martin', 'Tacna', 'Tumbes', 'Ucayali']
+export function deptName(code) {
+  const i = Number(code)
+  return Number.isInteger(i) && i >= 1 && i <= 25 ? DEPT_NAMES[i] : String(code)
+}
+
+const LABELS = {
+  adol_madre_pct: 'Madres adolescentes (%)', adol_madre: 'Madres adolescentes (%)',
+  va_x_trab: 'VA por trabajador', va: 'Valor agregado', trab: 'Trabajadores',
+  ceb: 'Hijos por mujer', hijos_ceb: 'Hijos por mujer', hijos_nacidos: 'Hijos por mujer',
+  tasa_desempleo: 'Tasa de desempleo', tasa_actividad: 'Tasa de actividad',
+  tasa_informalidad: 'Informalidad (%)', ing_nominal: 'Ingreso nominal',
+  ingtotp: 'Ingreso laboral', real_pc_income_national: 'Ingreso real per cápita',
+  poverty_pct: 'Pobreza (%)', official_poverty: 'Pobreza oficial INEI (%)',
+  extreme_pct: 'Pobreza extrema (%)', official_extreme: 'Extrema oficial INEI (%)',
+  educ_anios: 'Años de educación', educ: 'Años de educación',
+  superior_pct: 'Educación superior (%)', desnutricion: 'Desnutrición crónica (%)',
+  anticon_mod: 'Anticoncepción moderna (%)', edad_1er_hijo: 'Edad al primer hijo',
+  edad_primer_hijo: 'Edad al primer hijo', anemia: 'Anemia infantil (%)',
+  parto_inst: 'Parto institucional (%)', tfr: 'Tasa de fecundidad',
+  urban: 'Urbano', rural: 'Rural', urbano: 'Urbano',
+  poblacion: 'Población', population: 'Población', quintil: 'Quintil de riqueza',
+  value: 'Valor', valor: 'Valor', pobreza: 'Pobreza (%)', pobreza_extrema: 'Pobreza extrema (%)',
+  analfabetismo_15: 'Analfabetismo (%)', ingreso_real_pc: 'Ingreso real per cápita',
+  lengua_indigena: 'Lengua indígena (%)', pct_sis: 'Afiliación SIS (%)',
+  pct_60mas: 'Población 60+ (%)', educ_anios_25: 'Años de educación (25+)',
+}
+const SUFFIX = [
+  ['_pct', ' (%)'], ['_h', ' (hombres)'], ['_m', ' (mujeres)'],
+  ['_joven', ' (jóvenes)'], ['_adulto', ' (adultos)'], ['_mayor', ' (mayores)'],
+  ['_pc', ' per cápita'],
+]
+export function labelFor(col) {
+  if (LABELS[col]) return LABELS[col]
+  let c = col, suff = ''
+  for (const [s, l] of SUFFIX) {
+    if (c.endsWith(s) && c.length > s.length) { suff = l; c = c.slice(0, -s.length); break }
+  }
+  if (LABELS[c]) return LABELS[c] + suff
+  c = c.replace(/_/g, ' ').trim()
+  return (c.charAt(0).toUpperCase() + c.slice(1)) + suff
+}
+
+// compact number formatting for axes / tooltips
+export function fmtNum(v) {
+  if (v == null || Number.isNaN(v)) return ''
+  const a = Math.abs(v)
+  if (a >= 1e6) return (v / 1e6).toFixed(a >= 1e7 ? 0 : 1) + ' M'
+  if (a >= 1e4) return Math.round(v).toLocaleString('es-PE')
+  if (Number.isInteger(v)) return String(v)
+  return (+v.toFixed(2)).toString()
 }
 
 export function isTemporal(col) {
@@ -52,16 +116,16 @@ export function guessChartType(x, columns, types) {
 }
 
 // Build an ECharts option from rows + chosen encoding.
-export function buildOption({ rows, x, series, type, ytitle }) {
+export function buildOption({ rows, x, series, type, ytitle, xIsDept }) {
   const t = tokens()
   const axisColor = t.axis
   const gridColor = t.grid
-  const cats = rows.map((r) => r[x])
+  const cats = rows.map((r) => (xIsDept ? deptName(r[x]) : r[x]))
   const horizontal = type === 'barh'
   const base = type === 'barh' ? 'bar' : type
 
   const seriesArr = series.map((s, i) => ({
-    name: s,
+    name: labelFor(s),
     type: base,
     data: rows.map((r) => r[s]),
     smooth: base === 'line' ? 0.25 : false,
@@ -83,8 +147,9 @@ export function buildOption({ rows, x, series, type, ytitle }) {
     axisTick: { show: false },
   }
   const valAxis = {
-    type: 'value', name: ytitle || '', nameTextStyle: { color: axisColor },
-    axisLabel: { color: axisColor },
+    type: 'value', name: ytitle ? labelFor(ytitle) : '',
+    nameTextStyle: { color: axisColor, align: horizontal ? 'center' : 'left' },
+    axisLabel: { color: axisColor, formatter: (v) => fmtNum(v) },
     splitLine: { lineStyle: { color: gridColor } },
     axisLine: { show: false }, axisTick: { show: false },
   }
@@ -92,8 +157,8 @@ export function buildOption({ rows, x, series, type, ytitle }) {
   return {
     color: PALETTE,
     textStyle: { fontFamily: FONT },
-    grid: { left: 58, right: 24, top: series.length > 1 ? 52 : 30, bottom: 64 },
-    tooltip: tooltip('axis'),
+    grid: { left: 64, right: 24, top: series.length > 1 ? 52 : 30, bottom: 64 },
+    tooltip: { ...tooltip('axis'), valueFormatter: (v) => fmtNum(v) },
     legend: series.length > 1
       ? { top: 12, textStyle: { color: axisColor }, type: 'scroll' } : undefined,
     dataZoom: (base === 'line' && cats.length > 30)

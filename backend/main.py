@@ -45,6 +45,7 @@ def get_table_meta(schema: str, table: str):
     return {**meta, "column_types": db.columns(schema, table),
             "dept_col": db.dept_col(schema, table),
             "temporal_col": db.temporal_col(schema, table),
+            "category_col": db.category_col(schema, table),
             "mappable": db.is_mappable(schema, table)}
 
 

@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import { api } from '../api'
 import EChart from './EChart'
 import MapChart from './MapChart'
-import { guessX, numericCols, defaultSeries, guessChartType, buildOption, isNumeric, isTemporal } from '../chartLogic'
+import { guessX, numericCols, defaultSeries, guessChartType, buildOption, isNumeric, isTemporal, labelFor, isHiddenSeries } from '../chartLogic'
 
 const CHART_TYPES = [
   { k: 'line', l: 'Líneas' },
@@ -78,11 +78,14 @@ function TableExplorer({ schema, table }) {
   const [mapRes, setMapRes] = useState(null)
   const [period, setPeriod] = useState(null)
   const [periods, setPeriods] = useState([])
+  const [category, setCategory] = useState(null)
+  const [categories, setCategories] = useState([])
 
   // load meta + data on table change
   useEffect(() => {
     setMeta(null); setData(null); setErr(null)
     setMapRes(null); setPeriod(null); setPeriods([])
+    setCategory(null); setCategories([])
     let alive = true
     api.tableMeta(schema, table).then((m) => {
       if (!alive) return
@@ -90,13 +93,21 @@ function TableExplorer({ schema, table }) {
       const x = guessX(m.columns, types)
       const ys = defaultSeries(m.columns, types, [x, m.dept_col])
       setMeta(m); setXCol(x); setYCols(ys)
-      setCtype(guessChartType(x, m.columns, types))
+      // dept-keyed tables open as a map (avoids a 1..25 code axis)
+      setCtype(m.mappable ? 'map' : guessChartType(x, m.columns, types))
       // periods for map filtering
       if (m.mappable && m.temporal_col) {
         api.distinct(schema, table, m.temporal_col).then((r) => {
           if (!alive) return
           const vals = r.values
           setPeriods(vals); setPeriod(vals[vals.length - 1])
+        }).catch(() => {})
+      }
+      // long-format indicator selector
+      if (m.category_col) {
+        api.distinct(schema, table, m.category_col).then((r) => {
+          if (!alive) return
+          setCategories(r.values); setCategory(r.values[0])
         }).catch(() => {})
       }
       return api.data(schema, table, {
@@ -107,18 +118,27 @@ function TableExplorer({ schema, table }) {
     return () => { alive = false }
   }, [schema, table])
 
+  // filters shared by chart (client-side) and map (server-side)
+  const buildFilters = () => {
+    const f = []
+    if (meta?.temporal_col && period != null && ctype === 'map')
+      f.push({ col: meta.temporal_col, op: 'eq', val: period })
+    if (meta?.category_col && category != null)
+      f.push({ col: meta.category_col, op: 'eq', val: category })
+    return f
+  }
+
   // fetch choropleth data when in map mode
   const mapValueCol = yCols[0]
   useEffect(() => {
     if (ctype !== 'map' || !meta?.mappable || !mapValueCol) return
     let alive = true
-    const filters = (meta.temporal_col && period != null)
-      ? [{ col: meta.temporal_col, op: 'eq', val: period }] : null
-    api.map(schema, table, mapValueCol, filters)
+    const f = buildFilters()
+    api.map(schema, table, mapValueCol, f.length ? f : null)
       .then((r) => { if (alive) setMapRes(r) })
       .catch(() => alive && setMapRes(null))
     return () => { alive = false }
-  }, [ctype, meta, mapValueCol, period, schema, table])
+  }, [ctype, meta, mapValueCol, period, category, schema, table])
 
   const types = meta?.column_types || {}
   const rows = data?.rows || []
@@ -136,14 +156,22 @@ function TableExplorer({ schema, table }) {
     })
   }, [rows, yCols])
 
+  // for long-format tables, keep only the selected indicator's rows
+  const viewRows = useMemo(() => {
+    if (meta?.category_col && category != null)
+      return cleanRows.filter((r) => String(r[meta.category_col]) === String(category))
+    return cleanRows
+  }, [cleanRows, meta, category])
+
   const option = useMemo(() => {
-    if (!xCol || !yCols.length || !cleanRows.length) return null
+    if (!xCol || !yCols.length || !viewRows.length) return null
     return buildOption({
-      rows: cleanRows, x: xCol, series: yCols,
+      rows: viewRows, x: xCol, series: yCols,
       type: ctype === 'scatter' ? 'scatter' : ctype,
       ytitle: yCols.length === 1 ? yCols[0] : '',
+      xIsDept: xCol === meta?.dept_col,
     })
-  }, [cleanRows, xCol, yCols, ctype])
+  }, [viewRows, xCol, yCols, ctype, meta])
 
   if (err) return <div className="error">No se pudo cargar: {err}</div>
   if (!meta) return <TableSkeleton />
@@ -153,7 +181,9 @@ function TableExplorer({ schema, table }) {
 
   const isMap = ctype === 'map'
   const chartTypes = meta.mappable ? [...CHART_TYPES, MAP_TYPE] : CHART_TYPES
-  const valueCols = numCols.filter((c) => c !== meta.dept_col && c !== meta.temporal_col)
+  const valueCols = numCols.filter((c) =>
+    c !== meta.dept_col && c !== meta.temporal_col && !isHiddenSeries(c))
+  const seriesCols = numCols.filter((c) => c !== xCol && !isHiddenSeries(c))
 
   const clickChip = (c) => {
     if (isMap) setYCols([c])
@@ -186,6 +216,15 @@ function TableExplorer({ schema, table }) {
               ))}
             </div>
           </div>
+          {meta.category_col && categories.length > 1 && (
+            <div className="ctrl">
+              <label>Indicador</label>
+              <select value={category ?? ''} onChange={(e) => setCategory(
+                categories.find((c) => String(c) === e.target.value))}>
+                {categories.map((c) => <option key={c} value={c}>{labelFor(c)}</option>)}
+              </select>
+            </div>
+          )}
           {!isMap && (
             <div className="ctrl">
               <label>Eje X</label>
@@ -193,7 +232,7 @@ function TableExplorer({ schema, table }) {
                 const nx = e.target.value
                 setXCol(nx); setYCols((ys) => ys.filter((y) => y !== nx))
               }}>
-                {allCols.map((c) => <option key={c} value={c}>{c}</option>)}
+                {allCols.map((c) => <option key={c} value={c}>{labelFor(c)}</option>)}
               </select>
             </div>
           )}
@@ -209,9 +248,9 @@ function TableExplorer({ schema, table }) {
           <div className="ctrl grow">
             <label>{isMap ? 'Indicador (color)' : 'Series (eje Y)'}</label>
             <div className="chips">
-              {(isMap ? valueCols : numCols.filter((c) => c !== xCol)).map((c) => (
+              {(isMap ? valueCols : seriesCols).map((c) => (
                 <button key={c} className={'chip' + (yCols.includes(c) ? ' on' : '')}
-                  onClick={() => clickChip(c)}>{c}</button>
+                  onClick={() => clickChip(c)} title={c}>{labelFor(c)}</button>
               ))}
             </div>
           </div>
@@ -220,7 +259,8 @@ function TableExplorer({ schema, table }) {
         <div className="chart-wrap">
           {isMap
             ? (mapRes && mapRes.data.length
-                ? <MapChart data={mapRes.data} title={mapValueCol}
+                ? <MapChart data={mapRes.data}
+                    title={meta.category_col && category != null ? labelFor(category) : labelFor(mapValueCol)}
                     min={mapRes.min} max={mapRes.max} />
                 : <div className="loading">Sin datos departamentales para esta selección.</div>)
             : (option ? <EChart option={option} />
