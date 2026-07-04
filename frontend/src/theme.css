@@ -161,8 +161,10 @@ h1, h2, h3, .brand-text strong { font-family: var(--font-display); font-weight: 
 
 .db-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 20px; }
 .db-card {
-  position: relative; text-align: left; background: var(--panel);
-  border: 1px solid var(--border); border-radius: var(--radius); padding: 24px 22px 20px;
+  position: relative; text-align: left;
+  background: color-mix(in srgb, var(--accent) 9%, #fbf1df);
+  border: 1px solid color-mix(in srgb, var(--accent) 24%, var(--border));
+  border-radius: var(--radius); padding: 24px 22px 20px;
   overflow: hidden; cursor: pointer;
 }
 .db-card::before {
@@ -188,10 +190,12 @@ h1, h2, h3, .brand-text strong { font-family: var(--font-display); font-weight: 
 .theme-block h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .8px; color: var(--text-mute); margin: 0 0 14px; font-weight: 800; }
 .table-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 13px; }
 .table-card {
-  text-align: left; background: var(--panel); border: 1px solid var(--border);
+  text-align: left;
+  background: color-mix(in srgb, var(--accent) 7%, #fbf1df);
+  border: 1px solid color-mix(in srgb, var(--accent) 18%, var(--border));
   border-radius: 12px; padding: 15px 17px; transition: all .2s var(--ease);
 }
-.table-card:hover { border-color: var(--accent); box-shadow: var(--shadow-sm); transform: translateY(-2px); }
+.table-card:hover { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 13%, #fbf1df); box-shadow: var(--shadow-sm); transform: translateY(-2px); }
 .table-card-title { font-size: 13.5px; font-weight: 700; margin-bottom: 6px; line-height: 1.35; color: var(--ink); }
 .table-card-meta { font-size: 11.5px; color: var(--text-mute); font-weight: 500; }
 .tc-map { color: var(--teal); font-weight: 700; }
