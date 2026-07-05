@@ -56,8 +56,16 @@ export default function Sidebar({ databases, open, onNavigate }) {
   return (
     <aside className={`sidebar ${open ? 'open' : ''}`}>
       <div className="sidebar-inner">
-        <NavLink to="/" onClick={onNavigate} className="nav-home"
-          end>Inicio</NavLink>
+        <NavLink to="/" onClick={onNavigate} className="nav-home" end>Inicio</NavLink>
+        <NavLink to="/comparar" onClick={onNavigate}
+          className={({ isActive }) => 'nav-tool' + (isActive ? ' active' : '')}>
+          <span className="nav-tool-ico">⇄</span> Comparar departamentos
+        </NavLink>
+        <NavLink to="/historia" onClick={onNavigate}
+          className={({ isActive }) => 'nav-tool' + (isActive ? ' active' : '')}>
+          <span className="nav-tool-ico">▸</span> Historia: la pobreza
+        </NavLink>
+        <div className="nav-sep" />
         {databases.map((db) => (
           <DatabaseGroup key={db.schema} db={db} onNavigate={onNavigate} />
         ))}

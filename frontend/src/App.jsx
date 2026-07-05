@@ -5,6 +5,8 @@ import { api } from './api'
 import Sidebar from './components/Sidebar'
 import Home from './components/Home'
 import Explorer from './components/Explorer'
+import Comparador from './components/Comparador'
+import Historia from './components/Historia'
 
 export default function App() {
   const [databases, setDatabases] = useState([])
@@ -43,6 +45,8 @@ export default function App() {
               transition={{ duration: 0.32, ease: [0.22, 0.61, 0.36, 1] }}>
               <Routes location={location}>
                 <Route path="/" element={<Home databases={databases} />} />
+                <Route path="/comparar" element={<Comparador />} />
+                <Route path="/historia" element={<Historia />} />
                 <Route path="/db/:schema" element={<Explorer />} />
                 <Route path="/db/:schema/:table" element={<Explorer />} />
               </Routes>
