@@ -39,7 +39,7 @@ export function isCountLike(col) {
 
 // helper / internal columns that shouldn't be offered as chart series
 const HIDE = new Set(['cob_peso', 'wt', 'wt_raw', 'cluster', 'caseid', 'codigo',
-  'n_obs', 'n_depto', 'p103_missing', 'fuente'])
+  'n_obs', 'n_depto', 'n_hh', 'n_m', 'n_h', 'waves', 'p103_missing', 'fuente'])
 export function isHiddenSeries(col) {
   return HIDE.has(col) || col.endsWith('_missing') || col.endsWith('_raw')
 }
@@ -85,6 +85,12 @@ const LABELS = {
   // vivienda (verified in source builder, validated vs INEI)
   p110: 'Agua de red pública (dentro)', p1121: 'Alumbrado eléctrico',
   p1142: 'Teléfono celular',
+  // panel poverty dynamics (single-row composition tables)
+  chronic_pct: 'Crónica', transient_pct: 'Transitoria', never_pct: 'Nunca pobre',
+  ever_poor_pct: 'Alguna vez pobre', annual_static_pct: 'Pobreza anual (estática)',
+  poor_0w_pct: 'Pobre 0 de 5 años', poor_1w_pct: 'Pobre 1 de 5 años',
+  poor_2w_pct: 'Pobre 2 de 5 años', poor_3w_pct: 'Pobre 3 de 5 años',
+  poor_4w_pct: 'Pobre 4 de 5 años', poor_5w_pct: 'Pobre 5 de 5 años',
 }
 const SUFFIX = [
   ['_pct', ' (%)'], ['_h', ' (hombres)'], ['_m', ' (mujeres)'],
@@ -218,6 +224,79 @@ export function buildOption({ rows, x, series, type, ytitle, xIsDept }) {
     series: seriesArr,
     animationDuration: 500,
   }
+}
+
+// Clean quintile/matrix axis labels: q1_destino -> Q1, q3_origen -> Q3.
+export function matLabel(c) {
+  const m = String(c).match(/^q(\d)/i)
+  if (m) return 'Q' + m[1]
+  return labelFor(String(c).replace(/_?(origen|destino|from|to)$/i, ''))
+}
+
+// Build a heatmap for a square transition/mobility matrix.
+export function buildHeatmapOption({ rows, rowKey, cols, xName = 'Destino', yName = 'Origen' }) {
+  const t = tokens()
+  const yLabels = rows.map((r) => matLabel(r[rowKey]))
+  const xLabels = cols.map(matLabel)
+  const data = []
+  let max = 0
+  rows.forEach((r, ri) => cols.forEach((c, ci) => {
+    const v = toNum(r[c])
+    if (Number.isFinite(v)) { data.push([ci, ri, +v.toFixed(1)]); if (v > max) max = v }
+  }))
+  return {
+    textStyle: { fontFamily: FONT },
+    tooltip: {
+      position: 'top', backgroundColor: t.tooltipBg, borderColor: t.tooltipBorder,
+      textStyle: { color: t.text },
+      formatter: (p) => `${yName} ${yLabels[p.value[1]]} → ${xName} ${xLabels[p.value[0]]}<br/><b>${p.value[2]}</b>`,
+    },
+    grid: { left: 96, right: 24, top: 44, bottom: 56 },
+    xAxis: {
+      type: 'category', data: xLabels, position: 'top', name: xName, nameGap: 24,
+      nameTextStyle: { color: t.axis, fontWeight: 700 },
+      axisLine: { show: false }, axisTick: { show: false }, axisLabel: { color: t.axis },
+    },
+    yAxis: {
+      type: 'category', data: yLabels, inverse: true, name: yName, nameGap: 12,
+      nameTextStyle: { color: t.axis, fontWeight: 700, align: 'right' },
+      axisLine: { show: false }, axisTick: { show: false }, axisLabel: { color: t.axis },
+    },
+    visualMap: {
+      min: 0, max: Math.ceil(max / 10) * 10, calculable: true, orient: 'horizontal',
+      left: 'center', bottom: 8, itemHeight: 90, inRange: { color: SEQ.light },
+      textStyle: { color: t.axis },
+    },
+    series: [{
+      type: 'heatmap', data,
+      label: { show: true, color: '#34291c', fontSize: 11, fontWeight: 600, formatter: (p) => p.value[2] },
+      itemStyle: { borderColor: '#fffdf7', borderWidth: 2, borderRadius: 3 },
+      emphasis: { itemStyle: { shadowBlur: 8, shadowColor: 'rgba(0,0,0,.2)' } },
+    }],
+    animationDuration: 500,
+  }
+}
+
+// Detect a TRUE transition matrix: one label column + N numeric columns + N
+// rows, AND the same categories on both axes (rows ≈ columns after cleaning).
+// This rejects category tables that merely happen to be square.
+export function matrixInfo(columns, types, rows) {
+  const nums = columns.filter((c) => isNumeric(types[c]))
+  const label = columns.find((c) => !isNumeric(types[c]))
+  if (!label || nums.length < 3 || rows.length !== nums.length) return null
+  const colSet = new Set(nums.map(matLabel))
+  const rowLabels = rows.map((r) => matLabel(r[label]))
+  const overlap = rowLabels.filter((l) => colSet.has(l)).length
+  if (overlap >= nums.length - 1) return { rowKey: label, cols: nums }
+  return null
+}
+
+// Detect a from/to transition table.
+export function fromToInfo(columns) {
+  const lc = columns.map((c) => c.toLowerCase())
+  const fi = lc.indexOf('from'), ti = lc.indexOf('to')
+  if (fi >= 0 && ti >= 0) return { from: columns[fi], to: columns[ti] }
+  return null
 }
 
 // Build a choropleth option. `data` = [{name, value}], mapName registered on echarts.

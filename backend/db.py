@@ -169,8 +169,11 @@ _CATEGORY_NAMES = ("indicator", "indicador", "variable", "concepto")
 
 
 def category_col(schema: str, table: str) -> str | None:
-    """A 'long format' category column (one row per category x period), whose
-    sibling `value` column stacks many indicators — needs a selector to chart."""
+    """A 'long format' category column whose sibling `value` stacks many
+    indicators across a temporal/dept dimension — only then is a selector right.
+    A plain (category, value) table with no other dimension is just a bar."""
+    if not (temporal_col(schema, table) or dept_col(schema, table)):
+        return None
     for c in _COLS.get((schema, table), {}):
         if c.lower() in _CATEGORY_NAMES:
             return c

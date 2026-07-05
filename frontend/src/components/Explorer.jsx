@@ -5,7 +5,7 @@ import { api } from '../api'
 import EChart from './EChart'
 import MapChart from './MapChart'
 import SectionHero from './SectionHero'
-import { guessX, numericCols, defaultSeries, smartDefaultSeries, guessChartType, buildOption, isNumeric, isTemporal, labelFor, isHiddenSeries, fmtNum } from '../chartLogic'
+import { guessX, numericCols, defaultSeries, smartDefaultSeries, guessChartType, buildOption, buildHeatmapOption, matrixInfo, fromToInfo, isNumeric, isTemporal, labelFor, isHiddenSeries, isCountLike, fmtNum, toNum } from '../chartLogic'
 
 const CHART_TYPES = [
   { k: 'line', l: 'Líneas' },
@@ -83,23 +83,31 @@ function TableExplorer({ schema, table }) {
   const [periods, setPeriods] = useState([])
   const [category, setCategory] = useState(null)
   const [categories, setCategories] = useState([])
+  const [matrix, setMatrix] = useState(null)
 
   // load meta + data on table change
   useEffect(() => {
     setMeta(null); setData(null); setErr(null)
     setMapRes(null); setPeriod(null); setPeriods([])
-    setCategory(null); setCategories([])
+    setCategory(null); setCategories([]); setMatrix(null)
     let alive = true
     let capMeta, capX, capYs
     api.tableMeta(schema, table).then((m) => {
       if (!alive) return
       const types = m.column_types
-      const x = guessX(m.columns, types)
-      const ys = defaultSeries(m.columns, types, [x, m.dept_col])
+      let x = guessX(m.columns, types)
+      let ys = defaultSeries(m.columns, types, [x, m.dept_col])
+      // from/to transition table: x = the ending period, series = the rates
+      const ft = fromToInfo(m.columns)
+      if (ft) {
+        x = ft.to
+        ys = m.columns.filter((c) => c !== ft.from && c !== ft.to
+          && isNumeric(types[c]) && !isHiddenSeries(c) && !isCountLike(c))
+      }
       capMeta = m; capX = x; capYs = ys
       setMeta(m); setXCol(x); setYCols(ys)
       // dept-keyed tables open as a map (avoids a 1..25 code axis)
-      setCtype(m.mappable ? 'map' : guessChartType(x, m.columns, types))
+      setCtype(m.mappable ? 'map' : (ft ? 'line' : guessChartType(x, m.columns, types)))
       // periods for map filtering
       if (m.mappable && m.temporal_col) {
         api.distinct(schema, table, m.temporal_col).then((r) => {
@@ -121,6 +129,11 @@ function TableExplorer({ schema, table }) {
     }).then((d) => {
       if (!alive || !d) return
       setData(d)
+      // square origin×destination matrix -> heatmap
+      const mi = matrixInfo(capMeta.columns, capMeta.column_types, d.rows)
+      if (mi && !capMeta.mappable) { setMatrix(mi); setCtype('heat'); return }
+      // a single-row table is a composition, not a series -> horizontal bars
+      if (d.rows.length === 1 && !capMeta.mappable) { setCtype('barh'); return }
       // refine default series now that we can see magnitudes (skip long-format)
       if (capMeta && !capMeta.category_col && capYs.length > 1) {
         const refined = smartDefaultSeries(d.rows, capYs, capMeta.title)
@@ -175,15 +188,38 @@ function TableExplorer({ schema, table }) {
     return cleanRows
   }, [cleanRows, meta, category])
 
+  // a one-row table is a composition: transpose its columns into labelled bars
+  const singleRow = ctype !== 'map' && ctype !== 'heat' && viewRows.length === 1
   const option = useMemo(() => {
-    if (!xCol || !yCols.length || !viewRows.length) return null
+    if (!viewRows.length) return null
+    if (ctype === 'heat' && matrix) {
+      return buildHeatmapOption({ rows: viewRows, rowKey: matrix.rowKey, cols: matrix.cols })
+    }
+    if (singleRow) {
+      const r = viewRows[0]
+      const nums = (meta?.columns || []).filter((c) => isNumeric(types[c]))
+      const pct = nums.filter((c) => c.endsWith('_pct'))
+      const use = (pct.length ? pct : nums).filter((c) => !isHiddenSeries(c) && !isCountLike(c))
+      const trows = use.map((c) => ({ metric: labelFor(c), value: toNum(r[c]) }))
+        .filter((d) => Number.isFinite(d.value))
+      if (!trows.length) return null
+      const horiz = ctype !== 'bar'
+      const opt = buildOption({ rows: trows, x: 'metric', series: ['value'],
+        type: horiz ? 'barh' : 'bar', ytitle: '' })
+      opt.series[0].label = { show: true, position: horiz ? 'right' : 'top',
+        color: '#34291c', fontSize: 11, fontWeight: 700, formatter: (p) => fmtNum(p.value) }
+      opt.grid.left = horiz ? 168 : opt.grid.left
+      opt.grid.right = horiz ? 46 : opt.grid.right
+      return opt
+    }
+    if (!xCol || !yCols.length) return null
     return buildOption({
       rows: viewRows, x: xCol, series: yCols,
       type: ctype === 'scatter' ? 'scatter' : ctype,
       ytitle: yCols.length === 1 ? yCols[0] : '',
       xIsDept: xCol === meta?.dept_col,
     })
-  }, [viewRows, xCol, yCols, ctype, meta])
+  }, [viewRows, xCol, yCols, ctype, meta, singleRow, types, matrix])
 
   // summary stats for a temporal single-series view
   const summary = useMemo(() => {
@@ -204,7 +240,12 @@ function TableExplorer({ schema, table }) {
   const numCols = allCols.filter((c) => isNumeric(types[c]))
 
   const isMap = ctype === 'map'
-  const chartTypes = meta.mappable ? [...CHART_TYPES, MAP_TYPE] : CHART_TYPES
+  const isHeat = ctype === 'heat'
+  const chartTypes = isHeat
+    ? [{ k: 'heat', l: 'Matriz' }]
+    : singleRow
+      ? [{ k: 'bar', l: 'Barras' }, { k: 'barh', l: 'Barras H.' }]
+      : meta.mappable ? [...CHART_TYPES, MAP_TYPE] : CHART_TYPES
   const valueCols = numCols.filter((c) =>
     c !== meta.dept_col && c !== meta.temporal_col && !isHiddenSeries(c))
   const seriesCols = numCols.filter((c) => c !== xCol && !isHiddenSeries(c))
@@ -249,7 +290,7 @@ function TableExplorer({ schema, table }) {
               </select>
             </div>
           )}
-          {!isMap && (
+          {!isMap && !singleRow && !isHeat && (
             <div className="ctrl">
               <label>Eje X</label>
               <select value={xCol} onChange={(e) => {
@@ -269,15 +310,20 @@ function TableExplorer({ schema, table }) {
               </select>
             </div>
           )}
-          <div className="ctrl grow">
-            <label>{isMap ? 'Indicador (color)' : 'Series (eje Y)'}</label>
-            <div className="chips">
-              {(isMap ? valueCols : seriesCols).map((c) => (
-                <button key={c} className={'chip' + (yCols.includes(c) ? ' on' : '')}
-                  onClick={() => clickChip(c)} title={c}>{labelFor(c)}</button>
-              ))}
-            </div>
-          </div>
+          {singleRow || isHeat
+            ? <div className="ctrl grow"><label>Vista</label>
+                <div className="single-note">{isHeat
+                  ? 'Matriz de transición: cada celda es el % que va de la fila (origen) a la columna (destino).'
+                  : 'Composición de una sola observación — cada barra es una columna de la tabla.'}</div></div>
+            : <div className="ctrl grow">
+                <label>{isMap ? 'Indicador (color)' : 'Series (eje Y)'}</label>
+                <div className="chips">
+                  {(isMap ? valueCols : seriesCols).map((c) => (
+                    <button key={c} className={'chip' + (yCols.includes(c) ? ' on' : '')}
+                      onClick={() => clickChip(c)} title={c}>{labelFor(c)}</button>
+                  ))}
+                </div>
+              </div>}
         </div>
 
         {summary && (
