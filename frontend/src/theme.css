@@ -160,6 +160,22 @@ h1, h2, h3, .brand-text strong { font-family: var(--font-display); font-weight: 
 td.cmp-nat { text-align: right; padding: 8px 12px; border-bottom: 1px solid var(--border); color: var(--text-mute); font-weight: 700; font-family: var(--font-display); }
 .cmp-note { color: var(--text-mute); font-size: 12px; margin-top: 16px; font-style: italic; }
 
+/* ---------------------------------------------------------- correlaciones */
+.corr { max-width: 1000px; }
+.corr-controls { display: flex; align-items: flex-end; gap: 14px; flex-wrap: wrap; margin-bottom: 18px; }
+.corr-sel { display: flex; flex-direction: column; gap: 6px; }
+.corr-sel label { font-size: 10.5px; text-transform: uppercase; letter-spacing: .6px; color: var(--text-mute); font-weight: 800; }
+.corr-sel select { background: var(--panel-2); border: 1px solid var(--border-strong); color: var(--ink); border-radius: 9px; padding: 9px 11px; font-size: 13.5px; font-weight: 600; min-width: 180px; }
+.corr-vs { font-family: var(--font-display); font-weight: 800; color: var(--text-mute); padding-bottom: 9px; }
+.corr-r { margin-left: auto; text-align: right; padding: 6px 16px; border-radius: 12px; }
+.corr-r.positiva { background: #f0d9c6; }
+.corr-r.negativa { background: #d7ece7; }
+.corr-r-val { font-family: var(--font-display); font-size: 26px; font-weight: 800; color: var(--ink); letter-spacing: -.5px; }
+.corr-r-lbl { font-size: 11.5px; font-weight: 700; color: var(--text-dim); }
+.corr-panel { background: #faf1de; border: 1px solid var(--border-strong); border-radius: var(--radius); padding: 16px; box-shadow: var(--shadow-sm); }
+.corr-chart { width: 100%; height: 460px; }
+.corr-insight { font-size: 14.5px; line-height: 1.6; color: var(--text-dim); margin: 16px 0 0; max-width: 760px; }
+
 /* ---------------------------------------------------------- scrollytelling */
 .historia { max-width: 1180px; }
 .hist-head { margin-bottom: 10px; }

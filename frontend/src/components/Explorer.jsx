@@ -12,7 +12,6 @@ const CHART_TYPES = [
   { k: 'line', l: 'Líneas' },
   { k: 'bar', l: 'Barras' },
   { k: 'barh', l: 'Barras H.' },
-  { k: 'scatter', l: 'Dispersión' },
 ]
 const MAP_TYPE = { k: 'map', l: 'Mapa' }
 

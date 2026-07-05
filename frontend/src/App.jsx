@@ -7,6 +7,7 @@ import SearchBar from './components/SearchBar'
 import Home from './components/Home'
 import Explorer from './components/Explorer'
 import Comparador from './components/Comparador'
+import Correlacion from './components/Correlacion'
 import Historia from './components/Historia'
 
 export default function App() {
@@ -48,6 +49,7 @@ export default function App() {
               <Routes location={location}>
                 <Route path="/" element={<Home databases={databases} />} />
                 <Route path="/comparar" element={<Comparador />} />
+                <Route path="/correlacion" element={<Correlacion />} />
                 <Route path="/historia" element={<Historia />} />
                 <Route path="/db/:schema" element={<Explorer />} />
                 <Route path="/db/:schema/:table" element={<Explorer />} />
