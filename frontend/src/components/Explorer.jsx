@@ -218,6 +218,9 @@ function TableExplorer({ schema, table }) {
       type: ctype === 'scatter' ? 'scatter' : ctype,
       ytitle: yCols.length === 1 ? yCols[0] : '',
       xIsDept: xCol === meta?.dept_col,
+      // rank + cap category bars with a long tail (e.g. 112 industries)
+      rankBars: !isTemporal(xCol) && xCol !== meta?.dept_col
+        && (ctype === 'bar' || ctype === 'barh') && viewRows.length > 15,
     })
   }, [viewRows, xCol, yCols, ctype, meta, singleRow, types, matrix])
 

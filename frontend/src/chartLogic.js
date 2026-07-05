@@ -16,12 +16,17 @@ export function isNumeric(type) {
 
 // pick the default x column: first temporal-looking, else first non-numeric,
 // else the first column.
+const NAME_KEYS = ['industria', 'nombre', 'name', 'ciudad', 'producto', 'cultivo',
+  'sector', 'grupo', 'categoria', 'nivel', 'nivel_educativo', 'departamento']
 export function guessX(columns, types) {
   const lower = columns.map((c) => c.toLowerCase())
   for (const key of TEMPORAL) {
     const i = lower.findIndex((c) => c === key || c.startsWith(key))
     if (i >= 0) return columns[i]
   }
+  // prefer a human name column (e.g. 'industria') over an id/code column
+  const ni = lower.findIndex((c) => NAME_KEYS.includes(c))
+  if (ni >= 0) return columns[ni]
   const cat = columns.find((c) => !isNumeric(types[c]))
   return cat || columns[0]
 }
@@ -99,6 +104,14 @@ const LABELS = {
   i01: 'Alimentos', i02: 'Vestido y calzado', i03: 'Alquiler, vivienda y combustible',
   i04: 'Muebles y enseres', i05: 'Salud', i06: 'Transporte y comunicaciones',
   i07: 'Esparcimiento, educación y cultura', i08: 'Otros bienes y servicios',
+  // EEA concentration
+  cr4: 'CR4 (4 mayores, %)', cr8: 'CR8 (8 mayores, %)', hhi: 'Índice HHI',
+  ventas_mmM: 'Ventas (mil M S/)', industria: 'Industria', sec: 'Sector',
+  // epen econ summary (Oaxaca + Mincer + wage curve)
+  brecha_total_log: 'Brecha de género (log)', explicada_log: 'Parte explicada (composición)',
+  no_explicada_log: 'Parte no explicada (discriminación)',
+  mincer_nacional_pct: 'Retorno a la educación (%/año)',
+  wage_curve_elasticidad: 'Elasticidad curva de salarios',
 }
 const SUFFIX = [
   ['_pct', ' (%)'], ['_h', ' (hombres)'], ['_m', ' (mujeres)'],
@@ -143,6 +156,7 @@ export function smartDefaultSeries(rows, candidates, title = '') {
   const scored = pool.map((c) => {
     const hay = (labelFor(c) + ' ' + c).toLowerCase()
     let score = words.reduce((s, w) => s + (hay.includes(w) ? w.length : 0), 0)
+    if (title.toLowerCase().includes(c.toLowerCase())) score += 5 // e.g. "(CR4)"
     if (/_x_|pct|per_|productiv/.test(c)) score += 0.5 // nudge toward derived metrics
     return [c, score]
   }).sort((a, b) => b[1] - a[1])
@@ -171,18 +185,26 @@ export function guessChartType(x, columns, types) {
 }
 
 // Build an ECharts option from rows + chosen encoding.
-export function buildOption({ rows, x, series, type, ytitle, xIsDept }) {
+export function buildOption({ rows, x, series, type, ytitle, xIsDept, rankBars }) {
   const t = tokens()
   const axisColor = t.axis
   const gridColor = t.grid
-  const cats = rows.map((r) => (xIsDept ? deptName(r[x]) : r[x]))
   const horizontal = type === 'barh'
   const base = type === 'barh' ? 'bar' : type
+
+  // ranked category bars: sort by the primary series and cap the long tail
+  let workRows = rows, capped = 0
+  if (rankBars && series.length && base === 'bar') {
+    workRows = [...rows].sort((a, b) => (toNum(b[series[0]]) || -1e15) - (toNum(a[series[0]]) || -1e15))
+    if (workRows.length > 30) { capped = workRows.length; workRows = workRows.slice(0, 30) }
+  }
+  const cats = workRows.map((r) =>
+    xIsDept ? deptName(r[x]) : (typeof r[x] === 'string' ? labelFor(r[x]) : r[x]))
 
   const seriesArr = series.map((s, i) => ({
     name: labelFor(s),
     type: base,
-    data: rows.map((r) => r[s]),
+    data: workRows.map((r) => r[s]),
     smooth: base === 'line' ? 0.25 : false,
     showSymbol: rows.length <= 40,
     symbolSize: 6,
@@ -191,6 +213,11 @@ export function buildOption({ rows, x, series, type, ytitle, xIsDept }) {
       ? { opacity: 0.08 } : undefined,
     barMaxWidth: 46,
     itemStyle: { color: PALETTE[i % PALETTE.length], borderRadius: base === 'bar' ? 3 : 0 },
+    // value labels on small single-series bar charts (heterogeneous summaries)
+    label: (base === 'bar' && series.length === 1 && workRows.length <= 12)
+      ? { show: true, position: horizontal ? 'right' : 'top', color: t.text,
+          fontSize: 11, fontWeight: 600, formatter: (p) => fmtNum(p.value) }
+      : undefined,
     emphasis: { focus: 'series' },
   }))
 
@@ -229,7 +256,13 @@ export function buildOption({ rows, x, series, type, ytitle, xIsDept }) {
   return {
     color: PALETTE,
     textStyle: { fontFamily: FONT },
-    grid: { left: 64, right: 24, top: series.length > 1 ? 52 : 30, bottom: 64 },
+    title: capped ? { text: `Top 30 de ${capped}`, right: 8, top: 4,
+      textStyle: { fontSize: 11, fontWeight: 600, color: axisColor } } : undefined,
+    grid: {
+      left: horizontal && typeof cats[0] === 'string'
+        ? Math.min(240, 8 * Math.max(...cats.map((c) => String(c).length))) : 64,
+      right: 24, top: series.length > 1 ? 52 : 30, bottom: 64,
+    },
     tooltip: { ...tooltip('axis'), valueFormatter: (v) => fmtNum(v) },
     legend: series.length > 1
       ? { top: 12, textStyle: { color: axisColor }, type: 'scroll' } : undefined,
