@@ -15,17 +15,18 @@ export const PALETTE = [
   '#9c6b2f', // bronze
 ]
 
-// warm sequential ramp for choropleths (low -> high)
+// warm sequential ramp for choropleths (low -> high). The lightest stop is kept
+// clearly darker than the cream panel so low-value areas don't blend in.
 export const SEQ = {
-  light: ['#f6ecd9', '#f0d3a6', '#e6ac6b', '#d97f3f', '#c25728', '#8f3416'],
-  dark: ['#f6ecd9', '#f0d3a6', '#e6ac6b', '#d97f3f', '#c25728', '#8f3416'],
+  light: ['#efdcb4', '#e8c185', '#dd9c56', '#cd7433', '#b4501f', '#7f2f14'],
+  dark: ['#efdcb4', '#e8c185', '#dd9c56', '#cd7433', '#b4501f', '#7f2f14'],
 }
 
 export function tokens() {
   return {
     text: '#34291c', axis: '#8a7c68', grid: '#ece1cd',
     tooltipBg: '#fffdf7', tooltipBorder: '#e7dcc6',
-    mapBorder: '#fffdf7', mapEmpty: '#efe5d2', mapLabel: '#34291c',
+    mapBorder: '#fdf6e8', mapEmpty: '#cdbb93', mapLabel: '#34291c',
   }
 }
 
