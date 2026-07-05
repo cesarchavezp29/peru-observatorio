@@ -100,20 +100,25 @@ function TableExplorer({ schema, table }) {
     setMapRes(null); setPeriod(null); setPeriods([])
     setCategory(null); setCategories([]); setMatrix(null); setPlaying(false)
     let alive = true
-    let capMeta, capX, capYs
+    let capMeta, capX, capYs, capCand
     api.tableMeta(schema, table).then((m) => {
       if (!alive) return
       const types = m.column_types
       let x = guessX(m.columns, types)
+      // ALL plottable candidate series (not just the first 6) so the
+      // magnitude-aware default can pick the headline metric wherever it sits
+      let cand = numericCols(m.columns, types, [x, m.dept_col])
+        .filter((c) => !isCountLike(c) && !isHiddenSeries(c))
       let ys = defaultSeries(m.columns, types, [x, m.dept_col])
       // from/to transition table: x = the ending period, series = the rates
       const ft = fromToInfo(m.columns)
       if (ft) {
         x = ft.to
-        ys = m.columns.filter((c) => c !== ft.from && c !== ft.to
+        cand = m.columns.filter((c) => c !== ft.from && c !== ft.to
           && isNumeric(types[c]) && !isHiddenSeries(c) && !isCountLike(c))
+        ys = cand
       }
-      capMeta = m; capX = x; capYs = ys
+      capMeta = m; capX = x; capYs = ys; capCand = cand
       setMeta(m); setXCol(x); setYCols(ys)
       // dept-keyed tables open as a map (avoids a 1..25 code axis)
       setCtype(m.mappable ? 'map' : (ft ? 'line' : guessChartType(x, m.columns, types)))
@@ -146,10 +151,13 @@ function TableExplorer({ schema, table }) {
       // many string categories (industries, cities) -> ranked horizontal bars
       if (!capMeta.mappable && !isTemporal(capX)
           && typeof d.rows[0]?.[capX] === 'string' && d.rows.length > 15) setCtype('barh')
-      // refine default series now that we can see magnitudes (skip long-format)
-      if (capMeta && !capMeta.category_col && capYs.length > 1) {
-        const refined = smartDefaultSeries(d.rows, capYs, capMeta.title)
-        if (refined.length && refined.length !== capYs.length) setYCols(refined)
+      // refine default series now that we can see magnitudes (skip long-format).
+      // Consider ALL candidates so the headline metric (e.g. "Brecha") wins even
+      // if it's not among the first columns.
+      if (capMeta && !capMeta.category_col && capCand && capCand.length > 1) {
+        const refined = smartDefaultSeries(d.rows, capCand, capMeta.title)
+        if (refined.length && !(refined.length === capYs.length
+            && refined.every((c, i) => c === capYs[i]))) setYCols(refined)
       }
     }).catch((e) => alive && setErr(String(e)))
     return () => { alive = false }

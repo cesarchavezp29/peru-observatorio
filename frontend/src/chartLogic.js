@@ -16,8 +16,9 @@ export function isNumeric(type) {
 
 // pick the default x column: first temporal-looking, else first non-numeric,
 // else the first column.
-const NAME_KEYS = ['industria', 'nombre', 'name', 'ciudad', 'producto', 'cultivo',
-  'sector', 'grupo', 'categoria', 'nivel', 'nivel_educativo', 'departamento']
+const NAME_KEYS = ['industria', 'institution', 'institucion', 'nombre', 'name',
+  'ciudad', 'producto', 'cultivo', 'sector', 'grupo', 'categoria', 'nivel',
+  'nivel_educativo', 'departamento']
 export function guessX(columns, types) {
   const lower = columns.map((c) => c.toLowerCase())
   for (const key of TEMPORAL) {
