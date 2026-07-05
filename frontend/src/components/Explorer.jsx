@@ -143,6 +143,9 @@ function TableExplorer({ schema, table }) {
       if (mi && !capMeta.mappable) { setMatrix(mi); setCtype('heat'); return }
       // a single-row table is a composition, not a series -> horizontal bars
       if (d.rows.length === 1 && !capMeta.mappable) { setCtype('barh'); return }
+      // many string categories (industries, cities) -> ranked horizontal bars
+      if (!capMeta.mappable && !isTemporal(capX)
+          && typeof d.rows[0]?.[capX] === 'string' && d.rows.length > 15) setCtype('barh')
       // refine default series now that we can see magnitudes (skip long-format)
       if (capMeta && !capMeta.category_col && capYs.length > 1) {
         const refined = smartDefaultSeries(d.rows, capYs, capMeta.title)
@@ -257,6 +260,24 @@ function TableExplorer({ schema, table }) {
     }
   }, [viewRows, xCol, yCols, ctype])
 
+  // chart types available for THIS table's shape (not a fixed set for all)
+  const availTypes = useMemo(() => {
+    if (matrix) return [{ k: 'heat', l: 'Matriz' }]
+    if (rows.length === 1 && !meta?.mappable) return [{ k: 'bar', l: 'Barras' }, { k: 'barh', l: 'Barras H.' }]
+    const arr = []
+    // 'Líneas' only makes sense when x is temporal or an ordered numeric axis
+    if (isTemporal(xCol) || isNumeric(types[xCol])) arr.push({ k: 'line', l: 'Líneas' })
+    arr.push({ k: 'bar', l: 'Barras' }, { k: 'barh', l: 'Barras H.' })
+    if (meta?.mappable) arr.unshift({ k: 'map', l: 'Mapa' })
+    return arr
+  }, [matrix, rows.length, xCol, types, meta])
+
+  // if the current type isn't valid for this shape (e.g. line on a category
+  // axis after switching X), fall back to the first sensible one
+  useEffect(() => {
+    if (availTypes.length && !availTypes.some((t) => t.k === ctype)) setCtype(availTypes[0].k)
+  }, [availTypes]) // eslint-disable-line
+
   if (err) return <div className="error">No se pudo cargar: {err}</div>
   if (!meta) return <TableSkeleton />
 
@@ -265,11 +286,7 @@ function TableExplorer({ schema, table }) {
 
   const isMap = ctype === 'map'
   const isHeat = ctype === 'heat'
-  const chartTypes = isHeat
-    ? [{ k: 'heat', l: 'Matriz' }]
-    : singleRow
-      ? [{ k: 'bar', l: 'Barras' }, { k: 'barh', l: 'Barras H.' }]
-      : meta.mappable ? [...CHART_TYPES, MAP_TYPE] : CHART_TYPES
+  const chartTypes = availTypes
   const valueCols = numCols.filter((c) =>
     c !== meta.dept_col && c !== meta.temporal_col && !isHiddenSeries(c))
   const seriesCols = numCols.filter((c) => c !== xCol && !isHiddenSeries(c))
