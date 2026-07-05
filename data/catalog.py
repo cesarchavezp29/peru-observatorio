@@ -62,6 +62,7 @@ EXCLUDE = {
     "panel_file_keys",     # internal panel-file reference, not an indicator
     "epen_codciudad_dict",     # city-code lookup, not an indicator
     "epen_codciudad_inferred", # city-inference reference, not an indicator
+    "panel_evento_hijo_empleo", # 48k person-event microdata (use the _profile aggregates)
 }
 MAX_MB = 8.0  # any CSV larger than this is treated as microdata and skipped
 

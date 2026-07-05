@@ -95,6 +95,10 @@ const LABELS = {
   anios_desde_hijo: 'Años desde el 1er hijo', empleo_pct: 'Empleo (%)',
   desempleo: 'Desempleo (%)', informalidad: 'Informalidad (%)', ingreso: 'Ingreso laboral',
   ciudad: 'Ciudad', cohorte: 'Cohorte de nacimiento', decil: 'Decil de ingreso',
+  // Engel elasticities by ENAHO gran-grupo (i01=Alimentos, i05/i07 confirmed in builder)
+  i01: 'Alimentos', i02: 'Vestido y calzado', i03: 'Alquiler, vivienda y combustible',
+  i04: 'Muebles y enseres', i05: 'Salud', i06: 'Transporte y comunicaciones',
+  i07: 'Esparcimiento, educación y cultura', i08: 'Otros bienes y servicios',
 }
 const SUFFIX = [
   ['_pct', ' (%)'], ['_h', ' (hombres)'], ['_m', ' (mujeres)'],
