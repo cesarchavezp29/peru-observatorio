@@ -131,14 +131,22 @@ export function smartDefaultSeries(rows, candidates, title = '') {
   const keepAll = candidates.slice(0, candidates.length <= 6 ? candidates.length : 4)
   if (meds.length < 2 || Math.max(...meds) / Math.min(...meds) <= 30) return keepAll
 
+  // a series that is constant across rows is a useless default (e.g. a total
+  // that is the same for every group) — pick from the varying ones instead.
+  const range = (c) => {
+    const v = rows.map((r) => toNum(r[c])).filter(Number.isFinite)
+    return v.length ? Math.max(...v) - Math.min(...v) : 0
+  }
+  const varying = candidates.filter((c) => range(c) > 1e-9)
+  const pool = varying.length ? varying : candidates
   const words = (title.toLowerCase().match(/[a-záéíóúñ]{4,}/gi) || [])
-  const scored = candidates.map((c) => {
+  const scored = pool.map((c) => {
     const hay = (labelFor(c) + ' ' + c).toLowerCase()
     let score = words.reduce((s, w) => s + (hay.includes(w) ? w.length : 0), 0)
     if (/_x_|pct|per_|productiv/.test(c)) score += 0.5 // nudge toward derived metrics
     return [c, score]
   }).sort((a, b) => b[1] - a[1])
-  return [scored[0][1] > 0 ? scored[0][0] : candidates[0]]
+  return [scored[0][1] > 0 ? scored[0][0] : pool[0]]
 }
 
 // compact number formatting for axes / tooltips
