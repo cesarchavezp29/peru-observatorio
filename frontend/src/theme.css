@@ -366,6 +366,8 @@ td.cmp-nat { text-align: right; padding: 8px 12px; border-bottom: 1px solid var(
 .table-card-title { font-size: 13.5px; font-weight: 700; margin-bottom: 6px; line-height: 1.35; color: var(--ink); }
 .table-card-meta { font-size: 11.5px; color: var(--text-mute); font-weight: 500; }
 .tc-map { color: var(--teal); font-weight: 700; }
+.tc-spark { margin: 8px -4px 4px; opacity: .9; }
+.tc-spark-empty { height: 10px; }
 
 /* ---------------------------------------------------------- explorer */
 .explorer { max-width: 1180px; }

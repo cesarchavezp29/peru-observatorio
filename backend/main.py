@@ -48,6 +48,13 @@ def get_index():
     ]
 
 
+@app.get("/api/previews/{schema}")
+def get_previews(schema: str):
+    if schema not in db.DATABASES:
+        raise HTTPException(404, "database not found")
+    return db.previews(schema)
+
+
 @app.get("/api/tables/{schema}/{table}")
 def get_table_meta(schema: str, table: str):
     if not db.valid_table(schema, table):

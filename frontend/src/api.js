@@ -10,6 +10,7 @@ async function j(url) {
 export const api = {
   databases: () => j('/api/databases'),
   database: (schema) => j(`/api/databases/${schema}`),
+  previews: (schema) => j(`/api/previews/${schema}`),
   tableMeta: (schema, table) => j(`/api/tables/${schema}/${table}`),
   data: (schema, table, opts = {}) => {
     const p = new URLSearchParams()

@@ -180,6 +180,40 @@ def category_col(schema: str, table: str) -> str | None:
     return None
 
 
+_SKIP_PREVIEW = {'n', 'nn', 'n_hh', 'n_m', 'n_h', 'n_obs', 'n_depto', 'waves',
+    'wt', 'wt_raw', 'cluster', 'caseid', 'codigo', 'codciudad', 'oficial',
+    'pet', 'release', 'wave', 'window', 'cob_peso'}
+
+
+def previews(schema: str) -> dict:
+    """For each temporal table in a section, a tiny sparkline series (the first
+    meaningful numeric column over time). One call powers a whole section's
+    card previews."""
+    out: dict[str, list] = {}
+    for (s, t) in [k for k in CATALOG if k[0] == schema]:
+        tcol = _TEMPORAL.get((s, t))
+        if not tcol:
+            continue
+        cols = _COLS[(s, t)]
+        val = next((c for c, ty in cols.items()
+                    if c != tcol and _numeric(ty)
+                    and c.lower() not in _SKIP_PREVIEW and not c.endswith('_missing')), None)
+        if not val:
+            continue
+        try:
+            res = fetch(s, t, cols=[tcol, val], order=tcol, limit=500)
+        except ValueError:
+            continue
+        vals = [r[val] for r in res["rows"] if isinstance(r[val], (int, float))]
+        if len(vals) < 3:
+            continue
+        if len(vals) > 60:
+            step = (len(vals) + 59) // 60
+            vals = vals[::step]
+        out[t] = [round(v, 4) for v in vals]
+    return out
+
+
 def dept_col(schema: str, table: str) -> str | None:
     return _DEPT.get((schema, table))
 

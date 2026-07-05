@@ -5,6 +5,7 @@ import { api } from '../api'
 import EChart from './EChart'
 import MapChart from './MapChart'
 import SectionHero from './SectionHero'
+import MiniSpark from './MiniSpark'
 import { guessX, numericCols, defaultSeries, smartDefaultSeries, guessChartType, buildOption, buildHeatmapOption, matrixInfo, fromToInfo, isNumeric, isTemporal, labelFor, isHiddenSeries, isCountLike, fmtNum, toNum } from '../chartLogic'
 
 const CHART_TYPES = [
@@ -24,7 +25,12 @@ const rise = {
 function DatabaseOverview({ schema }) {
   const nav = useNavigate()
   const [detail, setDetail] = useState(null)
-  useEffect(() => { setDetail(null); api.database(schema).then(setDetail).catch(() => {}) }, [schema])
+  const [prev, setPrev] = useState({})
+  useEffect(() => {
+    setDetail(null); setPrev({})
+    api.database(schema).then(setDetail).catch(() => {})
+    api.previews(schema).then(setPrev).catch(() => {})
+  }, [schema])
   if (!detail) return (
     <div className="db-overview">
       <div className="skeleton sk-line" style={{ width: 300, height: 34, marginBottom: 16 }} />
@@ -57,6 +63,9 @@ function DatabaseOverview({ schema }) {
                 style={{ '--accent': db.color }}
                 onClick={() => nav(`/db/${schema}/${tb.table}`)}>
                 <div className="table-card-title">{tb.title}</div>
+                {prev[tb.table]
+                  ? <div className="tc-spark"><MiniSpark values={prev[tb.table]} color={db.color} height={34} /></div>
+                  : <div className="tc-spark-empty" />}
                 <div className="table-card-meta">
                   {tb.n_rows} filas · {tb.n_cols} columnas
                   {tb.mappable && <span className="tc-map"> · mapa</span>}
