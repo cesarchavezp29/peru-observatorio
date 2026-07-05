@@ -37,6 +37,17 @@ def get_database(schema: str):
     return {"database": db.DATABASES[schema], "themes": db.themes(schema)}
 
 
+@app.get("/api/index")
+def get_index():
+    """Flat list of every indicator for the global search box."""
+    return [
+        {"schema": s, "table": t, "title": m["title"],
+         "section": db.DATABASES[s]["title"], "theme": m["theme_label"],
+         "mappable": db.is_mappable(s, t)}
+        for (s, t), m in db.CATALOG.items()
+    ]
+
+
 @app.get("/api/tables/{schema}/{table}")
 def get_table_meta(schema: str, table: str):
     if not db.valid_table(schema, table):

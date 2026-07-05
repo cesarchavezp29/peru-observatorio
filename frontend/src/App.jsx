@@ -3,6 +3,7 @@ import { Routes, Route, NavLink, useLocation } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import { api } from './api'
 import Sidebar from './components/Sidebar'
+import SearchBar from './components/SearchBar'
 import Home from './components/Home'
 import Explorer from './components/Explorer'
 import Comparador from './components/Comparador'
@@ -31,6 +32,7 @@ export default function App() {
           </span>
         </NavLink>
         <div className="topbar-spacer" />
+        <SearchBar />
         <a className="topbar-link" href="https://github.com/cesarchavezp29" target="_blank" rel="noreferrer">GitHub</a>
       </header>
 
