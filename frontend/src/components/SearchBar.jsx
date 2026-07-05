@@ -10,14 +10,23 @@ export default function SearchBar() {
   const [open, setOpen] = useState(false)
   const [hi, setHi] = useState(0)
   const box = useRef(null)
+  const inp = useRef(null)
 
   useEffect(() => {
     fetch('/api/index').then((r) => r.json()).then(setIndex).catch(() => {})
   }, [])
   useEffect(() => {
     const onClick = (e) => { if (box.current && !box.current.contains(e.target)) setOpen(false) }
+    // "/" focuses search from anywhere (unless already typing in a field)
+    const onSlash = (e) => {
+      const tag = document.activeElement?.tagName
+      if (e.key === '/' && tag !== 'INPUT' && tag !== 'SELECT' && tag !== 'TEXTAREA') {
+        e.preventDefault(); inp.current?.focus()
+      }
+    }
     document.addEventListener('mousedown', onClick)
-    return () => document.removeEventListener('mousedown', onClick)
+    document.addEventListener('keydown', onSlash)
+    return () => { document.removeEventListener('mousedown', onClick); document.removeEventListener('keydown', onSlash) }
   }, [])
 
   const results = useMemo(() => {
@@ -56,7 +65,7 @@ export default function SearchBar() {
   return (
     <div className="search" ref={box}>
       <span className="search-ico">⌕</span>
-      <input className="search-input" value={q} placeholder="Buscar indicador…"
+      <input ref={inp} className="search-input" value={q} placeholder="Buscar indicador…  /"
         onChange={(e) => { setQ(e.target.value); setOpen(true) }}
         onFocus={() => setOpen(true)} onKeyDown={onKey} />
       <AnimatePresence>
