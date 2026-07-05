@@ -93,12 +93,13 @@ function TableExplorer({ schema, table }) {
   const [category, setCategory] = useState(null)
   const [categories, setCategories] = useState([])
   const [matrix, setMatrix] = useState(null)
+  const [playing, setPlaying] = useState(false)
 
   // load meta + data on table change
   useEffect(() => {
     setMeta(null); setData(null); setErr(null)
     setMapRes(null); setPeriod(null); setPeriods([])
-    setCategory(null); setCategories([]); setMatrix(null)
+    setCategory(null); setCategories([]); setMatrix(null); setPlaying(false)
     let alive = true
     let capMeta, capX, capYs
     api.tableMeta(schema, table).then((m) => {
@@ -161,6 +162,18 @@ function TableExplorer({ schema, table }) {
       f.push({ col: meta.category_col, op: 'eq', val: category })
     return f
   }
+
+  // ▶ play: animate the choropleth through its periods
+  useEffect(() => {
+    if (!playing || ctype !== 'map' || periods.length < 2) return
+    const id = setInterval(() => {
+      setPeriod((p) => {
+        const i = periods.indexOf(p)
+        return periods[(i + 1) % periods.length]
+      })
+    }, 950)
+    return () => clearInterval(id)
+  }, [playing, ctype, periods])
 
   // fetch choropleth data when in map mode
   const mapValueCol = yCols[0]
@@ -315,11 +328,19 @@ function TableExplorer({ schema, table }) {
           )}
           {isMap && periods.length > 1 && (
             <div className="ctrl">
-              <label>{meta.temporal_col}</label>
-              <select value={period ?? ''} onChange={(e) => setPeriod(
-                periods.find((p) => String(p) === e.target.value))}>
-                {periods.map((p) => <option key={p} value={p}>{p}</option>)}
-              </select>
+              <label>{labelFor(meta.temporal_col)}</label>
+              <div className="period-row">
+                <button className={'play-btn' + (playing ? ' on' : '')}
+                  onClick={() => setPlaying((v) => !v)} title="Animar en el tiempo">
+                  {playing ? '❚❚' : '▶'}
+                </button>
+                <select value={period ?? ''} onChange={(e) => {
+                  setPlaying(false)
+                  setPeriod(periods.find((p) => String(p) === e.target.value))
+                }}>
+                  {periods.map((p) => <option key={p} value={p}>{p}</option>)}
+                </select>
+              </div>
             </div>
           )}
           {singleRow || isHeat

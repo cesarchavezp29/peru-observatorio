@@ -419,6 +419,14 @@ td.cmp-nat { text-align: right; padding: 8px 12px; border-bottom: 1px solid var(
 .stat-series { flex: 1; align-items: flex-end; text-align: right; border-right: none; }
 
 .single-note { font-size: 12.5px; color: var(--text-mute); font-style: italic; line-height: 1.5; max-width: 420px; }
+.period-row { display: flex; gap: 8px; align-items: center; }
+.play-btn {
+  width: 36px; height: 36px; flex-shrink: 0; border-radius: 9px; font-size: 12px;
+  background: var(--accent); color: #fff; border: none; box-shadow: var(--shadow-sm);
+  transition: filter .15s var(--ease);
+}
+.play-btn.on { background: var(--teal); }
+.play-btn:hover { filter: brightness(1.08); }
 .chart-wrap { margin: 18px 0 6px; }
 .table-toggle {
   background: var(--panel-2); border: 1px solid var(--border-strong); color: var(--text-dim);
