@@ -246,11 +246,11 @@ td.cmp-nat { text-align: right; padding: 8px 12px; border-bottom: 1px solid var(
 .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
 .kpi {
   position: relative; text-align: left; cursor: pointer; padding: 18px 18px 14px;
-  background: color-mix(in srgb, var(--kpi) 8%, #fbf1df);
+  background: color-mix(in srgb, var(--kpi) 16%, #f7edd9);
   border: 1px solid color-mix(in srgb, var(--kpi) 22%, var(--border));
-  border-radius: 14px; overflow: hidden; transition: box-shadow .2s var(--ease);
+  border-radius: 14px; overflow: hidden; box-shadow: var(--shadow-sm); transition: box-shadow .2s var(--ease);
 }
-.kpi:hover { box-shadow: var(--shadow-sm); }
+.kpi:hover { box-shadow: var(--shadow); }
 .kpi-label { font-size: 11.5px; font-weight: 700; color: var(--text-dim); line-height: 1.3; min-height: 30px; }
 .kpi-value {
   font-family: var(--font-display); font-size: 34px; font-weight: 800; letter-spacing: -1px;
@@ -266,10 +266,10 @@ td.cmp-nat { text-align: right; padding: 8px 12px; border-bottom: 1px solid var(
 .db-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 20px; }
 .db-card {
   position: relative; text-align: left;
-  background: color-mix(in srgb, var(--accent) 9%, #fbf1df);
+  background: color-mix(in srgb, var(--accent) 17%, #f7edd9);
   border: 1px solid color-mix(in srgb, var(--accent) 24%, var(--border));
   border-radius: var(--radius); padding: 24px 22px 20px;
-  overflow: hidden; cursor: pointer;
+  overflow: hidden; cursor: pointer; box-shadow: var(--shadow-sm);
 }
 .db-card::before {
   content: ""; position: absolute; inset: 0 0 auto 0; height: 5px;
@@ -303,11 +303,12 @@ td.cmp-nat { text-align: right; padding: 8px 12px; border-bottom: 1px solid var(
 /* ---------------------------------------------------------- findings */
 .findings-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(232px, 1fr)); gap: 16px; }
 .finding {
-  text-align: left; background: #fbf3e6; border: 1px solid var(--border); border-radius: 14px;
+  text-align: left; background: color-mix(in srgb, var(--accent) 12%, #f7edd9);
+  border: 1px solid color-mix(in srgb, var(--accent) 22%, var(--border)); border-radius: 14px;
   padding: 18px 18px 16px; cursor: pointer; display: flex; flex-direction: column; gap: 11px;
-  transition: border-color .18s var(--ease), box-shadow .18s var(--ease);
+  box-shadow: var(--shadow-sm); transition: border-color .18s var(--ease), box-shadow .18s var(--ease);
 }
-.finding:hover { border-color: var(--accent); box-shadow: var(--shadow-sm); }
+.finding:hover { border-color: var(--accent); box-shadow: var(--shadow); }
 .finding-kicker { font-size: 10.5px; font-weight: 800; letter-spacing: .9px; text-transform: uppercase; color: var(--accent); }
 .finding-title { font-family: var(--font-display); font-size: 20px; line-height: 1.08; margin: 0; color: var(--ink); letter-spacing: -.4px; }
 .finding-spark { margin: 2px 0; }
@@ -332,11 +333,11 @@ td.cmp-nat { text-align: right; padding: 8px 12px; border-bottom: 1px solid var(
 .table-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 13px; }
 .table-card {
   text-align: left;
-  background: color-mix(in srgb, var(--accent) 7%, #fbf1df);
+  background: color-mix(in srgb, var(--accent) 13%, #f7edd9);
   border: 1px solid color-mix(in srgb, var(--accent) 18%, var(--border));
   border-radius: 12px; padding: 15px 17px; transition: all .2s var(--ease);
 }
-.table-card:hover { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 13%, #fbf1df); box-shadow: var(--shadow-sm); transform: translateY(-2px); }
+.table-card:hover { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 20%, #f7edd9); box-shadow: var(--shadow-sm); transform: translateY(-2px); }
 .table-card-title { font-size: 13.5px; font-weight: 700; margin-bottom: 6px; line-height: 1.35; color: var(--ink); }
 .table-card-meta { font-size: 11.5px; color: var(--text-mute); font-weight: 500; }
 .tc-map { color: var(--teal); font-weight: 700; }
