@@ -17,13 +17,13 @@ function MiniMap({ selected }) {
   if (!proj) return <div style={{ height: 220 }} />
   const colorOf = (code) => {
     const i = selected.indexOf(code)
-    return i >= 0 ? SLOT_COLORS[i] : '#e7dcc6'
+    return i >= 0 ? SLOT_COLORS[i] : '#b7a37a' // clearly darker than the cream panel
   }
   return (
     <svg viewBox={`0 0 ${proj.W} ${proj.H}`} style={{ width: '100%', maxWidth: 260 }}>
       {proj.paths.map((p) => (
         <path key={p.name} d={p.d} fill={colorOf(p.code)}
-          stroke="#fffdf7" strokeWidth={0.6} fillOpacity={selected.includes(p.code) ? 0.95 : 0.55} />
+          stroke="#fdf6e8" strokeWidth={0.9} fillOpacity={1} />
       ))}
     </svg>
   )
@@ -72,16 +72,16 @@ export default function Comparador() {
       radar: {
         indicator: RADAR_KEYS.map((k) => ({ name: k.replace(' (anios)', ''), max: 100 })),
         radius: '66%', center: ['50%', '46%'],
-        axisName: { color: '#6f6150', fontSize: 11 },
-        splitLine: { lineStyle: { color: '#e7dcc6' } },
-        splitArea: { areaStyle: { color: ['#fbf3e6', '#f5eede'] } },
-        axisLine: { lineStyle: { color: '#e7dcc6' } },
+        axisName: { color: '#4a4032', fontSize: 11, fontWeight: 600 },
+        splitLine: { lineStyle: { color: '#c3ae83', width: 1 } },
+        splitArea: { areaStyle: { color: ['#efe4c9', '#e3d4b2'] } },
+        axisLine: { lineStyle: { color: '#c3ae83' } },
       },
       series: [{
-        type: 'radar', symbolSize: 5,
+        type: 'radar', symbolSize: 6, lineStyle: { width: 2.6 },
         data: sel.filter((c) => byCode[c]).map((c) => ({
           name: deptName(c), value: RADAR_KEYS.map((k) => +norm(k, toNum(byCode[c][k])).toFixed(1)),
-          areaStyle: { opacity: 0.12 },
+          areaStyle: { opacity: 0.28 },
         })),
       }],
     }, true)
