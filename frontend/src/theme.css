@@ -1,27 +1,29 @@
 :root {
-  /* warm Andean paper palette — light, luminous, textile-inspired */
-  --bg: #f5eede;
-  --bg-2: #efe5d2;
-  --panel: #fffdf7;
-  --panel-2: #f8f0e1;
-  --border: #e7dcc6;
-  --border-strong: #d9cbae;
-  --ink: #2c2318;
-  --text: #34291c;
-  --text-dim: #6f6150;
-  --text-mute: #9c8c76;
+  /* warm Andean palette with REAL tonal steps so surfaces differentiate:
+     sidebar (deep) < canvas (sand) < panel (ivory) — no white anywhere. */
+  --bg: #e7d8ba;          /* content canvas — warm sand */
+  --bg-2: #e0d0ae;
+  --sidebar: #d8c6a0;     /* distinct deeper band on the left */
+  --panel: #fbf4e3;       /* raised surface — warm ivory (not white) */
+  --panel-2: #efe2c8;     /* inputs / secondary wells */
+  --border: #cdba95;      /* clearly visible warm border */
+  --border-strong: #bda57f;
+  --ink: #2a2015;
+  --text: #33281a;
+  --text-dim: #6a5c45;
+  --text-mute: #8f7d63;
 
-  --terracotta: #c85a34;
+  --terracotta: #c1512a;
   --teal: #157a6e;
-  --ochre: #d99a2b;
+  --ochre: #cf8f1f;
   --plum: #8a4a6b;
   --accent: var(--terracotta);
-  --accent-soft: #f0d9c6;
+  --accent-soft: #f0d6bf;
 
   --radius: 16px;
   --radius-sm: 10px;
-  --shadow: 0 10px 40px -12px rgba(80, 50, 20, .22);
-  --shadow-sm: 0 2px 14px -6px rgba(80, 50, 20, .18);
+  --shadow: 0 14px 44px -14px rgba(70, 45, 15, .30);
+  --shadow-sm: 0 3px 16px -6px rgba(70, 45, 15, .24);
   --sidebar-w: 300px;
   --top-h: 66px;
 
@@ -56,9 +58,10 @@ h1, h2, h3, .brand-text strong { font-family: var(--font-display); font-weight: 
 /* ---------------------------------------------------------- topbar */
 .topbar {
   height: var(--top-h); display: flex; align-items: center; gap: 14px;
-  padding: 0 24px; background: rgba(255, 253, 247, .82);
+  padding: 0 24px; background: rgba(251, 244, 227, .92);
   backdrop-filter: blur(12px) saturate(1.2);
-  border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 40;
+  border-bottom: 1px solid var(--border-strong); box-shadow: 0 1px 0 rgba(255,255,255,.4);
+  position: sticky; top: 0; z-index: 40;
 }
 .brand { display: flex; align-items: center; gap: 13px; }
 .brand-mark {
@@ -80,8 +83,8 @@ h1, h2, h3, .brand-text strong { font-family: var(--font-display); font-weight: 
 /* ---------------------------------------------------------- layout */
 .layout { display: flex; min-height: calc(100vh - var(--top-h)); }
 .sidebar {
-  width: var(--sidebar-w); flex-shrink: 0; border-right: 1px solid var(--border);
-  background: linear-gradient(180deg, rgba(248,240,225,.5), transparent);
+  width: var(--sidebar-w); flex-shrink: 0; border-right: 1px solid var(--border-strong);
+  background: var(--sidebar);
   position: sticky; top: var(--top-h);
   height: calc(100vh - var(--top-h)); overflow-y: auto;
 }
@@ -118,7 +121,7 @@ h1, h2, h3, .brand-text strong { font-family: var(--font-display); font-weight: 
 .cmp-dot { width: 11px; height: 11px; border-radius: 3px; transform: rotate(45deg); }
 .cmp-slot select { border: none; background: none; font-family: var(--font-display); font-size: 16px; font-weight: 700; color: var(--ink); }
 .cmp-body { display: grid; grid-template-columns: 400px 1fr; gap: 28px; align-items: start; }
-.cmp-visual { background: #fefaf0; border: 1px solid var(--border-strong); border-radius: var(--radius); padding: 14px; box-shadow: var(--shadow-sm); }
+.cmp-visual { background: var(--panel); border: 1px solid var(--border-strong); border-radius: var(--radius); padding: 14px; box-shadow: var(--shadow-sm); }
 .cmp-map svg { filter: drop-shadow(0 6px 14px rgba(90, 60, 25, .12)); }
 .cmp-radar { width: 100%; height: 340px; }
 .cmp-map { display: flex; justify-content: center; padding-top: 6px; }
@@ -143,7 +146,7 @@ td.cmp-nat { text-align: right; padding: 8px 12px; border-bottom: 1px solid var(
 .scrolly { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
 .scrolly-graphic {
   position: sticky; top: calc(var(--top-h) + 24px); height: calc(100vh - var(--top-h) - 48px);
-  align-self: start; background: #faf1de; border: 1px solid var(--border-strong);
+  align-self: start; background: var(--panel); border: 1px solid var(--border-strong);
   border-radius: var(--radius); padding: 16px; display: flex; flex-direction: column;
 }
 .scrolly-chart { width: 100%; flex: 1; min-height: 300px; }
@@ -246,7 +249,7 @@ td.cmp-nat { text-align: right; padding: 8px 12px; border-bottom: 1px solid var(
 .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
 .kpi {
   position: relative; text-align: left; cursor: pointer; padding: 18px 18px 14px;
-  background: color-mix(in srgb, var(--kpi) 8%, #fbf1df);
+  background: color-mix(in srgb, var(--kpi) 8%, var(--panel));
   border: 1px solid color-mix(in srgb, var(--kpi) 22%, var(--border));
   border-radius: 14px; overflow: hidden; transition: box-shadow .2s var(--ease);
 }
@@ -266,7 +269,7 @@ td.cmp-nat { text-align: right; padding: 8px 12px; border-bottom: 1px solid var(
 .db-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 20px; }
 .db-card {
   position: relative; text-align: left;
-  background: color-mix(in srgb, var(--accent) 9%, #fbf1df);
+  background: color-mix(in srgb, var(--accent) 9%, var(--panel));
   border: 1px solid color-mix(in srgb, var(--accent) 24%, var(--border));
   border-radius: var(--radius); padding: 24px 22px 20px;
   overflow: hidden; cursor: pointer;
@@ -291,7 +294,7 @@ td.cmp-nat { text-align: right; padding: 8px 12px; border-bottom: 1px solid var(
   margin: 16px 0 4px; max-width: 720px; border-left: 3px solid var(--accent); padding-left: 15px;
 }
 .featured {
-  margin-top: 20px; background: #faf1de; border: 1px solid var(--border-strong);
+  margin-top: 20px; background: var(--panel); border: 1px solid var(--border-strong);
   border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-sm);
 }
 .featured-body { padding: 16px 14px 0; }
@@ -303,7 +306,7 @@ td.cmp-nat { text-align: right; padding: 8px 12px; border-bottom: 1px solid var(
 /* ---------------------------------------------------------- findings */
 .findings-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(232px, 1fr)); gap: 16px; }
 .finding {
-  text-align: left; background: #fbf3e6; border: 1px solid var(--border); border-radius: 14px;
+  text-align: left; background: color-mix(in srgb, var(--accent) 6%, var(--panel)); border: 1px solid var(--border); border-radius: 14px;
   padding: 18px 18px 16px; cursor: pointer; display: flex; flex-direction: column; gap: 11px;
   transition: border-color .18s var(--ease), box-shadow .18s var(--ease);
 }
@@ -332,11 +335,11 @@ td.cmp-nat { text-align: right; padding: 8px 12px; border-bottom: 1px solid var(
 .table-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 13px; }
 .table-card {
   text-align: left;
-  background: color-mix(in srgb, var(--accent) 7%, #fbf1df);
+  background: color-mix(in srgb, var(--accent) 7%, var(--panel));
   border: 1px solid color-mix(in srgb, var(--accent) 18%, var(--border));
   border-radius: 12px; padding: 15px 17px; transition: all .2s var(--ease);
 }
-.table-card:hover { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 13%, #fbf1df); box-shadow: var(--shadow-sm); transform: translateY(-2px); }
+.table-card:hover { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 13%, var(--panel)); box-shadow: var(--shadow-sm); transform: translateY(-2px); }
 .table-card-title { font-size: 13.5px; font-weight: 700; margin-bottom: 6px; line-height: 1.35; color: var(--ink); }
 .table-card-meta { font-size: 11.5px; color: var(--text-mute); font-weight: 500; }
 .tc-map { color: var(--teal); font-weight: 700; }
@@ -352,7 +355,7 @@ td.cmp-nat { text-align: right; padding: 8px 12px; border-bottom: 1px solid var(
 .exp-dl { color: var(--accent); font-weight: 700; }
 .exp-dl:hover { text-decoration: underline; }
 
-.exp-body { background: #faf1de; border: 1px solid var(--border-strong); border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow-sm); }
+.exp-body { background: var(--panel); border: 1px solid var(--border-strong); border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow-sm); }
 .controls { display: flex; gap: 24px; flex-wrap: wrap; align-items: flex-start; margin-bottom: 8px; }
 .ctrl { display: flex; flex-direction: column; gap: 8px; }
 .ctrl.grow { flex: 1; min-width: 260px; }
