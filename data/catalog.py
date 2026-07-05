@@ -65,6 +65,18 @@ EXCLUDE = {
 }
 MAX_MB = 8.0  # any CSV larger than this is treated as microdata and skipped
 
+# per-table column renames applied at build time — fixes cryptic headers that
+# come from the source builders (durable-good codes, single-letter event vars).
+# keyed by file stem. Durable codes verified in fig_bienes_durables.py / M18.
+COLUMN_RENAMES = {
+    "bienes_durables_decil_2025": {
+        "12": "Refrigeradora", "7": "Computadora", "13": "Lavadora",
+        "17": "Auto/camioneta", "14": "Microondas", "2": "TV a color",
+    },
+    "panel_evento_hijo_empleo_profile_madre": {"e": "anios_desde_hijo", "level": "empleo_pct"},
+    "panel_evento_hijo_empleo_profile_padre": {"e": "anios_desde_hijo", "level": "empleo_pct"},
+}
+
 # ---------------------------------------------------------------- themes (enaho sub-sections)
 # keyword -> (theme_key, theme_label). First match wins.
 _THEME_RULES = [

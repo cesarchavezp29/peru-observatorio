@@ -39,9 +39,10 @@ export function isCountLike(col) {
 
 // helper / internal columns that shouldn't be offered as chart series
 const HIDE = new Set(['cob_peso', 'wt', 'wt_raw', 'cluster', 'caseid', 'codigo',
-  'n_obs', 'n_depto', 'n_hh', 'n_m', 'n_h', 'waves', 'p103_missing', 'fuente'])
+  'n_obs', 'n_depto', 'n_hh', 'n_m', 'n_h', 'waves', 'p103_missing', 'fuente',
+  'codciudad', 'oficial', 'pet', 'release', 'wave', 'window'])
 export function isHiddenSeries(col) {
-  return HIDE.has(col) || col.endsWith('_missing') || col.endsWith('_raw')
+  return HIDE.has(col) || col === 'n' || col.endsWith('_missing') || col.endsWith('_raw')
 }
 
 // choose default series: numeric, not the x, not count-like, not hidden
@@ -91,6 +92,9 @@ const LABELS = {
   poor_0w_pct: 'Pobre 0 de 5 años', poor_1w_pct: 'Pobre 1 de 5 años',
   poor_2w_pct: 'Pobre 2 de 5 años', poor_3w_pct: 'Pobre 3 de 5 años',
   poor_4w_pct: 'Pobre 4 de 5 años', poor_5w_pct: 'Pobre 5 de 5 años',
+  anios_desde_hijo: 'Años desde el 1er hijo', empleo_pct: 'Empleo (%)',
+  desempleo: 'Desempleo (%)', informalidad: 'Informalidad (%)', ingreso: 'Ingreso laboral',
+  ciudad: 'Ciudad', cohorte: 'Cohorte de nacimiento', decil: 'Decil de ingreso',
 }
 const SUFFIX = [
   ['_pct', ' (%)'], ['_h', ' (hombres)'], ['_m', ' (mujeres)'],

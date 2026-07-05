@@ -85,6 +85,13 @@ def main():
             )
             print(f"  ! varchar fallback: {p.name} ({e})")
 
+        # fix cryptic column headers at the source (durable codes, event vars)
+        for old, new in cat.COLUMN_RENAMES.get(stem, {}).items():
+            try:
+                con.execute(f'ALTER TABLE {schema}.{tname} RENAME COLUMN "{old}" TO "{new}"')
+            except Exception:
+                pass
+
         info = con.execute(f"PRAGMA table_info('{schema}.{tname}')").fetchall()
         cols = [r[1] for r in info]
         n = con.execute(f"SELECT count(*) FROM {schema}.{tname}").fetchone()[0]
