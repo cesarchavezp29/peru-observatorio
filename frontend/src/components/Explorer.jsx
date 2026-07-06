@@ -151,11 +151,14 @@ function TableExplorer({ schema, table }) {
       // many string categories (industries, cities) -> ranked horizontal bars
       if (!capMeta.mappable && !isTemporal(capX)
           && typeof d.rows[0]?.[capX] === 'string' && d.rows.length > 15) setCtype('barh')
-      // refine default series now that we can see magnitudes (skip long-format).
-      // Consider ALL candidates so the headline metric (e.g. "Brecha") wins even
-      // if it's not among the first columns.
-      if (capMeta && !capMeta.category_col && capCand && capCand.length > 1) {
-        const refined = smartDefaultSeries(d.rows, capCand, capMeta.title)
+      // refine default series now that we can see magnitudes. Consider ALL
+      // candidates so the headline metric wins wherever it sits, and apply it
+      // to long-format tables too (their value columns can differ in scale).
+      if (capMeta && capCand && capCand.length > 1) {
+        const src = capMeta.category_col
+          ? d.rows.filter((r) => String(r[capMeta.category_col]) === String(d.rows[0][capMeta.category_col]))
+          : d.rows
+        const refined = smartDefaultSeries(src, capCand, capMeta.title)
         if (refined.length && !(refined.length === capYs.length
             && refined.every((c, i) => c === capYs[i]))) setYCols(refined)
       }
@@ -286,6 +289,29 @@ function TableExplorer({ schema, table }) {
     if (availTypes.length && !availTypes.some((t) => t.k === ctype)) setCtype(availTypes[0].k)
   }, [availTypes]) // eslint-disable-line
 
+  // a plain-language caption that explains what the current figure shows
+  const caption = useMemo(() => {
+    if (!meta) return ''
+    if (ctype === 'map' && mapRes?.data?.length) {
+      const d = [...mapRes.data].sort((a, b) => b.value - a.value)
+      return `Muestra ${labelFor(mapValueCol).toLowerCase()} por departamento. Más alto en ${d[0].name} (${fmtNum(d[0].value)}) y más bajo en ${d[d.length - 1].name} (${fmtNum(d[d.length - 1].value)}).`
+    }
+    if (ctype === 'heat') return 'Matriz de transición: cada celda es el % que pasa de la fila (origen) a la columna (destino). La diagonal marca la persistencia; fuera de ella, la movilidad.'
+    const col = yCols[0]
+    if (!col || viewRows.length < 2) return ''
+    const vals = viewRows.map((r) => ({ x: r[xCol], v: toNum(r[col]) })).filter((o) => Number.isFinite(o.v))
+    if (vals.length < 2) return ''
+    const nm = (x) => xCol === meta.dept_col ? deptName(x) : (typeof x === 'string' ? labelFor(x) : x)
+    if (isTemporal(xCol)) {
+      const f = vals[0], l = vals[vals.length - 1]
+      const dir = l.v >= f.v ? 'subió' : 'bajó'
+      const yr = (x) => String(x).slice(0, 4)
+      return `Evolución de ${labelFor(col).toLowerCase()}: ${dir} de ${fmtNum(f.v)} en ${yr(f.x)} a ${fmtNum(l.v)} en ${yr(l.x)}.`
+    }
+    const s = [...vals].sort((a, b) => b.v - a.v)
+    return `${labelFor(col)} por ${labelFor(xCol).toLowerCase()}. Mayor en ${nm(s[0].x)} (${fmtNum(s[0].v)}) y menor en ${nm(s[s.length - 1].x)} (${fmtNum(s[s.length - 1].v)}).`
+  }, [meta, viewRows, xCol, yCols, ctype, mapRes, mapValueCol])
+
   if (err) return <div className="error">No se pudo cargar: {err}</div>
   if (!meta) return <TableSkeleton />
 
@@ -395,6 +421,8 @@ function TableExplorer({ schema, table }) {
             <div className="stat-cell stat-series"><span className="stat-lbl">Serie</span><span className="stat-num-sm">{labelFor(summary.col)}</span></div>
           </div>
         )}
+
+        {caption && <p className="exp-caption">{caption}</p>}
 
         <div className="chart-wrap">
           {isMap

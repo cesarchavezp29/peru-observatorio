@@ -113,6 +113,9 @@ const LABELS = {
   no_explicada_log: 'Parte no explicada (discriminación)',
   mincer_nacional_pct: 'Retorno a la educación (%/año)',
   wage_curve_elasticidad: 'Elasticidad curva de salarios',
+  pct_trust: 'Confianza (%)', institution: 'Institución', pct_empleo: 'Empleo (%)',
+  pct_informal: 'Informalidad (%)', ing_medio: 'Ingreso medio', pct_sold: 'Vendido al mercado (%)',
+  share: 'Participación (%)', share_fem: 'Participación femenina (%)', ratio: 'Ratio salarial (M/H)',
 }
 const SUFFIX = [
   ['_pct', ' (%)'], ['_h', ' (hombres)'], ['_m', ' (mujeres)'],

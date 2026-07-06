@@ -22,6 +22,12 @@ CATALOG: dict[tuple[str, str], dict] = {}   # (schema, table) -> meta
 _COLS: dict[tuple[str, str], dict[str, str]] = {}  # (schema, table) -> {col: type}
 _DEPT: dict[tuple[str, str], str] = {}      # (schema, table) -> dept column
 _TEMPORAL: dict[tuple[str, str], str] = {}  # (schema, table) -> temporal column
+_CATEGORY: dict[tuple[str, str], str] = {}  # (schema, table) -> long-format category col
+
+
+def _isnum(ty: str) -> bool:
+    return any(k in (ty or "").upper() for k in
+               ("INT", "DOUBLE", "DECIMAL", "FLOAT", "REAL", "NUMERIC", "HUGEINT"))
 
 _TEMPORAL_KEYS = ("anio", "ano", "year", "ym", "periodo", "trimestre")
 
@@ -67,6 +73,24 @@ def _load_catalog() -> None:
             if c.lower() in _TEMPORAL_KEYS:
                 _TEMPORAL[(schema, table)] = c
                 break
+        # long-format category dimension: an explicit indicator column, or a
+        # low-cardinality string column that repeats the temporal/dept axis
+        # (e.g. `sector` in a year×sector table) -> needs a selector to chart.
+        tcol = _TEMPORAL.get((schema, table))
+        dcol = _DEPT.get((schema, table))
+        n = CATALOG[(schema, table)]["n_rows"]
+        cat = next((c for c in cols if c.lower() in
+                    ("indicator", "indicador", "variable", "concepto")), None)
+        if not cat and (tcol or dcol) and n:
+            for c, ty in cols.items():
+                if c in (tcol, dcol) or _isnum(ty):
+                    continue
+                d = _con.execute(f'SELECT count(DISTINCT "{c}") FROM {schema}.{table}').fetchone()[0]
+                if 2 <= d <= 30 and d * 1.5 < n:
+                    cat = c
+                    break
+        if cat:
+            _CATEGORY[(schema, table)] = cat
 
 
 _load_catalog()
@@ -169,15 +193,10 @@ _CATEGORY_NAMES = ("indicator", "indicador", "variable", "concepto")
 
 
 def category_col(schema: str, table: str) -> str | None:
-    """A 'long format' category column whose sibling `value` stacks many
-    indicators across a temporal/dept dimension — only then is a selector right.
-    A plain (category, value) table with no other dimension is just a bar."""
-    if not (temporal_col(schema, table) or dept_col(schema, table)):
-        return None
-    for c in _COLS.get((schema, table), {}):
-        if c.lower() in _CATEGORY_NAMES:
-            return c
-    return None
+    """The long-format category dimension (detected at load): an indicator
+    column, or a low-cardinality string column that repeats the time/dept axis.
+    Charting one category at a time avoids zig-zag lines across categories."""
+    return _CATEGORY.get((schema, table))
 
 
 _SKIP_PREVIEW = {'n', 'nn', 'n_hh', 'n_m', 'n_h', 'n_obs', 'n_depto', 'waves',
