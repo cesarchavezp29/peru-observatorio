@@ -6,6 +6,7 @@ import EChart from './EChart'
 import MapChart from './MapChart'
 import NetworkChart from './NetworkChart'
 import FlowMapChart from './FlowMapChart'
+import BarRaceChart from './BarRaceChart'
 import SectionHero from './SectionHero'
 import MiniSpark from './MiniSpark'
 import { guessX, numericCols, defaultSeries, smartDefaultSeries, guessChartType, buildOption, buildHeatmapOption, matrixInfo, fromToInfo, flowInfo, isDeptNodes, isNumeric, isTemporal, labelFor, isHiddenSeries, isCountLike, fmtNum, toNum, deptName } from '../chartLogic'
@@ -239,7 +240,7 @@ function TableExplorer({ schema, table }) {
   // a one-row table is a composition: transpose its columns into labelled bars
   const singleRow = ctype !== 'map' && ctype !== 'heat' && viewRows.length === 1
   const option = useMemo(() => {
-    if (!viewRows.length || ctype === 'red' || ctype === 'flowmap') return null
+    if (!viewRows.length || ctype === 'red' || ctype === 'flowmap' || ctype === 'race') return null
     if (ctype === 'heat' && matrix) {
       return buildHeatmapOption({ rows: viewRows, rowKey: matrix.rowKey, cols: matrix.cols })
     }
@@ -297,7 +298,7 @@ function TableExplorer({ schema, table }) {
     // departments within each year); map + dept bars when one row per dept
     if (meta?.mappable) {
       return meta.temporal_col
-        ? [{ k: 'map', l: 'Mapa' }]
+        ? [{ k: 'map', l: 'Mapa' }, { k: 'race', l: 'Carrera' }]
         : [{ k: 'map', l: 'Mapa' }, { k: 'bar', l: 'Barras' }, { k: 'barh', l: 'Barras H.' }]
     }
     const arr = []
@@ -324,6 +325,7 @@ function TableExplorer({ schema, table }) {
       return `Muestra ${labelFor(mapValueCol).toLowerCase()} por ${unit}. Más alto en ${d[0].name} (${fmtNum(d[0].value)}) y más bajo en ${d[d.length - 1].name} (${fmtNum(d[d.length - 1].value)}).`
     }
     if (ctype === 'heat') return 'Matriz de transición: cada celda es el % que pasa de la fila (origen) a la columna (destino). La diagonal marca la persistencia; fuera de ella, la movilidad.'
+    if (ctype === 'race') return `Ranking animado de ${labelFor(mapValueCol).toLowerCase()} por departamento. Cada barra corre y se reordena año a año, del primero al último dato disponible.`
     if ((ctype === 'red' || ctype === 'flowmap') && flow) {
       const es = viewRows.map((r) => ({ s: r[flow.source], t: r[flow.target], v: toNum(r[flow.value]) }))
         .filter((e) => Number.isFinite(e.v) && e.s !== e.t).sort((a, b) => b.v - a.v)
@@ -402,7 +404,7 @@ function TableExplorer({ schema, table }) {
               </select>
             </div>
           )}
-          {!isMap && !singleRow && !isHeat && ctype !== 'red' && ctype !== 'flowmap' && (
+          {!isMap && !singleRow && !isHeat && ctype !== 'red' && ctype !== 'flowmap' && ctype !== 'race' && (
             <div className="ctrl">
               <label>Eje X</label>
               <select value={xCol} onChange={(e) => {
@@ -430,10 +432,12 @@ function TableExplorer({ schema, table }) {
               </div>
             </div>
           )}
-          {singleRow || isHeat || ctype === 'red' || ctype === 'flowmap'
+          {singleRow || isHeat || ctype === 'red' || ctype === 'flowmap' || ctype === 'race'
             ? <div className="ctrl grow"><label>Vista</label>
                 <div className="single-note">{isHeat
                   ? 'Matriz de transición: cada celda es el % que va de la fila (origen) a la columna (destino).'
+                  : ctype === 'race'
+                  ? 'Ranking animado: las barras se reordenan solas conforme avanza el año. Usa ❚❚ para pausar.'
                   : ctype === 'flowmap'
                   ? 'Mapa de flujos: las líneas animadas van del departamento de origen al de destino. Arrastra para desplazar y usa la rueda para acercar.'
                   : ctype === 'red'
@@ -466,7 +470,10 @@ function TableExplorer({ schema, table }) {
         {caption && <p className="exp-caption">{caption}</p>}
 
         <div className="chart-wrap">
-          {ctype === 'flowmap' && flow
+          {ctype === 'race'
+            ? <BarRaceChart rows={viewRows} entityCol={meta.dept_col}
+                valueCol={mapValueCol} timeCol={meta.temporal_col} nameFn={deptName} />
+            : ctype === 'flowmap' && flow
             ? <FlowMapChart rows={viewRows} flow={flow} />
             : ctype === 'red' && flow
             ? <NetworkChart rows={viewRows} flow={flow} />
