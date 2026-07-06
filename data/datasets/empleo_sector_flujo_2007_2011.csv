@@ -1,0 +1,102 @@
+origen,destino,personas
+Agropecuario/Pesca,Agropecuario/Pesca,157128
+Comercio,Comercio,81930
+Manufactura,Manufactura,35484
+Educación,Educación,29272
+Otros Servicios,Otros Servicios,23987
+Transporte,Transporte,23912
+Construcción,Construcción,20698
+Restaurantes/Hoteles,Restaurantes/Hoteles,19508
+Adm. Pública,Adm. Pública,14070
+Salud,Salud,13583
+Agropecuario/Pesca,Comercio,12141
+Comercio,Otros Servicios,9029
+Comercio,Agropecuario/Pesca,6625
+Manufactura,Comercio,5854
+Otros Servicios,Comercio,5805
+Comercio,Manufactura,5640
+Manufactura,Agropecuario/Pesca,4843
+Agropecuario/Pesca,Manufactura,4810
+Restaurantes/Hoteles,Otros Servicios,4573
+Manufactura,Otros Servicios,4480
+Otros Servicios,Transporte,4419
+Agropecuario/Pesca,Otros Servicios,4210
+Transporte,Agropecuario/Pesca,4201
+Agropecuario/Pesca,Construcción,4162
+Transporte,Comercio,4135
+Agropecuario/Pesca,Restaurantes/Hoteles,4013
+Comercio,Restaurantes/Hoteles,3911
+Comercio,Transporte,3654
+Otros Servicios,Manufactura,3629
+Restaurantes/Hoteles,Agropecuario/Pesca,3362
+Construcción,Otros Servicios,3266
+Agropecuario/Pesca,Transporte,3233
+Construcción,Agropecuario/Pesca,3180
+Otros Servicios,Educación,2833
+Comercio,Educación,2813
+Adm. Pública,Comercio,2765
+Agropecuario/Pesca,Adm. Pública,2693
+Otros Servicios,Construcción,2419
+Manufactura,Restaurantes/Hoteles,2299
+Adm. Pública,Construcción,2277
+Educación,Adm. Pública,2134
+Otros Servicios,Salud,2081
+Otros Servicios,Agropecuario/Pesca,2079
+Restaurantes/Hoteles,Comercio,2059
+Manufactura,Educación,1941
+Agropecuario/Pesca,Minería,1907
+Comercio,Construcción,1896
+Adm. Pública,Agropecuario/Pesca,1771
+Otros Servicios,Adm. Pública,1684
+Otros Servicios,Restaurantes/Hoteles,1620
+Minería,Minería,1598
+Comercio,Adm. Pública,1563
+Salud,Comercio,1539
+Construcción,Transporte,1520
+Transporte,Otros Servicios,1453
+Salud,Otros Servicios,1331
+Transporte,Educación,1291
+Transporte,Construcción,1201
+Manufactura,Construcción,1074
+Adm. Pública,Manufactura,1058
+Restaurantes/Hoteles,Educación,1021
+Minería,Comercio,984
+Minería,Transporte,931
+Restaurantes/Hoteles,Construcción,895
+Salud,Adm. Pública,873
+Construcción,Comercio,862
+Adm. Pública,Minería,808
+Manufactura,Transporte,763
+Construcción,Manufactura,721
+Construcción,Adm. Pública,716
+Comercio,Salud,682
+Minería,Manufactura,657
+Educación,Transporte,652
+Agropecuario/Pesca,Salud,594
+Educación,Restaurantes/Hoteles,593
+Comercio,Electricidad/Agua,574
+Transporte,Adm. Pública,521
+Educación,Otros Servicios,517
+Restaurantes/Hoteles,Transporte,472
+Transporte,Manufactura,453
+Construcción,Minería,418
+Restaurantes/Hoteles,Manufactura,410
+Adm. Pública,Educación,364
+Agropecuario/Pesca,Educación,349
+Construcción,Restaurantes/Hoteles,347
+Adm. Pública,Restaurantes/Hoteles,331
+Comercio,Minería,308
+Agropecuario/Pesca,Electricidad/Agua,287
+Adm. Pública,Electricidad/Agua,238
+Adm. Pública,Salud,201
+Adm. Pública,Transporte,183
+Transporte,Restaurantes/Hoteles,178
+Otros Servicios,Minería,156
+Manufactura,Adm. Pública,144
+Minería,Agropecuario/Pesca,144
+Minería,Adm. Pública,126
+Educación,Comercio,115
+Minería,Construcción,100
+Construcción,Electricidad/Agua,98
+Electricidad/Agua,Electricidad/Agua,53
+Minería,Restaurantes/Hoteles,33

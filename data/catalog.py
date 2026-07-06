@@ -183,6 +183,7 @@ _TITLES = {
     "gini_nacional_tiempo": "Desigualdad: Gini del ingreso (2004-2025)",
     "gini_departamento_tiempo": "Gini del ingreso por departamento",
     "migracion_od_departamento": "Migración interna: red entre departamentos",
+    "empleo_sector_flujo_2007_2011": "Movilidad laboral: red de cambios de sector (2007-2011)",
     "income_real_province_2021_2025": "Ingreso real por provincia (2021 vs 2025)",
     "income_real_district_2021_2025": "Ingreso real por distrito (2021 vs 2025)",
     "official_poverty_replication": "Pobreza: replica propia vs oficial INEI",
