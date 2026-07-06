@@ -1,7 +1,7 @@
 # One-click deploy on Render (https://render.com) -> New > Blueprint > this repo.
 services:
   - type: web
-    name: observatorio-peru
+    name: peruobservatorio
     runtime: docker
     plan: free
     dockerfilePath: ./Dockerfile
