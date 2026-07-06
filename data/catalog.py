@@ -64,7 +64,7 @@ EXCLUDE = {
     "epen_codciudad_inferred", # city-inference reference, not an indicator
     "panel_evento_hijo_empleo", # 48k person-event microdata (use the _profile aggregates)
     "panel_intergen_pooled",    # group×age profile with CI — no sensible generic chart
-    "panel_intergen_educacion_2007_2011",
+    "panel_intergen_educacion_2007-2011",  # hyphenated CSV stem (matched pre-table_name)
     "trust_income_2025",        # 30k household-level microdata (binscatter source)
     "who_trusts_state_2025",    # 30k person-level microdata (regression source)
 }

@@ -30,7 +30,9 @@ BUILD_FROM_LOCAL = not SRC.exists()
 def eligible(src: Path) -> list[Path]:
     out = []
     for p in sorted(src.glob("*.csv")):
-        if p.stem in cat.EXCLUDE:
+        # match EXCLUDE against the raw stem OR the normalized table name, so a
+        # hyphenated CSV (e.g. ..._2007-2011) can be excluded by either form
+        if p.stem in cat.EXCLUDE or cat.table_name(p.stem) in cat.EXCLUDE:
             continue
         if p.stat().st_size > cat.MAX_MB * 1024 * 1024:
             print(f"  skip (microdata {p.stat().st_size/1e6:.0f}MB): {p.name}")
