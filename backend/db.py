@@ -103,9 +103,11 @@ def _load_catalog() -> None:
         tcol = _TEMPORAL.get((schema, table))
         dcol = _DEPT.get((schema, table))
         n = CATALOG[(schema, table)]["n_rows"]
+        low = {c.lower() for c in cols}
+        is_flow = ({"origen", "source", "desde"} & low) and ({"destino", "target", "hacia"} & low)
         cat = next((c for c in cols if c.lower() in
                     ("indicator", "indicador", "variable", "concepto")), None)
-        if not cat and (tcol or dcol) and n:
+        if not cat and not is_flow and (tcol or dcol) and n:
             for c, ty in cols.items():
                 if c in (tcol, dcol) or _isnum(ty):
                     continue

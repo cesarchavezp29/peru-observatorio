@@ -129,8 +129,8 @@ function TableExplorer({ schema, table }) {
       capFlow = fl
       // dept-keyed tables open as a map (avoids a 1..25 code axis)
       setCtype(fl ? 'red' : m.mappable ? 'map' : (ft ? 'line' : guessChartType(x, m.columns, types)))
-      // periods for map filtering
-      if (m.mappable && m.temporal_col) {
+      // periods for map / flow-map year filtering
+      if ((m.mappable || fl) && m.temporal_col) {
         api.distinct(schema, table, m.temporal_col).then((r) => {
           if (!alive) return
           const vals = r.values
@@ -187,7 +187,7 @@ function TableExplorer({ schema, table }) {
 
   // ▶ play: animate the choropleth through its periods
   useEffect(() => {
-    if (!playing || ctype !== 'map' || periods.length < 2) return
+    if (!playing || !['map', 'flowmap', 'red'].includes(ctype) || periods.length < 2) return
     const id = setInterval(() => {
       setPeriod((p) => {
         const i = periods.indexOf(p)
@@ -225,12 +225,16 @@ function TableExplorer({ schema, table }) {
     })
   }, [rows, yCols])
 
-  // for long-format tables, keep only the selected indicator's rows
+  // for long-format tables, keep only the selected indicator's rows; for flow
+  // tables with a year axis, keep only the selected year
   const viewRows = useMemo(() => {
+    let r = cleanRows
     if (meta?.category_col && category != null)
-      return cleanRows.filter((r) => String(r[meta.category_col]) === String(category))
-    return cleanRows
-  }, [cleanRows, meta, category])
+      r = r.filter((row) => String(row[meta.category_col]) === String(category))
+    if (flow && meta?.temporal_col && period != null)
+      r = r.filter((row) => String(row[meta.temporal_col]) === String(period))
+    return r
+  }, [cleanRows, meta, category, flow, period])
 
   // a one-row table is a composition: transpose its columns into labelled bars
   const singleRow = ctype !== 'map' && ctype !== 'heat' && viewRows.length === 1
@@ -270,7 +274,8 @@ function TableExplorer({ schema, table }) {
 
   // summary stats for a temporal single-series view
   const summary = useMemo(() => {
-    if (ctype === 'map' || !isTemporal(xCol) || !yCols.length || viewRows.length < 2) return null
+    if (ctype === 'map' || ctype === 'flowmap' || ctype === 'red' || flow
+      || !isTemporal(xCol) || !yCols.length || viewRows.length < 2) return null
     const col = yCols[0]
     const pts = viewRows.map((r) => Number(r[col])).filter((v) => Number.isFinite(v))
     if (pts.length < 2) return null
@@ -278,7 +283,7 @@ function TableExplorer({ schema, table }) {
       col, latest: pts[pts.length - 1], first: pts[0],
       min: Math.min(...pts), max: Math.max(...pts),
     }
-  }, [viewRows, xCol, yCols, ctype])
+  }, [viewRows, xCol, yCols, ctype, flow])
 
   // chart types available for THIS table's shape (not a fixed set for all)
   const flowGeo = useMemo(() => isDeptNodes(cleanRows, flow), [cleanRows, flow])
@@ -408,7 +413,7 @@ function TableExplorer({ schema, table }) {
               </select>
             </div>
           )}
-          {isMap && periods.length > 1 && (
+          {(isMap || ctype === 'flowmap' || ctype === 'red') && periods.length > 1 && (
             <div className="ctrl">
               <label>{labelFor(meta.temporal_col)}</label>
               <div className="period-row">

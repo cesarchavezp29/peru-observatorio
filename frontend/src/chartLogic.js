@@ -382,7 +382,7 @@ export function flowInfo(columns, types, nRows = 99) {
   const s = columns.find((c, i) => FLOW_SRC.includes(low[i]))
   const t = columns.find((c, i) => FLOW_TGT.includes(low[i]))
   if (!s || !t || nRows < 6) return null
-  const val = columns.find((c) => c !== s && c !== t && isNumeric(types[c]))
+  const val = columns.find((c) => c !== s && c !== t && isNumeric(types[c]) && !isTemporal(c))
   return val ? { source: s, target: t, value: val } : null
 }
 
