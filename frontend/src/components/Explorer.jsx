@@ -4,9 +4,10 @@ import { motion } from 'framer-motion'
 import { api } from '../api'
 import EChart from './EChart'
 import MapChart from './MapChart'
+import NetworkChart from './NetworkChart'
 import SectionHero from './SectionHero'
 import MiniSpark from './MiniSpark'
-import { guessX, numericCols, defaultSeries, smartDefaultSeries, guessChartType, buildOption, buildHeatmapOption, matrixInfo, fromToInfo, isNumeric, isTemporal, labelFor, isHiddenSeries, isCountLike, fmtNum, toNum, deptName } from '../chartLogic'
+import { guessX, numericCols, defaultSeries, smartDefaultSeries, guessChartType, buildOption, buildHeatmapOption, matrixInfo, fromToInfo, flowInfo, isNumeric, isTemporal, labelFor, isHiddenSeries, isCountLike, fmtNum, toNum, deptName } from '../chartLogic'
 
 const CHART_TYPES = [
   { k: 'line', l: 'Líneas' },
@@ -92,13 +93,14 @@ function TableExplorer({ schema, table }) {
   const [category, setCategory] = useState(null)
   const [categories, setCategories] = useState([])
   const [matrix, setMatrix] = useState(null)
+  const [flow, setFlow] = useState(null)
   const [playing, setPlaying] = useState(false)
 
   // load meta + data on table change
   useEffect(() => {
     setMeta(null); setData(null); setErr(null)
     setMapRes(null); setPeriod(null); setPeriods([])
-    setCategory(null); setCategories([]); setMatrix(null); setPlaying(false)
+    setCategory(null); setCategories([]); setMatrix(null); setFlow(null); setPlaying(false)
     let alive = true
     let capMeta, capX, capYs, capCand
     api.tableMeta(schema, table).then((m) => {
@@ -120,8 +122,11 @@ function TableExplorer({ schema, table }) {
       }
       capMeta = m; capX = x; capYs = ys; capCand = cand
       setMeta(m); setXCol(x); setYCols(ys)
+      // origin->destination flow table -> network (chord) chart
+      const fl = flowInfo(m.columns, types, m.n_rows)
+      if (fl) setFlow(fl)
       // dept-keyed tables open as a map (avoids a 1..25 code axis)
-      setCtype(m.mappable ? 'map' : (ft ? 'line' : guessChartType(x, m.columns, types)))
+      setCtype(fl ? 'red' : m.mappable ? 'map' : (ft ? 'line' : guessChartType(x, m.columns, types)))
       // periods for map filtering
       if (m.mappable && m.temporal_col) {
         api.distinct(schema, table, m.temporal_col).then((r) => {
@@ -226,7 +231,7 @@ function TableExplorer({ schema, table }) {
   // a one-row table is a composition: transpose its columns into labelled bars
   const singleRow = ctype !== 'map' && ctype !== 'heat' && viewRows.length === 1
   const option = useMemo(() => {
-    if (!viewRows.length) return null
+    if (!viewRows.length || ctype === 'red') return null
     if (ctype === 'heat' && matrix) {
       return buildHeatmapOption({ rows: viewRows, rowKey: matrix.rowKey, cols: matrix.cols })
     }
@@ -273,6 +278,7 @@ function TableExplorer({ schema, table }) {
 
   // chart types available for THIS table's shape (not a fixed set for all)
   const availTypes = useMemo(() => {
+    if (flow) return [{ k: 'red', l: 'Red' }]
     if (matrix) return [{ k: 'heat', l: 'Matriz' }]
     if (rows.length === 1 && !meta?.mappable) return [{ k: 'bar', l: 'Barras' }, { k: 'barh', l: 'Barras H.' }]
     // dept-keyed tables: map only when temporal (a bar/line would zig-zag across
@@ -289,7 +295,7 @@ function TableExplorer({ schema, table }) {
     }
     arr.push({ k: 'bar', l: 'Barras' }, { k: 'barh', l: 'Barras H.' })
     return arr
-  }, [matrix, rows.length, xCol, types, meta])
+  }, [flow, matrix, rows.length, xCol, types, meta])
 
   // if the current type isn't valid for this shape (e.g. line on a category
   // axis after switching X), fall back to the first sensible one
@@ -306,6 +312,13 @@ function TableExplorer({ schema, table }) {
       return `Muestra ${labelFor(mapValueCol).toLowerCase()} por ${unit}. Más alto en ${d[0].name} (${fmtNum(d[0].value)}) y más bajo en ${d[d.length - 1].name} (${fmtNum(d[d.length - 1].value)}).`
     }
     if (ctype === 'heat') return 'Matriz de transición: cada celda es el % que pasa de la fila (origen) a la columna (destino). La diagonal marca la persistencia; fuera de ella, la movilidad.'
+    if (ctype === 'red' && flow) {
+      const es = viewRows.map((r) => ({ s: r[flow.source], t: r[flow.target], v: toNum(r[flow.value]) }))
+        .filter((e) => Number.isFinite(e.v) && e.s !== e.t).sort((a, b) => b.v - a.v)
+      const top = es[0]
+      return `Red de flujos entre ${new Set(viewRows.flatMap((r) => [r[flow.source], r[flow.target]])).size} nodos. ` +
+        (top ? `El mayor flujo es ${top.s} → ${top.t} (${fmtNum(top.v)}). El grosor de cada arco es la magnitud del flujo.` : '')
+    }
     const col = yCols[0]
     if (!col || viewRows.length < 2) return ''
     const vals = viewRows.map((r) => ({ x: r[xCol], v: toNum(r[col]) })).filter((o) => Number.isFinite(o.v))
@@ -374,7 +387,7 @@ function TableExplorer({ schema, table }) {
               </select>
             </div>
           )}
-          {!isMap && !singleRow && !isHeat && (
+          {!isMap && !singleRow && !isHeat && ctype !== 'red' && (
             <div className="ctrl">
               <label>Eje X</label>
               <select value={xCol} onChange={(e) => {
@@ -402,10 +415,12 @@ function TableExplorer({ schema, table }) {
               </div>
             </div>
           )}
-          {singleRow || isHeat
+          {singleRow || isHeat || ctype === 'red'
             ? <div className="ctrl grow"><label>Vista</label>
                 <div className="single-note">{isHeat
                   ? 'Matriz de transición: cada celda es el % que va de la fila (origen) a la columna (destino).'
+                  : ctype === 'red'
+                  ? 'Red origen → destino: pasa el cursor sobre un nodo para resaltar sus flujos. Arrastra para rotar y usa la rueda para acercar.'
                   : 'Composición de una sola observación — cada barra es una columna de la tabla.'}</div></div>
             : <div className="ctrl grow">
                 <label>{isMap ? 'Indicador (color)' : 'Series (eje Y)'}</label>
@@ -434,7 +449,9 @@ function TableExplorer({ schema, table }) {
         {caption && <p className="exp-caption">{caption}</p>}
 
         <div className="chart-wrap">
-          {isMap
+          {ctype === 'red' && flow
+            ? <NetworkChart rows={viewRows} flow={flow} />
+            : isMap
             ? (mapRes && mapRes.data.length
                 ? <MapChart data={mapRes.data} level={meta.geo_level || 'dept'}
                     title={meta.category_col && category != null ? labelFor(category) : labelFor(mapValueCol)}

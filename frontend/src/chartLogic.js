@@ -374,6 +374,62 @@ export function fromToInfo(columns) {
   return null
 }
 
+// Detect an origin->destination flow (edge-list) table for a network chart.
+const FLOW_SRC = ['origen', 'source', 'desde', 'origin']
+const FLOW_TGT = ['destino', 'target', 'hacia', 'dest']
+export function flowInfo(columns, types, nRows = 99) {
+  const low = columns.map((c) => c.toLowerCase())
+  const s = columns.find((c, i) => FLOW_SRC.includes(low[i]))
+  const t = columns.find((c, i) => FLOW_TGT.includes(low[i]))
+  if (!s || !t || nRows < 6) return null
+  const val = columns.find((c) => c !== s && c !== t && isNumeric(types[c]))
+  return val ? { source: s, target: t, value: val } : null
+}
+
+// Build a circular (chord-style) network from an edge list. Nodes sized by
+// total flow, edges by value, coloured by source; top `cap` edges kept.
+export function buildNetworkOption(rows, flow, { cap = 70 } = {}) {
+  const t = tokens()
+  const total = {}
+  rows.forEach((r) => {
+    const v = toNum(r[flow.value]) || 0
+    total[r[flow.source]] = (total[r[flow.source]] || 0) + v
+    total[r[flow.target]] = (total[r[flow.target]] || 0) + v
+  })
+  const names = Object.keys(total).sort((a, b) => total[b] - total[a])
+  const maxTot = Math.max(...Object.values(total), 1)
+  const color = {}
+  names.forEach((n, i) => { color[n] = PALETTE[i % PALETTE.length] })
+  const edges = rows.map((r) => ({ s: r[flow.source], t: r[flow.target], v: toNum(r[flow.value]) || 0 }))
+    .filter((e) => e.v > 0 && e.s !== e.t).sort((a, b) => b.v - a.v).slice(0, cap)
+  const maxV = Math.max(...edges.map((e) => e.v), 1)
+  return {
+    textStyle: { fontFamily: FONT },
+    tooltip: {
+      ...tooltip('item'),
+      formatter: (p) => p.dataType === 'edge'
+        ? `${p.data.source} → ${p.data.target}<br/><b>${Math.round(p.data.value).toLocaleString('es-PE')}</b> personas/año`
+        : `<b>${p.name}</b>`,
+    },
+    series: [{
+      type: 'graph', layout: 'circular', circular: { rotateLabel: true }, roam: true,
+      data: names.map((n) => ({
+        name: n, symbolSize: 8 + 32 * Math.sqrt(total[n] / maxTot),
+        itemStyle: { color: color[n] },
+      })),
+      links: edges.map((e) => ({
+        source: e.s, target: e.t, value: e.v,
+        lineStyle: { width: 1 + 8 * (e.v / maxV), color: color[e.s], opacity: 0.5, curveness: 0.3 },
+      })),
+      edgeSymbol: ['none', 'arrow'], edgeSymbolSize: 5,
+      label: { show: true, position: 'right', color: t.mapLabel, fontSize: 11, fontWeight: 600 },
+      emphasis: { focus: 'adjacency', lineStyle: { width: 6, opacity: 0.9 }, label: { fontWeight: 800 } },
+      lineStyle: { curveness: 0.3 },
+    }],
+    animationDuration: 700,
+  }
+}
+
 // Build a choropleth option. `data` = [{name, value}], mapName registered on echarts.
 export function buildMapOption({ data, mapName, title, min, max }) {
   const t = tokens()
