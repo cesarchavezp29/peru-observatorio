@@ -6,7 +6,7 @@ import EChart from './EChart'
 import MapChart from './MapChart'
 import SectionHero from './SectionHero'
 import MiniSpark from './MiniSpark'
-import { guessX, numericCols, defaultSeries, smartDefaultSeries, guessChartType, buildOption, buildHeatmapOption, matrixInfo, fromToInfo, isNumeric, isTemporal, labelFor, isHiddenSeries, isCountLike, fmtNum, toNum } from '../chartLogic'
+import { guessX, numericCols, defaultSeries, smartDefaultSeries, guessChartType, buildOption, buildHeatmapOption, matrixInfo, fromToInfo, isNumeric, isTemporal, labelFor, isHiddenSeries, isCountLike, fmtNum, toNum, deptName } from '../chartLogic'
 
 const CHART_TYPES = [
   { k: 'line', l: 'Líneas' },
@@ -275,13 +275,19 @@ function TableExplorer({ schema, table }) {
   const availTypes = useMemo(() => {
     if (matrix) return [{ k: 'heat', l: 'Matriz' }]
     if (rows.length === 1 && !meta?.mappable) return [{ k: 'bar', l: 'Barras' }, { k: 'barh', l: 'Barras H.' }]
+    // dept-keyed tables: map only when temporal (a bar/line would zig-zag across
+    // departments within each year); map + dept bars when one row per dept
+    if (meta?.mappable) {
+      return meta.temporal_col
+        ? [{ k: 'map', l: 'Mapa' }]
+        : [{ k: 'map', l: 'Mapa' }, { k: 'bar', l: 'Barras' }, { k: 'barh', l: 'Barras H.' }]
+    }
     const arr = []
     // 'Líneas' + 'Apilado' only make sense on a temporal / ordered numeric axis
     if (isTemporal(xCol) || isNumeric(types[xCol])) {
       arr.push({ k: 'line', l: 'Líneas' }, { k: 'stacked', l: 'Apilado' })
     }
     arr.push({ k: 'bar', l: 'Barras' }, { k: 'barh', l: 'Barras H.' })
-    if (meta?.mappable) arr.unshift({ k: 'map', l: 'Mapa' })
     return arr
   }, [matrix, rows.length, xCol, types, meta])
 
