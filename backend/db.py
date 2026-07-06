@@ -6,6 +6,7 @@ endpoints cannot be used for injection.
 """
 from __future__ import annotations
 
+import json
 import threading
 from pathlib import Path
 
@@ -23,6 +24,8 @@ _COLS: dict[tuple[str, str], dict[str, str]] = {}  # (schema, table) -> {col: ty
 _DEPT: dict[tuple[str, str], str] = {}      # (schema, table) -> dept column
 _TEMPORAL: dict[tuple[str, str], str] = {}  # (schema, table) -> temporal column
 _CATEGORY: dict[tuple[str, str], str] = {}  # (schema, table) -> long-format category col
+_PROV: dict[tuple[str, str], tuple[str, bool]] = {}  # (schema,table) -> (col, is_ubigeo)
+_PROV_NAMES: dict[str, str] = {}            # province code (4-digit) -> name
 
 
 def _isnum(ty: str) -> bool:
@@ -39,6 +42,11 @@ def _load_catalog() -> None:
     import catalog as cat  # noqa
     import geo_dept as _gd  # noqa
     globals()["gd"] = _gd
+    try:
+        pn = Path(__file__).resolve().parent.parent / "data" / "province_names.json"
+        _PROV_NAMES.update(json.loads(pn.read_text(encoding="utf-8")))
+    except Exception:
+        pass
     for s, meta in cat.DATABASES.items():
         DATABASES[s] = {"schema": s, **meta}
 
@@ -69,6 +77,22 @@ def _load_catalog() -> None:
                 f'WHERE "{dc}" IS NOT NULL LIMIT 60').fetchall()]
             if vals and sum(1 for v in vals if gd.canonical(v) is not None) / len(vals) >= 0.6:
                 _DEPT[(schema, table)] = dc
+        # province-keyed tables (a `prov` 4-digit code or a `ubigeo` 6-digit
+        # code aggregated to province) -> province choropleth
+        if (schema, table) not in _DEPT and _PROV_NAMES:
+            low = {c.lower(): c for c in cols}
+            pcol = low.get("prov") or low.get("ubigeo")
+            if pcol:
+                is_ubi = pcol.lower() == "ubigeo"
+                pvals = [v[0] for v in _con.execute(
+                    f'SELECT DISTINCT "{pcol}" FROM {schema}.{table} '
+                    f'WHERE "{pcol}" IS NOT NULL LIMIT 80').fetchall()]
+
+                def _p4(v, _u=is_ubi):
+                    s = str(v).split(".")[0].zfill(6 if _u else 4)
+                    return s[:4]
+                if pvals and sum(1 for v in pvals if _p4(v) in _PROV_NAMES) / len(pvals) >= 0.6:
+                    _PROV[(schema, table)] = (pcol, is_ubi)
         for c in cols:
             if c.lower() in _TEMPORAL_KEYS:
                 _TEMPORAL[(schema, table)] = c
@@ -241,14 +265,32 @@ def temporal_col(schema: str, table: str) -> str | None:
     return _TEMPORAL.get((schema, table))
 
 
+def geo_level(schema: str, table: str) -> str | None:
+    """'dept' for a department map, 'prov' for a province map, else None."""
+    if (schema, table) in _DEPT:
+        return "dept"
+    if (schema, table) in _PROV:
+        return "prov"
+    return None
+
+
+def _geo_key(schema: str, table: str) -> str | None:
+    """The column used to key the choropleth (dept col or province/ubigeo col)."""
+    if (schema, table) in _DEPT:
+        return _DEPT[(schema, table)]
+    if (schema, table) in _PROV:
+        return _PROV[(schema, table)][0]
+    return None
+
+
 def is_mappable(schema: str, table: str) -> bool:
-    """A table is mappable if it has a department column and >=1 numeric col
-    other than the department/temporal keys."""
-    dc = _DEPT.get((schema, table))
-    if not dc:
+    """Mappable if it has a geo key (dept or province) and >=1 numeric col
+    other than the geo/temporal keys."""
+    gk = _geo_key(schema, table)
+    if not gk:
         return False
     tcols = _COLS[(schema, table)]
-    skip = {dc, _TEMPORAL.get((schema, table))}
+    skip = {gk, _TEMPORAL.get((schema, table))}
     return any(_numeric(t) and c not in skip for c, t in tcols.items())
 
 
@@ -257,26 +299,35 @@ def _numeric(type_str: str) -> bool:
     return any(k in t for k in ("INT", "DOUBLE", "DECIMAL", "FLOAT", "REAL", "NUMERIC", "HUGEINT"))
 
 
+def _prov_name(code, is_ubi: bool):
+    s = str(code).split(".")[0].zfill(6 if is_ubi else 4)[:4]
+    return _PROV_NAMES.get(s)
+
+
 def map_data(schema: str, table: str, value_col: str, *,
              filters: list[dict] | None = None) -> dict:
-    """Choropleth data for one numeric column, keyed by canonical department."""
+    """Choropleth data for one numeric column, keyed by department or province
+    name (averaged within each area). Province tables aggregate districts."""
     if not valid_table(schema, table):
         raise ValueError(f"unknown table {schema}.{table}")
-    dc = _DEPT.get((schema, table))
-    if not dc:
-        raise ValueError("table has no department column")
+    level = geo_level(schema, table)
+    gk = _geo_key(schema, table)
+    if not gk:
+        raise ValueError("table has no geographic column")
     tcols = _COLS[(schema, table)]
     if value_col not in tcols:
         raise ValueError("unknown value column")
+    is_ubi = level == "prov" and _PROV[(schema, table)][1]
 
-    res = fetch(schema, table, cols=[dc, value_col], filters=filters, limit=50000)
+    res = fetch(schema, table, cols=[gk, value_col], filters=filters, limit=50000)
     agg: dict[str, list[float]] = {}
     unmatched: set[str] = set()
     for row in res["rows"]:
-        name = gd.canonical(row.get(dc))
+        raw = row.get(gk)
+        name = gd.canonical(raw) if level == "dept" else _prov_name(raw, is_ubi)
         if name is None:
-            if row.get(dc) is not None:
-                unmatched.add(str(row.get(dc)))
+            if raw is not None:
+                unmatched.add(str(raw))
             continue
         v = row.get(value_col)
         if isinstance(v, str):
@@ -293,7 +344,7 @@ def map_data(schema: str, table: str, value_col: str, *,
     vals = [d["value"] for d in data]
     return {
         "schema": schema, "table": table, "value_col": value_col,
-        "dept_col": dc, "data": data, "n_matched": len(data),
+        "dept_col": gk, "geo_level": level, "data": data, "n_matched": len(data),
         "min": min(vals) if vals else None, "max": max(vals) if vals else None,
         "unmatched": sorted(unmatched),
     }

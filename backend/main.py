@@ -61,7 +61,8 @@ def get_table_meta(schema: str, table: str):
         raise HTTPException(404, "table not found")
     meta = db.CATALOG[(schema, table)]
     return {**meta, "column_types": db.columns(schema, table),
-            "dept_col": db.dept_col(schema, table),
+            "dept_col": db._geo_key(schema, table),
+            "geo_level": db.geo_level(schema, table),
             "temporal_col": db.temporal_col(schema, table),
             "category_col": db.category_col(schema, table),
             "mappable": db.is_mappable(schema, table)}

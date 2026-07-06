@@ -302,7 +302,8 @@ function TableExplorer({ schema, table }) {
     if (!meta) return ''
     if (ctype === 'map' && mapRes?.data?.length) {
       const d = [...mapRes.data].sort((a, b) => b.value - a.value)
-      return `Muestra ${labelFor(mapValueCol).toLowerCase()} por departamento. Más alto en ${d[0].name} (${fmtNum(d[0].value)}) y más bajo en ${d[d.length - 1].name} (${fmtNum(d[d.length - 1].value)}).`
+      const unit = meta.geo_level === 'prov' ? 'provincia' : 'departamento'
+      return `Muestra ${labelFor(mapValueCol).toLowerCase()} por ${unit}. Más alto en ${d[0].name} (${fmtNum(d[0].value)}) y más bajo en ${d[d.length - 1].name} (${fmtNum(d[d.length - 1].value)}).`
     }
     if (ctype === 'heat') return 'Matriz de transición: cada celda es el % que pasa de la fila (origen) a la columna (destino). La diagonal marca la persistencia; fuera de ella, la movilidad.'
     const col = yCols[0]
@@ -435,10 +436,10 @@ function TableExplorer({ schema, table }) {
         <div className="chart-wrap">
           {isMap
             ? (mapRes && mapRes.data.length
-                ? <MapChart data={mapRes.data}
+                ? <MapChart data={mapRes.data} level={meta.geo_level || 'dept'}
                     title={meta.category_col && category != null ? labelFor(category) : labelFor(mapValueCol)}
                     min={mapRes.min} max={mapRes.max} />
-                : <div className="loading">Sin datos departamentales para esta selección.</div>)
+                : <div className="loading">Sin datos para esta selección.</div>)
             : (option ? <EChart option={option} />
                 : <div className="loading">Selecciona al menos una serie numérica.</div>)}
         </div>

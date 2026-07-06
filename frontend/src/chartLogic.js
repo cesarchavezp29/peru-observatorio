@@ -116,6 +116,9 @@ const LABELS = {
   pct_trust: 'Confianza (%)', institution: 'Institución', pct_empleo: 'Empleo (%)',
   pct_informal: 'Informalidad (%)', ing_medio: 'Ingreso medio', pct_sold: 'Vendido al mercado (%)',
   share: 'Participación (%)', share_fem: 'Participación femenina (%)', ratio: 'Ratio salarial (M/H)',
+  income_2021: 'Ingreso 2021 (S/.)', income_2025: 'Ingreso 2025 (S/.)',
+  chg_pct: 'Cambio (%)', chg_soles: 'Cambio (S/.)', pop_2021: 'Población 2021',
+  pop_2025: 'Población 2025', left21: 'Voto izquierda 2021 (%)', left26: 'Voto izquierda 2026 (%)',
 }
 const SUFFIX = [
   ['_pct', ' (%)'], ['_h', ' (hombres)'], ['_m', ' (mujeres)'],
