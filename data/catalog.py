@@ -65,6 +65,8 @@ EXCLUDE = {
     "panel_evento_hijo_empleo", # 48k person-event microdata (use the _profile aggregates)
     "panel_intergen_pooled",    # group×age profile with CI — no sensible generic chart
     "panel_intergen_educacion_2007_2011",
+    "trust_income_2025",        # 30k household-level microdata (binscatter source)
+    "who_trusts_state_2025",    # 30k person-level microdata (regression source)
 }
 MAX_MB = 8.0  # any CSV larger than this is treated as microdata and skipped
 

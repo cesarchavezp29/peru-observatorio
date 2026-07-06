@@ -162,6 +162,7 @@ export function smartDefaultSeries(rows, candidates, title = '') {
     let score = words.reduce((s, w) => s + (hay.includes(w) ? w.length : 0), 0)
     if (title.toLowerCase().includes(c.toLowerCase())) score += 5 // e.g. "(CR4)"
     if (/_x_|pct|per_|productiv/.test(c)) score += 0.5 // nudge toward derived metrics
+    if (/(^|_)(chg|change|delta|diff|var)(_|$)/i.test(c)) score -= 4 // levels over changes
     return [c, score]
   }).sort((a, b) => b[1] - a[1])
   return [scored[0][1] > 0 ? scored[0][0] : pool[0]]
