@@ -194,7 +194,8 @@ export function buildOption({ rows, x, series, type, ytitle, xIsDept, rankBars }
   const axisColor = t.axis
   const gridColor = t.grid
   const horizontal = type === 'barh'
-  const base = type === 'barh' ? 'bar' : type
+  const stacked = type === 'stacked'
+  const base = type === 'barh' ? 'bar' : stacked ? 'line' : type
 
   // ranked category bars: sort by the primary series and cap the long tail
   let workRows = rows, capped = 0
@@ -209,12 +210,13 @@ export function buildOption({ rows, x, series, type, ytitle, xIsDept, rankBars }
     name: labelFor(s),
     type: base,
     data: workRows.map((r) => r[s]),
-    smooth: base === 'line' ? 0.25 : false,
-    showSymbol: rows.length <= 40,
+    stack: stacked ? 'composicion' : undefined,
+    smooth: base === 'line' ? (stacked ? 0.15 : 0.25) : false,
+    showSymbol: stacked ? false : rows.length <= 40,
     symbolSize: 6,
-    lineStyle: base === 'line' ? { width: 2.4 } : undefined,
-    areaStyle: base === 'line' && series.length === 1
-      ? { opacity: 0.08 } : undefined,
+    lineStyle: base === 'line' ? { width: stacked ? 1 : 2.4 } : undefined,
+    areaStyle: stacked ? { opacity: 0.78 }
+      : (base === 'line' && series.length === 1 ? { opacity: 0.08 } : undefined),
     barMaxWidth: 46,
     itemStyle: { color: PALETTE[i % PALETTE.length], borderRadius: base === 'bar' ? 3 : 0 },
     // value labels on small single-series bar charts (heterogeneous summaries)

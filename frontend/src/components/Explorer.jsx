@@ -276,8 +276,10 @@ function TableExplorer({ schema, table }) {
     if (matrix) return [{ k: 'heat', l: 'Matriz' }]
     if (rows.length === 1 && !meta?.mappable) return [{ k: 'bar', l: 'Barras' }, { k: 'barh', l: 'Barras H.' }]
     const arr = []
-    // 'Líneas' only makes sense when x is temporal or an ordered numeric axis
-    if (isTemporal(xCol) || isNumeric(types[xCol])) arr.push({ k: 'line', l: 'Líneas' })
+    // 'Líneas' + 'Apilado' only make sense on a temporal / ordered numeric axis
+    if (isTemporal(xCol) || isNumeric(types[xCol])) {
+      arr.push({ k: 'line', l: 'Líneas' }, { k: 'stacked', l: 'Apilado' })
+    }
     arr.push({ k: 'bar', l: 'Barras' }, { k: 'barh', l: 'Barras H.' })
     if (meta?.mappable) arr.unshift({ k: 'map', l: 'Mapa' })
     return arr
