@@ -14,3 +14,8 @@ frontend/smoke*.mjs
 !docs/*.png
 *.output
 .DS_Store
+
+# excluded microdata (not used by the app; ENAHO source is public at INEI)
+data/datasets/who_trusts_state_2025.csv
+data/datasets/trust_income_2025.csv
+data/datasets/panel_evento_hijo_empleo.csv
