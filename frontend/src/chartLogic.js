@@ -119,6 +119,8 @@ const LABELS = {
   income_2021: 'Ingreso 2021 (S/.)', income_2025: 'Ingreso 2025 (S/.)',
   chg_pct: 'Cambio (%)', chg_soles: 'Cambio (S/.)', pop_2021: 'Población 2021',
   pop_2025: 'Población 2025', left21: 'Voto izquierda 2021 (%)', left26: 'Voto izquierda 2026 (%)',
+  gini: 'Gini del ingreso', gini_urbano: 'Gini urbano', gini_rural: 'Gini rural',
+  p90_p10: 'Ratio P90/P10',
 }
 const SUFFIX = [
   ['_pct', ' (%)'], ['_h', ' (hombres)'], ['_m', ' (mujeres)'],
@@ -147,9 +149,23 @@ export function smartDefaultSeries(rows, candidates, title = '') {
       .filter((x) => Number.isFinite(x) && x > 0).sort((a, b) => a - b)
     return v.length ? v[Math.floor(v.length / 2)] : 0
   }
-  const meds = candidates.map(median).filter((x) => x > 0)
+  const medOf = {}
+  candidates.forEach((c) => { medOf[c] = median(c) })
+  const meds = candidates.map((c) => medOf[c]).filter((x) => x > 0)
   const keepAll = candidates.slice(0, candidates.length <= 6 ? candidates.length : 4)
-  if (meds.length < 2 || Math.max(...meds) / Math.min(...meds) <= 30) return keepAll
+  if (meds.length < 2) return keepAll
+  if (Math.max(...meds) / Math.min(...meds) <= 30) {
+    // mostly one scale, but if a tight core of series dominates and a few sit
+    // far off scale (e.g. a p90/p10 ratio next to Gini values), drop the
+    // outliers so the comparable series aren't flattened.
+    const sm = [...meds].sort((a, b) => a - b)
+    const mm = sm[Math.floor(sm.length / 2)]
+    const core = candidates.filter((c) => medOf[c] > 0 && medOf[c] >= mm / 4 && medOf[c] <= mm * 4)
+    const hasOutlier = candidates.some((c) => medOf[c] > 0 && (medOf[c] > mm * 8 || medOf[c] < mm / 8))
+    if (hasOutlier && core.length >= 2 && core.length >= candidates.length / 2
+        && core.length < candidates.length) return core.slice(0, 6)
+    return keepAll
+  }
 
   // a series that is constant across rows is a useless default (e.g. a total
   // that is the same for every group) — pick from the varying ones instead.

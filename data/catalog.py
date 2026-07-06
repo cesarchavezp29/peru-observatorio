@@ -85,6 +85,8 @@ COLUMN_RENAMES = {
 # ---------------------------------------------------------------- themes (enaho sub-sections)
 # keyword -> (theme_key, theme_label). First match wins.
 _THEME_RULES = [
+    ("gini",          ("ingreso_pobreza", "Ingreso y Pobreza")),
+    ("desigualdad",   ("ingreso_pobreza", "Ingreso y Pobreza")),
     ("income",        ("ingreso_pobreza", "Ingreso y Pobreza")),
     ("ingreso",       ("ingreso_pobreza", "Ingreso y Pobreza")),
     ("pobreza",       ("ingreso_pobreza", "Ingreso y Pobreza")),
@@ -178,6 +180,8 @@ def table_name(stem: str) -> str:
 # curated titles for flagship tables; everything else is prettified from the stem
 _TITLES = {
     "income_real_national": "Ingreso real per capita nacional (2004-2025)",
+    "gini_nacional_tiempo": "Desigualdad: Gini del ingreso (2004-2025)",
+    "gini_departamento_tiempo": "Gini del ingreso por departamento",
     "income_real_province_2021_2025": "Ingreso real por provincia (2021 vs 2025)",
     "income_real_district_2021_2025": "Ingreso real por distrito (2021 vs 2025)",
     "official_poverty_replication": "Pobreza: replica propia vs oficial INEI",
