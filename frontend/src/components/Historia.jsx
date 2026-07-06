@@ -90,7 +90,15 @@ export default function Historia() {
         markPoint: focalVal == null ? undefined : {
           symbol: 'circle', symbolSize: 11,
           itemStyle: { color: ACCENT, borderColor: '#fffdf7', borderWidth: 2 },
-          label: { formatter: `${focalVal.toFixed(1)}%`, position: 'top', color: '#34291c', fontWeight: 700, fontSize: 13 },
+          label: {
+            formatter: `${focalVal.toFixed(1)}%`,
+            // leftmost point sits by the y-axis, so push its label right (and a
+            // high value near the top pushes down) to avoid the axis labels
+            position: step.focus === years[0] ? 'right'
+              : step.focus === years[years.length - 1] ? 'left'
+              : focalVal > 55 ? 'bottom' : 'top',
+            distance: 8, color: '#34291c', fontWeight: 700, fontSize: 13,
+          },
           data: [{ coord: [String(step.focus), focalVal] }],
         },
       }],
