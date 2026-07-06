@@ -515,6 +515,7 @@ export function buildMapOption({ data, mapName, title, min, max }) {
       type: 'continuous', min: min ?? 0, max: max ?? 1,
       left: 16, bottom: 24, calculable: true,
       itemWidth: 12, itemHeight: 150,
+      precision: (max ?? 1) < 10 ? 2 : 0, // show decimals for sub-10 scales (Gini, ratios)
       text: ['alto', 'bajo'],
       textStyle: { color: t.axis, fontSize: 11 },
       inRange: { color: ramp },
