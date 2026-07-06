@@ -430,6 +430,72 @@ export function buildNetworkOption(rows, flow, { cap = 70 } = {}) {
   }
 }
 
+// True when a flow table's nodes are (mostly) Peruvian departments -> can be
+// drawn as a flow map with lines between department centroids.
+const DEPT_SET = new Set(DEPT_NAMES.slice(1))
+export function isDeptNodes(rows, flow) {
+  if (!flow || !rows.length) return false
+  const names = new Set(rows.flatMap((r) => [r[flow.source], r[flow.target]]))
+  let hit = 0
+  names.forEach((n) => { if (DEPT_SET.has(n)) hit++ })
+  return names.size > 0 && hit / names.size >= 0.6
+}
+
+// Build a flow MAP: the department choropleth outline with animated origin->
+// destination lines (width by flow) and pulsing nodes (size by total flow).
+export function buildFlowMapOption(rows, flow, centroids, { cap = 55, mapName = 'peru_dept' } = {}) {
+  const t = tokens()
+  const total = {}
+  rows.forEach((r) => {
+    const v = toNum(r[flow.value]) || 0
+    total[r[flow.source]] = (total[r[flow.source]] || 0) + v
+    total[r[flow.target]] = (total[r[flow.target]] || 0) + v
+  })
+  const names = Object.keys(total).filter((n) => centroids[n]).sort((a, b) => total[b] - total[a])
+  const maxTot = Math.max(...names.map((n) => total[n]), 1)
+  const color = {}
+  names.forEach((n, i) => { color[n] = PALETTE[i % PALETTE.length] })
+  const edges = rows.map((r) => ({ s: r[flow.source], t: r[flow.target], v: toNum(r[flow.value]) || 0 }))
+    .filter((e) => e.v > 0 && e.s !== e.t && centroids[e.s] && centroids[e.t])
+    .sort((a, b) => b.v - a.v).slice(0, cap)
+  const maxV = Math.max(...edges.map((e) => e.v), 1)
+  return {
+    textStyle: { fontFamily: FONT },
+    tooltip: {
+      trigger: 'item', backgroundColor: t.tooltipBg, borderColor: t.tooltipBorder,
+      textStyle: { color: '#34291c' },
+      formatter: (p) => p.seriesType === 'lines'
+        ? `${p.data.s} → ${p.data.t}<br/><b>${Math.round(p.data.value).toLocaleString('es-PE')}</b> personas/año`
+        : `<b>${p.name}</b>`,
+    },
+    geo: {
+      map: mapName, roam: true, layoutCenter: ['50%', '52%'], layoutSize: '112%',
+      itemStyle: { areaColor: t.mapEmpty, borderColor: t.mapBorder, borderWidth: 0.6 },
+      emphasis: { disabled: true }, silent: true,
+    },
+    series: [
+      {
+        type: 'lines', coordinateSystem: 'geo', zlevel: 2, polyline: false,
+        effect: { show: true, period: 5, trailLength: 0.35, symbol: 'arrow', symbolSize: 5 },
+        data: edges.map((e) => ({
+          coords: [centroids[e.s], centroids[e.t]], s: e.s, t: e.t, value: e.v,
+          lineStyle: { color: color[e.s], width: 0.6 + 5 * (e.v / maxV), opacity: 0.55, curveness: 0.25 },
+        })),
+      },
+      {
+        type: 'effectScatter', coordinateSystem: 'geo', zlevel: 3,
+        rippleEffect: { scale: 2.2, brushType: 'stroke' },
+        data: names.map((n) => ({
+          name: n, value: [...centroids[n], total[n]],
+          symbolSize: 5 + 22 * Math.sqrt(total[n] / maxTot), itemStyle: { color: color[n] },
+        })),
+        label: { show: true, formatter: '{b}', position: 'right', fontSize: 10, color: t.mapLabel },
+      },
+    ],
+    animationDuration: 600,
+  }
+}
+
 // Build a choropleth option. `data` = [{name, value}], mapName registered on echarts.
 export function buildMapOption({ data, mapName, title, min, max }) {
   const t = tokens()
