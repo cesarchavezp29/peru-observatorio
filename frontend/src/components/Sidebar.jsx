@@ -65,6 +65,10 @@ export default function Sidebar({ databases, open, onNavigate }) {
           className={({ isActive }) => 'nav-tool' + (isActive ? ' active' : '')}>
           <span className="nav-tool-ico">✦</span> Correlaciones
         </NavLink>
+        <NavLink to="/ensayos" onClick={onNavigate}
+          className={({ isActive }) => 'nav-tool' + (isActive ? ' active' : '')}>
+          <span className="nav-tool-ico">✎</span> Ensayos
+        </NavLink>
         <NavLink to="/historia" onClick={onNavigate}
           className={({ isActive }) => 'nav-tool' + (isActive ? ' active' : '')}>
           <span className="nav-tool-ico">▸</span> Historia: la pobreza
