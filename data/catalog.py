@@ -80,6 +80,8 @@ COLUMN_RENAMES = {
     },
     "panel_evento_hijo_empleo_profile_madre": {"e": "anios_desde_hijo", "level": "empleo_pct"},
     "panel_evento_hijo_empleo_profile_padre": {"e": "anios_desde_hijo", "level": "empleo_pct"},
+    # headerless first column from a pandas index dump
+    "epen_informal_sector_dpto_2025": {"column0": "departamento", "column00": "departamento"},
 }
 
 # ---------------------------------------------------------------- themes (enaho sub-sections)
@@ -177,8 +179,170 @@ def table_name(stem: str) -> str:
     return t
 
 
-# curated titles for flagship tables; everything else is prettified from the stem
+# per-table cleanup SQL applied right after load ({t} = schema.table).
+# For raw kitchen-sink files that mix revisions or weighting variants no chart
+# can present honestly -> keep only the publishable slice.
+TRANSFORMS = {
+    "eea_demografia_sector": [
+        "CREATE OR REPLACE TABLE {t} AS "
+        "SELECT year, sector, n, share FROM {t} WHERE pond ORDER BY year, sector",
+    ],
+    # fmt marks which ENAHO module format produced each year -> not a dimension
+    "transferencias_cobertura_2013_2025": [
+        'CREATE OR REPLACE TABLE {t} AS SELECT year, n_hh, "Juntos", "Pension 65" '
+        "FROM {t} ORDER BY year",
+    ],
+    # fuente is a per-year status note, not a dimension -> plain year series
+    "informalidad_reconstruida": [
+        'CREATE OR REPLACE TABLE {t} AS SELECT year, informal_reconstruido, '
+        'informal_oficial, "concordancia_%" FROM {t} ORDER BY year',
+    ],
+    # event-study long table -> one column per sex, x = years since first child
+    "evento_maternidad_empleo": [
+        "CREATE OR REPLACE TABLE {t} AS SELECT evt AS anios_desde_primer_hijo, "
+        "max(CASE WHEN sexo='mujer' THEN emp END) AS empleo_madre, "
+        "max(CASE WHEN sexo='hombre' THEN emp END) AS empleo_padre, "
+        "max(CASE WHEN sexo='mujer' THEN ref END) AS ref_madre, "
+        "max(CASE WHEN sexo='hombre' THEN ref END) AS ref_padre "
+        "FROM {t} GROUP BY evt ORDER BY evt",
+    ],
+}
+
+# panel families: one dataset per re-interview window -> title carries the window
+_FAMILIES = {
+    "panel_pobreza_dinamica": "Pobreza crónica vs transitoria",
+    "panel_pobreza_transicion": "Transiciones de pobreza",
+    "panel_informalidad_dinamica": "Informalidad: siempre, a veces, nunca",
+    "panel_informalidad_transicion": "Transiciones formal-informal",
+    "panel_seguro_dinamica": "Cobertura de seguro en el tiempo",
+    "panel_seguro_transicion": "Transiciones de seguro de salud",
+    "panel_movilidad_quintil": "Movilidad de ingresos entre quintiles",
+}
+
+# curated titles: every table gets an editorial name, never a prettified filename
 _TITLES = {
+    # ---- EEA (empresas)
+    "eea_activos_sector": "Activos e inversión por sector empresarial",
+    "eea_brecha_genero_sector": "Empresas: brecha salarial de género por sector",
+    "eea_concentracion_sector": "Concentración de mercado por sector (CR4, HHI)",
+    "eea_demografia_sector": "Cuántas empresas hay por sector",
+    "eea_epen_cruce_sector": "Salario por sector: empresas (EEA) vs hogares (EPEN)",
+    "eea_productividad_sector_tamano": "Productividad por sector y tamaño de empresa",
+    "eea_productividad_tamano": "Productividad por tamaño de empresa",
+    "eea_remuneraciones_sector": "Remuneraciones por sector empresarial",
+    "eea_ventas_va_sector": "Ventas y valor agregado por sector",
+    # ---- ENAHO: agro
+    "agro_comercializacion_2011_2025": "Agro: venta vs autoconsumo (2011-2025)",
+    "agro_mercado_2025": "Agro: orientación al mercado (2025)",
+    "agro_top_cultivos_2025": "Los cultivos más sembrados (2025)",
+    "agro_top_especies_2025": "Las crianzas más comunes (2025)",
+    "agro_volumen_valor_2025": "Agro: volumen y valor de la producción (2025)",
+    # ---- ENAHO: educacion
+    "analfabetismo_region_tiempo_2004_2025": "Analfabetismo por región natural (2004-2025)",
+    "educacion_cohorte_2025": "Años de educación por cohorte de nacimiento",
+    "educacion_sexo_tiempo_2004_2025": "Años de educación: hombres vs mujeres (2004-2025)",
+    "educacion_superior_area_tiempo_2004_2025": "Educación superior: urbano vs rural (2004-2025)",
+    "educacion_superior_sexo_tiempo_2004_2025": "Educación superior: hombres vs mujeres (2004-2025)",
+    "movilidad_educativa_tiempo": "Movilidad educativa entre generaciones",
+    # ---- ENAHO: empleo y salarios
+    "brecha_salarial_edad_tiempo_2004_2025": "Brecha salarial por edad (2004-2025)",
+    "brecha_salarial_formal_tiempo_2007_2025": "Penalidad salarial de la informalidad (2007-2025)",
+    "brecha_salarial_grupos_tiempo_2004_2025": "Brechas salariales entre grupos (2004-2025)",
+    "brecha_salarial_hora_tiempo_2004_2025": "Brecha salarial por hora trabajada (2004-2025)",
+    "brecha_salarial_region_tiempo_2004_2025": "Brecha salarial entre regiones naturales (2004-2025)",
+    "brecha_salarial_sector_2025": "Brecha salarial de género por sector (2025)",
+    "brecha_salarial_sexo_2004_2025": "Brecha salarial hombre-mujer (2004-2025)",
+    "brecha_salarial_urbano_tiempo_2004_2025": "Brecha salarial urbano-rural (2004-2025)",
+    "fig_brecha_salarial_educacion": "Brecha salarial de género por nivel educativo",
+    "fig_brecha_salarial_etnico": "Brecha salarial de género por origen étnico",
+    "fig_brecha_salarial_tipoempleo": "Brecha salarial de género por tipo de empleo",
+    "empleo_agricola_2004_2025": "El empleo agrícola se encoge (2004-2025)",
+    "empleo_sectores_2004_2025": "Empleo por sector económico (2004-2025)",
+    "estructura_empleo_2004_2025": "Estructura del empleo: asalariados e independientes",
+    "evento_maternidad_empleo": "Empleo alrededor del primer hijo (estudio de evento)",
+    "penalidad_maternidad_tiempo": "Penalidad de maternidad en el empleo",
+    "informalidad_reconstruida": "Informalidad: réplica propia vs oficial",
+    "neet_juvenil_tiempo_2004_2025": "Jóvenes que ni estudian ni trabajan (2004-2025)",
+    "pea_sexo_2004_2025": "Participación laboral: hombres vs mujeres (2004-2025)",
+    "subempleo_horas_2004_2025": "Horas trabajadas y subempleo (2004-2025)",
+    "trabajo_adolescente_tiempo": "Trabajo adolescente: estudio, trabajo o ninguno",
+    "discapacidad_empleo_tiempo": "Discapacidad: empleo y pobreza en el tiempo",
+    # ---- ENAHO: ingreso, pobreza, gasto
+    "budget_composition_2004_2025": "En qué gastan los hogares (2004-2025)",
+    "engel_elasticidad_tiempo_2004_2025": "Curvas de Engel: elasticidades en el tiempo",
+    "engel_elasticidades_2025": "Curvas de Engel por grupo de gasto (2025)",
+    "corr_between_within_pobreza": "Qué acompaña a la pobreza: entre y dentro de departamentos",
+    "brecha_ingreso_etnico_tiempo": "Brecha de ingreso por origen étnico",
+    "poblacion_indigena_2004_2025": "Población indígena: pobreza e ingreso (2004-2025)",
+    "jefatura_pobreza_tiempo": "Hogares con jefa mujer y pobreza",
+    "income_change_ranked": "Provincias que ganaron y perdieron ingreso (2021-2025)",
+    "validation_income_gasto": "Validación: ingreso y gasto vs cifras oficiales",
+    "scatter_edu_pobreza_dep_2025": "Educación vs pobreza por departamento (2025)",
+    "sintesis_departamento_2025": "Síntesis departamental: todos los indicadores (2025)",
+    "dept_income_social_vote": "Ingreso, programas sociales y voto por departamento",
+    "district_vote_2021_2026": "Voto de izquierda por distrito: 2021 vs 2026",
+    "trust_income_vote_dept_2021": "Confianza, ingreso y voto 2021 por departamento",
+    "trust_income_vote_dept_2026": "Confianza, ingreso y voto 2026 por departamento",
+    "trust_vote_dept_2021": "Confianza institucional y voto 2021",
+    "trust_vote_dept_2026": "Confianza institucional y voto 2026",
+    # ---- ENAHO: hogar, vivienda, consumo
+    "bienes_durables_decil_2025": "Bienes durables por decil de ingreso (2025)",
+    "bienes_durables_difusion_2004_2025": "Difusión de bienes durables (2004-2025)",
+    "calidad_vivienda_2004_2025": "Calidad de la vivienda (2004-2025)",
+    "combustible_cocina_2004_2025": "Con qué cocinan los hogares (2004-2025)",
+    "vivienda_servicios_2004_2025": "Agua, desagüe y luz en la vivienda (2004-2025)",
+    "cuidados_personales_tiempo": "Gasto en cuidado personal (2004-2025)",
+    # ---- ENAHO: salud y demografia
+    "atencion_salud_tiempo": "Dónde se atienden los peruanos cuando enferman",
+    "salud_cronica_discapacidad_2004_2025": "Enfermedad crónica y discapacidad (2004-2025)",
+    "seguro_salud_2004_2025": "Cobertura de seguro de salud (2004-2025)",
+    "sis_expansion": "La expansión del SIS (2004-2025)",
+    "social_coverage_by_decile_2025": "Programas sociales por decil de ingreso (2025)",
+    "transferencias_cobertura_2013_2025": "Cobertura de transferencias públicas (2013-2025)",
+    "demographic_transition": "Transición demográfica por departamento",
+    "transicion_demografica_2004_2025": "Transición demográfica del Perú (2004-2025)",
+    "migracion_interna_tiempo": "Migración interna reciente por edad",
+    # ---- ENAHO: sociedad y confianza
+    "confianza_edad_tiempo_2007_2025": "Confianza institucional por edad (2007-2025)",
+    "confianza_educacion_tiempo_2007_2025": "Confianza institucional por educación (2007-2025)",
+    "confianza_grupos_tiempo_2007_2025": "Confianza institucional por grupos (2007-2025)",
+    "confianza_region_tiempo_2007_2025": "Confianza institucional por región (2007-2025)",
+    "trust_by_institution_2025": "Confianza por institución (2025)",
+    "participacion_2025": "Participación en organizaciones: pobres y no pobres (2025)",
+    "participacion_organizaciones_2004_2025": "Participación en organizaciones (2004-2025)",
+    # ---- EPEN / EPE / BCRP
+    "bcrp_desempleo_lima": "Desempleo de Lima: serie oficial BCRP",
+    "bcrp_lima_2026": "Lima 2026: indicadores oficiales BCRP",
+    "bcrp_subempleo_lima": "Subempleo de Lima: serie oficial BCRP",
+    "ipc_lima_2009base": "IPC de Lima (base 2009)",
+    "ipc_lima_linked": "IPC de Lima empalmado a soles de 2001",
+    "epen_ciudades_2025": "Empleo por ciudad (2025)",
+    "epen_dpto_advanced_2022_2025": "Salario mínimo y distribución salarial por departamento",
+    "epen_dpto_annual_2022_2025": "Empleo por departamento: panel anual (2022-2025)",
+    "epen_dpto_econometrics_2022_2025": "Retorno a la educación y penalidad informal por departamento",
+    "epen_dpto_indicadores2_2022_2025": "Participación laboral por sexo y departamento",
+    "epen_dpto_theil_urbano_2022_2025": "Desigualdad salarial urbano-rural por departamento",
+    "epen_econ_summary": "Resumen econométrico del mercado laboral",
+    "epen_informal_sector_dpto_2025": "Informalidad por sector y departamento (2025)",
+    "epen_lima_desempleo_2001_2026": "Desempleo de Lima: réplica vs oficial (2001-2026)",
+    "epen_lima_educ_movil_2022_2026": "Ingreso real por nivel educativo en Lima",
+    "epen_lima_empleo_trim_2001_2022": "Lima: empleo en trimestre móvil (2001-2022)",
+    "epen_lima_estructura_trim_2001_2022": "Lima: estructura del empleo trimestral (2001-2022)",
+    "epen_lima_informalidad_trim_2001_2022": "Lima: informalidad trimestral (2001-2022)",
+    "epen_lima_ingresos_grupos_trim_2001_2022": "Lima: ingresos por grupos, trimestre móvil",
+    "epen_lima_modern_annual_2022_2025": "Lima: indicadores anuales EPEN (2022-2025)",
+    "epen_lima_movil_modern_2022_2026": "Lima: trimestre móvil EPEN (2022-2026)",
+    "epen_lima_series_2001_2026": "Lima: serie larga empalmada (2001-2026)",
+    "epen_sectores_2022_2025": "Empleo nacional por sector (2022-2025)",
+    "epen_sectores_dpto_2025": "Empleo por sector y departamento (2025)",
+    "epen_theil_decomp_2025": "Desigualdad salarial: descomposición de Theil (2025)",
+    "epen_wage_curve_2022_2025": "Curva de salarios: desempleo local y salario",
+    # ---- Panel (tablas unicas)
+    "panel_departamento_2004_2025": "Panel de indicadores por departamento (2004-2025)",
+    "panel_indicators": "Panel de indicadores nacionales",
+    "panel_validation_poverty": "Validación del panel contra la pobreza oficial",
+    "panel_evento_hijo_empleo_profile_madre": "Empleo de la madre alrededor del primer hijo",
+    "panel_evento_hijo_empleo_profile_padre": "Empleo del padre alrededor del primer hijo",
     "income_real_national": "Ingreso real per capita nacional (2004-2025)",
     "gini_nacional_tiempo": "Desigualdad: Gini del ingreso (2004-2025)",
     "gini_departamento_tiempo": "Gini del ingreso por departamento",
@@ -203,8 +367,13 @@ _TITLES = {
 
 
 def title_for(stem: str) -> str:
-    if stem in _TITLES:
-        return _TITLES[stem]
+    key = stem.lstrip("_")
+    if key in _TITLES:
+        return _TITLES[key]
+    # windowed panel family -> family title + its re-interview window
+    m = re.match(r"^(.*)[_-](\d{4})[_-](\d{4})$", key)
+    if m and m.group(1) in _FAMILIES:
+        return f"{_FAMILIES[m.group(1)]} ({m.group(2)}-{m.group(3)})"
     t = stem.lstrip("_")
     # drop trailing year ranges like _2004_2025 / _2007-2011 / _2025
     t = re.sub(r"[_-](\d{4})([_-]\d{4})?$", "", t)

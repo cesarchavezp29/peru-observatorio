@@ -1,7 +1,7 @@
 // Heuristics that turn an arbitrary analytical table into a sensible chart.
 import { PALETTE, SEQ, tokens, tooltip, FONT } from './echartsTheme'
 
-const TEMPORAL = ['year', 'anio', 'ano', 'ym', 'periodo', 'period', 'trimestre', 'fecha', 'window', 'label']
+const TEMPORAL = ['year', 'anio', 'ano', 'ym', 'periodo', 'period', 'trim', 'fecha', 'window', 'label']
 
 // null/'' -> NaN (so Number.isFinite filters them out; Number(null) is 0!)
 export function toNum(v) {
@@ -33,12 +33,14 @@ export function guessX(columns, types) {
 }
 
 export function numericCols(columns, types, exclude = []) {
-  return columns.filter((c) => isNumeric(types[c]) && !exclude.includes(c))
+  // a time/period column is an axis: plotting 200108-style codes as a data
+  // series is always wrong, so temporals never enter the series pool
+  return columns.filter((c) => isNumeric(types[c]) && !exclude.includes(c) && !isTemporal(c))
 }
 
 // sample-size / id / weight columns that shouldn't be plotted by default
 // (they stay selectable, just off unless the user turns them on)
-const COUNT_LIKE = /^(n|nn|obs|count|total|wt|peso|pop|poblacion|population|id|codigo|cod|code|cluster|caseid)$/i
+const COUNT_LIKE = /^(n|nn|obs|count|total|wt|peso|pop|poblacion|population|id|codigo|cod|code|cluster|caseid)$|^n_[a-z0-9]+$|^(nhh|nobs)$/i
 export function isCountLike(col) {
   return COUNT_LIKE.test(col.trim())
 }
@@ -129,7 +131,7 @@ const SUFFIX = [
 ]
 export function labelFor(col) {
   if (LABELS[col]) return LABELS[col]
-  let c = col, suff = ''
+  let c = String(col), suff = ''
   for (const [s, l] of SUFFIX) {
     if (c.endsWith(s) && c.length > s.length) { suff = l; c = c.slice(0, -s.length); break }
   }
@@ -142,6 +144,17 @@ export function labelFor(col) {
 // span wildly different magnitudes (e.g. a count, a total in billions, and a
 // ratio) plotting them together is unreadable, so fall back to a single series
 // — preferring the one whose name matches the table title.
+// crude unit class from the column name: series of different units must never
+// share a default chart even when their magnitudes happen to coincide
+// (CR4 at ~40% next to ventas at ~40 mil M was the canonical failure)
+export function unitOf(col) {
+  const c = (col + ' ' + labelFor(col)).toLowerCase()
+  if (/hhi|indice|index|theil|gini\b/.test(c)) return 'index'
+  if (/(^|[_\s(])(pct|share|tasa|cr\d|cobertura)|_pct|%|brecha_participacion/.test(c)) return 'pct'
+  if (/ingreso|salario|remuner|sueldo|ventas|gasto|activo|inversion|income|wage|va\b|_w\b|mil m|mmm/.test(c)) return 'money'
+  return 'other'
+}
+
 export function smartDefaultSeries(rows, candidates, title = '') {
   if (candidates.length <= 1 || !rows.length) return candidates
   const median = (c) => {
@@ -153,6 +166,21 @@ export function smartDefaultSeries(rows, candidates, title = '') {
   candidates.forEach((c) => { medOf[c] = median(c) })
   const meds = candidates.map((c) => medOf[c]).filter((x) => x > 0)
   const keepAll = candidates.slice(0, candidates.length <= 6 ? candidates.length : 4)
+
+  // mixed units -> keep only the unit class of the best title-matched series
+  const units = new Set(candidates.map(unitOf))
+  if (units.size > 1) {
+    const tw = (title.toLowerCase().match(/[a-záéíóúñ0-9]{3,}/gi) || [])
+    const tScore = (c) => {
+      const hay = (labelFor(c) + ' ' + c).toLowerCase()
+      return tw.reduce((s, w) => s + (hay.includes(w) ? w.length : 0), 0)
+    }
+    const best = [...candidates].sort((a, b) => tScore(b) - tScore(a))[0]
+    const grp = candidates.filter((c) => unitOf(c) === unitOf(best)
+      && (!medOf[c] || !medOf[best] || (medOf[c] / medOf[best] <= 30 && medOf[best] / medOf[c] <= 30)))
+    if (grp.length) return grp.slice(0, 6)
+  }
+
   if (meds.length < 2) return keepAll
   if (Math.max(...meds) / Math.min(...meds) <= 30) {
     // mostly one scale, but if a tight core of series dominates and a few sit
@@ -519,6 +547,11 @@ export function buildFlowMapOption(rows, flow, centroids, { cap = 55, mapName = 
 export function buildMapOption({ data, mapName, title, min, max }) {
   const t = tokens()
   const ramp = SEQ.light
+  // degenerate range (a single value, or one dept with data) collapses the
+  // ramp and ECharts paints every polygon the same tone — pad it so regions
+  // without data keep the neutral fill and the one value reads as "high"
+  let lo = min ?? 0, hi = max ?? 1
+  if (lo === hi) { const pad = Math.max(Math.abs(lo) * 0.05, 1); lo -= pad; hi += pad }
   return {
     textStyle: { fontFamily: FONT },
     tooltip: {
@@ -531,10 +564,10 @@ export function buildMapOption({ data, mapName, title, min, max }) {
       },
     },
     visualMap: {
-      type: 'continuous', min: min ?? 0, max: max ?? 1,
+      type: 'continuous', min: lo, max: hi,
       left: 16, bottom: 24, calculable: true,
       itemWidth: 12, itemHeight: 150,
-      precision: (max ?? 1) < 10 ? 2 : 0, // show decimals for sub-10 scales (Gini, ratios)
+      precision: hi < 10 ? 2 : 0, // show decimals for sub-10 scales (Gini, ratios)
       text: ['alto', 'bajo'],
       textStyle: { color: t.axis, fontSize: 11 },
       inRange: { color: ramp },

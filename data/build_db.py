@@ -94,6 +94,10 @@ def main():
             except Exception:
                 pass
 
+        # per-table cleanup (drop revision/weighting variants no chart can show)
+        for sql in cat.TRANSFORMS.get(stem, []):
+            con.execute(sql.format(t=f"{schema}.{tname}"))
+
         info = con.execute(f"PRAGMA table_info('{schema}.{tname}')").fetchall()
         cols = [r[1] for r in info]
         n = con.execute(f"SELECT count(*) FROM {schema}.{tname}").fetchone()[0]

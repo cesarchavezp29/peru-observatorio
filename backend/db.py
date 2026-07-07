@@ -34,7 +34,7 @@ def _isnum(ty: str) -> bool:
     return any(k in (ty or "").upper() for k in
                ("INT", "DOUBLE", "DECIMAL", "FLOAT", "REAL", "NUMERIC", "HUGEINT"))
 
-_TEMPORAL_KEYS = ("anio", "ano", "year", "ym", "periodo", "trimestre")
+_TEMPORAL_KEYS = ("anio", "ano", "year", "ym", "periodo", "trimestre", "trim_start")
 
 
 def _load_catalog() -> None:
@@ -125,7 +125,17 @@ def _load_catalog() -> None:
                     ("indicator", "indicador", "variable", "concepto")), None)
         if not cat and not is_flow and (tcol or dcol) and n:
             for c, ty in cols.items():
-                if c in (tcol, dcol) or _isnum(ty):
+                if c in (tcol, dcol) or _isnum(ty) or "BOOL" in ty.upper():
+                    continue
+                # a geographic column is an axis, never an indicator selector
+                # (ccdd may be the detected dept col while `departamento` holds
+                # the names -> filtering by it would map a single department)
+                if c.lower() in ("departamento", "dpto", "dep", "depto", "region",
+                                 "provincia", "distrito", "ciudad", "dominio"):
+                    continue
+                vals = [v[0] for v in _con.execute(
+                    f'SELECT DISTINCT "{c}" FROM {schema}.{table} LIMIT 30').fetchall()]
+                if vals and sum(1 for v in vals if gd.canonical(v)) / len(vals) >= 0.5:
                     continue
                 d = _con.execute(f'SELECT count(DISTINCT "{c}") FROM {schema}.{table}').fetchone()[0]
                 if 2 <= d <= 30 and d * 1.5 < n:
@@ -401,9 +411,13 @@ def map_data(schema: str, table: str, value_col: str, *,
 def distinct(schema: str, table: str, col: str, limit: int = 500) -> list:
     if not valid_table(schema, table) or col not in _COLS[(schema, table)]:
         raise ValueError("bad column")
+    # indicator selectors open on the best-covered slice (a category present in
+    # one stray year would otherwise be the alphabetical default); periods and
+    # other axes keep their natural order
+    order = ("count(*) DESC, 1" if col == _CATEGORY.get((schema, table)) else "1")
     with _lock:
         r = _con.execute(
-            f'SELECT DISTINCT "{col}" FROM {schema}.{table} '
-            f'WHERE "{col}" IS NOT NULL ORDER BY 1 LIMIT {int(limit)}'
+            f'SELECT "{col}" FROM {schema}.{table} '
+            f'WHERE "{col}" IS NOT NULL GROUP BY 1 ORDER BY {order} LIMIT {int(limit)}'
         ).fetchall()
     return [x[0] for x in r]
