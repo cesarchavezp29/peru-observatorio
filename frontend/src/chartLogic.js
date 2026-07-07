@@ -226,10 +226,15 @@ export function buildOption({ rows, x, series, type, ytitle, xIsDept, rankBars }
   const cats = workRows.map((r) =>
     xIsDept ? deptName(r[x]) : (typeof r[x] === 'string' ? labelFor(r[x]) : r[x]))
 
+  // animated end-of-line value label on uncluttered temporal lines
+  const endLabels = base === 'line' && !stacked && !horizontal && series.length <= 4
+
   const seriesArr = series.map((s, i) => ({
+    id: s, // stable id -> smooth morph when the chart type switches
     name: labelFor(s),
     type: base,
     data: workRows.map((r) => r[s]),
+    universalTransition: true,
     stack: stacked ? 'composicion' : undefined,
     smooth: base === 'line' ? (stacked ? 0.15 : 0.25) : false,
     showSymbol: stacked ? false : rows.length <= 40,
@@ -244,6 +249,11 @@ export function buildOption({ rows, x, series, type, ytitle, xIsDept, rankBars }
       ? { show: true, position: horizontal ? 'right' : 'top', color: t.text,
           fontSize: 11, fontWeight: 600, formatter: (p) => fmtNum(p.value) }
       : undefined,
+    endLabel: endLabels
+      ? { show: true, valueAnimation: true, distance: 7, color: PALETTE[i % PALETTE.length],
+          fontWeight: 800, fontSize: 12, formatter: (p) => fmtNum(p.value) }
+      : undefined,
+    labelLayout: endLabels ? { hideOverlap: true, moveOverlap: 'shiftY' } : undefined,
     emphasis: { focus: 'series' },
   }))
 
@@ -287,7 +297,7 @@ export function buildOption({ rows, x, series, type, ytitle, xIsDept, rankBars }
     grid: {
       left: horizontal && typeof cats[0] === 'string'
         ? Math.min(240, 8 * Math.max(...cats.map((c) => String(c).length))) : 64,
-      right: 24, top: series.length > 1 ? 52 : 30, bottom: 64,
+      right: endLabels ? 64 : 24, top: series.length > 1 ? 52 : 30, bottom: 64,
     },
     tooltip: { ...tooltip('axis'), valueFormatter: (v) => fmtNum(v) },
     legend: series.length > 1
@@ -297,7 +307,9 @@ export function buildOption({ rows, x, series, type, ytitle, xIsDept, rankBars }
     xAxis: horizontal ? valAxis : catAxis,
     yAxis: horizontal ? catAxis : valAxis,
     series: seriesArr,
-    animationDuration: 500,
+    animationDuration: 600,
+    animationDurationUpdate: 650,
+    animationEasingUpdate: 'cubicInOut',
   }
 }
 
@@ -489,7 +501,14 @@ export function buildFlowMapOption(rows, flow, centroids, { cap = 55, mapName = 
           name: n, value: [...centroids[n], total[n]],
           symbolSize: 5 + 22 * Math.sqrt(total[n] / maxTot), itemStyle: { color: color[n] },
         })),
-        label: { show: true, formatter: '{b}', position: 'right', fontSize: 10, color: t.mapLabel },
+        label: {
+          show: true, formatter: '{b}', position: 'right', distance: 4,
+          fontSize: 10, fontWeight: 600, color: t.mapLabel,
+          textBorderColor: '#f6ecd7', textBorderWidth: 2, // halo keeps names readable over lines
+        },
+        // drop colliding names instead of mashing them together; data is sorted
+        // by total flow, so the biggest hubs keep their labels
+        labelLayout: { hideOverlap: true },
       },
     ],
     animationDuration: 600,
