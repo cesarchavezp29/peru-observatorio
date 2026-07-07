@@ -522,10 +522,15 @@ export function buildMapOption({ data, mapName, title, min, max }) {
     },
     series: [{
       type: 'map', map: mapName, roam: true,
+      // center and fill the panel — Peru is tall and narrow, so without this the
+      // shape floats off to one side
+      layoutCenter: ['50%', '50%'], layoutSize: '96%',
       data,
       nameProperty: 'name',
       label: { show: false },
-      itemStyle: { borderColor: t.mapBorder, borderWidth: 0.6, areaColor: t.mapEmpty },
+      // no-data areas get a neutral light tint (not a warm ramp tone that would
+      // read as a low value)
+      itemStyle: { borderColor: t.mapBorder, borderWidth: 0.6, areaColor: '#e7e0d0' },
       emphasis: {
         label: { show: true, color: t.mapLabel, fontSize: 11.5, fontWeight: 700 },
         itemStyle: { areaColor: '#157a6e' },
