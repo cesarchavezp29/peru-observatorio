@@ -160,6 +160,15 @@ h1, h2, h3, .brand-text strong { font-family: var(--font-display); font-weight: 
 td.cmp-nat { text-align: right; padding: 8px 12px; border-bottom: 1px solid var(--border); color: var(--text-mute); font-weight: 700; font-family: var(--font-display); }
 .cmp-note { color: var(--text-mute); font-size: 12px; margin-top: 16px; font-style: italic; }
 
+.exp-share {
+  background: none; border: 1px solid var(--border-strong); color: var(--text-dim);
+  border-radius: 8px; padding: 5px 12px; font-size: 12.5px; font-weight: 700;
+  transition: all .18s var(--ease);
+}
+.exp-share:hover { border-color: var(--terracotta); color: var(--terracotta); }
+.exp-share.ok { background: #157a6e; border-color: #157a6e; color: #fff; }
+.search-dpto { color: var(--terracotta); font-weight: 800; }
+
 /* ---------------------------------------------------------- ficha departamental */
 .dpto { max-width: 1080px; }
 .dpto-title-row { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; margin: 6px 0 18px; }

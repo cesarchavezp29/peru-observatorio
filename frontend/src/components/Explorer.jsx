@@ -1,5 +1,5 @@
-import { useEffect, useMemo, useState } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useEffect, useMemo, useRef, useState } from 'react'
+import { useParams, useNavigate, useSearchParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { api } from '../api'
 import EChart from './EChart'
@@ -99,9 +99,14 @@ function TableExplorer({ schema, table }) {
   const [matrix, setMatrix] = useState(null)
   const [flow, setFlow] = useState(null)
   const [playing, setPlaying] = useState(false)
+  const [copied, setCopied] = useState(false)
+  // shareable view state: ?c=<type>&x=<col>&s=<a|b>&cat=<v>&p=<year> — applied
+  // once after auto-detection, then kept in sync so the URL is always shareable
+  const urlApplied = useRef(false)
 
   // load meta + data on table change
   useEffect(() => {
+    urlApplied.current = false
     setMeta(null); setData(null); setErr(null)
     setMapRes(null); setPeriod(null); setPeriods([])
     setCategory(null); setCategories([]); setMatrix(null); setFlow(null); setPlaying(false)
@@ -137,14 +142,19 @@ function TableExplorer({ schema, table }) {
         api.distinct(schema, table, m.temporal_col).then((r) => {
           if (!alive) return
           const vals = r.values
-          setPeriods(vals); setPeriod(vals[vals.length - 1])
+          setPeriods(vals)
+          // keep a period restored from the URL; default to the latest otherwise
+          setPeriod((cur) => cur != null && vals.some((v) => String(v) === String(cur))
+            ? vals.find((v) => String(v) === String(cur)) : vals[vals.length - 1])
         }).catch(() => {})
       }
       // long-format indicator selector
       if (m.category_col) {
         api.distinct(schema, table, m.category_col).then((r) => {
           if (!alive) return
-          setCategories(r.values); setCategory(r.values[0])
+          setCategories(r.values)
+          setCategory((cur) => cur != null && r.values.some((v) => String(v) === String(cur))
+            ? r.values.find((v) => String(v) === String(cur)) : r.values[0])
         }).catch(() => {})
       }
       return api.data(schema, table, {
@@ -177,6 +187,42 @@ function TableExplorer({ schema, table }) {
     }).catch((e) => alive && setErr(String(e)))
     return () => { alive = false }
   }, [schema, table])
+
+  const [searchParams, setSearchParams] = useSearchParams()
+
+  // restore a shared view once auto-detection has run (invalid values are
+  // ignored; an off-shape chart type gets coerced by the availTypes effect)
+  useEffect(() => {
+    if (!data || !meta || urlApplied.current) return
+    const g = (k) => searchParams.get(k)
+    const x = g('x'), s = g('s'), c = g('c'), cat = g('cat'), p = g('p')
+    if (x && meta.columns.includes(x)) setXCol(x)
+    if (s) {
+      const cols = s.split('|').filter((k) => meta.columns.includes(k))
+      if (cols.length) setYCols(cols)
+    }
+    if (c) setCtype(c)
+    if (cat != null) setCategory(cat)
+    if (p != null) setPeriod(Number.isNaN(+p) ? p : +p)
+    urlApplied.current = true
+  }, [data, meta]) // eslint-disable-line
+
+  // keep the URL in sync with the current view -> the address is always shareable
+  useEffect(() => {
+    if (!urlApplied.current || !meta) return
+    const p = { c: ctype }
+    if (xCol) p.x = xCol
+    if (yCols.length) p.s = yCols.join('|')
+    if (category != null) p.cat = String(category)
+    if (period != null) p.p = String(period)
+    setSearchParams(p, { replace: true })
+  }, [ctype, xCol, yCols, category, period, meta]) // eslint-disable-line
+
+  const copyLink = () => {
+    navigator.clipboard?.writeText(window.location.href)
+      .then(() => { setCopied(true); setTimeout(() => setCopied(false), 1800) })
+      .catch(() => {})
+  }
 
   // filters shared by chart (client-side) and map (server-side)
   const buildFilters = () => {
@@ -280,7 +326,8 @@ function TableExplorer({ schema, table }) {
     if (ctype === 'map' || ctype === 'flowmap' || ctype === 'red' || flow
       || !isTemporal(xCol) || !yCols.length || viewRows.length < 2) return null
     const col = yCols[0]
-    const pts = viewRows.map((r) => Number(r[col])).filter((v) => Number.isFinite(v))
+    // toNum: nulls stay NaN and drop out (Number(null) is 0 and skewed min/cambio)
+    const pts = viewRows.map((r) => toNum(r[col])).filter((v) => Number.isFinite(v))
     if (pts.length < 2) return null
     return {
       col, latest: pts[pts.length - 1], first: pts[0],
@@ -381,6 +428,10 @@ function TableExplorer({ schema, table }) {
           {meta.mappable && <span className="exp-badge">mapa disponible</span>}
           <span className="exp-file">{meta.source_file}</span>
           <a className="exp-dl" href={api.downloadUrl(schema, table)}>Descargar CSV</a>
+          <button className={'exp-share' + (copied ? ' ok' : '')} onClick={copyLink}
+            title="Copia un enlace que reproduce exactamente esta vista">
+            {copied ? '✓ Enlace copiado' : '⧉ Compartir vista'}
+          </button>
         </div>
       </div>
 

@@ -1,6 +1,16 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
+import { deptName } from '../chartLogic'
+
+// department profile entries, searchable alongside indicators
+const DPTOS = Array.from({ length: 25 }, (_, i) => i + 1)
+  .filter((c) => c !== 7) // Callao folded into Lima
+  .map((c) => ({
+    kind: 'dpto', code: String(c).padStart(2, '0'),
+    title: deptName(c), table: '', theme: 'departamento',
+    section: 'Ficha departamental',
+  }))
 
 // Global indicator search: fetches the flat index once, filters client-side.
 export default function SearchBar() {
@@ -33,8 +43,8 @@ export default function SearchBar() {
     const s = q.trim().toLowerCase()
     if (!s) return []
     const terms = s.split(/\s+/)
-    return index.map((x) => {
-      const t = x.title.toLowerCase(), tb = x.table.toLowerCase()
+    return [...DPTOS, ...index].map((x) => {
+      const t = x.title.toLowerCase(), tb = (x.table || '').toLowerCase()
       const th = (x.theme || '').toLowerCase(), sec = (x.section || '').toLowerCase()
       let score = 0, all = true
       for (const term of terms) {
@@ -52,7 +62,7 @@ export default function SearchBar() {
 
   const go = (r) => {
     if (!r) return
-    nav(`/db/${r.schema}/${r.table}`)
+    nav(r.kind === 'dpto' ? `/dpto/${r.code}` : `/db/${r.schema}/${r.table}`)
     setQ(''); setOpen(false)
   }
   const onKey = (e) => {
@@ -74,9 +84,13 @@ export default function SearchBar() {
             initial={{ opacity: 0, y: -6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -6 }}
             transition={{ duration: 0.15 }}>
             {results.map((r, i) => (
-              <li key={r.schema + r.table} className={'search-item' + (i === hi ? ' on' : '')}
+              <li key={r.kind === 'dpto' ? 'd' + r.code : r.schema + r.table}
+                className={'search-item' + (i === hi ? ' on' : '')}
                 onMouseEnter={() => setHi(i)} onMouseDown={(e) => { e.preventDefault(); go(r) }}>
-                <span className="search-title">{r.title}{r.mappable && <span className="search-map"> · mapa</span>}</span>
+                <span className="search-title">
+                  {r.kind === 'dpto' && <span className="search-dpto">▣ </span>}
+                  {r.title}{r.mappable && <span className="search-map"> · mapa</span>}
+                </span>
                 <span className="search-sec">{r.section}</span>
               </li>
             ))}
