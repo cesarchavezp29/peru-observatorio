@@ -122,6 +122,33 @@ export default function Comparador() {
         <div className="cmp-visual">
           <div ref={radarRef} className="cmp-radar" />
           <div className="cmp-map"><MiniMap selected={sel} /></div>
+          <aside className="lectura cmp-lectura">
+            <div className="lectura-head">Lectura</div>
+            <p className="lectura-main">
+              En el radar, más lejos del centro es un valor más alto en ese
+              indicador (escala normalizada). La tabla trae los valores exactos
+              contra el promedio nacional.
+            </p>
+            <ul className="lectura-list">
+              {sel.map((c, i) => {
+                const row = byCode[c]
+                if (!row) return null
+                let best = null
+                indicators.forEach((k) => {
+                  const v = toNum(row[k]); const avg = stats[k].avg
+                  if (!Number.isFinite(v) || !avg) return
+                  const d = (v - avg) / Math.abs(avg)
+                  if (!best || Math.abs(d) > Math.abs(best.d)) best = { k, d }
+                })
+                return best ? (
+                  <li key={c}><b style={{ color: SLOT_COLORS[i] }}>{deptName(c)}</b>: lo más
+                    distintivo es {best.k.toLowerCase().replace(' (anios)', '')},{' '}
+                    {Math.abs(best.d * 100).toFixed(0)}% {best.d >= 0 ? 'sobre' : 'bajo'} el promedio.</li>
+                ) : null
+              })}
+            </ul>
+            <div className="lectura-src">Fuente: ENAHO — INEI · 2025</div>
+          </aside>
         </div>
 
         <div className="cmp-table-wrap">

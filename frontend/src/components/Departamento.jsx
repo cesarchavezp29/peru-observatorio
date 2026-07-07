@@ -199,12 +199,26 @@ export default function Departamento() {
       <div className="section-label">Dos décadas frente al país</div>
       <p className="dpto-note">Línea sólida: {name}. Punteada: promedio simple de los departamentos.</p>
       {grids
-        ? <div className="dpto-grid">{grids.map((g) => (
-            <motion.div key={g.k} className="dpto-cell" initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-40px' }}
-              transition={{ duration: 0.45 }}>
-              <Mini series={g.mine} natSeries={g.nat} years={g.years} label={g.label} />
-            </motion.div>))}
+        ? <div className="dpto-grid">{grids.map((g) => {
+            const first = g.mine.find((v) => v != null)
+            const last = [...g.mine].reverse().find((v) => v != null)
+            const natLast = [...g.nat].reverse().find((v) => v != null)
+            const dir = last >= first ? 'subió' : 'bajó'
+            const rel = natLast != null ? (last >= natLast ? 'por encima' : 'por debajo') : null
+            return (
+              <motion.div key={g.k} className="dpto-cell" initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-40px' }}
+                transition={{ duration: 0.45 }}>
+                <Mini series={g.mine} natSeries={g.nat} years={g.years} label={g.label} />
+                {first != null && last != null && (
+                  <p className="dpto-read">
+                    {dir === 'subió' ? '▲' : '▼'} {dir} de {fmtNum(first)} a {fmtNum(last)}
+                    {rel ? `, y hoy está ${rel} del promedio (${fmtNum(natLast)})` : ''}.
+                  </p>
+                )}
+              </motion.div>
+            )
+          })}
           </div>
         : <div className="loading">Cargando…</div>}
 

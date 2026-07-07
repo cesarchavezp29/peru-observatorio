@@ -19,3 +19,6 @@ frontend/smoke*.mjs
 data/datasets/who_trusts_state_2025.csv
 data/datasets/trust_income_2025.csv
 data/datasets/panel_evento_hijo_empleo.csv
+
+# local render api key (never commit)
+.render_key

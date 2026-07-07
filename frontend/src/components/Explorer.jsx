@@ -365,40 +365,114 @@ function TableExplorer({ schema, table }) {
     if (availTypes.length && !availTypes.some((t) => t.k === ctype)) setCtype(availTypes[0].k)
   }, [availTypes]) // eslint-disable-line
 
-  // a plain-language caption that explains what the current figure shows
-  const caption = useMemo(() => {
-    if (!meta) return ''
+  // "Lectura": the interpretation panel shown beside every chart — a main
+  // sentence plus key readings, so the figure never stands alone
+  const lectura = useMemo(() => {
+    if (!meta) return null
+    const yr = (x) => String(x).slice(0, 4)
+
     if (ctype === 'map' && mapRes?.data?.length) {
       const d = [...mapRes.data].sort((a, b) => b.value - a.value)
       const unit = meta.geo_level === 'prov' ? 'provincia' : 'departamento'
-      return `Muestra ${labelFor(mapValueCol).toLowerCase()} por ${unit}. Más alto en ${d[0].name} (${fmtNum(d[0].value)}) y más bajo en ${d[d.length - 1].name} (${fmtNum(d[d.length - 1].value)}).`
+      const hi = d[0], lo = d[d.length - 1]
+      const bullets = [
+        `Los más altos: ${d.slice(0, 3).map((o) => `${o.name} (${fmtNum(o.value)})`).join(', ')}.`,
+        `Los más bajos: ${d.slice(-3).reverse().map((o) => `${o.name} (${fmtNum(o.value)})`).join(', ')}.`,
+      ]
+      if (lo.value > 0) bullets.push(`La brecha entre extremos es de ${fmtNum(hi.value / lo.value)} veces.`)
+      if (period != null) bullets.push(`Datos de ${period}. Cambia el año o presiona ▶ para animarlo.`)
+      return {
+        main: `Cada ${unit} se colorea según ${labelFor(mapValueCol).toLowerCase()}: más oscuro es más alto. ${hi.name} encabeza con ${fmtNum(hi.value)} y ${lo.name} cierra con ${fmtNum(lo.value)}.`,
+        bullets,
+      }
     }
-    if (ctype === 'heat') return 'Matriz de transición: cada celda es el % que pasa de la fila (origen) a la columna (destino). La diagonal marca la persistencia; fuera de ella, la movilidad.'
-    if (ctype === 'race') return `Ranking animado de ${labelFor(mapValueCol).toLowerCase()} por departamento. Cada barra corre y se reordena año a año, del primero al último dato disponible.`
+    if (ctype === 'heat' && matrix) {
+      const diag = viewRows.map((r, i) => toNum(r[matrix.cols[i]])).filter(Number.isFinite)
+      const persist = diag.length ? diag.reduce((a, b) => a + b, 0) / diag.length : null
+      return {
+        main: 'Cada celda es el porcentaje que pasa de la fila (situación de origen) a la columna (destino). La diagonal es quedarse donde se estaba.',
+        bullets: [
+          persist != null ? `En promedio, ${fmtNum(persist)}% permanece en su posición de origen (la diagonal).` : null,
+          'Lejos de la diagonal hay movilidad: subidas por encima, caídas por debajo.',
+        ].filter(Boolean),
+      }
+    }
+    if (ctype === 'race') {
+      return {
+        main: `Las barras se reordenan solas conforme avanza el año: es el ranking de ${labelFor(mapValueCol).toLowerCase()} en movimiento.`,
+        bullets: ['Cada departamento conserva su color para poder seguirlo.',
+          'Usa ❚❚ para pausar en un año y comparar posiciones.'],
+      }
+    }
     if ((ctype === 'red' || ctype === 'flowmap') && flow) {
       const es = viewRows.map((r) => ({ s: r[flow.source], t: r[flow.target], v: toNum(r[flow.value]) }))
         .filter((e) => Number.isFinite(e.v) && e.s !== e.t).sort((a, b) => b.v - a.v)
-      const top = es[0]
-      const nodes = new Set(viewRows.flatMap((r) => [r[flow.source], r[flow.target]])).size
-      const lead = ctype === 'flowmap'
-        ? `Mapa de flujos entre ${nodes} departamentos.` : `Red de flujos entre ${nodes} nodos.`
-      return `${lead} ` + (top
-        ? `El mayor flujo es ${top.s} → ${top.t} (${fmtNum(top.v)}). El grosor de cada línea es la magnitud del flujo.` : '')
+      const tot = {}
+      es.forEach((e) => { tot[e.s] = (tot[e.s] || 0) + e.v; tot[e.t] = (tot[e.t] || 0) + e.v })
+      const hub = Object.entries(tot).sort((a, b) => b[1] - a[1])[0]
+      return {
+        main: ctype === 'flowmap'
+          ? 'Cada línea viaja del origen al destino sobre el mapa: más gruesa, más personas. Los círculos crecen con el movimiento total de cada departamento.'
+          : 'Cada arco conecta un origen con un destino: más grueso, mayor flujo. Pasa el cursor por un nodo para aislar sus conexiones.',
+        bullets: [
+          es[0] ? `El mayor flujo es ${es[0].s} → ${es[0].t} con ${fmtNum(es[0].v)}.` : null,
+          es[1] ? `Le siguen ${es[1].s} → ${es[1].t} (${fmtNum(es[1].v)}) y ${es[2] ? `${es[2].s} → ${es[2].t} (${fmtNum(es[2].v)})` : ''}.` : null,
+          hub ? `${hub[0]} es el centro de la red: concentra el mayor movimiento total.` : null,
+          period != null ? `Datos de ${period}. Presiona ▶ para recorrer los años.` : null,
+        ].filter(Boolean),
+      }
+    }
+    if (singleRow && viewRows[0]) {
+      const r0 = viewRows[0]
+      const comps = (meta.columns || [])
+        .filter((c) => isNumeric(types[c]) && !isHiddenSeries(c))
+        .map((c) => ({ c, v: toNum(r0[c]) })).filter((o) => Number.isFinite(o.v))
+        .sort((a, b) => b.v - a.v)
+      if (comps.length >= 2) {
+        return {
+          main: `Una sola medición descompuesta en sus partes: ${labelFor(comps[0].c).toLowerCase()} es la mayor (${fmtNum(comps[0].v)}) y ${labelFor(comps[comps.length - 1].c).toLowerCase()} la menor (${fmtNum(comps[comps.length - 1].v)}).`,
+          bullets: comps.slice(0, 3).map((o) => `${labelFor(o.c)}: ${fmtNum(o.v)}.`),
+        }
+      }
+      return null
     }
     const col = yCols[0]
-    if (!col || viewRows.length < 2) return ''
+    if (!col || viewRows.length < 2) return null
     const vals = viewRows.map((r) => ({ x: r[xCol], v: toNum(r[col]) })).filter((o) => Number.isFinite(o.v))
-    if (vals.length < 2) return ''
+    if (vals.length < 2) return null
     const nm = (x) => xCol === meta.dept_col ? deptName(x) : (typeof x === 'string' ? labelFor(x) : x)
     if (isTemporal(xCol)) {
       const f = vals[0], l = vals[vals.length - 1]
       const dir = l.v >= f.v ? 'subió' : 'bajó'
-      const yr = (x) => String(x).slice(0, 4)
-      return `Evolución de ${labelFor(col).toLowerCase()}: ${dir} de ${fmtNum(f.v)} en ${yr(f.x)} a ${fmtNum(l.v)} en ${yr(l.x)}.`
+      const peak = vals.reduce((a, b) => (b.v > a.v ? b : a))
+      const low = vals.reduce((a, b) => (b.v < a.v ? b : a))
+      const pct = f.v !== 0 ? Math.abs(100 * (l.v - f.v) / Math.abs(f.v)) : null
+      const covid = vals.find((o) => yr(o.x) === '2020')
+      const pre = vals.find((o) => yr(o.x) === '2019')
+      return {
+        main: `${labelFor(col)} ${dir} de ${fmtNum(f.v)} en ${yr(f.x)} a ${fmtNum(l.v)} en ${yr(l.x)}${pct != null && pct >= 1 ? ` (${dir === 'subió' ? '+' : '−'}${fmtNum(pct)}%)` : ''}.`,
+        bullets: [
+          `El punto más alto fue ${fmtNum(peak.v)} en ${yr(peak.x)} y el más bajo ${fmtNum(low.v)} en ${yr(low.x)}.`,
+          covid && pre && Math.abs(covid.v - pre.v) / (Math.abs(pre.v) || 1) > 0.08
+            ? `En 2020 la pandemia lo movió de ${fmtNum(pre.v)} a ${fmtNum(covid.v)}.` : null,
+          yCols.length > 1 ? 'Compara las series con los botones de arriba: cada color es una serie.' : null,
+        ].filter(Boolean),
+      }
     }
     const s = [...vals].sort((a, b) => b.v - a.v)
-    return `${labelFor(col)} por ${labelFor(xCol).toLowerCase()}. Mayor en ${nm(s[0].x)} (${fmtNum(s[0].v)}) y menor en ${nm(s[s.length - 1].x)} (${fmtNum(s[s.length - 1].v)}).`
-  }, [meta, viewRows, xCol, yCols, ctype, mapRes, mapValueCol])
+    const mid = s[Math.floor(s.length / 2)]
+    return {
+      main: `Compara ${labelFor(col).toLowerCase()} entre ${s.length} ${labelFor(xCol).toLowerCase() === 'grupo' ? 'grupos' : 'categorías'}: ${nm(s[0].x)} encabeza con ${fmtNum(s[0].v)} y ${nm(s[s.length - 1].x)} cierra con ${fmtNum(s[s.length - 1].v)}.`,
+      bullets: [
+        s.length > 4 ? `El valor típico (mediana) es ${fmtNum(mid.v)}.` : null,
+        s[0].v > 0 && s[s.length - 1].v > 0
+          ? `La brecha entre el primero y el último es de ${fmtNum(s[0].v / s[s.length - 1].v)} veces.` : null,
+      ].filter(Boolean),
+    }
+  }, [meta, viewRows, xCol, yCols, ctype, mapRes, mapValueCol, matrix, flow, period])
+
+  const SOURCE = { enaho: 'ENAHO — INEI', panel: 'ENAHO Panel — INEI', endes: 'ENDES — INEI',
+    epen: 'EPE/EPEN — INEI', eea: 'EEA — INEI' }
 
   if (err) return <div className="error">No se pudo cargar: {err}</div>
   if (!meta) return <TableSkeleton />
@@ -520,8 +594,7 @@ function TableExplorer({ schema, table }) {
           </div>
         )}
 
-        {caption && <p className="exp-caption">{caption}</p>}
-
+        <div className={'chart-row' + (lectura ? '' : ' solo')}>
         <div className="chart-wrap">
           {ctype === 'race'
             ? <BarRaceChart rows={viewRows} entityCol={meta.dept_col}
@@ -542,6 +615,19 @@ function TableExplorer({ schema, table }) {
                 : <div className="loading">Sin datos para esta selección.</div>)
             : (option ? <EChart option={option} />
                 : <div className="loading">Selecciona al menos una serie numérica.</div>)}
+        </div>
+        {lectura && (
+          <aside className="lectura">
+            <div className="lectura-head">Lectura</div>
+            <p className="lectura-main">{lectura.main}</p>
+            {lectura.bullets?.length > 0 && (
+              <ul className="lectura-list">
+                {lectura.bullets.map((b, i) => <li key={i}>{b}</li>)}
+              </ul>
+            )}
+            <div className="lectura-src">Fuente: {SOURCE[schema] || 'INEI'}</div>
+          </aside>
+        )}
         </div>
 
         <button className="table-toggle" onClick={() => setShowTable((s) => !s)}>

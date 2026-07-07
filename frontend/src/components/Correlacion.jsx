@@ -121,13 +121,26 @@ export default function Correlacion() {
         )}
       </div>
 
-      <div className="corr-panel"><div ref={el} className="corr-chart" /></div>
-      {st && (
-        <p className="corr-insight">
-          Los departamentos con más <b>{labelFor(xv).toLowerCase()}</b> tienden a tener {more}{' '}
-          <b>{labelFor(yv).toLowerCase()}</b>. La correlación explica {Math.round(st.r * st.r * 100)}% de la variación (R²).
-        </p>
-      )}
+      <div className="chart-row">
+        <div className="corr-panel"><div ref={el} className="corr-chart" /></div>
+        {st && (
+          <aside className="lectura">
+            <div className="lectura-head">Lectura</div>
+            <p className="lectura-main">
+              Cada punto es un departamento. Los que tienen más{' '}
+              {labelFor(xv).toLowerCase()} tienden a tener {more}{' '}
+              {labelFor(yv).toLowerCase()}.
+            </p>
+            <ul className="lectura-list">
+              <li>La correlación es {strength} y {dir} (r = {st.r.toFixed(2)}).</li>
+              <li>Explica el {Math.round(st.r * st.r * 100)}% de la variación entre departamentos (R²).</li>
+              <li>La línea punteada es la tendencia: los puntos lejos de ella son las excepciones.</li>
+              <li>Correlación no es causalidad: prueba otros pares con los selectores.</li>
+            </ul>
+            <div className="lectura-src">Fuente: ENAHO — INEI</div>
+          </aside>
+        )}
+      </div>
     </div>
   )
 }
