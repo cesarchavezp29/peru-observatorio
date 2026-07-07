@@ -215,13 +215,27 @@ function TableExplorer({ schema, table }) {
     if (yCols.length) p.s = yCols.join('|')
     if (category != null) p.cat = String(category)
     if (period != null) p.p = String(period)
+    if (searchParams.get('embed') === '1') p.embed = '1' // keep iframe mode on
     setSearchParams(p, { replace: true })
   }, [ctype, xCol, yCols, category, period, meta]) // eslint-disable-line
 
-  const copyLink = () => {
-    navigator.clipboard?.writeText(window.location.href)
-      .then(() => { setCopied(true); setTimeout(() => setCopied(false), 1800) })
+  const isEmbed = searchParams.get('embed') === '1'
+
+  const copyText = (kind, text) => {
+    navigator.clipboard?.writeText(text)
+      .then(() => { setCopied(kind); setTimeout(() => setCopied(''), 1800) })
       .catch(() => {})
+  }
+  const copyLink = () => copyText('share', window.location.href)
+  const copyEmbed = () => {
+    const url = window.location.href + (window.location.href.includes('?') ? '&' : '?') + 'embed=1'
+    copyText('embed', `<iframe src="${url}" width="100%" height="540" style="border:none"></iframe>`)
+  }
+  const copyCite = () => {
+    const d = new Date()
+    const fecha = d.toLocaleDateString('es-PE', { day: 'numeric', month: 'long', year: 'numeric' })
+    copyText('cite', `Chávez, C. (${d.getFullYear()}). ${meta?.title}. Observatorio de Datos del Perú. ` +
+      `${window.location.href} (consultado el ${fecha}). Fuente primaria: microdatos INEI.`)
   }
 
   // filters shared by chart (client-side) and map (server-side)
@@ -477,6 +491,36 @@ function TableExplorer({ schema, table }) {
   if (err) return <div className="error">No se pudo cargar: {err}</div>
   if (!meta) return <TableSkeleton />
 
+  const chartEl = ctype === 'race'
+    ? <BarRaceChart rows={viewRows} entityCol={meta.dept_col}
+        valueCol={mapValueCol} timeCol={meta.temporal_col} nameFn={deptName} />
+    : ctype === 'flowmap' && flow
+    ? <FlowMapChart rows={viewRows} flow={flow} />
+    : ctype === 'red' && flow
+    ? <NetworkChart rows={viewRows} flow={flow} />
+    : ctype === 'map'
+    ? (mapRes && mapRes.data.length
+        ? <MapChart data={mapRes.data} level={meta.geo_level || 'dept'}
+            title={meta.category_col && category != null ? labelFor(category) : labelFor(mapValueCol)}
+            min={mapRes.min} max={mapRes.max}
+            onSelect={meta.geo_level !== 'prov' ? (nm) => {
+              const c = deptCode(nm)
+              if (c) navigate(`/dpto/${c}`)
+            } : undefined} />
+        : <div className="loading">Sin datos para esta selección.</div>)
+    : (option ? <EChart option={option} />
+        : <div className="loading">Selecciona al menos una serie numérica.</div>)
+
+  // bare chart for iframes: title, figure, nothing else (App adds attribution)
+  if (isEmbed) {
+    return (
+      <div className="embed-view">
+        <div className="embed-title">{meta.title}</div>
+        {chartEl}
+      </div>
+    )
+  }
+
   const allCols = meta.columns
   const numCols = allCols.filter((c) => isNumeric(types[c]))
 
@@ -502,9 +546,17 @@ function TableExplorer({ schema, table }) {
           {meta.mappable && <span className="exp-badge">mapa disponible</span>}
           <span className="exp-file">{meta.source_file}</span>
           <a className="exp-dl" href={api.downloadUrl(schema, table)}>Descargar CSV</a>
-          <button className={'exp-share' + (copied ? ' ok' : '')} onClick={copyLink}
+          <button className={'exp-share' + (copied === 'share' ? ' ok' : '')} onClick={copyLink}
             title="Copia un enlace que reproduce exactamente esta vista">
-            {copied ? '✓ Enlace copiado' : '⧉ Compartir vista'}
+            {copied === 'share' ? '✓ Copiado' : '⧉ Compartir'}
+          </button>
+          <button className={'exp-share' + (copied === 'embed' ? ' ok' : '')} onClick={copyEmbed}
+            title="Copia el código iframe para incrustar este gráfico en otra web">
+            {copied === 'embed' ? '✓ Copiado' : '</> Insertar'}
+          </button>
+          <button className={'exp-share' + (copied === 'cite' ? ' ok' : '')} onClick={copyCite}
+            title="Copia la cita en formato académico">
+            {copied === 'cite' ? '✓ Copiada' : '❝ Citar'}
           </button>
         </div>
       </div>
@@ -595,27 +647,7 @@ function TableExplorer({ schema, table }) {
         )}
 
         <div className={'chart-row' + (lectura ? '' : ' solo')}>
-        <div className="chart-wrap">
-          {ctype === 'race'
-            ? <BarRaceChart rows={viewRows} entityCol={meta.dept_col}
-                valueCol={mapValueCol} timeCol={meta.temporal_col} nameFn={deptName} />
-            : ctype === 'flowmap' && flow
-            ? <FlowMapChart rows={viewRows} flow={flow} />
-            : ctype === 'red' && flow
-            ? <NetworkChart rows={viewRows} flow={flow} />
-            : isMap
-            ? (mapRes && mapRes.data.length
-                ? <MapChart data={mapRes.data} level={meta.geo_level || 'dept'}
-                    title={meta.category_col && category != null ? labelFor(category) : labelFor(mapValueCol)}
-                    min={mapRes.min} max={mapRes.max}
-                    onSelect={meta.geo_level !== 'prov' ? (nm) => {
-                      const c = deptCode(nm)
-                      if (c) navigate(`/dpto/${c}`)
-                    } : undefined} />
-                : <div className="loading">Sin datos para esta selección.</div>)
-            : (option ? <EChart option={option} />
-                : <div className="loading">Selecciona al menos una serie numérica.</div>)}
-        </div>
+        <div className="chart-wrap">{chartEl}</div>
         {lectura && (
           <aside className="lectura">
             <div className="lectura-head">Lectura</div>

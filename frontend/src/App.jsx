@@ -8,6 +8,7 @@ import Home from './components/Home'
 import Explorer from './components/Explorer'
 import Comparador from './components/Comparador'
 import Correlacion from './components/Correlacion'
+import Datos from './components/Datos'
 import Departamento from './components/Departamento'
 import Ensayos from './components/Ensayos'
 import Historia from './components/Historia'
@@ -17,6 +18,8 @@ export default function App() {
   const [databases, setDatabases] = useState([])
   const [navOpen, setNavOpen] = useState(false)
   const location = useLocation()
+  // ?embed=1 -> bare chart for iframes: no topbar, sidebar or footer
+  const embed = new URLSearchParams(location.search).get('embed') === '1'
 
   useEffect(() => {
     api.databases().then(setDatabases).catch(() => setDatabases([]))
@@ -33,6 +36,21 @@ export default function App() {
     const hit = titles.find(([p]) => path.startsWith(p))
     document.title = (hit ? hit[1] + ' · ' : '') + 'Observatorio de Datos del Perú'
   }, [location.pathname])
+
+  if (embed) {
+    return (
+      <div className="app embed-shell">
+        <Routes location={location}>
+          <Route path="/db/:schema/:table" element={<Explorer />} />
+          <Route path="*" element={<Home databases={databases} />} />
+        </Routes>
+        <a className="embed-brand" href={window.location.origin + '/#' + location.pathname}
+          target="_blank" rel="noreferrer">
+          ◆ Observatorio de Datos del Perú
+        </a>
+      </div>
+    )
+  }
 
   return (
     <div className="app">
@@ -66,6 +84,7 @@ export default function App() {
                 <Route path="/ensayos" element={<Ensayos />} />
                 <Route path="/dpto/:code" element={<Departamento />} />
                 <Route path="/metodologia" element={<Metodologia />} />
+                <Route path="/datos" element={<Datos />} />
                 <Route path="/historia" element={<Historia />} />
                 <Route path="/db/:schema" element={<Explorer />} />
                 <Route path="/db/:schema/:table" element={<Explorer />} />

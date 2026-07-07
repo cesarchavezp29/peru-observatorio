@@ -193,6 +193,32 @@ td.cmp-nat { text-align: right; padding: 8px 12px; border-bottom: 1px solid var(
 .exp-share.ok { background: #157a6e; border-color: #157a6e; color: #fff; }
 .search-dpto { color: var(--terracotta); font-weight: 800; }
 
+/* ---------------------------------------------------------- embed + datos */
+.embed-shell { padding: 10px 14px 6px; background: var(--bg); min-height: 100vh; }
+.embed-view .chart-wrap { margin: 6px 0 0; }
+.embed-title { font-family: var(--font-display); font-size: 16px; font-weight: 800; color: var(--ink); letter-spacing: -.3px; }
+.embed-brand {
+  display: inline-flex; align-items: center; gap: 6px; margin: 4px 0 2px;
+  font-size: 11.5px; font-weight: 800; color: var(--terracotta);
+}
+.datos { max-width: 900px; }
+.datos h1 { font-family: var(--font-display); font-size: 36px; font-weight: 800; letter-spacing: -1px; color: var(--ink); margin: 8px 0 12px; }
+.datos-lead { font-size: 15px; line-height: 1.65; color: var(--text-dim); max-width: 640px; margin-bottom: 18px; }
+.datos-lead a { color: var(--terracotta); font-weight: 700; }
+.datos-search { width: 100%; max-width: 460px; padding: 11px 16px; border-radius: 12px; border: 1.5px solid var(--border-strong); background: var(--panel); font-size: 14px; color: var(--ink); font-family: inherit; }
+.datos-search:focus { outline: none; border-color: var(--terracotta); }
+.datos-count { font-size: 12px; font-weight: 700; color: var(--text-mute); margin: 10px 0 2px; }
+.datos-list { display: flex; flex-direction: column; }
+.datos-row { display: grid; grid-template-columns: 1fr 240px 70px; gap: 12px; align-items: center; padding: 8px 10px; border-radius: 9px; }
+.datos-row:nth-child(odd) { background: #f7efdd; }
+.datos-row:hover { background: #f2e6cb; }
+.datos-title { background: none; border: none; text-align: left; font-size: 13.5px; font-weight: 700; color: var(--ink); padding: 0; }
+.datos-title:hover { color: var(--terracotta); }
+.datos-table { font-family: ui-monospace, monospace; font-size: 11.5px; color: var(--text-mute); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.datos-dl { font-size: 12.5px; font-weight: 800; color: var(--teal); text-align: right; }
+.datos-dl:hover { text-decoration: underline; }
+@media (max-width: 720px) { .datos-row { grid-template-columns: 1fr 60px; } .datos-table { display: none; } }
+
 /* ---------------------------------------------------------- metodologia */
 .metod { max-width: 880px; }
 .metod h1 { font-family: var(--font-display); font-size: 38px; font-weight: 800; letter-spacing: -1px; color: var(--ink); margin: 8px 0 12px; }

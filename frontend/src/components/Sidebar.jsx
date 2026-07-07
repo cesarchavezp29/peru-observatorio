@@ -113,6 +113,10 @@ export default function Sidebar({ databases, open, onNavigate }) {
           className={({ isActive }) => 'nav-tool' + (isActive ? ' active' : '')}>
           <span className="nav-tool-ico">✓</span> Metodología
         </NavLink>
+        <NavLink to="/datos" onClick={onNavigate}
+          className={({ isActive }) => 'nav-tool' + (isActive ? ' active' : '')}>
+          <span className="nav-tool-ico">↓</span> Datos abiertos
+        </NavLink>
         <div className="nav-sep" />
         {databases.map((db) => (
           <DatabaseGroup key={db.schema} db={db} onNavigate={onNavigate} />
