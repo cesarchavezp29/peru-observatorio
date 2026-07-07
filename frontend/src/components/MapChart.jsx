@@ -17,16 +17,22 @@ function ensureMap(level) {
   return _registered[m.name]
 }
 
-export default function MapChart({ data, title, min, max, dark, height = 560, level = 'dept' }) {
+export default function MapChart({ data, title, min, max, dark, height = 560, level = 'dept', onSelect }) {
   const el = useRef(null)
   const chart = useRef(null)
+  const selectRef = useRef(onSelect)
   const [ready, setReady] = useState(false)
   const mapName = (MAPS[level] || MAPS.dept).name
+
+  useEffect(() => { selectRef.current = onSelect }, [onSelect])
 
   useEffect(() => {
     chart.current = echarts.init(el.current, null, { renderer: 'canvas' })
     const ro = new ResizeObserver(() => chart.current && chart.current.resize())
     ro.observe(el.current)
+    chart.current.on('click', (p) => {
+      if (p.componentType === 'series' && p.name && selectRef.current) selectRef.current(p.name)
+    })
     return () => { ro.disconnect(); chart.current.dispose() }
   }, [])
 

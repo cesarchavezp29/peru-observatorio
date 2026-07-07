@@ -7,6 +7,7 @@ import MapChart from './MapChart'
 import NetworkChart from './NetworkChart'
 import FlowMapChart from './FlowMapChart'
 import BarRaceChart from './BarRaceChart'
+import { deptCode } from './Departamento'
 import SectionHero from './SectionHero'
 import MiniSpark from './MiniSpark'
 import { guessX, numericCols, defaultSeries, smartDefaultSeries, guessChartType, buildOption, buildHeatmapOption, matrixInfo, fromToInfo, flowInfo, isDeptNodes, isNumeric, isTemporal, labelFor, isHiddenSeries, isCountLike, fmtNum, toNum, deptName } from '../chartLogic'
@@ -82,6 +83,7 @@ function DatabaseOverview({ schema }) {
 }
 
 function TableExplorer({ schema, table }) {
+  const navigate = useNavigate()
   const [meta, setMeta] = useState(null)
   const [data, setData] = useState(null)
   const [err, setErr] = useState(null)
@@ -481,7 +483,11 @@ function TableExplorer({ schema, table }) {
             ? (mapRes && mapRes.data.length
                 ? <MapChart data={mapRes.data} level={meta.geo_level || 'dept'}
                     title={meta.category_col && category != null ? labelFor(category) : labelFor(mapValueCol)}
-                    min={mapRes.min} max={mapRes.max} />
+                    min={mapRes.min} max={mapRes.max}
+                    onSelect={meta.geo_level !== 'prov' ? (nm) => {
+                      const c = deptCode(nm)
+                      if (c) navigate(`/dpto/${c}`)
+                    } : undefined} />
                 : <div className="loading">Sin datos para esta selección.</div>)
             : (option ? <EChart option={option} />
                 : <div className="loading">Selecciona al menos una serie numérica.</div>)}

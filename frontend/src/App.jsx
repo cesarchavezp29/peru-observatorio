@@ -8,6 +8,7 @@ import Home from './components/Home'
 import Explorer from './components/Explorer'
 import Comparador from './components/Comparador'
 import Correlacion from './components/Correlacion'
+import Departamento from './components/Departamento'
 import Ensayos from './components/Ensayos'
 import Historia from './components/Historia'
 
@@ -52,6 +53,7 @@ export default function App() {
                 <Route path="/comparar" element={<Comparador />} />
                 <Route path="/correlacion" element={<Correlacion />} />
                 <Route path="/ensayos" element={<Ensayos />} />
+                <Route path="/dpto/:code" element={<Departamento />} />
                 <Route path="/historia" element={<Historia />} />
                 <Route path="/db/:schema" element={<Explorer />} />
                 <Route path="/db/:schema/:table" element={<Explorer />} />
