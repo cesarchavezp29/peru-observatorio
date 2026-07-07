@@ -94,6 +94,7 @@ function TableExplorer({ schema, table }) {
   const [mapRes, setMapRes] = useState(null)
   const [period, setPeriod] = useState(null)
   const [periods, setPeriods] = useState([])
+  const [range, setRange] = useState(null)   // [desde, hasta] on the x axis
   const [category, setCategory] = useState(null)
   const [categories, setCategories] = useState([])
   const [matrix, setMatrix] = useState(null)
@@ -108,7 +109,7 @@ function TableExplorer({ schema, table }) {
   useEffect(() => {
     urlApplied.current = false
     setMeta(null); setData(null); setErr(null)
-    setMapRes(null); setPeriod(null); setPeriods([])
+    setMapRes(null); setPeriod(null); setPeriods([]); setRange(null)
     setCategory(null); setCategories([]); setMatrix(null); setFlow(null); setPlaying(false)
     let alive = true
     let capMeta, capX, capYs, capCand, capFlow
@@ -204,6 +205,8 @@ function TableExplorer({ schema, table }) {
     if (c) setCtype(c)
     if (cat != null) setCategory(cat)
     if (p != null) setPeriod(Number.isNaN(+p) ? p : +p)
+    const r = g('r')
+    if (r && r.includes('|')) setRange(r.split('|'))
     urlApplied.current = true
   }, [data, meta]) // eslint-disable-line
 
@@ -215,9 +218,10 @@ function TableExplorer({ schema, table }) {
     if (yCols.length) p.s = yCols.join('|')
     if (category != null) p.cat = String(category)
     if (period != null) p.p = String(period)
+    if (range) p.r = range.join('|')
     if (searchParams.get('embed') === '1') p.embed = '1' // keep iframe mode on
     setSearchParams(p, { replace: true })
-  }, [ctype, xCol, yCols, category, period, meta]) // eslint-disable-line
+  }, [ctype, xCol, yCols, category, period, range, meta]) // eslint-disable-line
 
   const isEmbed = searchParams.get('embed') === '1'
 
@@ -288,6 +292,20 @@ function TableExplorer({ schema, table }) {
     })
   }, [rows, yCols])
 
+  // distinct sorted values of the temporal x axis: powers the Desde/Hasta
+  // range selector (annual 2004, monthly 200110, moving-quarter 200108 alike)
+  const xVals = useMemo(() => {
+    if (!isTemporal(xCol) || flow || matrix) return []
+    const seen = new Set()
+    for (const r of cleanRows) {
+      const v = r[xCol]
+      if (v != null && v !== '') seen.add(String(v))
+    }
+    const vals = [...seen]
+    const allNum = vals.every((v) => !isNaN(v))
+    return vals.sort(allNum ? (a, b) => +a - +b : undefined)
+  }, [cleanRows, xCol, flow, matrix])
+
   // for long-format tables, keep only the selected indicator's rows; for flow
   // tables with a year axis, keep only the selected year
   const viewRows = useMemo(() => {
@@ -296,8 +314,16 @@ function TableExplorer({ schema, table }) {
       r = r.filter((row) => String(row[meta.category_col]) === String(category))
     if (flow && meta?.temporal_col && period != null)
       r = r.filter((row) => String(row[meta.temporal_col]) === String(period))
+    if (range && xVals.length) {
+      const i0 = xVals.indexOf(range[0]), i1 = xVals.indexOf(range[1])
+      if (i0 >= 0 && i1 >= i0)
+        r = r.filter((row) => {
+          const i = xVals.indexOf(String(row[xCol]))
+          return i >= i0 && i <= i1
+        })
+    }
     return r
-  }, [cleanRows, meta, category, flow, period])
+  }, [cleanRows, meta, category, flow, period, range, xVals, xCol])
 
   // a one-row table is a composition: transpose its columns into labelled bars
   const singleRow = ctype !== 'map' && ctype !== 'heat' && viewRows.length === 1
@@ -588,10 +614,41 @@ function TableExplorer({ schema, table }) {
               <label>Eje X</label>
               <select value={xCol} onChange={(e) => {
                 const nx = e.target.value
-                setXCol(nx); setYCols((ys) => ys.filter((y) => y !== nx))
+                setXCol(nx); setYCols((ys) => ys.filter((y) => y !== nx)); setRange(null)
               }}>
                 {allCols.map((c) => <option key={c} value={c}>{labelFor(c)}</option>)}
               </select>
+            </div>
+          )}
+          {!isMap && !isHeat && !singleRow && ctype !== 'red' && ctype !== 'flowmap'
+            && ctype !== 'race' && xVals.length > 3 && (
+            <div className="ctrl">
+              <label>Periodo</label>
+              <div className="range-row">
+                <select value={range ? range[0] : xVals[0]} onChange={(e) => {
+                  const v = e.target.value
+                  setRange((r) => {
+                    const hi = r ? r[1] : xVals[xVals.length - 1]
+                    return [v, xVals.indexOf(hi) < xVals.indexOf(v) ? v : hi]
+                  })
+                }}>
+                  {xVals.map((v) => <option key={v} value={v}>{v}</option>)}
+                </select>
+                <span className="range-sep">→</span>
+                <select value={range ? range[1] : xVals[xVals.length - 1]} onChange={(e) => {
+                  const v = e.target.value
+                  setRange((r) => {
+                    const lo = r ? r[0] : xVals[0]
+                    return [xVals.indexOf(v) < xVals.indexOf(lo) ? v : lo, v]
+                  })
+                }}>
+                  {xVals.map((v) => <option key={v} value={v}>{v}</option>)}
+                </select>
+                {range && (
+                  <button className="range-clear" title="Ver todo el periodo"
+                    onClick={() => setRange(null)}>×</button>
+                )}
+              </div>
             </div>
           )}
           {(isMap || ctype === 'flowmap' || ctype === 'red') && periods.length > 1 && (

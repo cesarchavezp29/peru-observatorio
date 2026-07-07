@@ -12,7 +12,7 @@ from pathlib import Path
 
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import StreamingResponse
+from fastapi.responses import PlainTextResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 
 import db
@@ -39,13 +39,23 @@ def get_database(schema: str):
 
 @app.get("/api/index")
 def get_index():
-    """Flat list of every indicator for the global search box."""
+    """Flat list of every indicator: search box + chart-type browser."""
     return [
         {"schema": s, "table": t, "title": m["title"],
          "section": db.DATABASES[s]["title"], "theme": m["theme_label"],
-         "mappable": db.is_mappable(s, t)}
+         "mappable": db.is_mappable(s, t),
+         "kinds": db.kinds(s, t), "years": db.years(s, t)}
         for (s, t), m in db.CATALOG.items()
     ]
+
+
+@app.get("/api/readme/{name}")
+def get_readme(name: str):
+    """Construction/methodology notes for a database (markdown)."""
+    txt = db.readme(name)
+    if txt is None:
+        raise HTTPException(404, "no readme for that database")
+    return PlainTextResponse(txt, media_type="text/markdown; charset=utf-8")
 
 
 @app.get("/api/previews/{schema}")

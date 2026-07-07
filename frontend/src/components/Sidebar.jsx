@@ -97,6 +97,10 @@ export default function Sidebar({ databases, open, onNavigate }) {
           className={({ isActive }) => 'nav-tool' + (isActive ? ' active' : '')}>
           <span className="nav-tool-ico">⇄</span> Comparar departamentos
         </NavLink>
+        <NavLink to="/graficos" onClick={onNavigate}
+          className={({ isActive }) => 'nav-tool' + (isActive ? ' active' : '')}>
+          <span className="nav-tool-ico">∿</span> Gráficos
+        </NavLink>
         <NavLink to="/correlacion" onClick={onNavigate}
           className={({ isActive }) => 'nav-tool' + (isActive ? ' active' : '')}>
           <span className="nav-tool-ico">✦</span> Correlaciones

@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import * as echarts from 'echarts'
 import { api } from '../api'
 import { fmtNum, toNum, deptName, labelFor } from '../chartLogic'
@@ -18,9 +19,11 @@ function stats(pts) {
 }
 
 export default function Correlacion() {
+  // axes arrive preselected via ?x=&y= (the /graficos picker links here)
+  const [searchParams, setSearchParams] = useSearchParams()
   const [rows, setRows] = useState(null)
-  const [xv, setXv] = useState('Educacion (anios)')
-  const [yv, setYv] = useState('Pobreza')
+  const [xv, setXv] = useState(searchParams.get('x') || 'Educacion (anios)')
+  const [yv, setYv] = useState(searchParams.get('y') || 'Pobreza')
   const el = useRef(null)
   const chart = useRef(null)
 
@@ -30,6 +33,12 @@ export default function Correlacion() {
 
   const indicators = useMemo(() =>
     rows ? Object.keys(rows[0]).filter((c) => c !== 'dep') : [], [rows])
+
+  // keep the pair shareable in the address bar
+  useEffect(() => {
+    if (!indicators.length) return
+    setSearchParams({ x: xv, y: yv }, { replace: true })
+  }, [xv, yv, indicators.length]) // eslint-disable-line
 
   const pts = useMemo(() => rows ? rows.map((r) => ({
     name: deptName(String(r.dep).padStart(2, '0')), x: toNum(r[xv]), y: toNum(r[yv]),

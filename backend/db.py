@@ -26,6 +26,8 @@ _TEMPORAL: dict[tuple[str, str], str] = {}  # (schema, table) -> temporal column
 _CATEGORY: dict[tuple[str, str], str] = {}  # (schema, table) -> long-format category col
 _PROV: dict[tuple[str, str], tuple[str, bool]] = {}  # (schema,table) -> (col, is_ubigeo)
 _PROV_NAMES: dict[str, str] = {}            # province code (4-digit) -> name
+_FLOW: dict[tuple[str, str], bool] = {}     # (schema,table) -> nodes are departments
+_YEARS: dict[tuple[str, str], str] = {}     # (schema,table) -> "2004–2025"
 
 
 def _isnum(ty: str) -> bool:
@@ -105,6 +107,20 @@ def _load_catalog() -> None:
         n = CATALOG[(schema, table)]["n_rows"]
         low = {c.lower() for c in cols}
         is_flow = ({"origen", "source", "desde"} & low) and ({"destino", "target", "hacia"} & low)
+        if is_flow:
+            src = next(c for c in cols if c.lower() in ("origen", "source", "desde"))
+            svals = [v[0] for v in _con.execute(
+                f'SELECT DISTINCT "{src}" FROM {schema}.{table} LIMIT 40').fetchall()]
+            hits = sum(1 for v in svals if gd.canonical(v) is not None)
+            _FLOW[(schema, table)] = bool(svals) and hits / len(svals) >= 0.6
+        tc = _TEMPORAL.get((schema, table))
+        if tc:
+            try:
+                lo, hi = _con.execute(
+                    f'SELECT min("{tc}"), max("{tc}") FROM {schema}.{table}').fetchone()
+                _YEARS[(schema, table)] = f"{str(lo)[:4]}–{str(hi)[:4]}"
+            except Exception:
+                pass
         cat = next((c for c in cols if c.lower() in
                     ("indicator", "indicador", "variable", "concepto")), None)
         if not cat and not is_flow and (tcol or dcol) and n:
@@ -265,6 +281,36 @@ def dept_col(schema: str, table: str) -> str | None:
 
 def temporal_col(schema: str, table: str) -> str | None:
     return _TEMPORAL.get((schema, table))
+
+
+def kinds(schema: str, table: str) -> list[str]:
+    """Chart types this table supports — powers the chart-type browser."""
+    key = (schema, table)
+    low = [c.lower() for c in _COLS.get(key, {})]
+    if key in _FLOW:
+        return ["red", "flujos"] if _FLOW[key] else ["red"]
+    if any(c.endswith("_destino") for c in low) and CATALOG[key]["n_rows"] <= 8:
+        return ["matriz"]
+    lvl = geo_level(schema, table)
+    t = _TEMPORAL.get(key)
+    if lvl:
+        return ["mapa", "carrera"] if (t and lvl == "dept") else ["mapa"]
+    if t:
+        return ["lineas", "apilado", "barras"]
+    return ["barras"]
+
+
+def years(schema: str, table: str) -> str | None:
+    return _YEARS.get((schema, table))
+
+
+_DOCS = Path(__file__).resolve().parent.parent / "data" / "docs"
+
+
+def readme(name: str) -> str | None:
+    """Construction/methodology README for a database (or 'validacion')."""
+    p = _DOCS / f"{name}.md"
+    return p.read_text(encoding="utf-8") if p.exists() else None
 
 
 def geo_level(schema: str, table: str) -> str | None:

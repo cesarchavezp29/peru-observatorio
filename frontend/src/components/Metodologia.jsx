@@ -1,18 +1,19 @@
 import { useEffect, useState } from 'react'
+import { NavLink } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { api } from '../api'
 import { toNum } from '../chartLogic'
 
 const FUENTES = [
-  { sigla: 'ENAHO', nombre: 'Encuesta Nacional de Hogares', anios: '2004–2025',
+  { sigla: 'ENAHO', doc: 'enaho', nombre: 'Encuesta Nacional de Hogares', anios: '2004–2025',
     desc: 'La encuesta de hogares del INEI, base de la medición oficial de pobreza. De aquí salen ingreso, pobreza, empleo, educación, confianza institucional, vivienda y consumo.' },
-  { sigla: 'ENAHO Panel', nombre: 'Muestra longitudinal de la ENAHO', anios: '2007–2023',
+  { sigla: 'ENAHO Panel', doc: 'panel', nombre: 'Muestra longitudinal de la ENAHO', anios: '2007–2023',
     desc: 'Los mismos hogares reentrevistados hasta cinco años. Permite separar pobreza crónica de transitoria y medir movilidad de ingresos, algo invisible en el corte transversal.' },
-  { sigla: 'ENDES', nombre: 'Encuesta Demográfica y de Salud Familiar', anios: '2004–2024',
+  { sigla: 'ENDES', doc: 'endes', nombre: 'Encuesta Demográfica y de Salud Familiar', anios: '2004–2024',
     desc: 'La encuesta DHS del Perú. Fecundidad, salud materno infantil, desnutrición, anemia y anticoncepción, nacional y por departamento.' },
-  { sigla: 'EPE / EPEN', nombre: 'Encuesta Permanente de Empleo (Lima y Nacional)', anios: '2001–2026',
+  { sigla: 'EPE / EPEN', doc: 'epen', nombre: 'Encuesta Permanente de Empleo (Lima y Nacional)', anios: '2001–2026',
     desc: 'El pulso mensual del mercado laboral. Serie de Lima Metropolitana en trimestre móvil desde 2001 y corte departamental desde 2022.' },
-  { sigla: 'EEA', nombre: 'Encuesta Económica Anual', anios: '2023',
+  { sigla: 'EEA', doc: 'eea', nombre: 'Encuesta Económica Anual', anios: '2023',
     desc: 'El lado de las empresas: ventas, valor agregado, productividad, concentración industrial y brechas de género por sector.' },
 ]
 
@@ -59,6 +60,11 @@ export default function Metodologia() {
             </div>
             <div className="fuente-nombre">{f.nombre}</div>
             <p>{f.desc}</p>
+            {f.doc && (
+              <NavLink className="fuente-ficha" to={`/metodologia/${f.doc}`}>
+                Ficha técnica: cómo se construye cada variable →
+              </NavLink>
+            )}
           </div>
         ))}
       </div>
@@ -116,7 +122,10 @@ export default function Metodologia() {
           El mismo criterio se aplica al resto: fecundidad y desnutrición contra los
           informes ENDES, desempleo de Lima contra los informes de empleo, Gini
           contra la serie oficial. Un indicador que no reproduce la cifra publicada
-          se corrige o se excluye.
+          se corrige o se excluye.{' '}
+          <NavLink className="fuente-ficha" to="/metodologia/validacion">
+            Ver la bitácora completa de validación →
+          </NavLink>
         </p>
       </div>
 
