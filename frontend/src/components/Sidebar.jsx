@@ -1,7 +1,48 @@
 import { useEffect, useState } from 'react'
-import { NavLink, useParams } from 'react-router-dom'
+import { NavLink, useLocation, useParams } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import { api } from '../api'
+
+// one collapsible sub-section (theme) inside a database group — 83 tables in a
+// flat list was unusable, so each theme folds
+function ThemeGroup({ schema, theme, onNavigate, single }) {
+  const location = useLocation()
+  const holdsActive = theme.tables.some((tb) =>
+    location.pathname === `/db/${schema}/${tb.table}`)
+  const [open, setOpen] = useState(single || holdsActive)
+  useEffect(() => { if (holdsActive) setOpen(true) }, [holdsActive])
+
+  return (
+    <div className="nav-theme">
+      {!single && (
+        <button className={'nav-theme-toggle' + (open ? ' open' : '')}
+          onClick={() => setOpen((o) => !o)}>
+          <span className={`nav-caret sm ${open ? 'up' : ''}`}>▾</span>
+          <span className="nav-theme-name">{theme.theme_label}</span>
+          <span className="nav-theme-n">{theme.tables.length}</span>
+        </button>
+      )}
+      <AnimatePresence initial={false}>
+        {open && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.22, ease: [0.22, 0.61, 0.36, 1] }}>
+            {theme.tables.map((tb) => (
+              <NavLink key={tb.table} onClick={onNavigate}
+                to={`/db/${schema}/${tb.table}`}
+                className={({ isActive }) => 'nav-table' + (isActive ? ' active' : '')}
+                title={tb.title}>
+                {tb.title}
+              </NavLink>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  )
+}
 
 function DatabaseGroup({ db, onNavigate }) {
   const { schema } = useParams()
@@ -33,17 +74,8 @@ function DatabaseGroup({ db, onNavigate }) {
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.28, ease: [0.22, 0.61, 0.36, 1] }}>
             {detail.themes.map((t) => (
-              <div key={t.theme_key} className="nav-theme">
-                <div className="nav-theme-label">{t.theme_label}</div>
-                {t.tables.map((tb) => (
-                  <NavLink key={tb.table} onClick={onNavigate}
-                    to={`/db/${db.schema}/${tb.table}`}
-                    className={({ isActive }) => 'nav-table' + (isActive ? ' active' : '')}
-                    title={tb.title}>
-                    {tb.title}
-                  </NavLink>
-                ))}
-              </div>
+              <ThemeGroup key={t.theme_key} schema={db.schema} theme={t}
+                onNavigate={onNavigate} single={detail.themes.length === 1} />
             ))}
           </motion.div>
         )}
@@ -76,6 +108,10 @@ export default function Sidebar({ databases, open, onNavigate }) {
         <NavLink to="/historia" onClick={onNavigate}
           className={({ isActive }) => 'nav-tool' + (isActive ? ' active' : '')}>
           <span className="nav-tool-ico">▸</span> Historia: la pobreza
+        </NavLink>
+        <NavLink to="/metodologia" onClick={onNavigate}
+          className={({ isActive }) => 'nav-tool' + (isActive ? ' active' : '')}>
+          <span className="nav-tool-ico">✓</span> Metodología
         </NavLink>
         <div className="nav-sep" />
         {databases.map((db) => (

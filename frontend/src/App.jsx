@@ -11,6 +11,7 @@ import Correlacion from './components/Correlacion'
 import Departamento from './components/Departamento'
 import Ensayos from './components/Ensayos'
 import Historia from './components/Historia'
+import Metodologia from './components/Metodologia'
 
 export default function App() {
   const [databases, setDatabases] = useState([])
@@ -21,7 +22,17 @@ export default function App() {
     api.databases().then(setDatabases).catch(() => setDatabases([]))
   }, [])
 
-  useEffect(() => { setNavOpen(false); window.scrollTo({ top: 0 }) }, [location.pathname])
+  useEffect(() => {
+    setNavOpen(false); window.scrollTo({ top: 0 })
+    const path = location.pathname
+    const titles = [
+      ['/comparar', 'Comparar departamentos'], ['/correlacion', 'Correlaciones'],
+      ['/ensayos', 'Ensayos'], ['/historia', 'Historia de la pobreza'],
+      ['/metodologia', 'Metodología'], ['/dpto/', 'Ficha departamental'],
+    ]
+    const hit = titles.find(([p]) => path.startsWith(p))
+    document.title = (hit ? hit[1] + ' · ' : '') + 'Observatorio de Datos del Perú'
+  }, [location.pathname])
 
   return (
     <div className="app">
@@ -54,6 +65,7 @@ export default function App() {
                 <Route path="/correlacion" element={<Correlacion />} />
                 <Route path="/ensayos" element={<Ensayos />} />
                 <Route path="/dpto/:code" element={<Departamento />} />
+                <Route path="/metodologia" element={<Metodologia />} />
                 <Route path="/historia" element={<Historia />} />
                 <Route path="/db/:schema" element={<Explorer />} />
                 <Route path="/db/:schema/:table" element={<Explorer />} />
@@ -62,7 +74,9 @@ export default function App() {
           </AnimatePresence>
           <footer className="site-footer">
             Fuente: microdatos INEI (ENAHO, ENAHO Panel, ENDES, EPE/EPEN, EEA).
-            Indicadores propios validados contra estadísticas oficiales.
+            Indicadores propios validados contra estadísticas oficiales — ver{' '}
+            <NavLink to="/metodologia" className="footer-link">metodología</NavLink>.
+            Datos por <a className="footer-link" href="/docs" target="_blank" rel="noreferrer">API</a>.
             Construido por Carlos Chávez.
           </footer>
         </main>
