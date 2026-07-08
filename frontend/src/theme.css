@@ -363,11 +363,13 @@ td.cmp-nat { text-align: right; padding: 8px 12px; border-bottom: 1px solid var(
 .corr-insight { font-size: 14.5px; line-height: 1.6; color: var(--text-dim); margin: 16px 0 0; max-width: 760px; }
 
 /* ---------------------------------------------------------- scrollytelling */
-.historia { max-width: 1180px; }
+.historia { max-width: 1480px; }
 .hist-head { margin-bottom: 10px; }
 .hist-head h1 { font-size: clamp(28px, 3.4vw, 40px); margin: 6px 0 10px; letter-spacing: -.8px; color: var(--ink); }
 .hist-lead { font-size: 16px; color: var(--text-dim); max-width: 600px; line-height: 1.55; }
-.scrolly { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+/* the narrative column caps at 460px of text, so the sticky chart takes the
+   lion's share of a wide viewport instead of leaving a blank right gutter */
+.scrolly { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(320px, 1fr); gap: 48px; }
 .scrolly-graphic {
   position: sticky; top: calc(var(--top-h) + 24px); height: calc(100vh - var(--top-h) - 48px);
   align-self: start; background: #faf1de; border: 1px solid var(--border-strong);
