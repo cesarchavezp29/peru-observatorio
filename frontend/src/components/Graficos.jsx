@@ -34,9 +34,9 @@ const KINDS = [
 
 // flagship picks per chart type — the insightful door in, not a 100-row dump
 const STARS = {
-  lineas: ['official_poverty_replication', 'gini_nacional_tiempo', 'endes_indicadores'],
+  lineas: ['official_poverty_replication', 'income_percentiles_tiempo', 'gini_nacional_tiempo', 'endes_indicadores'],
   apilado: ['estructura_empleo_2004_2025', 'budget_composition_2004_2025', 'seguro_salud_2004_2025'],
-  barras: ['trust_by_institution_2025', 'eea_concentracion_industria', 'engel_elasticidades_2025'],
+  barras: ['gic_periodos', 'trust_by_institution_2025', 'eea_concentracion_industria', 'engel_elasticidades_2025'],
   mapa: ['gini_departamento_tiempo', 'indicadores_departamento_2025', 'income_real_province_2021_2025'],
   carrera: ['gini_departamento_tiempo', 'panel_departamento_2004_2025'],
   red: ['migracion_od_departamento', 'empleo_sector_flujo_2007_2011'],

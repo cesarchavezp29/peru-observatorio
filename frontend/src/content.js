@@ -75,4 +75,9 @@ export const FINDINGS = [
     insight: 'El acceso a teléfono celular pasó de 16% a 95% de los hogares — la transformación más rápida del hogar peruano.',
     viz: { kind: 'spark', schema: 'enaho', table: 'vivienda_servicios_2004_2025', col: 'p1142', tcol: 'year', color: '#3f5aa6' },
   },
+  {
+    kicker: 'Crecimiento', title: 'El crecimiento favoreció a los pobres', link: 'enaho/gic_periodos',
+    insight: 'Entre 2004 y 2025 el ingreso real del percentil 5 creció 4.2% al año, el triple que el del percentil 95 (1.4%). La curva baja de izquierda a derecha: cuanto más pobre el hogar, más creció su ingreso.',
+    viz: { kind: 'spark', schema: 'enaho', table: 'gic_periodos', col: 'crec_2004_2025', tcol: 'percentil', color: '#c85a34' },
+  },
 ]

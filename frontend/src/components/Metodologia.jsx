@@ -144,6 +144,14 @@ export default function Metodologia() {
           <a href="/docs" target="_blank" rel="noreferrer">API REST está documentada</a>{' '}
           para consultar los datos por programa.
         </p>
+        <p>
+          ¿Quieres los microdatos crudos? Publicamos{' '}
+          <a href="https://github.com/cesarchavezp29/perudata" target="_blank" rel="noreferrer">
+            perudata</a>, un paquete de Python que descarga y abre las cinco encuestas
+          del INEI (ENAHO, ENAHO Panel, ENDES, EPE/EPEN, EEA) con una sola línea
+          (<code>enaho.load(2024, "34")</code>) y reproduce la pobreza oficial 2004-2025
+          a 0.0 puntos como prueba de integridad.
+        </p>
       </div>
     </div>
   )

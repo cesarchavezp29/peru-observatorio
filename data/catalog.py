@@ -87,6 +87,8 @@ COLUMN_RENAMES = {
 # ---------------------------------------------------------------- themes (enaho sub-sections)
 # keyword -> (theme_key, theme_label). First match wins.
 _THEME_RULES = [
+    ("gic_",          ("ingreso_pobreza", "Ingreso y Pobreza")),
+    ("percentil",     ("ingreso_pobreza", "Ingreso y Pobreza")),
     ("gini",          ("ingreso_pobreza", "Ingreso y Pobreza")),
     ("desigualdad",   ("ingreso_pobreza", "Ingreso y Pobreza")),
     ("income",        ("ingreso_pobreza", "Ingreso y Pobreza")),
@@ -351,6 +353,8 @@ _TITLES = {
     "income_real_province_2021_2025": "Ingreso real por provincia (2021 vs 2025)",
     "income_real_district_2021_2025": "Ingreso real por distrito (2021 vs 2025)",
     "official_poverty_replication": "Pobreza: replica propia vs oficial INEI",
+    "gic_periodos": "Quién ganó con el crecimiento: curva de incidencia (2004-2025)",
+    "income_percentiles_tiempo": "Ingreso real por percentil: del p10 al p90 (2004-2025)",
     "convergencia_departamental_2004_2025": "Convergencia de ingresos entre departamentos",
     "confianza_instituciones_tiempo_2007_2025": "Confianza en instituciones (2007-2025)",
     "epen_lima_movil_2001_2026": "Lima: empleo trimestre movil (2001-2026)",
