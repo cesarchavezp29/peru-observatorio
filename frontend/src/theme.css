@@ -642,7 +642,9 @@ td.cmp-nat { text-align: right; padding: 8px 12px; border-bottom: 1px solid var(
 .tc-spark-empty { height: 10px; }
 
 /* ---------------------------------------------------------- explorer */
-.explorer { max-width: 1180px; }
+/* let the chart use the whole row on wide monitors — 1180px left a dead
+   right gutter and squeezed end labels/legends into each other */
+.explorer { max-width: 1480px; }
 .exp-head { margin-bottom: 20px; }
 .exp-crumb { font-size: 11.5px; letter-spacing: 1px; color: var(--accent); font-weight: 800; }
 .exp-head h1 { font-size: 28px; margin: 5px 0 10px; letter-spacing: -.6px; color: var(--ink); }
@@ -701,7 +703,7 @@ td.cmp-nat { text-align: right; padding: 8px 12px; border-bottom: 1px solid var(
 .race-play { position: absolute; top: 6px; right: 10px; z-index: 5; }
 .play-btn:hover { filter: brightness(1.08); }
 /* chart + its reading, side by side — every figure ships with its interpretation */
-.chart-row { display: grid; grid-template-columns: minmax(0, 1fr) 292px; gap: 20px; align-items: start; }
+.chart-row { display: grid; grid-template-columns: minmax(0, 1fr) 292px; gap: 26px; align-items: start; }
 .chart-row.solo { grid-template-columns: 1fr; }
 .lectura {
   margin-top: 18px; background: #f6ecd7; border: 1px solid var(--border-strong);

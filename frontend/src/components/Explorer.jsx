@@ -563,7 +563,7 @@ function TableExplorer({ schema, table }) {
               if (c) navigate(`/dpto/${c}`)
             } : undefined} />
         : <div className="loading">Sin datos para esta selección.</div>)
-    : (option ? <EChart option={option} />
+    : (option ? <EChart option={option} height={540} />
         : <div className="loading">Selecciona al menos una serie numérica.</div>)
 
   // bare chart for iframes: title, figure, nothing else (App adds attribution)

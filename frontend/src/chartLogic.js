@@ -354,7 +354,7 @@ export function buildOption({ rows, x, series, type, ytitle, xIsDept, rankBars }
     grid: {
       left: horizontal && typeof cats[0] === 'string'
         ? Math.min(240, 8 * Math.max(...cats.map((c) => String(c).length))) : 64,
-      right: endLabels ? 64 : 24, top: series.length > 1 ? 52 : 30, bottom: 64,
+      right: endLabels ? 88 : 28, top: series.length > 1 ? 52 : 30, bottom: 64,
     },
     tooltip: { ...tooltip('axis'), valueFormatter: (v) => fmtNum(v) },
     legend: series.length > 1
