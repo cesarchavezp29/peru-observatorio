@@ -113,6 +113,10 @@ export default function Sidebar({ databases, open, onNavigate }) {
           className={({ isActive }) => 'nav-tool' + (isActive ? ' active' : '')}>
           <span className="nav-tool-ico">▸</span> Historia: la pobreza
         </NavLink>
+        <NavLink to="/desigualdad" onClick={onNavigate}
+          className={({ isActive }) => 'nav-tool' + (isActive ? ' active' : '')}>
+          <span className="nav-tool-ico">▸</span> Historia: la desigualdad
+        </NavLink>
         <NavLink to="/metodologia" onClick={onNavigate}
           className={({ isActive }) => 'nav-tool' + (isActive ? ' active' : '')}>
           <span className="nav-tool-ico">✓</span> Metodología

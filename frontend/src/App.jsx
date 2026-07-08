@@ -12,6 +12,7 @@ import Datos from './components/Datos'
 import Departamento from './components/Departamento'
 import Ensayos from './components/Ensayos'
 import Historia from './components/Historia'
+import Desigualdad from './components/Desigualdad'
 import Metodologia from './components/Metodologia'
 import Ficha from './components/Ficha'
 import Graficos from './components/Graficos'
@@ -33,6 +34,7 @@ export default function App() {
     const titles = [
       ['/comparar', 'Comparar departamentos'], ['/correlacion', 'Correlaciones'],
       ['/ensayos', 'Ensayos'], ['/historia', 'Historia de la pobreza'],
+      ['/desigualdad', 'Historia de la desigualdad'],
       ['/metodologia', 'Metodología'], ['/dpto/', 'Ficha departamental'],
       ['/graficos', 'Gráficos'],
     ]
@@ -91,6 +93,7 @@ export default function App() {
                 <Route path="/graficos" element={<Graficos />} />
                 <Route path="/datos" element={<Datos />} />
                 <Route path="/historia" element={<Historia />} />
+                <Route path="/desigualdad" element={<Desigualdad />} />
                 <Route path="/db/:schema" element={<Explorer />} />
                 <Route path="/db/:schema/:table" element={<Explorer />} />
               </Routes>
