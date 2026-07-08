@@ -156,7 +156,7 @@ h1, h2, h3, .brand-text strong { font-family: var(--font-display); font-weight: 
 .nav-sep { height: 1px; background: var(--border); margin: 12px 6px; }
 
 /* ---------------------------------------------------------- comparador */
-.comparador { max-width: 1200px; }
+.comparador { max-width: 1380px; }
 .cmp-head h1 { font-size: 30px; margin: 5px 0 8px; letter-spacing: -.6px; color: var(--ink); }
 .cmp-head p { color: var(--text-dim); font-size: 15px; margin: 0 0 20px; max-width: 620px; }
 .cmp-slots { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 22px; }
@@ -256,7 +256,7 @@ td.cmp-nat { text-align: right; padding: 8px 12px; border-bottom: 1px solid var(
 .nav-caret.sm.up { transform: rotate(180deg); }
 
 /* ---------------------------------------------------------- ficha departamental */
-.dpto { max-width: 1080px; }
+.dpto { max-width: 1320px; }
 .dpto-title-row { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; margin: 6px 0 18px; }
 .dpto-title-row h1 { font-family: var(--font-display); font-size: 44px; font-weight: 800; letter-spacing: -1.2px; color: var(--ink); margin: 0; }
 .dpto-select { background: var(--panel-2); border: 1.5px solid var(--terracotta); color: var(--terracotta); border-radius: 10px; padding: 9px 12px; font-size: 14px; font-weight: 700; }
@@ -347,7 +347,7 @@ td.cmp-nat { text-align: right; padding: 8px 12px; border-bottom: 1px solid var(
 }
 
 /* ---------------------------------------------------------- correlaciones */
-.corr { max-width: 1000px; }
+.corr { max-width: 1240px; }
 .corr-controls { display: flex; align-items: flex-end; gap: 14px; flex-wrap: wrap; margin-bottom: 18px; }
 .corr-sel { display: flex; flex-direction: column; gap: 6px; }
 .corr-sel label { font-size: 10.5px; text-transform: uppercase; letter-spacing: .6px; color: var(--text-mute); font-weight: 800; }
