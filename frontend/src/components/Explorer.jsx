@@ -591,6 +591,31 @@ function TableExplorer({ schema, table }) {
     else setYCols((cur) => cur.includes(c) ? cur.filter((x) => x !== c) : [...cur, c])
   }
 
+  // export the rendered chart canvas as a PNG with title + source footer
+  const downloadPng = () => {
+    const cv = document.querySelector('.chart-wrap canvas')
+    if (!cv) return
+    const pad = 26, header = 64, footer = 52
+    const out = document.createElement('canvas')
+    out.width = cv.width + pad * 2
+    out.height = cv.height + header + footer
+    const ctx = out.getContext('2d')
+    ctx.fillStyle = '#fffdf7'
+    ctx.fillRect(0, 0, out.width, out.height)
+    ctx.fillStyle = '#34291c'
+    ctx.font = `700 ${Math.round(cv.width / 46)}px "Hanken Grotesk", sans-serif`
+    ctx.fillText(meta.title, pad, header - 20)
+    ctx.drawImage(cv, pad, header)
+    ctx.fillStyle = '#8a7c68'
+    ctx.font = `600 ${Math.round(cv.width / 72)}px "Hanken Grotesk", sans-serif`
+    ctx.fillText('Observatorio de Datos del Perú · peruobservatorio.onrender.com · microdatos INEI',
+      pad, out.height - 18)
+    const a = document.createElement('a')
+    a.download = `${table}.png`
+    a.href = out.toDataURL('image/png')
+    a.click()
+  }
+
   return (
     <div className="explorer">
       <div className="exp-head">
@@ -612,6 +637,10 @@ function TableExplorer({ schema, table }) {
           <button className={'exp-share' + (copied === 'cite' ? ' ok' : '')} onClick={copyCite}
             title="Copia la cita en formato académico">
             {copied === 'cite' ? '✓ Copiada' : '❝ Citar'}
+          </button>
+          <button className="exp-share" onClick={downloadPng}
+            title="Descarga el gráfico como imagen PNG">
+            ⤓ PNG
           </button>
         </div>
         {windows.length > 1 && (

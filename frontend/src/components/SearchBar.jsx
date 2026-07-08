@@ -12,6 +12,40 @@ const DPTOS = Array.from({ length: 25 }, (_, i) => i + 1)
     section: 'Ficha departamental',
   }))
 
+// accent-insensitive matching: "educación" must find "Educacion" and vice versa
+const norm = (s) => String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '')
+
+// everyday Spanish -> the technical vocabulary the chart titles use, so a
+// non-economist typing "sueldo" or "chamba" still lands on the right chart
+const SYN = {
+  sueldo: ['salarial', 'salario', 'ingreso', 'remuneracion'],
+  sueldos: ['salarial', 'salario', 'ingreso'],
+  chamba: ['empleo', 'trabajo'], plata: ['ingreso'], dinero: ['ingreso'],
+  trabajo: ['empleo', 'laboral'], trabajar: ['empleo'], paro: ['desempleo'],
+  pobres: ['pobreza'], ricos: ['percentil', 'desigualdad', 'decil'],
+  desigual: ['desigualdad', 'gini', 'brecha'], brechas: ['brecha'],
+  colegio: ['educacion'], escuela: ['educacion'], estudiar: ['educacion'],
+  universidad: ['superior'], analfabeto: ['analfabetismo'],
+  embarazo: ['maternidad', 'fecundidad'], embarazada: ['maternidad', 'adolescente'],
+  hijos: ['fecundidad', 'hijos'], bebes: ['fecundidad', 'infantil'],
+  doctor: ['salud', 'atencion'], hospital: ['salud', 'atencion'],
+  enfermo: ['salud', 'cronica'], sis: ['seguro', 'sis'],
+  casa: ['vivienda'], luz: ['vivienda', 'servicios'], agua: ['vivienda', 'agua'],
+  celular: ['telefono', 'servicios'], internet: ['servicios', 'vivienda'],
+  cocina: ['combustible'],
+  corrupcion: ['confianza', 'instituciones'], votar: ['voto', 'elecciones'],
+  voto: ['voto', 'elecciones'], estado: ['confianza', 'transferencias'],
+  precios: ['ipc'], inflacion: ['ipc'],
+  campo: ['rural', 'agro', 'agricola'], chacra: ['agro', 'agricola'],
+  mujeres: ['sexo', 'genero', 'mujer'], genero: ['sexo', 'brecha'],
+  hombres: ['sexo', 'brecha'],
+  jovenes: ['neet', 'juvenil', 'jovenes'], ninos: ['infantil', 'desnutricion', 'anemia'],
+  comida: ['alimentos', 'engel'], gastar: ['gasto'], comprar: ['gasto', 'consumo'],
+  informal: ['informalidad'], migrar: ['migracion'], mudarse: ['migracion'],
+  empresa: ['empresas', 'sector'], negocio: ['empresas'],
+  crecimiento: ['crecimiento', 'incidencia', 'convergencia'],
+}
+
 // Global indicator search: fetches the flat index once, filters client-side.
 export default function SearchBar() {
   const nav = useNavigate()
@@ -40,17 +74,22 @@ export default function SearchBar() {
   }, [])
 
   const results = useMemo(() => {
-    const s = q.trim().toLowerCase()
+    const s = norm(q.trim())
     if (!s) return []
     const terms = s.split(/\s+/)
     return [...DPTOS, ...index].map((x) => {
-      const t = x.title.toLowerCase(), tb = (x.table || '').toLowerCase()
-      const th = (x.theme || '').toLowerCase(), sec = (x.section || '').toLowerCase()
+      const t = norm(x.title), tb = norm(x.table || '')
+      const th = norm((x.topic || x.theme || '')), sec = norm(x.section || '')
       let score = 0, all = true
       for (const term of terms) {
-        // weight where the term matches: title >> table > theme > section
-        const s2 = (t.includes(term) ? 6 : 0) + (tb.includes(term) ? 3 : 0)
-          + (th.includes(term) ? 1 : 0) + (sec.includes(term) ? 0.3 : 0)
+        // everyday words map to the technical vocabulary of the titles
+        const variants = [term, ...(SYN[term] || [])]
+        let s2 = 0
+        for (const v of variants) {
+          // weight where the term matches: title >> table > theme > section
+          s2 = Math.max(s2, (t.includes(v) ? 6 : 0) + (tb.includes(v) ? 3 : 0)
+            + (th.includes(v) ? 1 : 0) + (sec.includes(v) ? 0.3 : 0))
+        }
         if (s2 === 0) all = false
         score += s2
       }
