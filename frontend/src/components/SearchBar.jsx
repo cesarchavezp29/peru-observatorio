@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import { deptName } from '../chartLogic'
+import { useLang } from '../i18n'
 
 // department profile entries, searchable alongside indicators
 const DPTOS = Array.from({ length: 25 }, (_, i) => i + 1)
@@ -49,6 +50,7 @@ const SYN = {
 // Global indicator search: fetches the flat index once, filters client-side.
 export default function SearchBar() {
   const nav = useNavigate()
+  const { t } = useLang()
   const [index, setIndex] = useState([])
   const [q, setQ] = useState('')
   const [open, setOpen] = useState(false)
@@ -114,7 +116,7 @@ export default function SearchBar() {
   return (
     <div className="search" ref={box}>
       <span className="search-ico">⌕</span>
-      <input ref={inp} className="search-input" value={q} placeholder="Buscar indicador…  /"
+      <input ref={inp} className="search-input" value={q} placeholder={t('buscar')}
         onChange={(e) => { setQ(e.target.value); setOpen(true) }}
         onFocus={() => setOpen(true)} onKeyDown={onKey} />
       <AnimatePresence>

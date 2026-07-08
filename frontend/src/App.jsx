@@ -17,8 +17,24 @@ import Metodologia from './components/Metodologia'
 import Ficha from './components/Ficha'
 import Graficos from './components/Graficos'
 import Tema from './components/Tema'
+import { LangProvider, useLang } from './i18n'
+
+function LangToggle() {
+  const { lang, setLang } = useLang()
+  return (
+    <button className="lang-toggle" onClick={() => setLang(lang === 'es' ? 'en' : 'es')}
+      title={lang === 'es' ? 'Switch to English' : 'Cambiar a español'}>
+      {lang === 'es' ? 'EN' : 'ES'}
+    </button>
+  )
+}
 
 export default function App() {
+  return <LangProvider><AppShell /></LangProvider>
+}
+
+function AppShell() {
+  const { t } = useLang()
   const [databases, setDatabases] = useState([])
   const [navOpen, setNavOpen] = useState(false)
   const location = useLocation()
@@ -66,11 +82,12 @@ export default function App() {
           <span className="brand-mark">◆</span>
           <span className="brand-text">
             <strong>Observatorio de Datos del Perú</strong>
-            <small>Microdatos oficiales INEI · validados</small>
+            <small>{t('tagline')}</small>
           </span>
         </NavLink>
         <div className="topbar-spacer" />
         <SearchBar />
+        <LangToggle />
         <a className="topbar-link" href="https://github.com/cesarchavezp29" target="_blank" rel="noreferrer">GitHub</a>
       </header>
 

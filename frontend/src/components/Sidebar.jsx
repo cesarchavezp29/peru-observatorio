@@ -3,11 +3,13 @@ import { NavLink, useLocation } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import { api } from '../api'
 import { TOPIC_META } from '../content'
+import { useLang } from '../i18n'
 
 // One collapsible TOPIC (cross-survey): how readers think — pobreza, empleo,
 // salud — regardless of which INEI survey produced each table. Panel window
 // families arrive already collapsed to their newest window.
 function TopicGroup({ topic, onNavigate }) {
+  const { t, topic: tt } = useLang()
   const location = useLocation()
   const holdsActive = topic.tables.some((tb) =>
     location.pathname === `/db/${tb.schema}/${tb.table}`
@@ -20,7 +22,7 @@ function TopicGroup({ topic, onNavigate }) {
     <div className="nav-group">
       <button className="nav-db" onClick={() => setOpen((o) => !o)}>
         <span className="nav-topic-ico">{meta.icon || '◆'}</span>
-        <span className="nav-db-title">{topic.topic_label}</span>
+        <span className="nav-db-title">{tt(topic.topic_key, 'label', topic.topic_label)}</span>
         <span className="nav-count">{topic.tables.length}</span>
         <span className={`nav-caret ${open ? 'up' : ''}`}>▾</span>
       </button>
@@ -37,7 +39,7 @@ function TopicGroup({ topic, onNavigate }) {
                 className={({ isActive }) => 'nav-table' + (isActive ? ' active' : '')}
                 title={tb.title}>
                 {tb.title}
-                {tb.windows && <span className="nav-windows-n">{tb.windows.length} ventanas</span>}
+                {tb.windows && <span className="nav-windows-n">{tb.windows.length} {t('ventanas')}</span>}
               </NavLink>
             ))}
           </motion.div>
@@ -48,6 +50,7 @@ function TopicGroup({ topic, onNavigate }) {
 }
 
 export default function Sidebar({ databases, open, onNavigate }) {
+  const { t } = useLang()
   const [topics, setTopics] = useState([])
   useEffect(() => {
     api.topics().then(setTopics).catch(() => setTopics([]))
@@ -56,52 +59,52 @@ export default function Sidebar({ databases, open, onNavigate }) {
   return (
     <aside className={`sidebar ${open ? 'open' : ''}`}>
       <div className="sidebar-inner">
-        <NavLink to="/" onClick={onNavigate} className="nav-home" end>Inicio</NavLink>
+        <NavLink to="/" onClick={onNavigate} className="nav-home" end>{t('home')}</NavLink>
         <NavLink to="/dpto/15" onClick={onNavigate}
           className={({ isActive }) => 'nav-tool' + (isActive ? ' active' : '')}>
-          <span className="nav-tool-ico">▣</span> Ficha departamental
+          <span className="nav-tool-ico">▣</span> {t('ficha')}
         </NavLink>
         <NavLink to="/comparar" onClick={onNavigate}
           className={({ isActive }) => 'nav-tool' + (isActive ? ' active' : '')}>
-          <span className="nav-tool-ico">⇄</span> Comparar departamentos
+          <span className="nav-tool-ico">⇄</span> {t('comparar')}
         </NavLink>
         <NavLink to="/graficos" onClick={onNavigate}
           className={({ isActive }) => 'nav-tool' + (isActive ? ' active' : '')}>
-          <span className="nav-tool-ico">∿</span> Gráficos
+          <span className="nav-tool-ico">∿</span> {t('graficos')}
         </NavLink>
         <NavLink to="/correlacion" onClick={onNavigate}
           className={({ isActive }) => 'nav-tool' + (isActive ? ' active' : '')}>
-          <span className="nav-tool-ico">✦</span> Correlaciones
+          <span className="nav-tool-ico">✦</span> {t('correlaciones')}
         </NavLink>
         <NavLink to="/ensayos" onClick={onNavigate}
           className={({ isActive }) => 'nav-tool' + (isActive ? ' active' : '')}>
-          <span className="nav-tool-ico">✎</span> Ensayos
+          <span className="nav-tool-ico">✎</span> {t('ensayos')}
         </NavLink>
         <NavLink to="/historia" onClick={onNavigate}
           className={({ isActive }) => 'nav-tool' + (isActive ? ' active' : '')}>
-          <span className="nav-tool-ico">▸</span> Historia: la pobreza
+          <span className="nav-tool-ico">▸</span> {t('hist_pobreza')}
         </NavLink>
         <NavLink to="/desigualdad" onClick={onNavigate}
           className={({ isActive }) => 'nav-tool' + (isActive ? ' active' : '')}>
-          <span className="nav-tool-ico">▸</span> Historia: la desigualdad
+          <span className="nav-tool-ico">▸</span> {t('hist_desigualdad')}
         </NavLink>
         <NavLink to="/metodologia" onClick={onNavigate}
           className={({ isActive }) => 'nav-tool' + (isActive ? ' active' : '')}>
-          <span className="nav-tool-ico">✓</span> Metodología
+          <span className="nav-tool-ico">✓</span> {t('metodologia')}
         </NavLink>
         <NavLink to="/datos" onClick={onNavigate}
           className={({ isActive }) => 'nav-tool' + (isActive ? ' active' : '')}>
-          <span className="nav-tool-ico">↓</span> Datos abiertos
+          <span className="nav-tool-ico">↓</span> {t('datos')}
         </NavLink>
 
         <div className="nav-sep" />
-        <div className="nav-section-label">Temas</div>
+        <div className="nav-section-label">{t('temas')}</div>
         {topics.map((t) => (
           <TopicGroup key={t.topic_key} topic={t} onNavigate={onNavigate} />
         ))}
 
         <div className="nav-sep" />
-        <div className="nav-section-label">Fuentes</div>
+        <div className="nav-section-label">{t('fuentes')}</div>
         {databases.map((db) => (
           <NavLink key={db.schema} to={`/db/${db.schema}`} onClick={onNavigate}
             className={({ isActive }) => 'nav-source' + (isActive ? ' active' : '')}>

@@ -8,6 +8,7 @@ import StoryChart from './StoryChart'
 import { FINDINGS, TOPIC_META } from '../content'
 import { useEffect, useState } from 'react'
 import { api } from '../api'
+import { useLang } from '../i18n'
 
 // the front-page story: full-size live charts, not hidden behind a click
 const STORY = [
@@ -46,6 +47,7 @@ const item = {
 
 export default function Home({ databases }) {
   const nav = useNavigate()
+  const { t, topic: tt } = useLang()
   const total = databases.reduce((s, d) => s + (d.n_tables || 0), 0)
   const [topics, setTopics] = useState([])
   useEffect(() => {
@@ -57,15 +59,13 @@ export default function Home({ databases }) {
       <section className="hero">
         <motion.div variants={container} initial="hidden" animate="show">
           <motion.div className="hero-eyebrow" variants={item}>
-            Observatorio abierto · microdatos INEI
+            {t('hero_eyebrow')}
           </motion.div>
           <motion.h1 variants={item}>
             El Perú, <em>en datos</em> que se pueden explorar.
           </motion.h1>
           <motion.p className="hero-lead" variants={item}>
-            Veinte años de encuestas oficiales —hogares, salud, empleo y empresas—
-            limpiadas, armonizadas y contrastadas contra las cifras publicadas.
-            Elige un indicador y míralo cambiar.
+            {t('hero_lead')}
           </motion.p>
           <motion.div className="hero-stats" variants={item}>
             <div>
@@ -91,43 +91,43 @@ export default function Home({ databases }) {
 
       {topics.length > 0 && (
         <>
-          <div className="section-label">¿Qué quieres saber del Perú?</div>
+          <div className="section-label">{t('q_peru')}</div>
           <motion.div className="topic-grid"
             variants={container} initial="hidden" whileInView="show"
             viewport={{ once: true, margin: '-40px' }}>
-            {topics.map((t) => (
-              <motion.button key={t.topic_key} className="topic-card" variants={item}
-                whileHover={{ y: -4 }} onClick={() => nav(`/tema/${t.topic_key}`)}>
-                <span className="topic-card-ico">{TOPIC_META[t.topic_key]?.icon}</span>
-                <span className="topic-card-name">{t.topic_label}</span>
-                <span className="topic-card-desc">{TOPIC_META[t.topic_key]?.desc}</span>
-                <span className="topic-card-n">{t.tables.length} gráficos</span>
+            {topics.map((tp) => (
+              <motion.button key={tp.topic_key} className="topic-card" variants={item}
+                whileHover={{ y: -4 }} onClick={() => nav(`/tema/${tp.topic_key}`)}>
+                <span className="topic-card-ico">{TOPIC_META[tp.topic_key]?.icon}</span>
+                <span className="topic-card-name">{tt(tp.topic_key, 'label', tp.topic_label)}</span>
+                <span className="topic-card-desc">{tt(tp.topic_key, 'desc', TOPIC_META[tp.topic_key]?.desc)}</span>
+                <span className="topic-card-n">{tp.tables.length} {t('graficos_n')}</span>
               </motion.button>
             ))}
           </motion.div>
         </>
       )}
 
-      <div className="section-label">La historia en cuatro gráficos</div>
+      <div className="section-label">{t('story4')}</div>
       <div className="story-list">
         {STORY.map((s) => <StoryChart key={s.table + (s.series || s.mapCol)} {...s} />)}
       </div>
 
-      <div className="section-label">Panorama nacional · dos décadas de cambio</div>
+      <div className="section-label">{t('panorama')}</div>
       <motion.section className="kpi-grid"
         variants={container} initial="hidden" whileInView="show"
         viewport={{ once: true, margin: '-60px' }}>
         {PANORAMA.map((k) => <Kpi key={k.table + k.col} {...k} variants={item} />)}
       </motion.section>
 
-      <div className="section-label">Hallazgos · lo que dicen los datos</div>
+      <div className="section-label">{t('hallazgos')}</div>
       <motion.section className="findings-grid"
         variants={container} initial="hidden" whileInView="show"
         viewport={{ once: true, margin: '-60px' }}>
         {FINDINGS.map((f) => <Finding key={f.title} {...f} variants={item} />)}
       </motion.section>
 
-      <div className="section-label">Explora por fuente</div>
+      <div className="section-label">{t('por_fuente')}</div>
       <motion.section className="db-grid"
         variants={container} initial="hidden" animate="show">
         {databases.map((db, i) => (

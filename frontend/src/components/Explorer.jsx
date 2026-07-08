@@ -807,7 +807,7 @@ function TableExplorer({ schema, table }) {
 
         {related.length > 0 && (
           <div className="related">
-            <div className="section-label">Relacionados</div>
+            <div className="section-label">Relacionados · Related</div>
             <div className="related-grid">
               {related.map((r) => (
                 <button key={r.schema + r.table} className="related-card"
