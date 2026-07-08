@@ -149,6 +149,114 @@ _THEME_RULES = [
 ]
 
 
+# ---------------------------------------------------------------- topics
+# Cross-survey TOPIC layer. Schemas answer "which survey produced this";
+# topics answer "what is this about", which is how readers navigate. Employment
+# lives in enaho+epen+eea, poverty in enaho+panel — the topic view reunites
+# them without touching schemas or URLs. Dict order = narrative order.
+TOPICS = {
+    "pobreza":     "Pobreza y Desigualdad",
+    "ingreso":     "Ingreso y Consumo",
+    "empleo":      "Empleo y Salarios",
+    "educacion":   "Educación",
+    "salud":       "Salud y Demografía",
+    "sociedad":    "Confianza, Estado y Elecciones",
+    "vivienda":    "Vivienda y Servicios",
+    "agro":        "Agropecuario",
+    "empresas":    "Empresas",
+    "territorio":  "Territorio y Síntesis",
+}
+
+# explicit stem -> topic (wins over rules; for stragglers the keywords misfile)
+_TOPIC_OVERRIDES = {
+    "official_poverty_replication": "pobreza",
+    "eea_epen_cruce_sector": "empleo",          # firm vs household wages
+    "eea_brecha_genero_sector": "empleo",       # gender gap belongs with wages
+    "eea_remuneraciones_sector": "empleo",
+    "demographic_transition": "salud",
+    "transicion_demografica_2004_2025": "salud",
+    "budget_composition_2004_2025": "ingreso",
+    "bienes_durables_decil_2025": "ingreso",
+    "bienes_durables_difusion_2004_2025": "ingreso",
+    "sis_expansion": "salud",
+    "panel_indicators": "territorio",
+}
+
+# keyword -> topic, first match wins (checked on the lower-cased stem).
+# ORDER MATTERS: sociedad before ingreso (trust_income_vote is a trust table),
+# sociedad before educacion (confianza_educacion is a trust table), pobreza
+# first (brecha_ingreso/indigena are equity tables, not income levels).
+_TOPIC_RULES = [
+    # pobreza y desigualdad (incluye movilidad y brechas entre grupos)
+    ("pobreza", "pobreza"), ("poverty", "pobreza"), ("gini", "pobreza"),
+    ("gic_", "pobreza"), ("percentil", "pobreza"), ("convergencia", "pobreza"),
+    ("theil", "pobreza"), ("movilidad_quintil", "pobreza"),
+    ("movilidad_ingreso", "pobreza"), ("brecha_ingreso", "pobreza"),
+    ("desigualdad", "pobreza"), ("indigena", "pobreza"),
+    # empleo y salarios
+    ("brecha_salarial", "empleo"), ("empleo", "empleo"), ("informalidad", "empleo"),
+    ("neet", "empleo"), ("pea_", "empleo"), ("subempleo", "empleo"),
+    ("desempleo", "empleo"), ("retornos", "empleo"), ("maternidad_", "empleo"),
+    ("evento_maternidad", "empleo"), ("penalidad", "empleo"),
+    ("trabajo_adolescente", "empleo"), ("oaxaca", "empleo"), ("wage", "empleo"),
+    ("evento_hijo", "empleo"), ("sector_flujo", "empleo"),
+    # sociedad: confianza, estado, elecciones, programas
+    ("confianza", "sociedad"), ("trust", "sociedad"), ("vote", "sociedad"),
+    ("electoral", "sociedad"), ("participacion", "sociedad"),
+    ("social", "sociedad"), ("transferencias", "sociedad"),
+    ("who_trusts", "sociedad"),
+    # ingreso y consumo
+    ("income", "ingreso"), ("ingreso", "ingreso"), ("engel", "ingreso"),
+    ("consumo", "ingreso"), ("gasto", "ingreso"), ("ipc_", "ingreso"),
+    # educacion
+    ("educacion", "educacion"), ("educativa", "educacion"),
+    ("analfabetismo", "educacion"), ("cohorte", "educacion"), ("intergen", "educacion"),
+    # salud y demografia
+    ("salud", "salud"), ("seguro", "salud"),
+    ("discapacidad", "salud"), ("cuidados", "salud"), ("demografia", "salud"),
+    ("migracion", "salud"), ("jefatura", "salud"), ("atencion", "salud"),
+    # vivienda
+    ("vivienda", "vivienda"), ("combustible", "vivienda"), ("bienes_durables", "vivienda"),
+    # agro
+    ("agro", "agro"),
+    # territorio / sintesis
+    ("departamento", "territorio"), ("scatter", "territorio"),
+    ("sintesis", "territorio"), ("indicadores_departamento", "territorio"),
+    ("correlacion", "territorio"), ("corr_", "territorio"),
+]
+
+# schema fallback when no keyword matches
+_TOPIC_SCHEMA_DEFAULT = {
+    "endes": "salud", "eea": "empresas", "epen": "empleo",
+    "panel": "pobreza", "enaho": "territorio",
+}
+
+
+def topic_for(stem: str, schema: str) -> tuple[str, str]:
+    key = stem.lstrip("_").lower()
+    t = _TOPIC_OVERRIDES.get(stem.lstrip("_"))
+    if t is None and schema in ("endes", "eea"):
+        # cohesive source sections: keep them whole except explicit overrides
+        t = _TOPIC_SCHEMA_DEFAULT[schema]
+    if t is None:
+        for kw, topic in _TOPIC_RULES:
+            if kw in key:
+                t = topic
+                break
+    if t is None:
+        t = _TOPIC_SCHEMA_DEFAULT.get(schema, "territorio")
+    return (t, TOPICS[t])
+
+
+# panel indicator families: one FAMILY shown once in navigation, its
+# re-interview windows offered as chips inside the chart page.
+def family_for(stem: str) -> tuple[str | None, str | None]:
+    m = re.match(r"^(.*)[_-](\d{4})[_-](\d{4})$", stem.lstrip("_"))
+    if m and m.group(1) in _FAMILIES:
+        return m.group(1), f"{m.group(2)}–{m.group(3)}"
+    return None, None
+
+
 def schema_for(stem: str) -> str:
     n = stem.lower()
     if n.startswith("panel_") or n.startswith("enaho_panel"):

@@ -43,10 +43,18 @@ def get_index():
     return [
         {"schema": s, "table": t, "title": m["title"],
          "section": db.DATABASES[s]["title"], "theme": m["theme_label"],
+         "topic": m.get("topic_label"), "topic_key": m.get("topic_key"),
+         "family": m.get("family"), "window": m.get("window"),
          "mappable": db.is_mappable(s, t),
          "kinds": db.kinds(s, t), "years": db.years(s, t)}
         for (s, t), m in db.CATALOG.items()
     ]
+
+
+@app.get("/api/topics")
+def get_topics():
+    """Cross-survey topic navigation (panel families collapsed)."""
+    return db.topics()
 
 
 @app.get("/api/readme/{name}")

@@ -73,6 +73,8 @@ def main():
             tname = f"{tname}_{abs(hash(stem)) % 1000}"
         seen[tname] = p.name
         theme_key, theme_label = cat.theme_for(stem, schema)
+        topic_key, topic_label = cat.topic_for(stem, schema)
+        family, window = cat.family_for(stem)
         local = (LOCAL / p.name).as_posix()
         try:
             con.execute(
@@ -107,6 +109,10 @@ def main():
             "source_file": p.name,
             "theme_key": theme_key,
             "theme_label": theme_label,
+            "topic_key": topic_key,
+            "topic_label": topic_label,
+            "family": family or "",
+            "window": window or "",
             "title": cat.title_for(stem),
             "n_rows": n,
             "n_cols": len(cols),
@@ -118,14 +124,17 @@ def main():
     con.execute("""
         CREATE TABLE meta.catalog(
             schema VARCHAR, table_name VARCHAR, source_file VARCHAR,
-            theme_key VARCHAR, theme_label VARCHAR, title VARCHAR,
+            theme_key VARCHAR, theme_label VARCHAR,
+            topic_key VARCHAR, topic_label VARCHAR,
+            family VARCHAR, time_window VARCHAR, title VARCHAR,
             n_rows BIGINT, n_cols INTEGER, columns VARCHAR
         )
     """)
     con.executemany(
-        "INSERT INTO meta.catalog VALUES (?,?,?,?,?,?,?,?,?)",
+        "INSERT INTO meta.catalog VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)",
         [[r["schema"], r["table_name"], r["source_file"], r["theme_key"],
-          r["theme_label"], r["title"], r["n_rows"], r["n_cols"], r["columns"]]
+          r["theme_label"], r["topic_key"], r["topic_label"], r["family"],
+          r["window"], r["title"], r["n_rows"], r["n_cols"], r["columns"]]
         for r in rows],
     )
     con.close()

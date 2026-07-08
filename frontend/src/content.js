@@ -1,6 +1,21 @@
 // Curated editorial content. Every table/column reference is real and the
 // numbers are pulled live from the API — nothing here is hardcoded data.
 
+// Topic navigation metadata: icon + a question a NON-economist would ask.
+// Keys mirror catalog.TOPICS on the backend.
+export const TOPIC_META = {
+  pobreza: { icon: '⚖️', desc: '¿Cuántos peruanos son pobres y qué tan repartida está la torta?' },
+  ingreso: { icon: '💰', desc: '¿Cuánto gana y en qué gasta una familia peruana?' },
+  empleo: { icon: '👷', desc: '¿Quién trabaja, en qué, y cuánto le pagan?' },
+  educacion: { icon: '🎓', desc: '¿Cuánto estudian los peruanos y quiénes llegan más lejos?' },
+  salud: { icon: '🩺', desc: 'Salud, fertilidad, migración y cómo cambia la población.' },
+  sociedad: { icon: '🗳️', desc: '¿En quién confiamos, cómo votamos y a quién ayuda el Estado?' },
+  vivienda: { icon: '🏠', desc: '¿Cómo son las casas: agua, luz, con qué se cocina?' },
+  agro: { icon: '🌾', desc: 'Qué se siembra, qué se cría y cuánto llega al mercado.' },
+  empresas: { icon: '🏭', desc: 'El lado de las empresas: ventas, productividad y salarios.' },
+  territorio: { icon: '🗺️', desc: 'Todos los indicadores lado a lado, región por región.' },
+}
+
 // Per-section hero: a few headline indicators + a featured lead chart.
 export const SECTION_HERO = {
   enaho: {

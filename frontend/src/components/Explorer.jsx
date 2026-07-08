@@ -101,9 +101,38 @@ function TableExplorer({ schema, table }) {
   const [flow, setFlow] = useState(null)
   const [playing, setPlaying] = useState(false)
   const [copied, setCopied] = useState(false)
+  const [windows, setWindows] = useState([])   // sibling re-interview windows (panel families)
+  const [related, setRelated] = useState([])   // same-topic charts, cross-survey
   // shareable view state: ?c=<type>&x=<col>&s=<a|b>&cat=<v>&p=<year> — applied
   // once after auto-detection, then kept in sync so the URL is always shareable
   const urlApplied = useRef(false)
+
+  // discovery: window chips for panel families + related charts by topic
+  useEffect(() => {
+    let alive = true
+    setWindows([]); setRelated([])
+    api.index().then((idx) => {
+      if (!alive) return
+      const me = idx.find((r) => r.schema === schema && r.table === table)
+      if (!me) return
+      if (me.family) {
+        setWindows(idx.filter((r) => r.family === me.family)
+          .sort((a, b) => (a.window || '').localeCompare(b.window || '')))
+      }
+      if (me.topic_key) {
+        const byKey = new Map()   // one entry per family (newest window wins)
+        for (const r of idx.filter((r) => r.topic_key === me.topic_key)) {
+          if (r.schema === schema && r.table === table) continue
+          if (me.family && r.family === me.family) continue
+          const k = r.family || `${r.schema}/${r.table}`
+          const prev = byKey.get(k)
+          if (!prev || (r.window || '') > (prev.window || '')) byKey.set(k, r)
+        }
+        setRelated([...byKey.values()].slice(0, 6))
+      }
+    }).catch(() => {})
+    return () => { alive = false }
+  }, [schema, table])
 
   // load meta + data on table change
   useEffect(() => {
@@ -585,6 +614,18 @@ function TableExplorer({ schema, table }) {
             {copied === 'cite' ? '✓ Copiada' : '❝ Citar'}
           </button>
         </div>
+        {windows.length > 1 && (
+          <div className="exp-windows">
+            <span className="exp-windows-label">Ventana panel</span>
+            {windows.map((w) => (
+              <button key={w.table}
+                className={'win-chip' + (w.table === table ? ' on' : '')}
+                onClick={() => navigate(`/db/${w.schema}/${w.table}`)}>
+                {w.window}
+              </button>
+            ))}
+          </div>
+        )}
       </div>
 
       <motion.div className="exp-body"
@@ -732,6 +773,21 @@ function TableExplorer({ schema, table }) {
                 ))}
               </tbody>
             </table>
+          </div>
+        )}
+
+        {related.length > 0 && (
+          <div className="related">
+            <div className="section-label">Relacionados</div>
+            <div className="related-grid">
+              {related.map((r) => (
+                <button key={r.schema + r.table} className="related-card"
+                  onClick={() => navigate(`/db/${r.schema}/${r.table}`)}>
+                  <span className="related-title">{r.family ? r.title.split(' (')[0] : r.title}</span>
+                  <span className="related-meta">{r.section}{r.years ? ` · ${r.years}` : ''}</span>
+                </button>
+              ))}
+            </div>
           </div>
         )}
       </motion.div>

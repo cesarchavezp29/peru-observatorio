@@ -54,14 +54,18 @@ def _load_catalog() -> None:
 
     rows = _con.execute(
         "SELECT schema, table_name, source_file, theme_key, theme_label, "
+        "topic_key, topic_label, family, time_window, "
         "title, n_rows, n_cols, columns FROM meta.catalog ORDER BY schema, title"
     ).fetchall()
     for r in rows:
         schema, table = r[0], r[1]
         CATALOG[(schema, table)] = {
             "schema": schema, "table": table, "source_file": r[2],
-            "theme_key": r[3], "theme_label": r[4], "title": r[5],
-            "n_rows": r[6], "n_cols": r[7], "columns": r[8].split(","),
+            "theme_key": r[3], "theme_label": r[4],
+            "topic_key": r[5], "topic_label": r[6],
+            "family": r[7] or None, "window": r[8] or None,
+            "title": r[9], "n_rows": r[10], "n_cols": r[11],
+            "columns": r[12].split(","),
         }
     # column types
     for (schema, table) in CATALOG:
@@ -163,6 +167,48 @@ def columns(schema: str, table: str) -> dict[str, str]:
 
 def databases() -> list[dict]:
     return list(DATABASES.values())
+
+
+def topics() -> list[dict]:
+    """Cross-survey topic navigation, in the catalog's narrative order.
+
+    Panel indicator FAMILIES are collapsed to one entry (the newest window),
+    carrying the sibling windows so the chart page can offer them as chips.
+    """
+    import catalog as cat
+    out = {k: {"topic_key": k, "topic_label": lbl, "tables": []}
+           for k, lbl in cat.TOPICS.items()}
+    fam_best: dict[str, dict] = {}
+    for (sc, t), meta in sorted(CATALOG.items(), key=lambda kv: kv[1]["title"]):
+        entry = {
+            "schema": sc, "table": t, "title": meta["title"],
+            "source": DATABASES[sc]["title"], "n_rows": meta["n_rows"],
+            "family": meta.get("family"), "window": meta.get("window"),
+        }
+        tk = meta.get("topic_key") or "territorio"
+        fam = meta.get("family")
+        if fam:
+            best = fam_best.get(fam)
+            if best is None:
+                entry["windows"] = [{"table": t, "window": meta["window"]}]
+                fam_best[fam] = entry
+                out[tk]["tables"].append(entry)
+            else:
+                best["windows"].append({"table": t, "window": meta["window"]})
+                # newest window represents the family
+                if (meta["window"] or "") > (best["window"] or ""):
+                    best.update({"schema": sc, "table": t, "window": meta["window"],
+                                 "title": meta["title"]})
+        else:
+            out[tk]["tables"].append(entry)
+    res = [v for v in out.values() if v["tables"]]
+    for topic in res:
+        for e in topic["tables"]:
+            if e.get("windows"):
+                e["windows"].sort(key=lambda w: w["window"] or "")
+                # family title without the window suffix
+                e["title"] = e["title"].split(" (")[0]
+    return res
 
 
 def themes(schema: str) -> list[dict]:

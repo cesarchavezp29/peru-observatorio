@@ -5,7 +5,9 @@ import PeruMapHero from './PeruMapHero'
 import Kpi from './Kpi'
 import Finding from './Finding'
 import StoryChart from './StoryChart'
-import { FINDINGS } from '../content'
+import { FINDINGS, TOPIC_META } from '../content'
+import { useEffect, useState } from 'react'
+import { api } from '../api'
 
 // the front-page story: full-size live charts, not hidden behind a click
 const STORY = [
@@ -45,6 +47,10 @@ const item = {
 export default function Home({ databases }) {
   const nav = useNavigate()
   const total = databases.reduce((s, d) => s + (d.n_tables || 0), 0)
+  const [topics, setTopics] = useState([])
+  useEffect(() => {
+    api.topics().then(setTopics).catch(() => {})
+  }, [])
 
   return (
     <div className="home">
@@ -82,6 +88,25 @@ export default function Home({ databases }) {
         </motion.div>
         <PeruMapHero />
       </section>
+
+      {topics.length > 0 && (
+        <>
+          <div className="section-label">¿Qué quieres saber del Perú?</div>
+          <motion.div className="topic-grid"
+            variants={container} initial="hidden" whileInView="show"
+            viewport={{ once: true, margin: '-40px' }}>
+            {topics.map((t) => (
+              <motion.button key={t.topic_key} className="topic-card" variants={item}
+                whileHover={{ y: -4 }} onClick={() => nav(`/tema/${t.topic_key}`)}>
+                <span className="topic-card-ico">{TOPIC_META[t.topic_key]?.icon}</span>
+                <span className="topic-card-name">{t.topic_label}</span>
+                <span className="topic-card-desc">{TOPIC_META[t.topic_key]?.desc}</span>
+                <span className="topic-card-n">{t.tables.length} gráficos</span>
+              </motion.button>
+            ))}
+          </motion.div>
+        </>
+      )}
 
       <div className="section-label">La historia en cuatro gráficos</div>
       <div className="story-list">

@@ -1,40 +1,43 @@
 import { useEffect, useState } from 'react'
-import { NavLink, useLocation, useParams } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import { api } from '../api'
+import { TOPIC_META } from '../content'
 
-// one collapsible sub-section (theme) inside a database group — 83 tables in a
-// flat list was unusable, so each theme folds
-function ThemeGroup({ schema, theme, onNavigate, single }) {
+// One collapsible TOPIC (cross-survey): how readers think — pobreza, empleo,
+// salud — regardless of which INEI survey produced each table. Panel window
+// families arrive already collapsed to their newest window.
+function TopicGroup({ topic, onNavigate }) {
   const location = useLocation()
-  const holdsActive = theme.tables.some((tb) =>
-    location.pathname === `/db/${schema}/${tb.table}`)
-  const [open, setOpen] = useState(single || holdsActive)
+  const holdsActive = topic.tables.some((tb) =>
+    location.pathname === `/db/${tb.schema}/${tb.table}`
+    || (tb.windows || []).some((w) => location.pathname === `/db/${tb.schema}/${w.table}`))
+  const [open, setOpen] = useState(false)
   useEffect(() => { if (holdsActive) setOpen(true) }, [holdsActive])
+  const meta = TOPIC_META[topic.topic_key] || {}
 
   return (
-    <div className="nav-theme">
-      {!single && (
-        <button className={'nav-theme-toggle' + (open ? ' open' : '')}
-          onClick={() => setOpen((o) => !o)}>
-          <span className={`nav-caret sm ${open ? 'up' : ''}`}>▾</span>
-          <span className="nav-theme-name">{theme.theme_label}</span>
-          <span className="nav-theme-n">{theme.tables.length}</span>
-        </button>
-      )}
+    <div className="nav-group">
+      <button className="nav-db" onClick={() => setOpen((o) => !o)}>
+        <span className="nav-topic-ico">{meta.icon || '◆'}</span>
+        <span className="nav-db-title">{topic.topic_label}</span>
+        <span className="nav-count">{topic.tables.length}</span>
+        <span className={`nav-caret ${open ? 'up' : ''}`}>▾</span>
+      </button>
       <AnimatePresence initial={false}>
         {open && (
-          <motion.div
+          <motion.div className="nav-themes"
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.22, ease: [0.22, 0.61, 0.36, 1] }}>
-            {theme.tables.map((tb) => (
-              <NavLink key={tb.table} onClick={onNavigate}
-                to={`/db/${schema}/${tb.table}`}
+            transition={{ duration: 0.28, ease: [0.22, 0.61, 0.36, 1] }}>
+            {topic.tables.map((tb) => (
+              <NavLink key={tb.schema + tb.table} onClick={onNavigate}
+                to={`/db/${tb.schema}/${tb.table}`}
                 className={({ isActive }) => 'nav-table' + (isActive ? ' active' : '')}
                 title={tb.title}>
                 {tb.title}
+                {tb.windows && <span className="nav-windows-n">{tb.windows.length} ventanas</span>}
               </NavLink>
             ))}
           </motion.div>
@@ -44,47 +47,12 @@ function ThemeGroup({ schema, theme, onNavigate, single }) {
   )
 }
 
-function DatabaseGroup({ db, onNavigate }) {
-  const { schema } = useParams()
-  const [open, setOpen] = useState(false)
-  const [detail, setDetail] = useState(null)
-
-  useEffect(() => {
-    if (schema === db.schema) setOpen(true)
-  }, [schema, db.schema])
-
-  useEffect(() => {
-    if (open && !detail) api.database(db.schema).then(setDetail).catch(() => {})
-  }, [open, detail, db.schema])
-
-  return (
-    <div className="nav-group">
-      <button className="nav-db" onClick={() => setOpen((o) => !o)}
-        style={{ '--accent': db.color }}>
-        <span className="nav-dot" style={{ background: db.color }} />
-        <span className="nav-db-title">{db.title}</span>
-        <span className="nav-count">{db.n_tables}</span>
-        <span className={`nav-caret ${open ? 'up' : ''}`}>▾</span>
-      </button>
-      <AnimatePresence initial={false}>
-        {open && detail && (
-          <motion.div className="nav-themes"
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.28, ease: [0.22, 0.61, 0.36, 1] }}>
-            {detail.themes.map((t) => (
-              <ThemeGroup key={t.theme_key} schema={db.schema} theme={t}
-                onNavigate={onNavigate} single={detail.themes.length === 1} />
-            ))}
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
-  )
-}
-
 export default function Sidebar({ databases, open, onNavigate }) {
+  const [topics, setTopics] = useState([])
+  useEffect(() => {
+    api.topics().then(setTopics).catch(() => setTopics([]))
+  }, [])
+
   return (
     <aside className={`sidebar ${open ? 'open' : ''}`}>
       <div className="sidebar-inner">
@@ -125,9 +93,22 @@ export default function Sidebar({ databases, open, onNavigate }) {
           className={({ isActive }) => 'nav-tool' + (isActive ? ' active' : '')}>
           <span className="nav-tool-ico">↓</span> Datos abiertos
         </NavLink>
+
         <div className="nav-sep" />
+        <div className="nav-section-label">Temas</div>
+        {topics.map((t) => (
+          <TopicGroup key={t.topic_key} topic={t} onNavigate={onNavigate} />
+        ))}
+
+        <div className="nav-sep" />
+        <div className="nav-section-label">Fuentes</div>
         {databases.map((db) => (
-          <DatabaseGroup key={db.schema} db={db} onNavigate={onNavigate} />
+          <NavLink key={db.schema} to={`/db/${db.schema}`} onClick={onNavigate}
+            className={({ isActive }) => 'nav-source' + (isActive ? ' active' : '')}>
+            <span className="nav-dot" style={{ background: db.color }} />
+            <span className="nav-source-title">{db.source.split(' - ')[0]}</span>
+            <span className="nav-count">{db.n_tables}</span>
+          </NavLink>
         ))}
       </div>
     </aside>

@@ -30,6 +30,7 @@ export const api = {
   distinct: (schema, table, col) => j(`/api/distinct/${schema}/${table}/${col}`),
   downloadUrl: (schema, table) => `${BASE}/api/download/${schema}/${table}.csv`,
   index: () => j('/api/index'),
+  topics: () => j('/api/topics'),
   readme: async (name) => {
     const r = await fetch(`${BASE}/api/readme/${name}`)
     if (!r.ok) throw new Error(`${r.status} readme/${name}`)

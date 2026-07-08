@@ -128,18 +128,27 @@ export default function Graficos() {
 
   const norm = (s) => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '')
   const { stars, groups, found } = useMemo(() => {
-    const hits = index.filter((x) => (x.kinds || []).includes(kind))
+    let hits = index.filter((x) => (x.kinds || []).includes(kind))
+    // collapse panel window families to their newest window (63 rows -> 7)
+    const byKey = new Map()
+    for (const x of hits) {
+      const k = x.family || `${x.schema}/${x.table}`
+      const prev = byKey.get(k)
+      if (!prev || (x.window || '') > (prev.window || '')) byKey.set(k, x)
+    }
+    hits = [...byKey.values()].map((x) =>
+      x.family ? { ...x, title: x.title.split(' (')[0] } : x)
     if (q.trim()) {
       const terms = norm(q).split(/\s+/).filter(Boolean)
       const found = hits.filter((x) =>
-        terms.every((t) => norm(`${x.title} ${x.theme} ${x.section}`).includes(t)))
+        terms.every((t) => norm(`${x.title} ${x.topic || x.theme} ${x.section}`).includes(t)))
       return { stars: [], groups: [], found }
     }
     const starSlugs = STARS[kind] || []
     const stars = starSlugs.map((s) => hits.find((x) => x.table === s)).filter(Boolean)
     const rest = hits.filter((x) => !starSlugs.includes(x.table))
     const by = {}
-    rest.forEach((x) => { (by[x.theme] = by[x.theme] || []).push(x) })
+    rest.forEach((x) => { const g = x.topic || x.theme; (by[g] = by[g] || []).push(x) })
     return { stars, groups: Object.entries(by).sort((a, b) => b[1].length - a[1].length), found: null }
   }, [index, kind, q])
 

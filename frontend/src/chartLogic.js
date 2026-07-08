@@ -285,19 +285,25 @@ export function buildOption({ rows, x, series, type, ytitle, xIsDept, rankBars }
     emphasis: { focus: 'series' },
   }))
 
-  // subtle COVID-2020 marker on temporal line charts
-  if (base === 'line' && !horizontal) {
-    let covid = cats.find((c) => String(c) === '2020')
-    if (!covid) {
-      const y20 = cats.filter((c) => String(c).startsWith('2020'))
-      covid = y20.find((c) => String(c) === '202003') || y20[Math.floor(y20.length / 2)]
+  // subtle historical event markers on temporal line charts, so a reader who
+  // doesn't remember the dates gets the context (only on long series)
+  if (base === 'line' && !horizontal && cats.length >= 8) {
+    const EVENTS = [['2008', 'Crisis global'], ['2020', 'COVID'], ['2022', 'Crisis política']]
+    const marks = []
+    for (const [yr, lbl] of EVENTS) {
+      let hit = cats.find((c) => String(c) === yr)
+      if (hit == null) {
+        const pre = cats.filter((c) => String(c).startsWith(yr))
+        hit = pre.find((c) => String(c) === yr + '03') || pre[Math.floor(pre.length / 2)]
+      }
+      if (hit != null) marks.push({ xAxis: hit, label: { formatter: lbl } })
     }
-    if (covid != null && seriesArr[0]) {
+    if (marks.length && seriesArr[0]) {
       seriesArr[0].markLine = {
         symbol: 'none', silent: true,
-        lineStyle: { color: axisColor, type: 'dashed', width: 1, opacity: 0.5 },
-        label: { formatter: 'COVID', color: axisColor, fontSize: 10, position: 'insideEndTop' },
-        data: [{ xAxis: covid }],
+        lineStyle: { color: axisColor, type: 'dashed', width: 1, opacity: 0.4 },
+        label: { color: axisColor, fontSize: 10, position: 'insideEndTop', opacity: 0.85 },
+        data: marks,
       }
     }
   }

@@ -16,6 +16,7 @@ import Desigualdad from './components/Desigualdad'
 import Metodologia from './components/Metodologia'
 import Ficha from './components/Ficha'
 import Graficos from './components/Graficos'
+import Tema from './components/Tema'
 
 export default function App() {
   const [databases, setDatabases] = useState([])
@@ -36,7 +37,7 @@ export default function App() {
       ['/ensayos', 'Ensayos'], ['/historia', 'Historia de la pobreza'],
       ['/desigualdad', 'Historia de la desigualdad'],
       ['/metodologia', 'Metodología'], ['/dpto/', 'Ficha departamental'],
-      ['/graficos', 'Gráficos'],
+      ['/graficos', 'Gráficos'], ['/tema/', 'Temas'],
     ]
     const hit = titles.find(([p]) => path.startsWith(p))
     document.title = (hit ? hit[1] + ' · ' : '') + 'Observatorio de Datos del Perú'
@@ -91,6 +92,7 @@ export default function App() {
                 <Route path="/metodologia" element={<Metodologia />} />
                 <Route path="/metodologia/:name" element={<Ficha />} />
                 <Route path="/graficos" element={<Graficos />} />
+                <Route path="/tema/:key" element={<Tema />} />
                 <Route path="/datos" element={<Datos />} />
                 <Route path="/historia" element={<Historia />} />
                 <Route path="/desigualdad" element={<Desigualdad />} />
