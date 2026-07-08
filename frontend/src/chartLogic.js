@@ -123,6 +123,18 @@ const LABELS = {
   pop_2025: 'Población 2025', left21: 'Voto izquierda 2021 (%)', left26: 'Voto izquierda 2026 (%)',
   gini: 'Gini del ingreso', gini_urbano: 'Gini urbano', gini_rural: 'Gini rural',
   p90_p10: 'Ratio P90/P10',
+  // Theil decomposition (epen_theil_decomp: how much wage inequality is
+  // between groups of each partition vs within them)
+  grupo: 'Partición', theil_total: 'Theil total',
+  entre: 'Entre grupos', dentro: 'Dentro de cada grupo',
+  pct_entre: 'Explicado entre grupos (%)',
+  // income distribution tables
+  mediana: 'Mediana', promedio: 'Promedio', percentil: 'Percentil',
+  ratio_p90_p10: 'Ratio P90/P10',
+  crec_2004_2025: 'Crecimiento anual 2004-2025 (%)',
+  crec_2004_2013: 'Crecimiento anual 2004-2013 (%)',
+  crec_2013_2019: 'Crecimiento anual 2013-2019 (%)',
+  crec_2019_2025: 'Crecimiento anual 2019-2025 (%)',
 }
 const SUFFIX = [
   ['_pct', ' (%)'], ['_h', ' (hombres)'], ['_m', ' (mujeres)'],
@@ -157,6 +169,17 @@ export function unitOf(col) {
 
 export function smartDefaultSeries(rows, candidates, title = '') {
   if (candidates.length <= 1 || !rows.length) return candidates
+  // a column that is CONSTANT across rows can never be a good default series
+  // (e.g. theil_total repeated on every partition row) — drop it up front as
+  // long as at least two varying candidates remain
+  if (rows.length > 1) {
+    const varies = (c) => {
+      const v = rows.map((r) => toNum(r[c])).filter(Number.isFinite)
+      return v.length > 1 && Math.max(...v) - Math.min(...v) > 1e-9
+    }
+    const alive = candidates.filter(varies)
+    if (alive.length >= 2 && alive.length < candidates.length) candidates = alive
+  }
   const median = (c) => {
     const v = rows.map((r) => Math.abs(Number(r[c])))
       .filter((x) => Number.isFinite(x) && x > 0).sort((a, b) => a - b)
