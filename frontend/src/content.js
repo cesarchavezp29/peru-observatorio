@@ -91,6 +91,11 @@ export const FINDINGS = [
     viz: { kind: 'spark', schema: 'enaho', table: 'vivienda_servicios_2004_2025', col: 'p1142', tcol: 'year', color: '#3f5aa6' },
   },
   {
+    kicker: 'Elecciones', title: 'La grieta no es pobreza', link: 'enaho/voto_keiko_departamento',
+    insight: 'El voto por Keiko Fujimori en 2026 va de 13.7% en Puno a 65.9% en el Callao, pero su correlación con la pobreza departamental es cero. La línea que divide el mapa es etnolingüística y urbana, no económica.',
+    viz: { kind: 'spark', schema: 'enaho', table: 'voto_keiko_departamento', col: 'keiko_share_2026', tcol: 'keiko_share_2026', color: '#3f5aa6' },
+  },
+  {
     kicker: 'Crecimiento', title: 'El crecimiento favoreció a los pobres', link: 'enaho/gic_periodos',
     insight: 'Entre 2004 y 2025 el ingreso real del percentil 5 creció 4.2% al año, el triple que el del percentil 95 (1.4%). La curva baja de izquierda a derecha: cuanto más pobre el hogar, más creció su ingreso.',
     viz: { kind: 'spark', schema: 'enaho', table: 'gic_periodos', col: 'crec_2004_2025', tcol: 'percentil', color: '#c85a34' },
