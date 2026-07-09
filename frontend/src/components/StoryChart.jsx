@@ -11,7 +11,7 @@ import { buildOption, deptName } from '../chartLogic'
 // A full-size, live chart embedded on the home page next to a short narrative.
 export default function StoryChart({
   kicker, title, lede, schema, table, kind, series, x, mapCol,
-  entityCol = 'dep', timeCol, flow, level = 'dept', height = 380, reverse, cta = 'Explora el dato →',
+  entityCol = 'dep', timeCol, flow, level = 'dept', height = 380, reverse, cta = 'Explora el dato →', href,
 }) {
   const nav = useNavigate()
   const [rows, setRows] = useState(null)
@@ -53,7 +53,7 @@ export default function StoryChart({
         <div className="story-kicker">{kicker}</div>
         <h2>{title}</h2>
         <p>{lede}</p>
-        <button className="story-link" onClick={() => nav(`/db/${schema}/${table}`)}>{cta}</button>
+        <button className="story-link" onClick={() => nav(href || `/db/${schema}/${table}`)}>{cta}</button>
       </div>
       <div className="story-chart">
         {kind === 'line' && (lineOpt ? <EChart option={lineOpt} height={height} /> : <Skeleton />)}

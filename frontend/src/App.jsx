@@ -19,6 +19,7 @@ import Graficos from './components/Graficos'
 import Tema from './components/Tema'
 import Distrito from './components/Distrito'
 import Preguntas from './components/Preguntas'
+import QuienVoto from './components/QuienVoto'
 import { LangProvider, useLang } from './i18n'
 
 function LangToggle() {
@@ -55,7 +56,7 @@ function AppShell() {
       ['/ensayos', 'Ensayos'], ['/historia', 'Historia de la pobreza'],
       ['/desigualdad', 'Historia de la desigualdad'],
       ['/metodologia', 'Metodología'], ['/dpto/', 'Ficha departamental'],
-      ['/graficos', 'Gráficos'], ['/tema/', 'Temas'], ['/distrito', 'Mi distrito'], ['/preguntas', 'El Perú en preguntas'],
+      ['/graficos', 'Gráficos'], ['/tema/', 'Temas'], ['/distrito', 'Mi distrito'], ['/preguntas', 'El Perú en preguntas'], ['/quienvoto', 'Quién votó por Keiko'],
     ]
     const hit = titles.find(([p]) => path.startsWith(p))
     document.title = (hit ? hit[1] + ' · ' : '') + 'Observatorio de Datos del Perú'
@@ -114,6 +115,7 @@ function AppShell() {
                 <Route path="/tema/:key" element={<Tema />} />
                 <Route path="/distrito" element={<Distrito />} />
                 <Route path="/preguntas" element={<Preguntas />} />
+                <Route path="/quienvoto" element={<QuienVoto />} />
                 <Route path="/datos" element={<Datos />} />
                 <Route path="/historia" element={<Historia />} />
                 <Route path="/desigualdad" element={<Desigualdad />} />
