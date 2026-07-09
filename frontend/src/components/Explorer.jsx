@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { useParams, useNavigate, useSearchParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { api } from '../api'
+import { descFor } from '../descriptions'
 import EChart from './EChart'
 import MapChart from './MapChart'
 import NetworkChart from './NetworkChart'
@@ -621,6 +622,7 @@ function TableExplorer({ schema, table }) {
       <div className="exp-head">
         <div className="exp-crumb">{schema.toUpperCase()}</div>
         <h1>{meta.title}</h1>
+        {descFor(table) && <p className="exp-desc">{descFor(table)}</p>}
         <div className="exp-sub">
           <span>{meta.n_rows} filas · {meta.n_cols} columnas</span>
           {meta.mappable && <span className="exp-badge">mapa disponible</span>}

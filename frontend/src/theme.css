@@ -935,3 +935,5 @@ td.cmp-nat { text-align: right; padding: 8px 12px; border-bottom: 1px solid var(
   font-size: 14.5px; font-family: inherit; cursor: pointer; transition: all .2s var(--ease);
   box-shadow: 0 6px 18px rgba(200,90,52,.35); }
 .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(200,90,52,.45); }
+
+.exp-desc { font-size: 14px; line-height: 1.55; color: var(--text-dim); margin: 4px 0 10px; max-width: 760px; }
