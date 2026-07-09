@@ -25,6 +25,9 @@ const STORY = [
   { kicker: 'Demografía', title: 'Menos hijos, más escuela', kind: 'line', reverse: true,
     schema: 'endes', table: 'endes_indicadores', series: 'tfr', x: 'anio',
     lede: 'En 2004 una mujer tenía en promedio 2.5 hijos. Hoy son 1.73, por debajo del reemplazo. El Perú entró en la transición demográfica que ya reordena el mercado laboral y las pensiones.' },
+  { kicker: 'Elecciones', title: 'La grieta no es pobreza', kind: 'map',
+    schema: 'enaho', table: 'voto_keiko_departamento', mapCol: 'keiko_share_2026', level: 'dept',
+    lede: 'El voto por Keiko Fujimori en 2026 fue de 13.7% en Puno a 65.9% en el Callao, y su correlación con la pobreza es cero. La línea que parte el mapa electoral es etnolingüística y urbana: costa norte y Lima de un lado, sur andino del otro.' },
 ]
 
 // live national snapshot — validated temporal series, pulled from the API
