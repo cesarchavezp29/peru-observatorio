@@ -21,7 +21,6 @@ const STORY = [
     schema: 'enaho', table: 'migracion_od_departamento', timeCol: 'anio',
     flow: { source: 'origen', target: 'destino', value: 'personas' },
     lede: 'La migración interna tiene un centro que no admite competencia. Cada año decenas de miles de personas se mueven entre departamentos, y casi todas las líneas terminan en la capital.' },
-    lede: 'El ingreso se reparte de forma muy distinta según la región. Los departamentos andinos y amazónicos concentran la mayor desigualdad, mientras la costa se reparte de forma más pareja.' },
   { kicker: 'Elecciones', title: 'La grieta no es pobreza', kind: 'map', reverse: true,
     schema: 'enaho', table: 'voto_keiko_departamento', mapCol: 'keiko_share_2026', level: 'dept',
     href: '/quienvoto', cta: 'Lee la historia completa →',
