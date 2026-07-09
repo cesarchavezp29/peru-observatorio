@@ -60,13 +60,13 @@ function AppShell() {
       ['/ensayos', 'Ensayos'], ['/historia', 'Historia de la pobreza'],
       ['/desigualdad', 'Historia de la desigualdad'],
       ['/metodologia', 'Metodología'], ['/dpto/', 'Ficha departamental'],
-      ['/graficos', 'Gráficos'], ['/tema/', 'Temas'], ['/distrito', 'Mi distrito'], ['/preguntas', 'El Perú en preguntas'], ['/quienvoto', 'Quién votó por Keiko'], ['/tuvida', 'El Perú de tu vida'], ['/adivina', 'Adivina el Perú'], ['/dibuja', 'Dibuja la línea'], ['/dosperus', 'Dos Perús'],
+      ['/graficos', 'Gráficos'], ['/tema/', 'Temas'], ['/distrito', 'Mi distrito'], ['/preguntas', 'El Perú en preguntas'], ['/quienvoto', 'El mapa de la grieta'], ['/tuvida', 'El Perú de tu vida'], ['/adivina', 'Adivina el Perú'], ['/dibuja', 'Dibuja la línea'], ['/dosperus', 'Dos Perús'],
     ]
     const hit = titles.find(([p]) => path.startsWith(p))
     document.title = (hit ? hit[1] + ' · ' : '') + 'Observatorio de Datos del Perú'
     // per-route meta description so shared/indexed pages describe themselves
     const DESCS = {
-      '/quienvoto': 'Análisis distrital de la segunda vuelta 2026: la grieta del voto por Keiko Fujimori no es la pobreza, es etnolingüística y urbana.',
+      '/quienvoto': 'El mapa de la grieta: la segunda vuelta 2026 distrito por distrito. La división no es la pobreza — es territorial y etnolingüística, en ambos polos.',
       '/historia': 'Dos décadas de pobreza en el Perú, contadas gráfico a gráfico: de 58.7% a 25.7%.',
       '/desigualdad': 'El crecimiento que llegó primero a los pobres: ingreso real por percentil, 2004-2025.',
       '/preguntas': 'El Perú en diez preguntas: pobreza, ingreso, informalidad y más, con el último dato oficial.',

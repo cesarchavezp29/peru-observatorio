@@ -24,7 +24,7 @@ const STEPS = [
   { k: 'CINCO AÑOS DESPUÉS', title: 'El mapa está congelado', chart: 'persistencia',
     text: 'Cada punto es un distrito: su voto de 2021 contra el de 2026. La correlación distrital es 0.991 — con otro rival y cinco años de distancia, el mapa fujimorista y antifujimorista casi no se movió. Mejoró apenas +0.4pp a nivel nacional, ganando más en los distritos chicos y rurales donde sigue siendo más débil.' },
   { k: 'LA LECTURA', title: 'Identidad antes que bolsillo', chart: 'deps',
-    text: 'Quién vota por Keiko no se explica por cuánto tiene la gente sino por qué Perú habita: el conectado, urbano y de habla castellana versus el andino, agrario y que desconfía del Estado. Dentro de casa, la victoria de 2026 la decidió el voto del exterior.',
+    text: 'Ninguno de los dos polos se explica por cuánto tiene la gente. Los datos describen dos electorados con perfiles territoriales distintos — uno urbano, costeño y castellanohablante, otro andino, agrario y con menos confianza en el Estado — y la asociación es descriptiva, no un destino causal. Dentro de casa la elección quedó casi empatada y la decidió el voto del exterior.',
     cta: { label: 'Explora el voto distrito por distrito →', to: '/db/enaho/voto_keiko_distrito_2021_2026' } },
 ]
 
@@ -154,9 +154,8 @@ export default function QuienVoto() {
     <div className="historia">
       <div className="hist-head">
         <div className="exp-crumb">HISTORIA · ELECCIONES</div>
-        <h1>¿Quién votó por Keiko Fujimori?</h1>
-        <p className="hist-lead">Un análisis distrital de la segunda vuelta de 2026: 1,874 distritos,
-          24 millones de electores, y una grieta que no es la que crees. Desplázate.</p>
+        <h1>El mapa de la grieta</h1>
+        <p className="hist-lead">La segunda vuelta de 2026 en 1,874 distritos: qué separa al Perú fujimorista del antifujimorista — y por qué la grieta no es la que crees. Desplázate.</p>
       </div>
       <div className="scrolly">
         <div className="scrolly-graphic">
