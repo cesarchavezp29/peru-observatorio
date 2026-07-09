@@ -26,6 +26,7 @@ const DESC = {
 }
 
 const CENSOS = {
+  censo_analfabetismo_2007_2017: 'De cada 100 personas censadas que respondieron, cuántas no saben leer ni escribir. Incluye niños en edad de aprender, por eso es mayor que la cifra oficial de adultos 15+ (7.1% en 2007).',
   censo_educacion_1981_2017: 'De cada 100 personas censadas, cuántas alcanzaron cada nivel educativo, comparado a través de cuatro censos (incluye a los niños, por eso no coincide con las cifras de adultos 15+).',
   censo_lengua_materna_1981_2017: 'La lengua con la que cada peruano aprendió a hablar, censo a censo: el retroceso y la resistencia del quechua y el aimara.',
   censo_urbanizacion_1993_2017: 'Qué porcentaje del país vive en zonas urbanas, según los tres últimos censos.',

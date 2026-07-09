@@ -49,6 +49,15 @@ function TopicGroup({ topic, onNavigate }) {
   )
 }
 
+function Tool({ to, ico, label, onNavigate }) {
+  return (
+    <NavLink to={to} onClick={onNavigate}
+      className={({ isActive }) => 'nav-tool' + (isActive ? ' active' : '')}>
+      <span className="nav-tool-ico">{ico}</span> {label}
+    </NavLink>
+  )
+}
+
 export default function Sidebar({ databases, open, onNavigate }) {
   const { t } = useLang()
   const [topics, setTopics] = useState([])
@@ -60,75 +69,30 @@ export default function Sidebar({ databases, open, onNavigate }) {
     <aside className={`sidebar ${open ? 'open' : ''}`}>
       <div className="sidebar-inner">
         <NavLink to="/" onClick={onNavigate} className="nav-home" end>{t('home')}</NavLink>
-        <NavLink to="/preguntas" onClick={onNavigate}
-          className={({ isActive }) => 'nav-tool' + (isActive ? ' active' : '')}>
-          <span className="nav-tool-ico">★</span> {t('preguntas')}
-        </NavLink>
-        <NavLink to="/tuvida" onClick={onNavigate}
-          className={({ isActive }) => 'nav-tool' + (isActive ? ' active' : '')}>
-          <span className="nav-tool-ico">☉</span> {t('tuvida')}
-        </NavLink>
-        <NavLink to="/adivina" onClick={onNavigate}
-          className={({ isActive }) => 'nav-tool' + (isActive ? ' active' : '')}>
-          <span className="nav-tool-ico">?</span> {t('adivina')}
-        </NavLink>
-        <NavLink to="/dibuja" onClick={onNavigate}
-          className={({ isActive }) => 'nav-tool' + (isActive ? ' active' : '')}>
-          <span className="nav-tool-ico">✏</span> {t('dibuja')}
-        </NavLink>
-        <NavLink to="/dosperus" onClick={onNavigate}
-          className={({ isActive }) => 'nav-tool' + (isActive ? ' active' : '')}>
-          <span className="nav-tool-ico">⚖</span> {t('dosperus')}
-        </NavLink>
-        <NavLink to="/dpto/15" onClick={onNavigate}
-          className={({ isActive }) => 'nav-tool' + (isActive ? ' active' : '')}>
-          <span className="nav-tool-ico">▣</span> {t('ficha')}
-        </NavLink>
-        <NavLink to="/distrito" onClick={onNavigate}
-          className={({ isActive }) => 'nav-tool' + (isActive ? ' active' : '')}>
-          <span className="nav-tool-ico">⌂</span> {t('midistrito')}
-        </NavLink>
-        <NavLink to="/comparar" onClick={onNavigate}
-          className={({ isActive }) => 'nav-tool' + (isActive ? ' active' : '')}>
-          <span className="nav-tool-ico">⇄</span> {t('comparar')}
-        </NavLink>
-        <NavLink to="/graficos" onClick={onNavigate}
-          className={({ isActive }) => 'nav-tool' + (isActive ? ' active' : '')}>
-          <span className="nav-tool-ico">∿</span> {t('graficos')}
-        </NavLink>
-        <NavLink to="/correlacion" onClick={onNavigate}
-          className={({ isActive }) => 'nav-tool' + (isActive ? ' active' : '')}>
-          <span className="nav-tool-ico">✦</span> {t('correlaciones')}
-        </NavLink>
-        <NavLink to="/ensayos" onClick={onNavigate}
-          className={({ isActive }) => 'nav-tool' + (isActive ? ' active' : '')}>
-          <span className="nav-tool-ico">✎</span> {t('ensayos')}
-        </NavLink>
-        <NavLink to="/historia" onClick={onNavigate}
-          className={({ isActive }) => 'nav-tool' + (isActive ? ' active' : '')}>
-          <span className="nav-tool-ico">▸</span> {t('hist_pobreza')}
-        </NavLink>
-        <NavLink to="/desigualdad" onClick={onNavigate}
-          className={({ isActive }) => 'nav-tool' + (isActive ? ' active' : '')}>
-          <span className="nav-tool-ico">▸</span> {t('hist_desigualdad')}
-        </NavLink>
-        <NavLink to="/quienvoto" onClick={onNavigate}
-          className={({ isActive }) => 'nav-tool' + (isActive ? ' active' : '')}>
-          <span className="nav-tool-ico">▸</span> {t('hist_voto')}
-        </NavLink>
-        <NavLink to="/metodologia" onClick={onNavigate}
-          className={({ isActive }) => 'nav-tool' + (isActive ? ' active' : '')}>
-          <span className="nav-tool-ico">✓</span> {t('metodologia')}
-        </NavLink>
-        <NavLink to="/datos" onClick={onNavigate}
-          className={({ isActive }) => 'nav-tool' + (isActive ? ' active' : '')}>
-          <span className="nav-tool-ico">↓</span> {t('datos')}
-        </NavLink>
+
+        <div className="nav-section-label">{t('sec_descubre')}</div>
+        <Tool to="/preguntas" ico="★" label={t('preguntas')} onNavigate={onNavigate} />
+        <Tool to="/tuvida" ico="☉" label={t('tuvida')} onNavigate={onNavigate} />
+        <Tool to="/adivina" ico="?" label={t('adivina')} onNavigate={onNavigate} />
+        <Tool to="/dibuja" ico="✏" label={t('dibuja')} onNavigate={onNavigate} />
+
+        <div className="nav-section-label">{t('sec_historias')}</div>
+        <Tool to="/historia" ico="▸" label={t('hist_pobreza')} onNavigate={onNavigate} />
+        <Tool to="/desigualdad" ico="▸" label={t('hist_desigualdad')} onNavigate={onNavigate} />
+        <Tool to="/quienvoto" ico="▸" label={t('hist_voto')} onNavigate={onNavigate} />
+
+        <div className="nav-section-label">{t('sec_herramientas')}</div>
+        <Tool to="/graficos" ico="∿" label={t('graficos')} onNavigate={onNavigate} />
+        <Tool to="/dpto/15" ico="▣" label={t('ficha')} onNavigate={onNavigate} />
+        <Tool to="/distrito" ico="⌂" label={t('midistrito')} onNavigate={onNavigate} />
+        <Tool to="/dosperus" ico="⚖" label={t('dosperus')} onNavigate={onNavigate} />
+        <Tool to="/comparar" ico="⇄" label={t('comparar')} onNavigate={onNavigate} />
+        <Tool to="/correlacion" ico="✦" label={t('correlaciones')} onNavigate={onNavigate} />
 
         <div className="nav-sep" />
         <div className="nav-section-label">{t('temas')}</div>
-        {topics.map((t) => (
-          <TopicGroup key={t.topic_key} topic={t} onNavigate={onNavigate} />
+        {topics.map((tp) => (
+          <TopicGroup key={tp.topic_key} topic={tp} onNavigate={onNavigate} />
         ))}
 
         <div className="nav-sep" />
@@ -141,6 +105,11 @@ export default function Sidebar({ databases, open, onNavigate }) {
             <span className="nav-count">{db.n_tables}</span>
           </NavLink>
         ))}
+
+        <div className="nav-sep" />
+        <Tool to="/ensayos" ico="✎" label={t('ensayos')} onNavigate={onNavigate} />
+        <Tool to="/metodologia" ico="✓" label={t('metodologia')} onNavigate={onNavigate} />
+        <Tool to="/datos" ico="↓" label={t('datos')} onNavigate={onNavigate} />
       </div>
     </aside>
   )

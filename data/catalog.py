@@ -477,6 +477,7 @@ _TITLES = {
     "official_poverty_replication": "Pobreza: replica propia vs oficial INEI",
     "gic_periodos": "Quién ganó con el crecimiento: curva de incidencia (2004-2025)",
     "voto_keiko_distrito_2021_2026": "Voto por Keiko Fujimori por distrito: 2021 vs 2026",
+    "censo_analfabetismo_2007_2017": "No sabe leer ni escribir: censos 2007 y 2017 (población censada)",
     "censo_educacion_1981_2017": "Educación a través de los censos (1981-2017)",
     "censo_lengua_materna_1981_2017": "Lengua materna a través de los censos (1981-2017)",
     "censo_urbanizacion_1993_2017": "Urbanización del Perú: tres censos (1993-2017)",

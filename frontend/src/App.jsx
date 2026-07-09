@@ -133,7 +133,7 @@ function AppShell() {
             </motion.div>
           </AnimatePresence>
           <footer className="site-footer">
-            Fuente: microdatos INEI (ENAHO, ENAHO Panel, ENDES, EPE/EPEN, EEA).
+            Fuente: microdatos INEI (ENAHO, ENAHO Panel, ENDES, EPE/EPEN, EEA, Censos 1981-2017).
             Indicadores propios validados contra estadísticas oficiales — ver{' '}
             <NavLink to="/metodologia" className="footer-link">metodología</NavLink>.
             Datos por <a className="footer-link" href="/docs" target="_blank" rel="noreferrer">API</a>.
