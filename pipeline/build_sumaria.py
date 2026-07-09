@@ -51,13 +51,17 @@ def main() -> None:
             print(f"FAIL: columnas difieren\n  ref: {list(ref.columns)}\n  new: {list(df.columns)}")
             sys.exit(1)
         merged = ref.merge(df, on="year", suffixes=("_ref", "_new"))
+        # tolerancias con significado: los conteos poblacionales suman float32
+        # en ordenes distintos por plataforma (ruido de unidades sobre ~30M) y
+        # las tasas ya vienen redondeadas a 1 decimal (ruido de representacion)
+        TOL = {"population_wtd": 10, "n_households": 0}
         diffs = []
         for c in ref.columns:
             if c == "year":
                 continue
             d = (pd.to_numeric(merged[f"{c}_ref"], errors="coerce")
                  - pd.to_numeric(merged[f"{c}_new"], errors="coerce")).abs().max()
-            if pd.notna(d) and d > 1e-6:
+            if pd.notna(d) and d > TOL.get(c, 1e-3):
                 diffs.append((c, d))
         if diffs:
             print(f"FAIL: valores difieren del CSV committeado: {diffs}")
