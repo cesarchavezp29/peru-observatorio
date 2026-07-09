@@ -72,6 +72,10 @@ export default function Sidebar({ databases, open, onNavigate }) {
           className={({ isActive }) => 'nav-tool' + (isActive ? ' active' : '')}>
           <span className="nav-tool-ico">?</span> {t('adivina')}
         </NavLink>
+        <NavLink to="/dibuja" onClick={onNavigate}
+          className={({ isActive }) => 'nav-tool' + (isActive ? ' active' : '')}>
+          <span className="nav-tool-ico">✏</span> {t('dibuja')}
+        </NavLink>
         <NavLink to="/dpto/15" onClick={onNavigate}
           className={({ isActive }) => 'nav-tool' + (isActive ? ' active' : '')}>
           <span className="nav-tool-ico">▣</span> {t('ficha')}
