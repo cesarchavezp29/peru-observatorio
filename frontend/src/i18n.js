@@ -7,7 +7,7 @@ import { createElement } from 'react'
 const STRINGS = {
   es: {
     tagline: 'Microdatos oficiales INEI · validados',
-    home: 'Inicio', preguntas: 'Empieza aquí: 10 preguntas', tuvida: 'El Perú de tu vida', adivina: 'Adivina el Perú', dibuja: 'Dibuja la línea', ficha: 'Ficha departamental', midistrito: 'Mi distrito', comparar: 'Comparar departamentos',
+    home: 'Inicio', preguntas: 'Empieza aquí: 10 preguntas', tuvida: 'El Perú de tu vida', adivina: 'Adivina el Perú', dibuja: 'Dibuja la línea', dosperus: 'Dos Perús', ficha: 'Ficha departamental', midistrito: 'Mi distrito', comparar: 'Comparar departamentos',
     graficos: 'Gráficos', correlaciones: 'Correlaciones', ensayos: 'Ensayos',
     hist_pobreza: 'Historia: la pobreza', hist_desigualdad: 'Historia: la desigualdad', hist_voto: 'Historia: el voto',
     metodologia: 'Metodología', datos: 'Datos abiertos',
@@ -22,7 +22,7 @@ const STRINGS = {
   },
   en: {
     tagline: 'Official INEI microdata · validated',
-    home: 'Home', preguntas: 'Start here: 10 questions', tuvida: 'Peru in your lifetime', adivina: 'Guess Peru', dibuja: 'You draw it', ficha: 'Region profile', midistrito: 'My district', comparar: 'Compare regions',
+    home: 'Home', preguntas: 'Start here: 10 questions', tuvida: 'Peru in your lifetime', adivina: 'Guess Peru', dibuja: 'You draw it', dosperus: 'Two Perus', ficha: 'Region profile', midistrito: 'My district', comparar: 'Compare regions',
     graficos: 'Charts', correlaciones: 'Correlations', ensayos: 'Essays',
     hist_pobreza: 'Story: poverty', hist_desigualdad: 'Story: inequality', hist_voto: 'Story: the vote',
     metodologia: 'Methodology', datos: 'Open data',
