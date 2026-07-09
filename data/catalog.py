@@ -466,6 +466,8 @@ _TITLES = {
     "official_poverty_replication": "Pobreza: replica propia vs oficial INEI",
     "gic_periodos": "Quién ganó con el crecimiento: curva de incidencia (2004-2025)",
     "voto_keiko_distrito_2021_2026": "Voto por Keiko Fujimori por distrito: 2021 vs 2026",
+    "paises_gini_tiempo_wdi": "Desigualdad: Perú vs vecinos (Gini, Banco Mundial)",
+    "paises_pobreza685_wdi": "Pobreza comparable: Perú vs vecinos ($6.85/día, Banco Mundial)",
     "voto_keiko_departamento": "Voto por Keiko Fujimori por departamento (2021 y 2026)",
     "income_percentiles_tiempo": "Ingreso real por percentil: del p10 al p90 (2004-2025)",
     "convergencia_departamental_2004_2025": "Convergencia de ingresos entre departamentos",
