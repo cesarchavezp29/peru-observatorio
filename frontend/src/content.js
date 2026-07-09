@@ -76,24 +76,9 @@ export const FINDINGS = [
     viz: { kind: 'spark', schema: 'endes', table: 'endes_indicadores', col: 'desnutricion', tcol: 'anio', color: '#9c6b2f' },
   },
   {
-    kicker: 'Demografía', title: 'El Perú cruzó el reemplazo', link: 'endes/endes_indicadores',
-    insight: 'La fecundidad bajó de 2.5 a 1.7 hijos por mujer, por debajo del nivel de reemplazo generacional.',
-    viz: { kind: 'spark', schema: 'endes', table: 'endes_indicadores', col: 'tfr', tcol: 'anio', color: '#157a6e' },
-  },
-  {
     kicker: 'Empleo', title: 'El golpe del COVID', link: 'epen/epen_lima_movil_2001_2026',
     insight: 'El desempleo en Lima se disparó a 16.5% en 2020 y recién dos años después volvió a su nivel previo de ~5%.',
     viz: { kind: 'spark', schema: 'epen', table: 'epen_lima_movil_2001_2026', col: 'tasa_desempleo', tcol: 'ym', color: '#8a4a6b' },
-  },
-  {
-    kicker: 'Conectividad', title: 'El boom del celular', link: 'enaho/vivienda_servicios_2004_2025',
-    insight: 'El acceso a teléfono celular pasó de 16% a 95% de los hogares — la transformación más rápida del hogar peruano.',
-    viz: { kind: 'spark', schema: 'enaho', table: 'vivienda_servicios_2004_2025', col: 'p1142', tcol: 'year', color: '#3f5aa6' },
-  },
-  {
-    kicker: 'Elecciones', title: 'La grieta no es pobreza', link: 'enaho/voto_keiko_departamento',
-    insight: 'El voto por Keiko Fujimori en 2026 va de 13.7% en Puno a 65.9% en el Callao, pero su correlación con la pobreza departamental es cero. La línea que divide el mapa es etnolingüística y urbana, no económica.',
-    viz: { kind: 'spark', schema: 'enaho', table: 'voto_keiko_departamento', col: 'keiko_share_2026', tcol: 'keiko_share_2026', color: '#3f5aa6' },
   },
   {
     kicker: 'Crecimiento', title: 'El crecimiento favoreció a los pobres', link: 'enaho/gic_periodos',

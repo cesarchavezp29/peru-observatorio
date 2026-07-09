@@ -245,7 +245,7 @@ export function fmtNum(v) {
   if (a >= 1e6) return (v / 1e6).toFixed(a >= 1e7 ? 0 : 1) + ' M'
   if (a >= 1e4) return Math.round(v).toLocaleString('es-PE')
   if (Number.isInteger(v)) return String(v)
-  return (+v.toFixed(2)).toString()
+  return (+v.toFixed(2)).toLocaleString('es-PE', { maximumFractionDigits: 2 })
 }
 
 export function isTemporal(col) {

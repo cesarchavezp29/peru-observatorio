@@ -792,6 +792,12 @@ function TableExplorer({ schema, table }) {
         )}
         </div>
 
+        <div className="chart-cite">
+          Fuente: {SOURCE[schema] || 'INEI'} · elaboración propia · peruobservatorio.onrender.com
+          {meta.geo_level && schema !== 'censos' && (
+            <span className="chart-caution"> · estimación muestral: departamentos pequeños con cautela</span>
+          )}
+        </div>
         <button className="table-toggle" onClick={() => setShowTable((s) => !s)}>
           {showTable ? 'Ocultar' : 'Ver'} datos ({rows.length} filas)
         </button>

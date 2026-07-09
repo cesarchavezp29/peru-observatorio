@@ -47,6 +47,7 @@ export default function HeroCine() {
   }, [])
 
   useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
     const id = setInterval(() => setI((x) => (x + 1) % SLIDES.length), HOLD_MS)
     return () => clearInterval(id)
   }, [])

@@ -3,7 +3,6 @@ import { motion } from 'framer-motion'
 import CountUp from './CountUp'
 import PeruMapHero from './PeruMapHero'
 import HeroCine from './HeroCine'
-import Ticker from './Ticker'
 import CifraDelDia from './CifraDelDia'
 import Kpi from './Kpi'
 import Finding from './Finding'
@@ -22,13 +21,7 @@ const STORY = [
     schema: 'enaho', table: 'migracion_od_departamento', timeCol: 'anio',
     flow: { source: 'origen', target: 'destino', value: 'personas' },
     lede: 'La migración interna tiene un centro que no admite competencia. Cada año decenas de miles de personas se mueven entre departamentos, y casi todas las líneas terminan en la capital.' },
-  { kicker: 'Desigualdad', title: 'La desigualdad tiene geografía', kind: 'map',
-    schema: 'enaho', table: 'gini_departamento_tiempo', mapCol: 'gini', level: 'dept',
-    href: '/db/enaho/gini_departamento_tiempo?c=map&play=1', cta: 'Mira el mapa respirar año a año →',
     lede: 'El ingreso se reparte de forma muy distinta según la región. Los departamentos andinos y amazónicos concentran la mayor desigualdad, mientras la costa se reparte de forma más pareja.' },
-  { kicker: 'Demografía', title: 'Menos hijos, más escuela', kind: 'line', reverse: true,
-    schema: 'endes', table: 'endes_indicadores', series: 'tfr', x: 'anio',
-    lede: 'En 2004 una mujer tenía en promedio 2.5 hijos. Hoy son 1.73, por debajo del reemplazo. El Perú entró en la transición demográfica que ya reordena el mercado laboral y las pensiones.' },
   { kicker: 'Elecciones', title: 'La grieta no es pobreza', kind: 'map', reverse: true,
     schema: 'enaho', table: 'voto_keiko_departamento', mapCol: 'keiko_share_2026', level: 'dept',
     href: '/quienvoto', cta: 'Lee la historia completa →',
@@ -64,7 +57,6 @@ export default function Home({ databases }) {
 
   return (
     <div className="home">
-      <Ticker />
       <CifraDelDia />
       <section className="hero">
         <motion.div variants={container} initial="hidden" animate="show">
