@@ -36,3 +36,10 @@ Extra: snapshot Zenodo para DOI (citable antes de Fall 2027).
 
 ## Regla de parada
 Si JOLE o el paper de automatizacion necesitan el fin de semana, el sitio lo pierde, siempre.
+
+## Regla de porteo (no negociable)
+NO refactorizar la logica analitica al portar: mover el script, envolverlo en sus
+assertions de validacion, confirmar que el CSV de salida coincide valor por valor
+con el committeado, commit. Mejorar la economia de una tabla y migrar su plomeria
+en el mismo commit = un fin de semana bisecando que cambio movio un numero.
+Portar primero, mejorar despues — el workflow verify protege las mejoras cuando exista.
