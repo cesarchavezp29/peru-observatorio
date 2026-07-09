@@ -235,6 +235,7 @@ function TableExplorer({ schema, table }) {
     if (c) setCtype(c)
     if (cat != null) setCategory(cat)
     if (p != null) setPeriod(Number.isNaN(+p) ? p : +p)
+    if (g('play') === '1') setPlaying(true)
     const r = g('r')
     if (r && r.includes('|')) setRange(r.split('|'))
     urlApplied.current = true
