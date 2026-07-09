@@ -41,8 +41,11 @@ DEMO_KEYS = ("migracion", "transicion_demografica", "demographic", "poblacion_in
 
 def classify(stem: str) -> tuple[str, str, str, str]:
     s = stem.lstrip("_").lower()
-    if stem.lstrip("_") in SUMARIA:
+    if stem.lstrip("_") == "official_poverty_replication":
         return ("pipeline/build_sumaria.py", "ENAHO modulo 34 (sumaria) 2004-2025",
+                "annual", "gate de CI: rompe con cualquier desviacion de INEI (22/22 a 0.0pp)")
+    if stem.lstrip("_") in SUMARIA:
+        return ("pipeline-archive (ARCHIVE_MAP.csv)", "ENAHO modulo 34 (sumaria) 2004-2025",
                 "annual", "INEI pobreza monetaria y gasto real (0.0pp / +-0.5)")
     if s.startswith("panel_") or s.startswith("enaho_panel"):
         if any(k in s for k in ("pobreza_dinamica", "pobreza_transicion",
@@ -59,41 +62,47 @@ def classify(stem: str) -> tuple[str, str, str, str]:
         return ("pipeline/static/ (frozen)", "ONPE 2V 2021 y 2026 (freeze 99.44%)",
                 "frozen", "totales nacionales ONPE")
     if s.startswith("paises_"):
-        return ("pipeline/build_wdi.py", "Banco Mundial WDI API", "annual",
+        return ("pipeline-archive (ARCHIVE_MAP.csv)", "Banco Mundial WDI API", "annual",
                 "valores publicados WDI")
     if s.startswith("bcrp") or s.startswith("ipc_"):
-        return ("pipeline/build_bcrp.py", "BCRP series estadisticas API", "monthly",
+        return ("pipeline-archive (ARCHIVE_MAP.csv)", "BCRP series estadisticas API", "monthly",
                 "serie oficial BCRP")
+    if stem.lstrip("_") in ("epen_lima_movil_2001_2026", "epen_lima_movil_modern_2022_2026"):
+        return ("pipeline/build_epen_movil.py", "EPEN CSV codes 774+ (perudata) + EPE legacy",
+                "monthly", "reproducido valor por valor, desempleo vs BCRP PN38063GM 0.00pp")
     if s.startswith("epen_"):
-        return ("pipeline/build_epen.py", "EPE/EPEN CSV (catalogo perudata) 2001-2026",
+        return ("pipeline-archive (ARCHIVE_MAP.csv)", "EPE/EPEN CSV (catalogo perudata) 2001-2026",
                 "monthly", "desempleo Lima vs informe INEI")
     if s.startswith("endes_"):
-        return ("pipeline/build_endes.py", "ENDES SPSS 2004-2024", "annual",
+        return ("pipeline-archive (ARCHIVE_MAP.csv)", "ENDES SPSS 2004-2024", "annual",
                 "TFR y desnutricion vs informes ENDES")
     if s.startswith("eea_"):
-        return ("pipeline/build_eea.py", "EEA CSV (catalogo perudata) 2023", "annual", "")
+        return ("pipeline-archive (ARCHIVE_MAP.csv)", "EEA CSV (catalogo perudata) 2023", "annual", "")
     if s.startswith("agro_"):
-        return ("pipeline/build_agro.py", "ENAHO modulos 22-28 (agro)", "annual", "")
+        return ("pipeline-archive (ARCHIVE_MAP.csv)", "ENAHO modulos 22-28 (agro)", "annual", "")
     if any(k in s for k in TRANSF_KEYS):
-        return ("pipeline/build_transferencias.py", "ENAHO modulo 37 (trampa p710)",
+        return ("pipeline-archive (ARCHIVE_MAP.csv)", "ENAHO modulo 37 (trampa p710)",
                 "annual", "cobertura Juntos/Pension65 vs INEI")
     if any(k in s for k in GOBERN_KEYS):
-        return ("pipeline/build_gobernabilidad.py", "ENAHO modulos 84-85", "annual", "")
-    if any(k in s for k in EMPLEO_KEYS):
+        return ("pipeline-archive (ARCHIVE_MAP.csv)", "ENAHO modulos 84-85", "annual", "")
+    if stem.lstrip("_") == "informalidad_reconstruida":
         return ("pipeline/build_empleo.py", "ENAHO modulo 05 (empleo e ingreso)",
+                "annual", "reproducido valor por valor, regla INEI validada vs ocupinf")
+    if any(k in s for k in EMPLEO_KEYS):
+        return ("pipeline-archive (ARCHIVE_MAP.csv)", "ENAHO modulo 05 (empleo e ingreso)",
                 "annual", "informalidad vs serie oficial")
     if any(k in s for k in VIVSALUD_KEYS):
-        return ("pipeline/build_vivienda_salud.py", "ENAHO modulos 01 y 04",
+        return ("pipeline-archive (ARCHIVE_MAP.csv)", "ENAHO modulos 01 y 04",
                 "annual", "bitacora validacion.md (agua/luz/celular vs INEI)")
     if any(k in s for k in EDU_KEYS):
-        return ("pipeline/build_educacion.py", "ENAHO modulo 03", "annual", "")
+        return ("pipeline-archive (ARCHIVE_MAP.csv)", "ENAHO modulo 03", "annual", "")
     if s == "module_keys":
         return ("interno (excluido de la app)", "referencia de llaves de merge", "frozen", "")
     if s.startswith("engel"):
-        return ("pipeline/build_sumaria.py", "ENAHO modulo 34 (grupos de gasto)",
+        return ("pipeline-archive (ARCHIVE_MAP.csv)", "ENAHO modulo 34 (grupos de gasto)",
                 "annual", "elasticidades vs literatura Engel Peru")
     if any(k in s for k in DEMO_KEYS):
-        return ("pipeline/build_demografia_sintesis.py", "ENAHO multi-modulo (01-05, 34)",
+        return ("pipeline-archive (ARCHIVE_MAP.csv)", "ENAHO multi-modulo (01-05, 34)",
                 "annual", "")
     return ("pending", "", "", "")
 

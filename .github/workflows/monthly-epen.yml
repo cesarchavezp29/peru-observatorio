@@ -1,0 +1,61 @@
+name: monthly-epen
+
+# Refresco mensual de la serie de empleo de Lima: siembra los crudos
+# historicos desde el release, descubre los codigos EPEN nuevos en el INEI,
+# reconstruye las series movil y ABRE UN PR con el diff — INEI revisa series,
+# y un humano debe mirar los cambios antes de publicar.
+on:
+  schedule:
+    - cron: "0 14 20 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: |
+          pip install pandas pyreadstat
+          pip install git+https://github.com/cesarchavezp29/perudata
+      - name: Seed historic EPEN raw from release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p peru_raw/epen
+          gh release download raw-epen-v1 --pattern "epen-trim-lima.tar.gz" --output - | tar -xz -C peru_raw/epen
+          ls peru_raw/epen | wc -l
+      - name: Discover and download new INEI codes
+        env:
+          PERUDATA_DIR: ${{ github.workspace }}/peru_raw
+        run: python pipeline/discover_epen.py
+      - name: Rebuild Lima movil series
+        env:
+          EPEN_RAW: ${{ github.workspace }}/peru_raw/epen
+        run: python pipeline/build_epen_movil.py
+      - name: Open PR if the series changed
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if git diff --quiet data/datasets; then
+            echo "sin cambios este mes"
+            exit 0
+          fi
+          branch="epen-refresh-$(date -u +%Y%m)"
+          git config user.name "monthly-epen bot"
+          git config user.email "actions@github.com"
+          git checkout -b "$branch"
+          git add data/datasets
+          summary=$(git diff --cached --stat | tail -3)
+          git commit -m "EPEN mensual: refresco de las series movil de Lima"
+          git push -u origin "$branch" --force
+          gh pr create --title "EPEN mensual $(date -u +%Y-%m): series movil de Lima" \
+            --body "Refresco automatico. Revisar el diff de celdas antes de mergear (INEI revisa series). ${summary}" \
+            --base master || echo "PR ya existe"
