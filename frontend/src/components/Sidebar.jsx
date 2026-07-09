@@ -60,6 +60,10 @@ export default function Sidebar({ databases, open, onNavigate }) {
     <aside className={`sidebar ${open ? 'open' : ''}`}>
       <div className="sidebar-inner">
         <NavLink to="/" onClick={onNavigate} className="nav-home" end>{t('home')}</NavLink>
+        <NavLink to="/preguntas" onClick={onNavigate}
+          className={({ isActive }) => 'nav-tool' + (isActive ? ' active' : '')}>
+          <span className="nav-tool-ico">★</span> {t('preguntas')}
+        </NavLink>
         <NavLink to="/dpto/15" onClick={onNavigate}
           className={({ isActive }) => 'nav-tool' + (isActive ? ' active' : '')}>
           <span className="nav-tool-ico">▣</span> {t('ficha')}

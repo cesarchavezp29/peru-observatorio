@@ -70,6 +70,11 @@ export default function Home({ databases }) {
           <motion.p className="hero-lead" variants={item}>
             {t('hero_lead')}
           </motion.p>
+          <motion.div variants={item}>
+            <button className="hero-cta" onClick={() => nav('/preguntas')}>
+              ¿Nuevo aquí? El Perú en 10 preguntas →
+            </button>
+          </motion.div>
           <motion.div className="hero-stats" variants={item}>
             <div>
               <div className="stat-k"><CountUp to={databases.length || 5} /></div>

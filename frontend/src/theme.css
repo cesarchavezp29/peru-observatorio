@@ -917,3 +917,21 @@ td.cmp-nat { text-align: right; padding: 8px 12px; border-bottom: 1px solid var(
 .dist-big-l { font-size: 12px; font-weight: 700; color: var(--text-dim); }
 .dist-big-s { font-size: 11px; color: var(--text-mute); }
 .dist-ctx { display: flex; gap: 22px; flex-wrap: wrap; font-size: 13.5px; color: var(--text-dim); border-top: 1px solid var(--border); padding-top: 14px; }
+
+/* el peru en preguntas */
+.preguntas { max-width: 1280px; }
+.preguntas h1 { font-size: 32px; margin: 8px 0 6px; letter-spacing: -.6px; }
+.preg-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 14px; margin-top: 20px; }
+.preg-card { display: flex; flex-direction: column; gap: 8px; text-align: left; padding: 18px 19px;
+  background: var(--panel); border: 1px solid var(--border-strong); border-radius: 15px;
+  cursor: pointer; transition: all .2s var(--ease); box-shadow: var(--shadow-sm); }
+.preg-card:hover { border-color: var(--accent); box-shadow: 0 10px 26px rgba(60,40,20,.1); }
+.preg-q { font-family: var(--font-display); font-size: 16.5px; font-weight: 800; color: var(--ink); line-height: 1.25; }
+.preg-v { font-family: var(--font-display); font-size: 38px; font-weight: 800; letter-spacing: -1.5px; line-height: 1; }
+.preg-a { font-size: 12.8px; line-height: 1.5; color: var(--text-dim); margin: 0; }
+.preg-go { font-size: 12px; font-weight: 800; color: var(--accent); }
+.hero-cta { margin: 14px 0 4px; padding: 11px 20px; border-radius: 12px; border: none;
+  background: var(--accent, #c85a34); background: #c85a34; color: #fffdf7; font-weight: 800;
+  font-size: 14.5px; font-family: inherit; cursor: pointer; transition: all .2s var(--ease);
+  box-shadow: 0 6px 18px rgba(200,90,52,.35); }
+.hero-cta:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(200,90,52,.45); }
