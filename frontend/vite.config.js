@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react'
 // base './' so the build works when served by FastAPI at any root.
 export default defineConfig({
   plugins: [react()],
-  base: './',
+  base: '/',
   build: {
     rollupOptions: {
       output: {

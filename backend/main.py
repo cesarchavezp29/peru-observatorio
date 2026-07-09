@@ -163,7 +163,49 @@ def health():
             "databases": list(db.DATABASES)}
 
 
+@app.get("/sitemap.xml")
+def sitemap():
+    """Every route + every chart page, so search engines can finally see us."""
+    base = "https://peruobservatorio.onrender.com"
+    fixed = ["", "/preguntas", "/tuvida", "/adivina", "/dibuja", "/dosperus",
+             "/historia", "/desigualdad", "/quienvoto", "/graficos",
+             "/comparar", "/correlacion", "/distrito", "/metodologia",
+             "/datos", "/ensayos"] + [f"/tema/{k}" for k in (
+                 "pobreza", "ingreso", "empleo", "educacion", "salud",
+                 "sociedad", "vivienda", "agro", "empresas", "territorio")]
+    urls = [f"{base}{p}" for p in fixed]
+    urls += [f"{base}/db/{s}/{t}" for (s, t) in db.CATALOG]
+    body = "".join(f"<url><loc>{u}</loc></url>" for u in urls)
+    xml = ('<?xml version="1.0" encoding="UTF-8"?>'
+           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
+           + body + "</urlset>")
+    return PlainTextResponse(xml, media_type="application/xml")
+
+
+@app.get("/robots.txt")
+def robots():
+    return PlainTextResponse(
+        "User-agent: *\nAllow: /\n"
+        "Sitemap: https://peruobservatorio.onrender.com/sitemap.xml\n")
+
+
 # --------------------------------------------------------- serve frontend
+# SPA fallback: any non-API, non-file path serves index.html so BrowserRouter
+# deep links (/historia, /db/enaho/...) load directly and are crawlable.
+class SPAStaticFiles(StaticFiles):
+    async def get_response(self, path: str, scope):
+        from starlette.exceptions import HTTPException as StarletteHTTPException
+        try:
+            response = await super().get_response(path, scope)
+        except StarletteHTTPException as e:
+            if e.status_code == 404:
+                return await super().get_response("index.html", scope)
+            raise
+        if response.status_code == 404:
+            response = await super().get_response("index.html", scope)
+        return response
+
+
 _DIST = Path(__file__).resolve().parent.parent / "frontend" / "dist"
 if _DIST.exists():
-    app.mount("/", StaticFiles(directory=str(_DIST), html=True), name="app")
+    app.mount("/", SPAStaticFiles(directory=str(_DIST), html=True), name="app")

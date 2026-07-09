@@ -73,7 +73,7 @@ function AppShell() {
           <Route path="/db/:schema/:table" element={<Explorer />} />
           <Route path="*" element={<Home databases={databases} />} />
         </Routes>
-        <a className="embed-brand" href={window.location.origin + '/#' + location.pathname}
+        <a className="embed-brand" href={window.location.origin + location.pathname}
           target="_blank" rel="noreferrer">
           ◆ Observatorio de Datos del Perú
         </a>
