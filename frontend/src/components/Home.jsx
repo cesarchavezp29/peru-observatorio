@@ -2,6 +2,8 @@ import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import CountUp from './CountUp'
 import PeruMapHero from './PeruMapHero'
+import HeroCine from './HeroCine'
+import Ticker from './Ticker'
 import Kpi from './Kpi'
 import Finding from './Finding'
 import StoryChart from './StoryChart'
@@ -59,6 +61,7 @@ export default function Home({ databases }) {
 
   return (
     <div className="home">
+      <Ticker />
       <section className="hero">
         <motion.div variants={container} initial="hidden" animate="show">
           <motion.div className="hero-eyebrow" variants={item}>
@@ -94,7 +97,7 @@ export default function Home({ databases }) {
             </div>
           </motion.div>
         </motion.div>
-        <PeruMapHero />
+        <HeroCine />
       </section>
 
       {topics.length > 0 && (

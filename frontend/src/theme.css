@@ -937,3 +937,33 @@ td.cmp-nat { text-align: right; padding: 8px 12px; border-bottom: 1px solid var(
 .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(200,90,52,.45); }
 
 .exp-desc { font-size: 14px; line-height: 1.55; color: var(--text-dim); margin: 4px 0 10px; max-width: 760px; }
+
+/* data cinema hero */
+.cine { position: relative; display: flex; flex-direction: column; justify-content: flex-end;
+  min-height: 380px; border-radius: 18px; background: #faf1de; border: 1px solid var(--border-strong);
+  overflow: hidden; cursor: pointer; box-shadow: var(--shadow-sm); }
+.cine-chart { position: absolute; inset: 0; top: 30%; }
+.cine-text { position: relative; z-index: 2; padding: 26px 28px 8px; pointer-events: none; }
+.cine-kicker { font-family: var(--font-display); font-size: 12px; font-weight: 800; letter-spacing: 1.4px; }
+.cine-head { font-family: var(--font-display); font-size: clamp(22px, 2.2vw, 30px); font-weight: 800; color: var(--ink); letter-spacing: -.6px; margin: 4px 0 2px; }
+.cine-num { font-family: var(--font-display); font-size: clamp(44px, 4.6vw, 66px); font-weight: 800; letter-spacing: -2.5px; line-height: 1; }
+.cine-sub { font-size: 13.5px; color: var(--text-dim); font-weight: 600; margin-top: 4px; }
+.cine-dots { position: absolute; z-index: 3; right: 16px; top: 16px; display: flex; gap: 7px; }
+.cine-dot { width: 9px; height: 9px; border-radius: 50%; border: none; background: #d9cbae; cursor: pointer; transition: all .25s var(--ease); padding: 0; }
+.cine-dot.on { background: var(--terracotta); transform: scale(1.35); }
+/* newsroom ticker */
+.ticker { overflow: hidden; border: 1px solid var(--border-strong); border-radius: 12px;
+  background: var(--panel); margin-bottom: 26px; mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); }
+.ticker-track { display: flex; width: max-content; animation: tickmove 55s linear infinite; }
+.ticker:hover .ticker-track { animation-play-state: paused; }
+.ticker-group { display: flex; }
+.tick-chip { display: flex; align-items: center; gap: 8px; padding: 10px 18px; border: none;
+  background: none; cursor: pointer; font-family: inherit; white-space: nowrap; }
+.tick-chip:hover .tick-label { color: var(--accent); }
+.tick-label { font-size: 12px; font-weight: 700; color: var(--text-mute); text-transform: uppercase; letter-spacing: .5px; transition: color .15s; }
+.tick-val { font-family: var(--font-display); font-size: 15px; font-weight: 800; color: var(--ink); }
+.tick-dir { font-size: 11px; }
+.tick-dir.good { color: #157a6e; }
+.tick-dir.bad { color: #c85a34; }
+@keyframes tickmove { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .ticker-track { animation: none; } }
