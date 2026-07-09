@@ -25,6 +25,15 @@ const DESC = {
   brecha_salarial_sexo_2004_2025: 'Cuánto gana una mujer por cada 100 soles que gana un hombre, y cómo ha cambiado.',
 }
 
+const CENSOS = {
+  censo_educacion_1981_2017: 'De cada 100 personas censadas, cuántas alcanzaron cada nivel educativo, comparado a través de cuatro censos (incluye a los niños, por eso no coincide con las cifras de adultos 15+).',
+  censo_lengua_materna_1981_2017: 'La lengua con la que cada peruano aprendió a hablar, censo a censo: el retroceso y la resistencia del quechua y el aimara.',
+  censo_urbanizacion_1993_2017: 'Qué porcentaje del país vive en zonas urbanas, según los tres últimos censos.',
+  censo_urbanizacion_departamento: 'La urbanización de cada departamento en los censos de 1993, 2007 y 2017.',
+  censo_lengua_departamento: 'Qué porcentaje de cada departamento aprendió a hablar en una lengua originaria, censo a censo desde 1981.',
+}
+Object.assign(DESC, CENSOS)
+
 const PREFIX = [
   ['panel_pobreza_dinamica', 'De los hogares seguidos durante 5 años, cuántos fueron pobres siempre (crónica), a veces (transitoria) o nunca. La pobreza peruana es sobre todo rotacional.'],
   ['panel_pobreza_transicion', 'De un año al siguiente, qué porcentaje de hogares entró a la pobreza y qué porcentaje salió.'],
