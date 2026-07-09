@@ -7,7 +7,7 @@ import { createElement } from 'react'
 const STRINGS = {
   es: {
     tagline: 'Microdatos oficiales INEI · validados',
-    home: 'Inicio', ficha: 'Ficha departamental', comparar: 'Comparar departamentos',
+    home: 'Inicio', ficha: 'Ficha departamental', midistrito: 'Mi distrito', comparar: 'Comparar departamentos',
     graficos: 'Gráficos', correlaciones: 'Correlaciones', ensayos: 'Ensayos',
     hist_pobreza: 'Historia: la pobreza', hist_desigualdad: 'Historia: la desigualdad',
     metodologia: 'Metodología', datos: 'Datos abiertos',
@@ -22,7 +22,7 @@ const STRINGS = {
   },
   en: {
     tagline: 'Official INEI microdata · validated',
-    home: 'Home', ficha: 'Region profile', comparar: 'Compare regions',
+    home: 'Home', ficha: 'Region profile', midistrito: 'My district', comparar: 'Compare regions',
     graficos: 'Charts', correlaciones: 'Correlations', ensayos: 'Essays',
     hist_pobreza: 'Story: poverty', hist_desigualdad: 'Story: inequality',
     metodologia: 'Methodology', datos: 'Open data',

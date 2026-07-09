@@ -116,7 +116,7 @@ export default function SearchBar() {
   return (
     <div className="search" ref={box}>
       <span className="search-ico">⌕</span>
-      <input ref={inp} className="search-input" value={q} placeholder={t('buscar')}
+      <input ref={inp} className="search-input" aria-label="Buscar indicador" value={q} placeholder={t('buscar')}
         onChange={(e) => { setQ(e.target.value); setOpen(true) }}
         onFocus={() => setOpen(true)} onKeyDown={onKey} />
       <AnimatePresence>

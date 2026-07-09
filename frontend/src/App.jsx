@@ -17,12 +17,13 @@ import Metodologia from './components/Metodologia'
 import Ficha from './components/Ficha'
 import Graficos from './components/Graficos'
 import Tema from './components/Tema'
+import Distrito from './components/Distrito'
 import { LangProvider, useLang } from './i18n'
 
 function LangToggle() {
   const { lang, setLang } = useLang()
   return (
-    <button className="lang-toggle" onClick={() => setLang(lang === 'es' ? 'en' : 'es')}
+    <button className="lang-toggle" aria-label="Cambiar idioma / switch language" onClick={() => setLang(lang === 'es' ? 'en' : 'es')}
       title={lang === 'es' ? 'Switch to English' : 'Cambiar a español'}>
       {lang === 'es' ? 'EN' : 'ES'}
     </button>
@@ -53,7 +54,7 @@ function AppShell() {
       ['/ensayos', 'Ensayos'], ['/historia', 'Historia de la pobreza'],
       ['/desigualdad', 'Historia de la desigualdad'],
       ['/metodologia', 'Metodología'], ['/dpto/', 'Ficha departamental'],
-      ['/graficos', 'Gráficos'], ['/tema/', 'Temas'],
+      ['/graficos', 'Gráficos'], ['/tema/', 'Temas'], ['/distrito', 'Mi distrito'],
     ]
     const hit = titles.find(([p]) => path.startsWith(p))
     document.title = (hit ? hit[1] + ' · ' : '') + 'Observatorio de Datos del Perú'
@@ -110,6 +111,7 @@ function AppShell() {
                 <Route path="/metodologia/:name" element={<Ficha />} />
                 <Route path="/graficos" element={<Graficos />} />
                 <Route path="/tema/:key" element={<Tema />} />
+                <Route path="/distrito" element={<Distrito />} />
                 <Route path="/datos" element={<Datos />} />
                 <Route path="/historia" element={<Historia />} />
                 <Route path="/desigualdad" element={<Desigualdad />} />
