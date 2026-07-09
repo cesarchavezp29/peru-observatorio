@@ -280,6 +280,9 @@ export function buildOption({ rows, x, series, type, ytitle, xIsDept, rankBars }
   // animated end-of-line value label on uncluttered temporal lines
   const endLabels = base === 'line' && !stacked && !horizontal && series.length <= 4
 
+  // >4 series: hue alone fails colorblind readers -- cycle marker shapes too
+  const SYMBOLS = ['circle', 'rect', 'triangle', 'diamond', 'pin', 'arrow']
+  const manySeries = series.length > 4
   const seriesArr = series.map((s, i) => ({
     id: s, // stable id -> smooth morph when the chart type switches
     name: labelFor(s),
@@ -288,7 +291,8 @@ export function buildOption({ rows, x, series, type, ytitle, xIsDept, rankBars }
     universalTransition: true,
     stack: stacked ? 'composicion' : undefined,
     smooth: base === 'line' ? (stacked ? 0.15 : 0.25) : false,
-    showSymbol: stacked ? false : rows.length <= 40,
+    showSymbol: stacked ? false : (manySeries || rows.length <= 40),
+    symbol: manySeries ? SYMBOLS[i % SYMBOLS.length] : 'circle',
     symbolSize: 6,
     lineStyle: base === 'line' ? { width: stacked ? 1 : 2.4 } : undefined,
     areaStyle: stacked ? { opacity: 0.78 }
