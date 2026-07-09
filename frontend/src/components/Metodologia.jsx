@@ -142,7 +142,9 @@ export default function Metodologia() {
           <a href="https://github.com/cesarchavezp29/peru-observatorio" target="_blank" rel="noreferrer">
             GitHub</a>. Cada tabla se puede descargar como CSV desde su página, y la{' '}
           <a href="/docs" target="_blank" rel="noreferrer">API REST está documentada</a>{' '}
-          para consultar los datos por programa.
+          para consultar los datos por programa. Cada gráfico se puede incrustar en
+          otra web con el botón «Insertar» (o añadiendo <code>?embed=1</code> a su URL)
+          y descargar como imagen con «PNG».
         </p>
         <p>
           ¿Quieres los microdatos crudos? Publicamos{' '}

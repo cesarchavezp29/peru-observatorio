@@ -1,9 +1,9 @@
 # Observatorio de Datos del Perú
 
-Aplicación web **dinámica** para explorar 20 años de encuestas oficiales del INEI
+Aplicación web **dinámica** para explorar un cuarto de siglo de datos oficiales del INEI (encuestas 2001-2026 y censos 1981-2017)
 —ENAHO, ENAHO Panel, ENDES, EPE/EPEN y EEA— limpiadas, armonizadas y validadas
 contra las estadísticas publicadas. Backend con consultas en vivo, frontend con
-gráficos interactivos, organizado en **5 secciones (una por base de datos)**.
+gráficos interactivos, organizado en **6 secciones (una por base de datos)**.
 
 ![home](docs/screenshot_home.png)
 
@@ -13,7 +13,7 @@ gráficos interactivos, organizado en **5 secciones (una por base de datos)**.
   data/datasets/*.csv   203 tablas analíticas (agregados, sin microdatos)
         │  data/build_db.py
         ▼
-  observatorio.duckdb    5 esquemas: enaho · panel · endes · epen · eea
+  observatorio.duckdb    6 esquemas: enaho · panel · endes · epen · eea · censos
         │  backend/  (FastAPI, consultas parametrizadas y seguras)
         ▼
   /api/...               catálogo, datos con filtros dinámicos, descarga CSV

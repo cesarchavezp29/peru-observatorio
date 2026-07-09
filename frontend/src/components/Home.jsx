@@ -84,20 +84,20 @@ export default function Home({ databases }) {
           </motion.div>
           <motion.div className="hero-stats" variants={item}>
             <div>
-              <div className="stat-k"><CountUp to={databases.length || 5} /></div>
+              <div className="stat-k"><CountUp to={databases.length || 6} /></div>
               <div className="stat-l">bases de datos</div>
             </div>
             <div>
-              <div className="stat-k"><CountUp to={total || 207} /></div>
+              <div className="stat-k"><CountUp to={total || 214} /></div>
               <div className="stat-l">indicadores</div>
             </div>
             <div>
-              <div className="stat-k"><CountUp to={25} /></div>
-              <div className="stat-l">años · 2001–2026</div>
+              <div className="stat-k"><CountUp to={26} /></div>
+              <div className="stat-l">años de datos · 2001–2026</div>
             </div>
             <div>
-              <div className="stat-k"><CountUp to={100} decimals={0} suffix="%" /></div>
-              <div className="stat-l">validado vs INEI</div>
+              <div className="stat-k"><CountUp to={22} suffix="/22" /></div>
+              <div className="stat-l">años de pobreza oficial replicada exacta</div>
             </div>
           </motion.div>
         </motion.div>

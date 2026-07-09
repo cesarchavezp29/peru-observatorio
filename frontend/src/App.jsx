@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { Suspense, lazy, useEffect, useState } from 'react'
 import { Routes, Route, NavLink, useLocation } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import { api } from './api'
@@ -6,31 +6,31 @@ import Sidebar from './components/Sidebar'
 import SearchBar from './components/SearchBar'
 import Home from './components/Home'
 import Explorer from './components/Explorer'
-import Comparador from './components/Comparador'
-import Correlacion from './components/Correlacion'
-import Datos from './components/Datos'
-import Departamento from './components/Departamento'
-import Ensayos from './components/Ensayos'
-import Historia from './components/Historia'
-import Desigualdad from './components/Desigualdad'
-import Metodologia from './components/Metodologia'
-import Ficha from './components/Ficha'
-import Graficos from './components/Graficos'
-import Tema from './components/Tema'
-import Distrito from './components/Distrito'
-import Preguntas from './components/Preguntas'
-import QuienVoto from './components/QuienVoto'
-import TuVida from './components/TuVida'
-import Adivina from './components/Adivina'
-import Dibuja from './components/Dibuja'
-import DosPerus from './components/DosPerus'
+const Comparador = lazy(() => import('./components/Comparador'))
+const Correlacion = lazy(() => import('./components/Correlacion'))
+const Datos = lazy(() => import('./components/Datos'))
+const Departamento = lazy(() => import('./components/Departamento'))
+const Ensayos = lazy(() => import('./components/Ensayos'))
+const Historia = lazy(() => import('./components/Historia'))
+const Desigualdad = lazy(() => import('./components/Desigualdad'))
+const Metodologia = lazy(() => import('./components/Metodologia'))
+const Ficha = lazy(() => import('./components/Ficha'))
+const Graficos = lazy(() => import('./components/Graficos'))
+const Tema = lazy(() => import('./components/Tema'))
+const Distrito = lazy(() => import('./components/Distrito'))
+const Preguntas = lazy(() => import('./components/Preguntas'))
+const QuienVoto = lazy(() => import('./components/QuienVoto'))
+const TuVida = lazy(() => import('./components/TuVida'))
+const Adivina = lazy(() => import('./components/Adivina'))
+const Dibuja = lazy(() => import('./components/Dibuja'))
+const DosPerus = lazy(() => import('./components/DosPerus'))
 import { LangProvider, useLang } from './i18n'
 
 function LangToggle() {
   const { lang, setLang } = useLang()
   return (
     <button className="lang-toggle" aria-label="Cambiar idioma / switch language" onClick={() => setLang(lang === 'es' ? 'en' : 'es')}
-      title={lang === 'es' ? 'Switch to English' : 'Cambiar a español'}>
+      title={lang === 'es' ? 'Interface in English (charts stay in Spanish)' : 'Interfaz en español'}>
       {lang === 'es' ? 'EN' : 'ES'}
     </button>
   )
@@ -64,6 +64,20 @@ function AppShell() {
     ]
     const hit = titles.find(([p]) => path.startsWith(p))
     document.title = (hit ? hit[1] + ' · ' : '') + 'Observatorio de Datos del Perú'
+    // per-route meta description so shared/indexed pages describe themselves
+    const DESCS = {
+      '/quienvoto': 'Análisis distrital de la segunda vuelta 2026: la grieta del voto por Keiko Fujimori no es la pobreza, es etnolingüística y urbana.',
+      '/historia': 'Dos décadas de pobreza en el Perú, contadas gráfico a gráfico: de 58.7% a 25.7%.',
+      '/desigualdad': 'El crecimiento que llegó primero a los pobres: ingreso real por percentil, 2004-2025.',
+      '/preguntas': 'El Perú en diez preguntas: pobreza, ingreso, informalidad y más, con el último dato oficial.',
+      '/tuvida': 'Pon tu año de nacimiento y mira cómo cambió el Perú mientras crecías.',
+      '/adivina': 'Adivina las cifras del Perú y compara tu intuición con los datos oficiales.',
+      '/dibuja': 'Dibuja lo que crees que pasó con la pobreza y mira la realidad encima de tu trazo.',
+    }
+    const d = DESCS[Object.keys(DESCS).find((k) => path.startsWith(k))]
+    const tag = document.querySelector('meta[name="description"]')
+    if (tag) tag.setAttribute('content', d
+      || 'Datos oficiales del Peru: ingreso, pobreza, salud, empleo, empresas y censos. Microdatos INEI validados, 2001-2026.')
   }, [location.pathname])
 
   if (embed) {
@@ -107,6 +121,7 @@ function AppShell() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.32, ease: [0.22, 0.61, 0.36, 1] }}>
+              <Suspense fallback={<div className="skeleton sk-chart" style={{ height: 300, marginTop: 30 }} />}>
               <Routes location={location}>
                 <Route path="/" element={<Home databases={databases} />} />
                 <Route path="/comparar" element={<Comparador />} />
@@ -130,6 +145,7 @@ function AppShell() {
                 <Route path="/db/:schema" element={<Explorer />} />
                 <Route path="/db/:schema/:table" element={<Explorer />} />
               </Routes>
+              </Suspense>
             </motion.div>
           </AnimatePresence>
           <footer className="site-footer">
@@ -137,7 +153,8 @@ function AppShell() {
             Indicadores propios validados contra estadísticas oficiales — ver{' '}
             <NavLink to="/metodologia" className="footer-link">metodología</NavLink>.
             Datos por <a className="footer-link" href="/docs" target="_blank" rel="noreferrer">API</a>.
-            Construido por Carlos Chávez.
+            Elaboración propia sobre microdatos públicos del INEI.
+            Construido por <a className="footer-link" href="https://github.com/cesarchavezp29" target="_blank" rel="noreferrer">Carlos Chávez</a>.
           </footer>
         </main>
       </div>
