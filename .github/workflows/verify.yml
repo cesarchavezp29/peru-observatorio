@@ -1,0 +1,59 @@
+name: verify
+
+# El gate publico: reconstruye la base desde los CSVs, levanta la API, prueba
+# los endpoints que el frontend usa, y replica la pobreza oficial desde los
+# microdatos crudos del INEI via perudata. Si la replica se desvia de la cifra
+# publicada EN CUALQUIER MONTO, el build rompe. "Lo que no valida, no se
+# publica" — verificado por maquina en cada commit.
+on:
+  push:
+    branches: [master]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install deps
+        run: |
+          pip install duckdb fastapi uvicorn pandas pyreadstat
+          pip install git+https://github.com/cesarchavezp29/perudata
+
+      - name: Rebuild DuckDB from committed CSVs
+        run: cd data && python build_db.py
+
+      - name: Boot API and smoke the endpoints the frontend uses
+        run: |
+          cd backend && (uvicorn main:app --port 8123 &) && sleep 8
+          set -e
+          for p in "/api/health" "/api/topics" \
+                   "/api/data/enaho/official_poverty_replication?limit=1" \
+                   "/api/data/panel/panel_pobreza_dinamica_2019_2023?limit=1" \
+                   "/api/data/endes/endes_indicadores?limit=1" \
+                   "/api/data/epen/epen_lima_movil_2001_2026?limit=1" \
+                   "/api/data/censos/censo_urbanizacion_1993_2017?limit=1" \
+                   "/api/data/eea/eea_productividad_sector?limit=1" \
+                   "/sitemap.xml"; do
+            code=$(curl -s -o /dev/null -w "%{http_code}" "http://127.0.0.1:8123$p")
+            echo "$p -> $code"
+            test "$code" = "200"
+          done
+
+      # los vintages historicos del INEI nunca cambian: la cache hace que solo
+      # la primera corrida descargue las 22 sumarias
+      - name: Cache raw INEI microdata
+        uses: actions/cache@v4
+        with:
+          path: peru_raw
+          key: peru-raw-sumaria-v1
+
+      - name: Poverty gate (replica vs INEI, cualquier desviacion rompe)
+        env:
+          PERUDATA_DIR: ${{ github.workspace }}/peru_raw
+        run: python pipeline/build_sumaria.py --check-against data/datasets/official_poverty_replication.csv

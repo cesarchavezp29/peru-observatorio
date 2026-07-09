@@ -1,5 +1,7 @@
 # Observatorio de Datos del Perú
 
+[![verify](https://github.com/cesarchavezp29/peru-observatorio/actions/workflows/verify.yml/badge.svg)](https://github.com/cesarchavezp29/peru-observatorio/actions/workflows/verify.yml)
+
 Aplicación web **dinámica** para explorar un cuarto de siglo de datos oficiales del INEI (encuestas 2001-2026 y censos 1981-2017)
 —ENAHO, ENAHO Panel, ENDES, EPE/EPEN y EEA— limpiadas, armonizadas y validadas
 contra las estadísticas publicadas. Backend con consultas en vivo, frontend con
