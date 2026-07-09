@@ -24,7 +24,7 @@ export const SEQ = {
 
 export function tokens() {
   return {
-    text: '#34291c', axis: '#8a7c68', grid: '#ece1cd',
+    text: '#34291c', axis: '#6f6350', grid: '#ece1cd',
     tooltipBg: '#fffdf7', tooltipBorder: '#e7dcc6',
     mapBorder: '#fdf6e8', mapEmpty: '#cdbb93', mapLabel: '#34291c',
   }
