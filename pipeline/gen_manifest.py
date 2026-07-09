@@ -45,7 +45,12 @@ def classify(stem: str) -> tuple[str, str, str, str]:
         return ("pipeline/build_sumaria.py", "ENAHO modulo 34 (sumaria) 2004-2025",
                 "annual", "INEI pobreza monetaria y gasto real (0.0pp / +-0.5)")
     if s.startswith("panel_") or s.startswith("enaho_panel"):
-        return ("pipeline/build_panel_familias.py", "ENAHO Panel releases 2011-2023",
+        if any(k in s for k in ("pobreza_dinamica", "pobreza_transicion",
+                                "informalidad_dinamica", "informalidad_transicion",
+                                "seguro_dinamica", "seguro_transicion")):
+            return ("pipeline/build_panel_familias.py", "ENAHO Panel releases 2011-2023",
+                    "annual", "reproducido valor por valor vs committeado (60/60)")
+        return ("pending (W2b: build_panel_dataset.py)", "ENAHO Panel releases 2011-2023",
                 "annual", "pobreza anual por ola vs INEI (panel_validate)")
     if s.startswith("censo_"):
         return ("pipeline/static/ (frozen)", "Censos INEI 1981/1993/2007/2017",
