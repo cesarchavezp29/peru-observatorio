@@ -41,6 +41,13 @@ DATABASES = {
                 "y corte departamental 2022-2025.",
         "color": "#8a4a6b",
     },
+    "censos": {
+        "title": "Censos de Población",
+        "source": "Censos Nacionales INEI 1981-2017",
+        "desc": "Las fotos completas del país: educación, lengua materna y "
+                "urbanización comparadas a través de cuatro censos.",
+        "color": "#6b4a8a",
+    },
     "eea": {
         "title": "Empresas",
         "source": "EEA - Encuesta Economica Anual",
@@ -203,6 +210,7 @@ _TOPIC_RULES = [
     ("trabajo_adolescente", "empleo"), ("oaxaca", "empleo"), ("wage", "empleo"),
     ("evento_hijo", "empleo"), ("sector_flujo", "empleo"),
     # sociedad: confianza, estado, elecciones, programas
+    ("lengua", "sociedad"),
     ("confianza", "sociedad"), ("trust", "sociedad"), ("vote", "sociedad"),
     ("voto", "sociedad"), ("keiko", "sociedad"),
     ("electoral", "sociedad"), ("participacion", "sociedad"),
@@ -215,6 +223,7 @@ _TOPIC_RULES = [
     ("educacion", "educacion"), ("educativa", "educacion"),
     ("analfabetismo", "educacion"), ("cohorte", "educacion"), ("intergen", "educacion"),
     # salud y demografia
+    ("urbanizacion", "salud"),
     ("salud", "salud"), ("seguro", "salud"),
     ("discapacidad", "salud"), ("cuidados", "salud"), ("demografia", "salud"),
     ("migracion", "salud"), ("jefatura", "salud"), ("atencion", "salud"),
@@ -268,6 +277,8 @@ def schema_for(stem: str) -> str:
         return "endes"
     if n.startswith("eea_"):
         return "eea"
+    if n.startswith("censo_"):
+        return "censos"
     if n.startswith("epen_") or n.startswith("_bcrp") or n.startswith("_ipc"):
         return "epen"
     return "enaho"
@@ -466,6 +477,11 @@ _TITLES = {
     "official_poverty_replication": "Pobreza: replica propia vs oficial INEI",
     "gic_periodos": "Quién ganó con el crecimiento: curva de incidencia (2004-2025)",
     "voto_keiko_distrito_2021_2026": "Voto por Keiko Fujimori por distrito: 2021 vs 2026",
+    "censo_educacion_1981_2017": "Educación a través de los censos (1981-2017)",
+    "censo_lengua_materna_1981_2017": "Lengua materna a través de los censos (1981-2017)",
+    "censo_urbanizacion_1993_2017": "Urbanización del Perú: tres censos (1993-2017)",
+    "censo_urbanizacion_departamento": "Urbanización por departamento (censos 1993-2017)",
+    "censo_lengua_departamento": "Lengua originaria por departamento (censos 1981-2017)",
     "paises_gini_tiempo_wdi": "Desigualdad: Perú vs vecinos (Gini, Banco Mundial)",
     "paises_pobreza685_wdi": "Pobreza comparable: Perú vs vecinos ($6.85/día, Banco Mundial)",
     "voto_keiko_departamento": "Voto por Keiko Fujimori por departamento (2021 y 2026)",
