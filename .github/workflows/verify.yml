@@ -45,13 +45,16 @@ jobs:
             test "$code" = "200"
           done
 
-      # los vintages historicos del INEI nunca cambian: la cache hace que solo
-      # la primera corrida descargue las 22 sumarias
-      - name: Cache raw INEI microdata
-        uses: actions/cache@v4
-        with:
-          path: peru_raw
-          key: peru-raw-sumaria-v1
+      # los vintages historicos del INEI nunca cambian: se siembran desde un
+      # release asset (INEI throttlea rafagas desde IPs de Azure), y perudata
+      # solo descargara del INEI los años que falten (nuevos vintages)
+      - name: Seed raw INEI microdata from release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p peru_raw
+          gh release download raw-sumaria-v1 --pattern "sumaria-2004-2025.tar.gz" --output - | tar -xz -C peru_raw
+          ls peru_raw/enaho/sumaria | wc -l
 
       - name: Poverty gate (replica vs INEI, cualquier desviacion rompe)
         env:
