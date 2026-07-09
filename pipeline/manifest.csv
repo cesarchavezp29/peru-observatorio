@@ -1,0 +1,224 @@
+table,producing_script,source,cadence,validation_target
+_bcrp_desempleo_lima,pipeline/build_bcrp.py,BCRP series estadisticas API,monthly,serie oficial BCRP
+_bcrp_lima_2026,pipeline/build_bcrp.py,BCRP series estadisticas API,monthly,serie oficial BCRP
+_bcrp_subempleo_lima,pipeline/build_bcrp.py,BCRP series estadisticas API,monthly,serie oficial BCRP
+_ipc_lima_2009base,pipeline/build_bcrp.py,BCRP series estadisticas API,monthly,serie oficial BCRP
+_ipc_lima_linked,pipeline/build_bcrp.py,BCRP series estadisticas API,monthly,serie oficial BCRP
+agro_comercializacion_2011_2025,pipeline/build_agro.py,ENAHO modulos 22-28 (agro),annual,
+agro_mercado_2025,pipeline/build_agro.py,ENAHO modulos 22-28 (agro),annual,
+agro_top_cultivos_2025,pipeline/build_agro.py,ENAHO modulos 22-28 (agro),annual,
+agro_top_especies_2025,pipeline/build_agro.py,ENAHO modulos 22-28 (agro),annual,
+agro_volumen_valor_2025,pipeline/build_agro.py,ENAHO modulos 22-28 (agro),annual,
+analfabetismo_region_tiempo_2004_2025,pipeline/build_educacion.py,ENAHO modulo 03,annual,
+atencion_salud_tiempo,pipeline/build_vivienda_salud.py,ENAHO modulos 01 y 04,annual,bitacora validacion.md (agua/luz/celular vs INEI)
+bienes_durables_decil_2025,pipeline/build_vivienda_salud.py,ENAHO modulos 01 y 04,annual,bitacora validacion.md (agua/luz/celular vs INEI)
+bienes_durables_difusion_2004_2025,pipeline/build_vivienda_salud.py,ENAHO modulos 01 y 04,annual,bitacora validacion.md (agua/luz/celular vs INEI)
+brecha_ingreso_etnico_tiempo,pipeline/build_demografia_sintesis.py,"ENAHO multi-modulo (01-05, 34)",annual,
+brecha_salarial_edad_tiempo_2004_2025,pipeline/build_empleo.py,ENAHO modulo 05 (empleo e ingreso),annual,informalidad vs serie oficial
+brecha_salarial_formal_tiempo_2007_2025,pipeline/build_empleo.py,ENAHO modulo 05 (empleo e ingreso),annual,informalidad vs serie oficial
+brecha_salarial_grupos_tiempo_2004_2025,pipeline/build_empleo.py,ENAHO modulo 05 (empleo e ingreso),annual,informalidad vs serie oficial
+brecha_salarial_hora_tiempo_2004_2025,pipeline/build_empleo.py,ENAHO modulo 05 (empleo e ingreso),annual,informalidad vs serie oficial
+brecha_salarial_region_tiempo_2004_2025,pipeline/build_empleo.py,ENAHO modulo 05 (empleo e ingreso),annual,informalidad vs serie oficial
+brecha_salarial_sector_2025,pipeline/build_empleo.py,ENAHO modulo 05 (empleo e ingreso),annual,informalidad vs serie oficial
+brecha_salarial_sexo_2004_2025,pipeline/build_empleo.py,ENAHO modulo 05 (empleo e ingreso),annual,informalidad vs serie oficial
+brecha_salarial_urbano_tiempo_2004_2025,pipeline/build_empleo.py,ENAHO modulo 05 (empleo e ingreso),annual,informalidad vs serie oficial
+budget_composition_2004_2025,pipeline/build_sumaria.py,ENAHO modulo 34 (sumaria) 2004-2025,annual,INEI pobreza monetaria y gasto real (0.0pp / +-0.5)
+calidad_vivienda_2004_2025,pipeline/build_vivienda_salud.py,ENAHO modulos 01 y 04,annual,bitacora validacion.md (agua/luz/celular vs INEI)
+censo_analfabetismo_2007_2017,pipeline/static/ (frozen),Censos INEI 1981/1993/2007/2017,frozen,urbanizacion y lengua vs INEI censal (<0.5pp)
+censo_educacion_1981_2017,pipeline/static/ (frozen),Censos INEI 1981/1993/2007/2017,frozen,urbanizacion y lengua vs INEI censal (<0.5pp)
+censo_lengua_departamento,pipeline/static/ (frozen),Censos INEI 1981/1993/2007/2017,frozen,urbanizacion y lengua vs INEI censal (<0.5pp)
+censo_lengua_materna_1981_2017,pipeline/static/ (frozen),Censos INEI 1981/1993/2007/2017,frozen,urbanizacion y lengua vs INEI censal (<0.5pp)
+censo_urbanizacion_1993_2017,pipeline/static/ (frozen),Censos INEI 1981/1993/2007/2017,frozen,urbanizacion y lengua vs INEI censal (<0.5pp)
+censo_urbanizacion_departamento,pipeline/static/ (frozen),Censos INEI 1981/1993/2007/2017,frozen,urbanizacion y lengua vs INEI censal (<0.5pp)
+combustible_cocina_2004_2025,pipeline/build_vivienda_salud.py,ENAHO modulos 01 y 04,annual,bitacora validacion.md (agua/luz/celular vs INEI)
+confianza_edad_tiempo_2007_2025,pipeline/build_gobernabilidad.py,ENAHO modulos 84-85,annual,
+confianza_educacion_tiempo_2007_2025,pipeline/build_gobernabilidad.py,ENAHO modulos 84-85,annual,
+confianza_grupos_tiempo_2007_2025,pipeline/build_gobernabilidad.py,ENAHO modulos 84-85,annual,
+confianza_instituciones_tiempo_2007_2025,pipeline/build_gobernabilidad.py,ENAHO modulos 84-85,annual,
+confianza_region_tiempo_2007_2025,pipeline/build_gobernabilidad.py,ENAHO modulos 84-85,annual,
+convergencia_departamental_2004_2025,pipeline/build_sumaria.py,ENAHO modulo 34 (sumaria) 2004-2025,annual,INEI pobreza monetaria y gasto real (0.0pp / +-0.5)
+corr_between_within_pobreza,pipeline/build_demografia_sintesis.py,"ENAHO multi-modulo (01-05, 34)",annual,
+cuidados_personales_tiempo,pipeline/build_vivienda_salud.py,ENAHO modulos 01 y 04,annual,bitacora validacion.md (agua/luz/celular vs INEI)
+demographic_transition,pipeline/build_demografia_sintesis.py,"ENAHO multi-modulo (01-05, 34)",annual,
+dept_income_social_vote,pipeline/build_transferencias.py,ENAHO modulo 37 (trampa p710),annual,cobertura Juntos/Pension65 vs INEI
+discapacidad_empleo_tiempo,pipeline/build_empleo.py,ENAHO modulo 05 (empleo e ingreso),annual,informalidad vs serie oficial
+district_vote_2021_2026,pipeline/build_gobernabilidad.py,ENAHO modulos 84-85,annual,
+educacion_cohorte_2025,pipeline/build_educacion.py,ENAHO modulo 03,annual,
+educacion_sexo_tiempo_2004_2025,pipeline/build_educacion.py,ENAHO modulo 03,annual,
+educacion_superior_area_tiempo_2004_2025,pipeline/build_educacion.py,ENAHO modulo 03,annual,
+educacion_superior_sexo_tiempo_2004_2025,pipeline/build_educacion.py,ENAHO modulo 03,annual,
+eea_activos_sector,pipeline/build_eea.py,EEA CSV (catalogo perudata) 2023,annual,
+eea_brecha_genero_sector,pipeline/build_eea.py,EEA CSV (catalogo perudata) 2023,annual,
+eea_concentracion_industria,pipeline/build_eea.py,EEA CSV (catalogo perudata) 2023,annual,
+eea_concentracion_sector,pipeline/build_eea.py,EEA CSV (catalogo perudata) 2023,annual,
+eea_demografia_sector,pipeline/build_eea.py,EEA CSV (catalogo perudata) 2023,annual,
+eea_epen_cruce_sector,pipeline/build_eea.py,EEA CSV (catalogo perudata) 2023,annual,
+eea_productividad_sector,pipeline/build_eea.py,EEA CSV (catalogo perudata) 2023,annual,
+eea_productividad_sector_tamano,pipeline/build_eea.py,EEA CSV (catalogo perudata) 2023,annual,
+eea_productividad_tamano,pipeline/build_eea.py,EEA CSV (catalogo perudata) 2023,annual,
+eea_remuneraciones_sector,pipeline/build_eea.py,EEA CSV (catalogo perudata) 2023,annual,
+eea_ventas_va_sector,pipeline/build_eea.py,EEA CSV (catalogo perudata) 2023,annual,
+empleo_agricola_2004_2025,pipeline/build_empleo.py,ENAHO modulo 05 (empleo e ingreso),annual,informalidad vs serie oficial
+empleo_sector_flujo_2007_2011,pipeline/build_empleo.py,ENAHO modulo 05 (empleo e ingreso),annual,informalidad vs serie oficial
+empleo_sectores_2004_2025,pipeline/build_empleo.py,ENAHO modulo 05 (empleo e ingreso),annual,informalidad vs serie oficial
+endes_adol_maternidad_riqueza_2016_2024,pipeline/build_endes.py,ENDES SPSS 2004-2024,annual,TFR y desnutricion vs informes ENDES
+endes_dept_indicadores,pipeline/build_endes.py,ENDES SPSS 2004-2024,annual,TFR y desnutricion vs informes ENDES
+endes_edad_primer_hijo_educacion,pipeline/build_endes.py,ENDES SPSS 2004-2024,annual,TFR y desnutricion vs informes ENDES
+endes_hijos_area_tiempo,pipeline/build_endes.py,ENDES SPSS 2004-2024,annual,TFR y desnutricion vs informes ENDES
+endes_hijos_educacion_tiempo,pipeline/build_endes.py,ENDES SPSS 2004-2024,annual,TFR y desnutricion vs informes ENDES
+endes_indicadores,pipeline/build_endes.py,ENDES SPSS 2004-2024,annual,TFR y desnutricion vs informes ENDES
+engel_elasticidad_tiempo_2004_2025,pipeline/build_sumaria.py,ENAHO modulo 34 (grupos de gasto),annual,elasticidades vs literatura Engel Peru
+engel_elasticidades_2025,pipeline/build_sumaria.py,ENAHO modulo 34 (grupos de gasto),annual,elasticidades vs literatura Engel Peru
+epen_ciudades_2025,pipeline/build_epen.py,EPE/EPEN CSV (catalogo perudata) 2001-2026,monthly,desempleo Lima vs informe INEI
+epen_codciudad_dict,pipeline/build_epen.py,EPE/EPEN CSV (catalogo perudata) 2001-2026,monthly,desempleo Lima vs informe INEI
+epen_codciudad_inferred,pipeline/build_epen.py,EPE/EPEN CSV (catalogo perudata) 2001-2026,monthly,desempleo Lima vs informe INEI
+epen_dpto_advanced_2022_2025,pipeline/build_epen.py,EPE/EPEN CSV (catalogo perudata) 2001-2026,monthly,desempleo Lima vs informe INEI
+epen_dpto_annual_2022_2025,pipeline/build_epen.py,EPE/EPEN CSV (catalogo perudata) 2001-2026,monthly,desempleo Lima vs informe INEI
+epen_dpto_econometrics_2022_2025,pipeline/build_epen.py,EPE/EPEN CSV (catalogo perudata) 2001-2026,monthly,desempleo Lima vs informe INEI
+epen_dpto_indicadores2_2022_2025,pipeline/build_epen.py,EPE/EPEN CSV (catalogo perudata) 2001-2026,monthly,desempleo Lima vs informe INEI
+epen_dpto_theil_urbano_2022_2025,pipeline/build_epen.py,EPE/EPEN CSV (catalogo perudata) 2001-2026,monthly,desempleo Lima vs informe INEI
+epen_econ_summary,pipeline/build_epen.py,EPE/EPEN CSV (catalogo perudata) 2001-2026,monthly,desempleo Lima vs informe INEI
+epen_informal_sector_dpto_2025,pipeline/build_epen.py,EPE/EPEN CSV (catalogo perudata) 2001-2026,monthly,desempleo Lima vs informe INEI
+epen_lima_desempleo_2001_2026,pipeline/build_epen.py,EPE/EPEN CSV (catalogo perudata) 2001-2026,monthly,desempleo Lima vs informe INEI
+epen_lima_educ_movil_2022_2026,pipeline/build_epen.py,EPE/EPEN CSV (catalogo perudata) 2001-2026,monthly,desempleo Lima vs informe INEI
+epen_lima_empleo_trim_2001_2022,pipeline/build_epen.py,EPE/EPEN CSV (catalogo perudata) 2001-2026,monthly,desempleo Lima vs informe INEI
+epen_lima_estructura_trim_2001_2022,pipeline/build_epen.py,EPE/EPEN CSV (catalogo perudata) 2001-2026,monthly,desempleo Lima vs informe INEI
+epen_lima_informalidad_trim_2001_2022,pipeline/build_epen.py,EPE/EPEN CSV (catalogo perudata) 2001-2026,monthly,desempleo Lima vs informe INEI
+epen_lima_ingresos_grupos_trim_2001_2022,pipeline/build_epen.py,EPE/EPEN CSV (catalogo perudata) 2001-2026,monthly,desempleo Lima vs informe INEI
+epen_lima_modern_annual_2022_2025,pipeline/build_epen.py,EPE/EPEN CSV (catalogo perudata) 2001-2026,monthly,desempleo Lima vs informe INEI
+epen_lima_movil_2001_2026,pipeline/build_epen.py,EPE/EPEN CSV (catalogo perudata) 2001-2026,monthly,desempleo Lima vs informe INEI
+epen_lima_movil_modern_2022_2026,pipeline/build_epen.py,EPE/EPEN CSV (catalogo perudata) 2001-2026,monthly,desempleo Lima vs informe INEI
+epen_lima_series_2001_2026,pipeline/build_epen.py,EPE/EPEN CSV (catalogo perudata) 2001-2026,monthly,desempleo Lima vs informe INEI
+epen_sectores_2022_2025,pipeline/build_epen.py,EPE/EPEN CSV (catalogo perudata) 2001-2026,monthly,desempleo Lima vs informe INEI
+epen_sectores_dpto_2025,pipeline/build_epen.py,EPE/EPEN CSV (catalogo perudata) 2001-2026,monthly,desempleo Lima vs informe INEI
+epen_theil_decomp_2025,pipeline/build_epen.py,EPE/EPEN CSV (catalogo perudata) 2001-2026,monthly,desempleo Lima vs informe INEI
+epen_wage_curve_2022_2025,pipeline/build_epen.py,EPE/EPEN CSV (catalogo perudata) 2001-2026,monthly,desempleo Lima vs informe INEI
+estructura_empleo_2004_2025,pipeline/build_empleo.py,ENAHO modulo 05 (empleo e ingreso),annual,informalidad vs serie oficial
+evento_maternidad_empleo,pipeline/build_empleo.py,ENAHO modulo 05 (empleo e ingreso),annual,informalidad vs serie oficial
+fig_brecha_salarial_educacion,pipeline/build_empleo.py,ENAHO modulo 05 (empleo e ingreso),annual,informalidad vs serie oficial
+fig_brecha_salarial_etnico,pipeline/build_empleo.py,ENAHO modulo 05 (empleo e ingreso),annual,informalidad vs serie oficial
+fig_brecha_salarial_tipoempleo,pipeline/build_empleo.py,ENAHO modulo 05 (empleo e ingreso),annual,informalidad vs serie oficial
+gic_periodos,pipeline/build_sumaria.py,ENAHO modulo 34 (sumaria) 2004-2025,annual,INEI pobreza monetaria y gasto real (0.0pp / +-0.5)
+gini_departamento_tiempo,pipeline/build_sumaria.py,ENAHO modulo 34 (sumaria) 2004-2025,annual,INEI pobreza monetaria y gasto real (0.0pp / +-0.5)
+gini_nacional_tiempo,pipeline/build_sumaria.py,ENAHO modulo 34 (sumaria) 2004-2025,annual,INEI pobreza monetaria y gasto real (0.0pp / +-0.5)
+income_change_ranked,pipeline/build_sumaria.py,ENAHO modulo 34 (sumaria) 2004-2025,annual,INEI pobreza monetaria y gasto real (0.0pp / +-0.5)
+income_percentiles_tiempo,pipeline/build_sumaria.py,ENAHO modulo 34 (sumaria) 2004-2025,annual,INEI pobreza monetaria y gasto real (0.0pp / +-0.5)
+income_real_district_2021_2025,pipeline/build_sumaria.py,ENAHO modulo 34 (sumaria) 2004-2025,annual,INEI pobreza monetaria y gasto real (0.0pp / +-0.5)
+income_real_national,pipeline/build_sumaria.py,ENAHO modulo 34 (sumaria) 2004-2025,annual,INEI pobreza monetaria y gasto real (0.0pp / +-0.5)
+income_real_province_2021_2025,pipeline/build_sumaria.py,ENAHO modulo 34 (sumaria) 2004-2025,annual,INEI pobreza monetaria y gasto real (0.0pp / +-0.5)
+indicadores_departamento_2025,pipeline/build_demografia_sintesis.py,"ENAHO multi-modulo (01-05, 34)",annual,
+informalidad_reconstruida,pipeline/build_empleo.py,ENAHO modulo 05 (empleo e ingreso),annual,informalidad vs serie oficial
+jefatura_pobreza_tiempo,pipeline/build_vivienda_salud.py,ENAHO modulos 01 y 04,annual,bitacora validacion.md (agua/luz/celular vs INEI)
+migracion_interna_tiempo,pipeline/build_demografia_sintesis.py,"ENAHO multi-modulo (01-05, 34)",annual,
+migracion_od_departamento,pipeline/build_demografia_sintesis.py,"ENAHO multi-modulo (01-05, 34)",annual,
+module_keys,interno (excluido de la app),referencia de llaves de merge,frozen,
+movilidad_educativa_tiempo,pipeline/build_educacion.py,ENAHO modulo 03,annual,
+neet_juvenil_tiempo_2004_2025,pipeline/build_empleo.py,ENAHO modulo 05 (empleo e ingreso),annual,informalidad vs serie oficial
+official_poverty_replication,pipeline/build_sumaria.py,ENAHO modulo 34 (sumaria) 2004-2025,annual,INEI pobreza monetaria y gasto real (0.0pp / +-0.5)
+paises_gini_tiempo_wdi,pipeline/build_wdi.py,Banco Mundial WDI API,annual,valores publicados WDI
+paises_pobreza685_wdi,pipeline/build_wdi.py,Banco Mundial WDI API,annual,valores publicados WDI
+panel_departamento_2004_2025,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_evento_hijo_empleo,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_evento_hijo_empleo_profile_madre,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_evento_hijo_empleo_profile_padre,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_file_keys,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_indicators,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_informalidad_dinamica_2007-2011,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_informalidad_dinamica_2011-2015,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_informalidad_dinamica_2012-2016,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_informalidad_dinamica_2013-2017,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_informalidad_dinamica_2014-2018,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_informalidad_dinamica_2015-2019,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_informalidad_dinamica_2016-2020,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_informalidad_dinamica_2017-2021,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_informalidad_dinamica_2018-2022,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_informalidad_dinamica_2019-2023,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_informalidad_transicion_2007-2011,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_informalidad_transicion_2011-2015,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_informalidad_transicion_2012-2016,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_informalidad_transicion_2013-2017,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_informalidad_transicion_2014-2018,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_informalidad_transicion_2015-2019,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_informalidad_transicion_2016-2020,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_informalidad_transicion_2017-2021,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_informalidad_transicion_2018-2022,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_informalidad_transicion_2019-2023,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_intergen_educacion_2007-2011,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_intergen_pooled,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_movilidad_quintil_2007-2011,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_movilidad_quintil_2011-2015,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_movilidad_quintil_2012-2016,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_movilidad_quintil_2013-2017,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_movilidad_quintil_2014-2018,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_movilidad_quintil_2015-2019,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_movilidad_quintil_2016-2020,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_movilidad_quintil_2017-2021,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_movilidad_quintil_2018-2022,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_movilidad_quintil_2019-2023,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_pobreza_dinamica_2007-2011,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_pobreza_dinamica_2011-2015,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_pobreza_dinamica_2012-2016,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_pobreza_dinamica_2013-2017,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_pobreza_dinamica_2014-2018,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_pobreza_dinamica_2015-2019,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_pobreza_dinamica_2016-2020,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_pobreza_dinamica_2017-2021,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_pobreza_dinamica_2018-2022,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_pobreza_dinamica_2019-2023,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_pobreza_transicion_2007-2011,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_pobreza_transicion_2011-2015,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_pobreza_transicion_2012-2016,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_pobreza_transicion_2013-2017,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_pobreza_transicion_2014-2018,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_pobreza_transicion_2015-2019,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_pobreza_transicion_2016-2020,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_pobreza_transicion_2017-2021,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_pobreza_transicion_2018-2022,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_pobreza_transicion_2019-2023,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_seguro_dinamica_2007-2011,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_seguro_dinamica_2011-2015,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_seguro_dinamica_2012-2016,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_seguro_dinamica_2013-2017,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_seguro_dinamica_2014-2018,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_seguro_dinamica_2015-2019,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_seguro_dinamica_2016-2020,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_seguro_dinamica_2017-2021,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_seguro_dinamica_2018-2022,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_seguro_dinamica_2019-2023,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_seguro_transicion_2007-2011,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_seguro_transicion_2011-2015,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_seguro_transicion_2012-2016,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_seguro_transicion_2013-2017,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_seguro_transicion_2014-2018,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_seguro_transicion_2015-2019,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_seguro_transicion_2016-2020,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_seguro_transicion_2017-2021,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_seguro_transicion_2018-2022,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_seguro_transicion_2019-2023,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+panel_validation_poverty,pipeline/build_panel_familias.py,ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
+participacion_2025,pipeline/build_gobernabilidad.py,ENAHO modulos 84-85,annual,
+participacion_organizaciones_2004_2025,pipeline/build_gobernabilidad.py,ENAHO modulos 84-85,annual,
+pea_sexo_2004_2025,pipeline/build_empleo.py,ENAHO modulo 05 (empleo e ingreso),annual,informalidad vs serie oficial
+penalidad_maternidad_tiempo,pipeline/build_empleo.py,ENAHO modulo 05 (empleo e ingreso),annual,informalidad vs serie oficial
+poblacion_indigena_2004_2025,pipeline/build_demografia_sintesis.py,"ENAHO multi-modulo (01-05, 34)",annual,
+salud_cronica_discapacidad_2004_2025,pipeline/build_vivienda_salud.py,ENAHO modulos 01 y 04,annual,bitacora validacion.md (agua/luz/celular vs INEI)
+scatter_edu_pobreza_dep_2025,pipeline/build_demografia_sintesis.py,"ENAHO multi-modulo (01-05, 34)",annual,
+seguro_salud_2004_2025,pipeline/build_vivienda_salud.py,ENAHO modulos 01 y 04,annual,bitacora validacion.md (agua/luz/celular vs INEI)
+sintesis_departamento_2025,pipeline/build_vivienda_salud.py,ENAHO modulos 01 y 04,annual,bitacora validacion.md (agua/luz/celular vs INEI)
+sis_expansion,pipeline/build_vivienda_salud.py,ENAHO modulos 01 y 04,annual,bitacora validacion.md (agua/luz/celular vs INEI)
+social_coverage_by_decile_2025,pipeline/build_transferencias.py,ENAHO modulo 37 (trampa p710),annual,cobertura Juntos/Pension65 vs INEI
+subempleo_horas_2004_2025,pipeline/build_empleo.py,ENAHO modulo 05 (empleo e ingreso),annual,informalidad vs serie oficial
+trabajo_adolescente_tiempo,pipeline/build_empleo.py,ENAHO modulo 05 (empleo e ingreso),annual,informalidad vs serie oficial
+transferencias_cobertura_2013_2025,pipeline/build_transferencias.py,ENAHO modulo 37 (trampa p710),annual,cobertura Juntos/Pension65 vs INEI
+transicion_demografica_2004_2025,pipeline/build_demografia_sintesis.py,"ENAHO multi-modulo (01-05, 34)",annual,
+trust_by_institution_2025,pipeline/build_gobernabilidad.py,ENAHO modulos 84-85,annual,
+trust_income_2025,pipeline/build_gobernabilidad.py,ENAHO modulos 84-85,annual,
+trust_income_vote_dept_2021,pipeline/build_gobernabilidad.py,ENAHO modulos 84-85,annual,
+trust_income_vote_dept_2026,pipeline/build_gobernabilidad.py,ENAHO modulos 84-85,annual,
+trust_vote_dept_2021,pipeline/build_gobernabilidad.py,ENAHO modulos 84-85,annual,
+trust_vote_dept_2026,pipeline/build_gobernabilidad.py,ENAHO modulos 84-85,annual,
+validation_income_gasto,pipeline/build_sumaria.py,ENAHO modulo 34 (sumaria) 2004-2025,annual,INEI pobreza monetaria y gasto real (0.0pp / +-0.5)
+vivienda_servicios_2004_2025,pipeline/build_vivienda_salud.py,ENAHO modulos 01 y 04,annual,bitacora validacion.md (agua/luz/celular vs INEI)
+voto_keiko_departamento,pipeline/static/ (frozen),ONPE 2V 2021 y 2026 (freeze 99.44%),frozen,totales nacionales ONPE
+voto_keiko_distrito_2021_2026,pipeline/static/ (frozen),ONPE 2V 2021 y 2026 (freeze 99.44%),frozen,totales nacionales ONPE
+who_trusts_state_2025,pipeline/build_gobernabilidad.py,ENAHO modulos 84-85,annual,
