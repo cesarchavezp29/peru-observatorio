@@ -368,6 +368,8 @@ _TITLES = {
     "educacion_superior_area_tiempo_2004_2025": "Educación superior: urbano vs rural (2004-2025)",
     "educacion_superior_sexo_tiempo_2004_2025": "Educación superior: hombres vs mujeres (2004-2025)",
     "movilidad_educativa_tiempo": "Movilidad educativa entre generaciones",
+    "movilidad_matriz_educacion": "Matriz de movilidad educativa: jefe del hogar a hijos (dos épocas)",
+    "movilidad_matriz_educacion_2018_2025": "Matriz de movilidad educativa 2018-2025 (heatmap)",
     # ---- ENAHO: empleo y salarios
     "brecha_salarial_edad_tiempo_2004_2025": "Brecha salarial por edad (2004-2025)",
     "brecha_salarial_formal_tiempo_2007_2025": "Penalidad salarial de la informalidad (2007-2025)",

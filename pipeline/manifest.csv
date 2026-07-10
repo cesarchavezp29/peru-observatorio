@@ -113,6 +113,8 @@ migracion_interna_tiempo,pipeline-archive (ARCHIVE_MAP.csv),"ENAHO multi-modulo 
 migracion_od_departamento,pipeline-archive (ARCHIVE_MAP.csv),"ENAHO multi-modulo (01-05, 34)",annual,
 module_keys,interno (excluido de la app),referencia de llaves de merge,frozen,
 movilidad_educativa_tiempo,pipeline-archive (ARCHIVE_MAP.csv),ENAHO modulo 03,annual,
+movilidad_matriz_educacion,pipeline/build_movilidad_matriz.py,ENAHO modulos 02+03 pooled (corresidentes 22-30),annual,"investigacion descriptiva nueva, limite de corresidencia declarado"
+movilidad_matriz_educacion_2018_2025,pipeline/build_movilidad_matriz.py,ENAHO modulos 02+03 pooled (corresidentes 22-30),annual,"investigacion descriptiva nueva, limite de corresidencia declarado"
 neet_juvenil_tiempo_2004_2025,pipeline-archive (ARCHIVE_MAP.csv),ENAHO modulo 05 (empleo e ingreso),annual,informalidad vs serie oficial
 official_poverty_replication,pipeline/build_sumaria.py,ENAHO modulo 34 (sumaria) 2004-2025,annual,gate de CI: rompe con cualquier desviacion de INEI (22/22 a 0.0pp)
 paises_gini_tiempo_wdi,pipeline/build_wdi.py,Banco Mundial WDI API,annual,reproducido contra lo committeado (API en vivo)

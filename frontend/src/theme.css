@@ -1070,3 +1070,20 @@ td.cmp-nat { text-align: right; padding: 8px 12px; border-bottom: 1px solid var(
 .bench-chip.pe b { color: #fffdf7; }
 
 .ensayos-etica { font-size: 13px; color: var(--terracotta); font-weight: 600; max-width: 640px; border-left: 3px solid var(--terracotta); padding-left: 12px; }
+
+/* movilidad intergeneracional */
+.movilidad { max-width: 1100px; }
+.movilidad h1 { font-size: 32px; margin: 8px 0 6px; letter-spacing: -.6px; }
+.mov-texto { font-size: 15px; line-height: 1.65; color: var(--text-dim); max-width: 760px; }
+.mov-limite { font-size: 12.5px; color: var(--terracotta); font-weight: 600; max-width: 760px;
+  border-left: 3px solid var(--terracotta); padding-left: 12px; margin: 14px 0 26px; }
+.mov-matrices { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 22px; margin: 16px 0 8px; }
+.mov-matriz { background: var(--panel); border: 1px solid var(--border-strong); border-radius: 14px; padding: 16px 18px; }
+.mov-ep { font-family: var(--font-display); font-weight: 800; font-size: 15px; color: var(--ink); margin-bottom: 12px; }
+.mov-fila { margin-bottom: 12px; }
+.mov-org { font-size: 12px; font-weight: 700; color: var(--text-dim); display: block; margin-bottom: 4px; }
+.mov-barras { display: flex; height: 26px; border-radius: 7px; overflow: hidden; background: #ece1cd; }
+.mov-seg { display: flex; align-items: center; justify-content: center; }
+.mov-seg span { color: #fffdf7; font-size: 11.5px; font-weight: 800; }
+.mov-leyenda { grid-column: 1 / -1; display: flex; gap: 18px; flex-wrap: wrap; font-size: 12px; color: var(--text-dim); }
+.mov-leyenda i { display: inline-block; width: 11px; height: 11px; border-radius: 3px; margin-right: 5px; vertical-align: -1px; }

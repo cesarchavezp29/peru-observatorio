@@ -100,6 +100,9 @@ def classify(stem: str) -> tuple[str, str, str, str]:
     if any(k in s for k in VIVSALUD_KEYS):
         return ("pipeline-archive (ARCHIVE_MAP.csv)", "ENAHO modulos 01 y 04",
                 "annual", "bitacora validacion.md (agua/luz/celular vs INEI)")
+    if s.startswith("movilidad_matriz"):
+        return ("pipeline/build_movilidad_matriz.py", "ENAHO modulos 02+03 pooled (corresidentes 22-30)",
+                "annual", "investigacion descriptiva nueva, limite de corresidencia declarado")
     if any(k in s for k in EDU_KEYS):
         return ("pipeline-archive (ARCHIVE_MAP.csv)", "ENAHO modulo 03", "annual", "")
     if s == "module_keys":

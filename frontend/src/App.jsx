@@ -60,7 +60,7 @@ function AppShell() {
       ['/ensayos', 'Ensayos'], ['/historia', 'Historia de la pobreza'],
       ['/desigualdad', 'Historia de la desigualdad'],
       ['/metodologia', 'Metodología'], ['/dpto/', 'Ficha departamental'],
-      ['/graficos', 'Gráficos'], ['/tema/', 'Temas'], ['/distrito', 'Mi distrito'], ['/preguntas', 'El Perú en preguntas'], ['/quienvoto', 'El mapa de la grieta'], ['/tuvida', 'El Perú de tu vida'], ['/adivina', 'Adivina el Perú'], ['/dibuja', 'Dibuja la línea'], ['/dosperus', 'Dos Perús'],
+      ['/graficos', 'Gráficos'], ['/tema/', 'Temas'], ['/distrito', 'Mi distrito'], ['/preguntas', 'El Perú en preguntas'], ['/quienvoto', 'El mapa de la grieta'], ['/movilidad', 'Movilidad educativa'], ['/tuvida', 'El Perú de tu vida'], ['/adivina', 'Adivina el Perú'], ['/dibuja', 'Dibuja la línea'], ['/dosperus', 'Dos Perús'],
     ]
     const hit = titles.find(([p]) => path.startsWith(p))
     document.title = (hit ? hit[1] + ' · ' : '') + 'Observatorio de Datos del Perú'
@@ -135,6 +135,7 @@ function AppShell() {
                 <Route path="/distrito" element={<Distrito />} />
                 <Route path="/preguntas" element={<Preguntas />} />
                 <Route path="/quienvoto" element={<QuienVoto />} />
+                <Route path="/movilidad" element={<Movilidad />} />
                 <Route path="/tuvida" element={<TuVida />} />
                 <Route path="/adivina" element={<Adivina />} />
                 <Route path="/dibuja" element={<Dibuja />} />

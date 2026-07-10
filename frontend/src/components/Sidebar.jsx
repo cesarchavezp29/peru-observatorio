@@ -80,6 +80,7 @@ export default function Sidebar({ databases, open, onNavigate }) {
         <Tool to="/historia" ico="▸" label={t('hist_pobreza')} onNavigate={onNavigate} />
         <Tool to="/desigualdad" ico="▸" label={t('hist_desigualdad')} onNavigate={onNavigate} />
         <Tool to="/quienvoto" ico="▸" label={t('hist_voto')} onNavigate={onNavigate} />
+        <Tool to="/movilidad" ico="▸" label={t('movilidad')} onNavigate={onNavigate} />
 
         <div className="nav-section-label">{t('sec_herramientas')}</div>
         <Tool to="/graficos" ico="∿" label={t('graficos')} onNavigate={onNavigate} />

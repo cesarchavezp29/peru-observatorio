@@ -26,6 +26,8 @@ const DESC = {
 }
 
 const CENSOS = {
+  movilidad_matriz_educacion: 'De cada 100 hijos de un hogar con cierto nivel educativo, a qué nivel llegaron ellos (jóvenes 22-30 que corresiden con el jefe, dos épocas). Asociación descriptiva, los independizados no aparecen.',
+  movilidad_matriz_educacion_2018_2025: 'La misma matriz jefe-a-hijos, solo 2018-2025, en formato de matriz de transición.',
   censo_analfabetismo_2007_2017: 'De cada 100 personas censadas que respondieron, cuántas no saben leer ni escribir. Incluye niños en edad de aprender, por eso es mayor que la cifra oficial de adultos 15+ (7.1% en 2007).',
   censo_educacion_1981_2017: 'De cada 100 personas censadas, cuántas alcanzaron cada nivel educativo, comparado a través de cuatro censos (incluye a los niños, por eso no coincide con las cifras de adultos 15+).',
   censo_lengua_materna_1981_2017: 'La lengua con la que cada peruano aprendió a hablar, censo a censo: el retroceso y la resistencia del quechua y el aimara.',
