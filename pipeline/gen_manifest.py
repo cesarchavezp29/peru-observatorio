@@ -83,6 +83,9 @@ def classify(stem: str) -> tuple[str, str, str, str]:
         return ("pipeline-archive (ARCHIVE_MAP.csv)", "EEA CSV (catalogo perudata) 2023", "annual", "")
     if s.startswith("agro_"):
         return ("pipeline-archive (ARCHIVE_MAP.csv)", "ENAHO modulos 22-28 (agro)", "annual", "")
+    if stem.lstrip("_") == "transferencias_cobertura_2013_2025":
+        return ("pipeline/build_transferencias.py", "ENAHO modulos 37+34 (trampa p710 como codigo)",
+                "annual", "reproducido valor por valor (13x5)")
     if any(k in s for k in TRANSF_KEYS):
         return ("pipeline-archive (ARCHIVE_MAP.csv)", "ENAHO modulo 37 (trampa p710)",
                 "annual", "cobertura Juntos/Pension65 vs INEI")

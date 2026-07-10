@@ -209,7 +209,7 @@ sis_expansion,pipeline-archive (ARCHIVE_MAP.csv),ENAHO modulos 01 y 04,annual,bi
 social_coverage_by_decile_2025,pipeline-archive (ARCHIVE_MAP.csv),ENAHO modulo 37 (trampa p710),annual,cobertura Juntos/Pension65 vs INEI
 subempleo_horas_2004_2025,pipeline-archive (ARCHIVE_MAP.csv),ENAHO modulo 05 (empleo e ingreso),annual,informalidad vs serie oficial
 trabajo_adolescente_tiempo,pipeline-archive (ARCHIVE_MAP.csv),ENAHO modulo 05 (empleo e ingreso),annual,informalidad vs serie oficial
-transferencias_cobertura_2013_2025,pipeline-archive (ARCHIVE_MAP.csv),ENAHO modulo 37 (trampa p710),annual,cobertura Juntos/Pension65 vs INEI
+transferencias_cobertura_2013_2025,pipeline/build_transferencias.py,ENAHO modulos 37+34 (trampa p710 como codigo),annual,reproducido valor por valor (13x5)
 transicion_demografica_2004_2025,pipeline-archive (ARCHIVE_MAP.csv),"ENAHO multi-modulo (01-05, 34)",annual,
 trust_by_institution_2025,pipeline-archive (ARCHIVE_MAP.csv),ENAHO modulos 84-85,annual,
 trust_income_2025,pipeline-archive (ARCHIVE_MAP.csv),ENAHO modulos 84-85,annual,
