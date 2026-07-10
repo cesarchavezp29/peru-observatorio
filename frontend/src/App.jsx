@@ -24,6 +24,7 @@ const TuVida = lazy(() => import('./components/TuVida'))
 const Adivina = lazy(() => import('./components/Adivina'))
 const Dibuja = lazy(() => import('./components/Dibuja'))
 const DosPerus = lazy(() => import('./components/DosPerus'))
+const Movilidad = lazy(() => import('./components/Movilidad'))
 import { LangProvider, useLang } from './i18n'
 
 function LangToggle() {
