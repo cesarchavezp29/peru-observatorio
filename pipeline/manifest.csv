@@ -1,9 +1,9 @@
 table,producing_script,source,cadence,validation_target
-_bcrp_desempleo_lima,pipeline-archive (ARCHIVE_MAP.csv),BCRP series estadisticas API,monthly,serie oficial BCRP
-_bcrp_lima_2026,pipeline-archive (ARCHIVE_MAP.csv),BCRP series estadisticas API,monthly,serie oficial BCRP
-_bcrp_subempleo_lima,pipeline-archive (ARCHIVE_MAP.csv),BCRP series estadisticas API,monthly,serie oficial BCRP
-_ipc_lima_2009base,pipeline-archive (ARCHIVE_MAP.csv),BCRP series estadisticas API,monthly,serie oficial BCRP
-_ipc_lima_linked,pipeline-archive (ARCHIVE_MAP.csv),BCRP series estadisticas API,monthly,serie oficial BCRP
+_bcrp_desempleo_lima,pipeline/build_bcrp.py,BCRPData API (PN38063GM / PN01270PM reidentificados),monthly,"solape exacto con lo committeado, extiende la serie"
+_bcrp_lima_2026,pipeline/static/ (frozen),BCRP/INEI cosecha no reidentificable,frozen,"sub-series sin codigo BCRP identificable, ver PROVENANCE"
+_bcrp_subempleo_lima,pipeline/static/ (frozen),BCRP/INEI cosecha no reidentificable,frozen,"sub-series sin codigo BCRP identificable, ver PROVENANCE"
+_ipc_lima_2009base,pipeline/build_bcrp.py,BCRPData API (PN38063GM / PN01270PM reidentificados),monthly,"solape exacto con lo committeado, extiende la serie"
+_ipc_lima_linked,pipeline/static/ (frozen),BCRP/INEI cosecha no reidentificable,frozen,"sub-series sin codigo BCRP identificable, ver PROVENANCE"
 agro_comercializacion_2011_2025,pipeline-archive (ARCHIVE_MAP.csv),ENAHO modulos 22-28 (agro),annual,
 agro_mercado_2025,pipeline-archive (ARCHIVE_MAP.csv),ENAHO modulos 22-28 (agro),annual,
 agro_top_cultivos_2025,pipeline-archive (ARCHIVE_MAP.csv),ENAHO modulos 22-28 (agro),annual,

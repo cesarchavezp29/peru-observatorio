@@ -64,9 +64,12 @@ def classify(stem: str) -> tuple[str, str, str, str]:
     if s.startswith("paises_"):
         return ("pipeline/build_wdi.py", "Banco Mundial WDI API", "annual",
                 "reproducido contra lo committeado (API en vivo)")
+    if stem.lstrip("_") in ("bcrp_desempleo_lima", "ipc_lima_2009base"):
+        return ("pipeline/build_bcrp.py", "BCRPData API (PN38063GM / PN01270PM reidentificados)",
+                "monthly", "solape exacto con lo committeado, extiende la serie")
     if s.startswith("bcrp") or s.startswith("ipc_"):
-        return ("pipeline-archive (ARCHIVE_MAP.csv)", "BCRP series estadisticas API", "monthly",
-                "serie oficial BCRP")
+        return ("pipeline/static/ (frozen)", "BCRP/INEI cosecha no reidentificable",
+                "frozen", "sub-series sin codigo BCRP identificable, ver PROVENANCE")
     if stem.lstrip("_") in ("epen_lima_movil_2001_2026", "epen_lima_movil_modern_2022_2026"):
         return ("pipeline/build_epen_movil.py", "EPEN CSV codes 774+ (perudata) + EPE legacy",
                 "monthly", "reproducido valor por valor, desempleo vs BCRP PN38063GM 0.00pp")
