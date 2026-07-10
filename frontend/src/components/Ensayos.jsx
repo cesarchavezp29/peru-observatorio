@@ -41,6 +41,10 @@ export default function Ensayos() {
         <p>Seis preguntas sobre el Perú, respondidas con las cifras de este
           observatorio. Cada número sale de una tabla validada contra la
           estadística oficial. El gráfico está a un clic.</p>
+        <p className="ensayos-etica">Regla de la casa: estos datos son
+          observacionales. Cuando una cifra es una asociación y no un efecto
+          causal, el texto lo dice — preferimos una correlación honesta a una
+          causa inventada.</p>
       </header>
       <div className="essay-list">
         {ESSAYS.map((e, i) => <Essay key={e.slug} e={e} i={i} />)}

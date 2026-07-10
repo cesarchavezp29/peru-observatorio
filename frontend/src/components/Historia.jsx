@@ -10,7 +10,7 @@ const STEPS = [
   { kicker: '2004', title: 'Más de la mitad del país era pobre', from: 2004, to: 2004, focus: 2004,
     text: 'A comienzos de siglo, 58.7% de los peruanos vivía en pobreza monetaria. La pobreza era la condición de la mayoría.' },
   { kicker: '2004 – 2019', title: 'Quince años de caída sostenida', from: 2004, to: 2019, focus: 2019,
-    text: 'Impulsada por el crecimiento y la expansión de programas sociales, la pobreza cayó a 20.2% en 2019 — menos de la mitad que en 2004. Una de las reducciones más rápidas de la región.' },
+    text: 'En los años del crecimiento acelerado y la expansión de programas sociales, la pobreza cayó a 20.2% en 2019 — menos de la mitad que en 2004 y una de las reducciones más rápidas de la región. Cuánto puso cada factor sigue siendo debate: la serie muestra la cronología, no el reparto causal.' },
   { kicker: '2020', title: 'La pandemia borró años de progreso', from: 2019, to: 2020, focus: 2020,
     text: 'En un solo año, la pobreza saltó a 30.1%. El confinamiento golpeó con más fuerza al empleo informal, y una década de avances se deshizo en meses.' },
   { kicker: '2021 – 2025', title: 'Una recuperación que aún no cierra', from: 2020, to: 2025, focus: 2025,

@@ -62,8 +62,8 @@ export const ESSAYS = [
     link: { schema: 'endes', table: 'endes_indicadores' },
     body: [
       'En 2004 una mujer tenía en promedio 2.5 hijos a lo largo de su vida. En 2024 son 1.73, por debajo del nivel de reemplazo. El Perú dejó de crecer por nacimientos.',
-      'La caída acompaña a otra cifra que sube, los años de escuela y el acceso a educación superior. Mientras más estudia una mujer, más tarde llega su primer hijo y menos hijos tiene en total.',
-      'La transición demográfica se explica menos por campañas y más por aulas. El país que se forma tendrá menos niños y más adultos mayores, un giro que reordenará desde el sistema de pensiones hasta el mercado de trabajo.',
+      'La caída acompaña a otra cifra que sube, los años de escuela y el acceso a educación superior. Las mujeres con más estudios tienen su primer hijo más tarde y tienen menos hijos en total — una asociación sólida en cada ENDES, aunque el corte transversal no separa cuánto es efecto de las aulas y cuánto de todo lo demás que llega con ellas.',
+      'La transición demográfica corre en paralelo a la escolarización, no a las campañas — es una correlación, no un efecto causal medido, y lo decimos tal cual. Lo que sí es un hecho: el país que se forma tendrá menos niños y más adultos mayores, un giro que reordenará desde el sistema de pensiones hasta el mercado de trabajo.',
     ],
   },
   {
@@ -75,8 +75,8 @@ export const ESSAYS = [
     link: { schema: 'enaho', table: 'scatter_edu_pobreza_dep_2025' },
     body: [
       'A nivel departamental la relación es nítida. Donde la gente acumula más años de educación, hay menos pobreza. La correlación llega a -0.54, fuerte para datos sociales.',
-      'Cajamarca y Huancavelica reúnen baja escolaridad y alta pobreza. Lima, Ica y Arequipa muestran el patrón inverso. La educación da cuenta de cerca del 30% de las diferencias de pobreza entre regiones.',
-      'No lo explica todo. La geografía y el mercado laboral también pesan. Pero pocas palancas mueven tanto de una sola vez, y ninguna con efectos tan duraderos entre generaciones.',
+      'Cajamarca y Huancavelica reúnen baja escolaridad y alta pobreza. Lima, Ica y Arequipa muestran el patrón inverso. La educación covaría con cerca del 30% de las diferencias de pobreza entre regiones (el R² de esa correlación) — describe cuánto se mueven juntas, no cuánta pobreza eliminaría un año más de escuela.',
+      'Y la correlación no reparte causas: la geografía y el mercado laboral covarían con la escuela y con la pobreza a la vez. Identificar el efecto causal de la educación exige más que un corte transversal, y este observatorio no lo pretende con estos datos. Esto es una asociación, no un efecto causal.',
     ],
   },
 ]

@@ -1068,3 +1068,5 @@ td.cmp-nat { text-align: right; padding: 8px 12px; border-bottom: 1px solid var(
 .bench-chip b { color: var(--ink); }
 .bench-chip.pe { background: var(--terracotta); color: #fffdf7; }
 .bench-chip.pe b { color: #fffdf7; }
+
+.ensayos-etica { font-size: 13px; color: var(--terracotta); font-weight: 600; max-width: 640px; border-left: 3px solid var(--terracotta); padding-left: 12px; }
