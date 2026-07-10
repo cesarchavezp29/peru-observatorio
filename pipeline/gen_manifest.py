@@ -79,6 +79,9 @@ def classify(stem: str) -> tuple[str, str, str, str]:
     if s.startswith("epen_"):
         return ("pipeline-archive (ARCHIVE_MAP.csv)", "EPE/EPEN CSV (catalogo perudata) 2001-2026",
                 "monthly", "desempleo Lima vs informe INEI")
+    if stem.lstrip("_") == "endes_indicadores":
+        return ("pipeline/build_endes.py", "ENDES: CSVs limpios (insumo declarado, W5c) + recodes .sav",
+                "annual", "reproducido valor por valor (21x8), trampa acumulativa 2004-2008 como codigo")
     if s.startswith("endes_"):
         return ("pipeline-archive (ARCHIVE_MAP.csv)", "ENDES SPSS 2004-2024", "annual",
                 "TFR y desnutricion vs informes ENDES")

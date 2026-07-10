@@ -66,7 +66,7 @@ endes_dept_indicadores,pipeline-archive (ARCHIVE_MAP.csv),ENDES SPSS 2004-2024,a
 endes_edad_primer_hijo_educacion,pipeline-archive (ARCHIVE_MAP.csv),ENDES SPSS 2004-2024,annual,TFR y desnutricion vs informes ENDES
 endes_hijos_area_tiempo,pipeline-archive (ARCHIVE_MAP.csv),ENDES SPSS 2004-2024,annual,TFR y desnutricion vs informes ENDES
 endes_hijos_educacion_tiempo,pipeline-archive (ARCHIVE_MAP.csv),ENDES SPSS 2004-2024,annual,TFR y desnutricion vs informes ENDES
-endes_indicadores,pipeline-archive (ARCHIVE_MAP.csv),ENDES SPSS 2004-2024,annual,TFR y desnutricion vs informes ENDES
+endes_indicadores,pipeline/build_endes.py,"ENDES: CSVs limpios (insumo declarado, W5c) + recodes .sav",annual,"reproducido valor por valor (21x8), trampa acumulativa 2004-2008 como codigo"
 engel_elasticidad_tiempo_2004_2025,pipeline-archive (ARCHIVE_MAP.csv),ENAHO modulo 34 (grupos de gasto),annual,elasticidades vs literatura Engel Peru
 engel_elasticidades_2025,pipeline-archive (ARCHIVE_MAP.csv),ENAHO modulo 34 (grupos de gasto),annual,elasticidades vs literatura Engel Peru
 epen_ciudades_2025,pipeline-archive (ARCHIVE_MAP.csv),EPE/EPEN CSV (catalogo perudata) 2001-2026,monthly,desempleo Lima vs informe INEI
