@@ -14,14 +14,14 @@ import { useLang } from '../i18n'
 
 // the front-page story: full-size live charts, not hidden behind a click
 const STORY = [
-  { kicker: 'Pobreza', title: 'La pobreza se partió a la mitad', kind: 'line',
+  { kicker: 'ACTO I · TODO CAMBIÓ', title: 'La pobreza se partió a la mitad', kind: 'line',
     schema: 'enaho', table: 'official_poverty_replication', series: 'poverty_pct', x: 'year',
-    lede: 'En 2004, seis de cada diez peruanos eran pobres. Para 2025 son menos de tres. El descenso fue sostenido hasta que la pandemia lo interrumpió en 2020, y luego siguió cayendo.' },
-  { kicker: 'Migración', title: 'Todos los caminos llevan a Lima', kind: 'flowmap', reverse: true,
-    schema: 'enaho', table: 'migracion_od_departamento', timeCol: 'anio',
-    flow: { source: 'origen', target: 'destino', value: 'personas' },
-    lede: 'La migración interna tiene un centro que no admite competencia. Cada año decenas de miles de personas se mueven entre departamentos, y casi todas las líneas terminan en la capital.' },
-  { kicker: 'Elecciones', title: 'La grieta no es pobreza', kind: 'map', reverse: true,
+    lede: 'En 2004, seis de cada diez peruanos eran pobres. Hoy son uno de cada cuatro. En la misma ventana el celular pasó de 16 a 95 de cada 100 hogares, la desnutrición infantil cayó de 29% a 11% y el seguro de salud se volvió casi universal. El Perú del consumo, la salud y la escuela se transformó.' },
+  { kicker: 'ACTO II · MENOS EL TRABAJO', title: 'La informalidad no se movió', kind: 'line', reverse: true,
+    schema: 'enaho', table: 'informalidad_reconstruida', series: 'informal_reconstruido', x: 'year',
+    href: '/db/enaho/informalidad_reconstruida', cta: 'Mira la línea que no baja →',
+    lede: 'Aquí está el enigma peruano: mientras todo lo demás se transformaba, siete de cada diez trabajadores siguieron sin contrato ni pensión. 74% en 2012, 72% en 2025. El crecimiento cambió lo que los peruanos tienen sin cambiar cómo trabajan — y ningún otro dato del país importa más que esta línea plana.' },
+  { kicker: 'ACTO III · Y LA GRIETA QUEDÓ', title: 'La grieta no es pobreza', kind: 'map', 
     schema: 'enaho', table: 'voto_keiko_departamento', mapCol: 'keiko_share_2026', level: 'dept',
     href: '/quienvoto', cta: 'Lee la historia completa →',
     lede: 'El voto por Keiko Fujimori en 2026 fue de 13.7% en Puno a 65.9% en el Callao, y su correlación con la pobreza es cero. La línea que parte el mapa electoral es etnolingüística y urbana: costa norte y Lima de un lado, sur andino del otro.' },
@@ -133,28 +133,6 @@ export default function Home({ databases }) {
         {FINDINGS.map((f) => <Finding key={f.title} {...f} variants={item} />)}
       </motion.section>
 
-      <div className="section-label">{t('por_fuente')}</div>
-      <motion.section className="db-grid"
-        variants={container} initial="hidden" animate="show">
-        {databases.map((db, i) => (
-          <motion.button key={db.schema} className="db-card"
-            variants={item}
-            whileHover={{ y: -5 }}
-            whileTap={{ scale: 0.985 }}
-            transition={{ type: 'spring', stiffness: 320, damping: 22 }}
-            style={{ '--accent': db.color }}
-            onClick={() => nav(`/db/${db.schema}`)}>
-            <div className="db-card-idx">0{i + 1}</div>
-            <h3>{db.title}</h3>
-            <div className="db-card-source" style={{ color: db.color }}>{db.source}</div>
-            <p>{db.desc}</p>
-            <div className="db-card-foot">
-              <span>{db.n_tables} indicadores</span>
-              <span className="db-card-go" style={{ color: db.color }}>Explorar →</span>
-            </div>
-          </motion.button>
-        ))}
-      </motion.section>
     </div>
   )
 }

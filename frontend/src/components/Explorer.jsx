@@ -102,11 +102,38 @@ function TableExplorer({ schema, table }) {
   const [flow, setFlow] = useState(null)
   const [playing, setPlaying] = useState(false)
   const [copied, setCopied] = useState(false)
+  const [bench, setBench] = useState(null)     // "¿es mucho?": vecinos con vara comparable
   const [windows, setWindows] = useState([])   // sibling re-interview windows (panel families)
   const [related, setRelated] = useState([])   // same-topic charts, cross-survey
   // shareable view state: ?c=<type>&x=<col>&s=<a|b>&cat=<v>&p=<year> — applied
   // once after auto-detection, then kept in sync so the URL is always shareable
   const urlApplied = useRef(false)
+
+  // "¿es mucho?": para los indicadores nacionales clave, el ultimo dato de los
+  // vecinos con la vara homogenea del Banco Mundial (regla editorial: ningun
+  // numero nacional sin referencia al lado)
+  useEffect(() => {
+    const BENCH = {
+      official_poverty_replication: { table: 'paises_pobreza685_wdi', vara: 'pobreza $6.85/día (Banco Mundial)' },
+      income_percentiles_tiempo: { table: 'paises_gini_tiempo_wdi', vara: 'Gini (Banco Mundial)' },
+      gini_nacional_tiempo: { table: 'paises_gini_tiempo_wdi', vara: 'Gini (Banco Mundial)' },
+      gini_departamento_tiempo: { table: 'paises_gini_tiempo_wdi', vara: 'Gini (Banco Mundial)' },
+    }
+    setBench(null)
+    const b = BENCH[table]
+    if (!b) return
+    let alive = true
+    api.data('enaho', b.table, { order: 'year', limit: 30 }).then((d) => {
+      if (!alive) return
+      const paises = ['Peru', 'Chile', 'Colombia', 'Brasil', 'Mexico']
+      const latest = {}
+      d.rows.forEach((r) => paises.forEach((p) => {
+        if (r[p] != null) latest[p] = { v: r[p], y: r.year }
+      }))
+      if (latest.Peru) setBench({ vara: b.vara, table: b.table, latest, paises })
+    }).catch(() => {})
+    return () => { alive = false }
+  }, [table])
 
   // discovery: window chips for panel families + related charts by topic
   useEffect(() => {
@@ -776,6 +803,19 @@ function TableExplorer({ schema, table }) {
           </div>
         )}
 
+        {bench && (
+          <div className="bench-strip">
+            <span className="bench-q">¿Es mucho?</span>
+            {bench.paises.filter((p) => bench.latest[p]).map((p) => (
+              <span key={p} className={'bench-chip' + (p === 'Peru' ? ' pe' : '')}>
+                {p === 'Peru' ? 'Perú' : p} <b>{Number(bench.latest[p].v).toLocaleString('es-PE')}</b>
+              </span>
+            ))}
+            <button className="adv-link" onClick={() => navigate(`/db/enaho/${bench.table}`)}>
+              {bench.vara} · ver la serie completa →
+            </button>
+          </div>
+        )}
         <div className={'chart-row' + (lectura ? '' : ' solo')}>
         <div className="chart-wrap">{chartEl}</div>
         {lectura && (
