@@ -47,6 +47,7 @@ const TOPIC_EN = {
   vivienda: { label: 'Housing & Services', desc: 'What homes are like: water, power, what people cook with.' },
   agro: { label: 'Agriculture', desc: 'What is grown, what is raised, how much reaches the market.' },
   empresas: { label: 'Firms', desc: 'The firm side: sales, productivity and pay by sector.' },
+  censos: { label: 'Censuses: how Peru evolved', desc: 'How the country changed from census to census, 1981 to 2017.' },
   territorio: { label: 'Territory', desc: 'Every indicator side by side, region by region.' },
 }
 

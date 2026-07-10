@@ -13,6 +13,7 @@ export const TOPIC_META = {
   vivienda: { icon: '🏠', desc: '¿Cómo son las casas: agua, luz, con qué se cocina?' },
   agro: { icon: '🌾', desc: 'Qué se siembra, qué se cría y cuánto llega al mercado.' },
   empresas: { icon: '🏭', desc: 'El lado de las empresas: ventas, productividad y salarios.' },
+  censos: { icon: '🏛️', desc: '¿Cómo cambió el país entre censo y censo, de 1981 a 2017?' },
   territorio: { icon: '🗺️', desc: 'Todos los indicadores lado a lado, región por región.' },
 }
 

@@ -173,6 +173,7 @@ TOPICS = {
     "vivienda":    "Vivienda y Servicios",
     "agro":        "Agropecuario",
     "empresas":    "Empresas",
+    "censos":      "Censos: la evolución del país",
     "territorio":  "Territorio y Síntesis",
 }
 
@@ -240,14 +241,14 @@ _TOPIC_RULES = [
 # schema fallback when no keyword matches
 _TOPIC_SCHEMA_DEFAULT = {
     "endes": "salud", "eea": "empresas", "epen": "empleo",
-    "panel": "pobreza", "enaho": "territorio",
+    "panel": "pobreza", "enaho": "territorio", "censos": "censos",
 }
 
 
 def topic_for(stem: str, schema: str) -> tuple[str, str]:
     key = stem.lstrip("_").lower()
     t = _TOPIC_OVERRIDES.get(stem.lstrip("_"))
-    if t is None and schema in ("endes", "eea"):
+    if t is None and schema in ("endes", "eea", "censos"):
         # cohesive source sections: keep them whole except explicit overrides
         t = _TOPIC_SCHEMA_DEFAULT[schema]
     if t is None:
