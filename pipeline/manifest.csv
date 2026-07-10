@@ -9,7 +9,7 @@ agro_mercado_2025,pipeline-archive (ARCHIVE_MAP.csv),ENAHO modulos 22-28 (agro),
 agro_top_cultivos_2025,pipeline-archive (ARCHIVE_MAP.csv),ENAHO modulos 22-28 (agro),annual,
 agro_top_especies_2025,pipeline-archive (ARCHIVE_MAP.csv),ENAHO modulos 22-28 (agro),annual,
 agro_volumen_valor_2025,pipeline-archive (ARCHIVE_MAP.csv),ENAHO modulos 22-28 (agro),annual,
-analfabetismo_region_tiempo_2004_2025,pipeline-archive (ARCHIVE_MAP.csv),ENAHO modulo 03,annual,
+analfabetismo_region_tiempo_2004_2025,pipeline/build_educacion.py,ENAHO modulo 03 (p301a/p302 verificados),annual,reproducido valor por valor (5/5)
 atencion_salud_tiempo,pipeline-archive (ARCHIVE_MAP.csv),ENAHO modulos 01 y 04,annual,bitacora validacion.md (agua/luz/celular vs INEI)
 bienes_durables_decil_2025,pipeline-archive (ARCHIVE_MAP.csv),ENAHO modulos 01 y 04,annual,bitacora validacion.md (agua/luz/celular vs INEI)
 bienes_durables_difusion_2004_2025,pipeline-archive (ARCHIVE_MAP.csv),ENAHO modulos 01 y 04,annual,bitacora validacion.md (agua/luz/celular vs INEI)
@@ -43,10 +43,10 @@ demographic_transition,pipeline-archive (ARCHIVE_MAP.csv),"ENAHO multi-modulo (0
 dept_income_social_vote,pipeline-archive (ARCHIVE_MAP.csv),ENAHO modulo 37 (trampa p710),annual,cobertura Juntos/Pension65 vs INEI
 discapacidad_empleo_tiempo,pipeline-archive (ARCHIVE_MAP.csv),ENAHO modulo 05 (empleo e ingreso),annual,informalidad vs serie oficial
 district_vote_2021_2026,pipeline-archive (ARCHIVE_MAP.csv),ENAHO modulos 84-85,annual,
-educacion_cohorte_2025,pipeline-archive (ARCHIVE_MAP.csv),ENAHO modulo 03,annual,
-educacion_sexo_tiempo_2004_2025,pipeline-archive (ARCHIVE_MAP.csv),ENAHO modulo 03,annual,
-educacion_superior_area_tiempo_2004_2025,pipeline-archive (ARCHIVE_MAP.csv),ENAHO modulo 03,annual,
-educacion_superior_sexo_tiempo_2004_2025,pipeline-archive (ARCHIVE_MAP.csv),ENAHO modulo 03,annual,
+educacion_cohorte_2025,pipeline/build_educacion.py,ENAHO modulo 03 (p301a/p302 verificados),annual,reproducido valor por valor (5/5)
+educacion_sexo_tiempo_2004_2025,pipeline/build_educacion.py,ENAHO modulo 03 (p301a/p302 verificados),annual,reproducido valor por valor (5/5)
+educacion_superior_area_tiempo_2004_2025,pipeline/build_educacion.py,ENAHO modulo 03 (p301a/p302 verificados),annual,reproducido valor por valor (5/5)
+educacion_superior_sexo_tiempo_2004_2025,pipeline/build_educacion.py,ENAHO modulo 03 (p301a/p302 verificados),annual,reproducido valor por valor (5/5)
 eea_activos_sector,pipeline-archive (ARCHIVE_MAP.csv),EEA CSV (catalogo perudata) 2023,annual,
 eea_brecha_genero_sector,pipeline-archive (ARCHIVE_MAP.csv),EEA CSV (catalogo perudata) 2023,annual,
 eea_concentracion_industria,pipeline-archive (ARCHIVE_MAP.csv),EEA CSV (catalogo perudata) 2023,annual,
@@ -98,14 +98,14 @@ evento_maternidad_empleo,pipeline-archive (ARCHIVE_MAP.csv),ENAHO modulo 05 (emp
 fig_brecha_salarial_educacion,pipeline-archive (ARCHIVE_MAP.csv),ENAHO modulo 05 (empleo e ingreso),annual,informalidad vs serie oficial
 fig_brecha_salarial_etnico,pipeline-archive (ARCHIVE_MAP.csv),ENAHO modulo 05 (empleo e ingreso),annual,informalidad vs serie oficial
 fig_brecha_salarial_tipoempleo,pipeline-archive (ARCHIVE_MAP.csv),ENAHO modulo 05 (empleo e ingreso),annual,informalidad vs serie oficial
-gic_periodos,pipeline-archive (ARCHIVE_MAP.csv),ENAHO modulo 34 (sumaria) 2004-2025,annual,INEI pobreza monetaria y gasto real (0.0pp / +-0.5)
-gini_departamento_tiempo,pipeline-archive (ARCHIVE_MAP.csv),ENAHO modulo 34 (sumaria) 2004-2025,annual,INEI pobreza monetaria y gasto real (0.0pp / +-0.5)
-gini_nacional_tiempo,pipeline-archive (ARCHIVE_MAP.csv),ENAHO modulo 34 (sumaria) 2004-2025,annual,INEI pobreza monetaria y gasto real (0.0pp / +-0.5)
+gic_periodos,pipeline/build_sumaria_ingreso.py,ENAHO sumaria + deflactores oficiales base 2025,annual,reproducido valor por valor (7/7)
+gini_departamento_tiempo,pipeline/build_sumaria_ingreso.py,ENAHO sumaria + deflactores oficiales base 2025,annual,reproducido valor por valor (7/7)
+gini_nacional_tiempo,pipeline/build_sumaria_ingreso.py,ENAHO sumaria + deflactores oficiales base 2025,annual,reproducido valor por valor (7/7)
 income_change_ranked,pipeline-archive (ARCHIVE_MAP.csv),ENAHO modulo 34 (sumaria) 2004-2025,annual,INEI pobreza monetaria y gasto real (0.0pp / +-0.5)
-income_percentiles_tiempo,pipeline-archive (ARCHIVE_MAP.csv),ENAHO modulo 34 (sumaria) 2004-2025,annual,INEI pobreza monetaria y gasto real (0.0pp / +-0.5)
-income_real_district_2021_2025,pipeline-archive (ARCHIVE_MAP.csv),ENAHO modulo 34 (sumaria) 2004-2025,annual,INEI pobreza monetaria y gasto real (0.0pp / +-0.5)
-income_real_national,pipeline-archive (ARCHIVE_MAP.csv),ENAHO modulo 34 (sumaria) 2004-2025,annual,INEI pobreza monetaria y gasto real (0.0pp / +-0.5)
-income_real_province_2021_2025,pipeline-archive (ARCHIVE_MAP.csv),ENAHO modulo 34 (sumaria) 2004-2025,annual,INEI pobreza monetaria y gasto real (0.0pp / +-0.5)
+income_percentiles_tiempo,pipeline/build_sumaria_ingreso.py,ENAHO sumaria + deflactores oficiales base 2025,annual,reproducido valor por valor (7/7)
+income_real_district_2021_2025,pipeline/build_sumaria_ingreso.py,ENAHO sumaria + deflactores oficiales base 2025,annual,reproducido valor por valor (7/7)
+income_real_national,pipeline/build_sumaria_ingreso.py,ENAHO sumaria + deflactores oficiales base 2025,annual,reproducido valor por valor (7/7)
+income_real_province_2021_2025,pipeline/build_sumaria_ingreso.py,ENAHO sumaria + deflactores oficiales base 2025,annual,reproducido valor por valor (7/7)
 indicadores_departamento_2025,pipeline-archive (ARCHIVE_MAP.csv),"ENAHO multi-modulo (01-05, 34)",annual,
 informalidad_reconstruida,pipeline/build_empleo.py,ENAHO modulo 05 (empleo e ingreso),annual,"reproducido valor por valor, regla INEI validada vs ocupinf"
 jefatura_pobreza_tiempo,pipeline-archive (ARCHIVE_MAP.csv),ENAHO modulos 01 y 04,annual,bitacora validacion.md (agua/luz/celular vs INEI)

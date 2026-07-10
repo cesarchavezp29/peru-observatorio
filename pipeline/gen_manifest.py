@@ -44,6 +44,12 @@ def classify(stem: str) -> tuple[str, str, str, str]:
     if stem.lstrip("_") == "official_poverty_replication":
         return ("pipeline/build_sumaria.py", "ENAHO modulo 34 (sumaria) 2004-2025",
                 "annual", "gate de CI: rompe con cualquier desviacion de INEI (22/22 a 0.0pp)")
+    if stem.lstrip("_") in ("gini_nacional_tiempo", "gini_departamento_tiempo",
+                             "income_percentiles_tiempo", "gic_periodos",
+                             "income_real_national", "income_real_province_2021_2025",
+                             "income_real_district_2021_2025"):
+        return ("pipeline/build_sumaria_ingreso.py", "ENAHO sumaria + deflactores oficiales base 2025",
+                "annual", "reproducido valor por valor (7/7)")
     if stem.lstrip("_") in SUMARIA:
         return ("pipeline-archive (ARCHIVE_MAP.csv)", "ENAHO modulo 34 (sumaria) 2004-2025",
                 "annual", "INEI pobreza monetaria y gasto real (0.0pp / +-0.5)")
@@ -112,6 +118,12 @@ def classify(stem: str) -> tuple[str, str, str, str]:
     if s.startswith("movilidad_matriz"):
         return ("pipeline/build_movilidad_matriz.py", "ENAHO modulos 02+03 pooled (corresidentes 22-30)",
                 "annual", "investigacion descriptiva nueva, limite de corresidencia declarado")
+    if stem.lstrip("_") in ("analfabetismo_region_tiempo_2004_2025", "educacion_cohorte_2025",
+                             "educacion_sexo_tiempo_2004_2025",
+                             "educacion_superior_area_tiempo_2004_2025",
+                             "educacion_superior_sexo_tiempo_2004_2025"):
+        return ("pipeline/build_educacion.py", "ENAHO modulo 03 (p301a/p302 verificados)",
+                "annual", "reproducido valor por valor (5/5)")
     if any(k in s for k in EDU_KEYS):
         return ("pipeline-archive (ARCHIVE_MAP.csv)", "ENAHO modulo 03", "annual", "")
     if s == "module_keys":
