@@ -53,9 +53,9 @@ eea_concentracion_industria,pipeline-archive (ARCHIVE_MAP.csv),EEA CSV (catalogo
 eea_concentracion_sector,pipeline-archive (ARCHIVE_MAP.csv),EEA CSV (catalogo perudata) 2023,annual,
 eea_demografia_sector,pipeline-archive (ARCHIVE_MAP.csv),EEA CSV (catalogo perudata) 2023,annual,
 eea_epen_cruce_sector,pipeline-archive (ARCHIVE_MAP.csv),EEA CSV (catalogo perudata) 2023,annual,
-eea_productividad_sector,pipeline-archive (ARCHIVE_MAP.csv),EEA CSV (catalogo perudata) 2023,annual,
-eea_productividad_sector_tamano,pipeline-archive (ARCHIVE_MAP.csv),EEA CSV (catalogo perudata) 2023,annual,
-eea_productividad_tamano,pipeline-archive (ARCHIVE_MAP.csv),EEA CSV (catalogo perudata) 2023,annual,
+eea_productividad_sector,pipeline/build_eea.py,EEA 2024 F2 (perudata) cruce IRUC C03/C10,annual,reproducido valor por valor (3/3 tablas)
+eea_productividad_sector_tamano,pipeline/build_eea.py,EEA 2024 F2 (perudata) cruce IRUC C03/C10,annual,reproducido valor por valor (3/3 tablas)
+eea_productividad_tamano,pipeline/build_eea.py,EEA 2024 F2 (perudata) cruce IRUC C03/C10,annual,reproducido valor por valor (3/3 tablas)
 eea_remuneraciones_sector,pipeline-archive (ARCHIVE_MAP.csv),EEA CSV (catalogo perudata) 2023,annual,
 eea_ventas_va_sector,pipeline-archive (ARCHIVE_MAP.csv),EEA CSV (catalogo perudata) 2023,annual,
 empleo_agricola_2004_2025,pipeline-archive (ARCHIVE_MAP.csv),ENAHO modulo 05 (empleo e ingreso),annual,informalidad vs serie oficial
@@ -115,8 +115,8 @@ module_keys,interno (excluido de la app),referencia de llaves de merge,frozen,
 movilidad_educativa_tiempo,pipeline-archive (ARCHIVE_MAP.csv),ENAHO modulo 03,annual,
 neet_juvenil_tiempo_2004_2025,pipeline-archive (ARCHIVE_MAP.csv),ENAHO modulo 05 (empleo e ingreso),annual,informalidad vs serie oficial
 official_poverty_replication,pipeline/build_sumaria.py,ENAHO modulo 34 (sumaria) 2004-2025,annual,gate de CI: rompe con cualquier desviacion de INEI (22/22 a 0.0pp)
-paises_gini_tiempo_wdi,pipeline-archive (ARCHIVE_MAP.csv),Banco Mundial WDI API,annual,valores publicados WDI
-paises_pobreza685_wdi,pipeline-archive (ARCHIVE_MAP.csv),Banco Mundial WDI API,annual,valores publicados WDI
+paises_gini_tiempo_wdi,pipeline/build_wdi.py,Banco Mundial WDI API,annual,reproducido contra lo committeado (API en vivo)
+paises_pobreza685_wdi,pipeline/build_wdi.py,Banco Mundial WDI API,annual,reproducido contra lo committeado (API en vivo)
 panel_departamento_2004_2025,pending (W2b: build_panel_dataset.py),ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
 panel_evento_hijo_empleo,pending (W2b: build_panel_dataset.py),ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)
 panel_evento_hijo_empleo_profile_madre,pending (W2b: build_panel_dataset.py),ENAHO Panel releases 2011-2023,annual,pobreza anual por ola vs INEI (panel_validate)

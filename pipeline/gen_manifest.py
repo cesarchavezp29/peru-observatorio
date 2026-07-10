@@ -62,8 +62,8 @@ def classify(stem: str) -> tuple[str, str, str, str]:
         return ("pipeline/static/ (frozen)", "ONPE 2V 2021 y 2026 (freeze 99.44%)",
                 "frozen", "totales nacionales ONPE")
     if s.startswith("paises_"):
-        return ("pipeline-archive (ARCHIVE_MAP.csv)", "Banco Mundial WDI API", "annual",
-                "valores publicados WDI")
+        return ("pipeline/build_wdi.py", "Banco Mundial WDI API", "annual",
+                "reproducido contra lo committeado (API en vivo)")
     if s.startswith("bcrp") or s.startswith("ipc_"):
         return ("pipeline-archive (ARCHIVE_MAP.csv)", "BCRP series estadisticas API", "monthly",
                 "serie oficial BCRP")
@@ -76,6 +76,9 @@ def classify(stem: str) -> tuple[str, str, str, str]:
     if s.startswith("endes_"):
         return ("pipeline-archive (ARCHIVE_MAP.csv)", "ENDES SPSS 2004-2024", "annual",
                 "TFR y desnutricion vs informes ENDES")
+    if s.startswith("eea_productividad"):
+        return ("pipeline/build_eea.py", "EEA 2024 F2 (perudata) cruce IRUC C03/C10",
+                "annual", "reproducido valor por valor (3/3 tablas)")
     if s.startswith("eea_"):
         return ("pipeline-archive (ARCHIVE_MAP.csv)", "EEA CSV (catalogo perudata) 2023", "annual", "")
     if s.startswith("agro_"):
