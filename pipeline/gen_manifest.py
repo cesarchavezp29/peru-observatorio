@@ -53,7 +53,10 @@ def classify(stem: str) -> tuple[str, str, str, str]:
                                 "seguro_dinamica", "seguro_transicion")):
             return ("pipeline/build_panel_familias.py", "ENAHO Panel releases 2011-2023",
                     "annual", "reproducido valor por valor vs committeado (60/60)")
-        return ("pending (W2b: build_panel_dataset.py)", "ENAHO Panel releases 2011-2023",
+        if "movilidad_quintil" in s:
+            return ("pipeline/build_panel_movilidad.py", "parquet largo del panel (insumo declarado, builder W2c)",
+                    "annual", "reproducido valor por valor (10/10 matrices)")
+        return ("pending (W2c: build_panel_dataset.py)", "ENAHO Panel releases 2011-2023",
                 "annual", "pobreza anual por ola vs INEI (panel_validate)")
     if s.startswith("censo_"):
         return ("pipeline/static/ (frozen)", "Censos INEI 1981/1993/2007/2017",
