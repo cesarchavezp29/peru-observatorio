@@ -794,6 +794,13 @@ function TableExplorer({ schema, table }) {
 
         <div className="chart-cite">
           Fuente: {SOURCE[schema] || 'INEI'} · elaboración propia · peruobservatorio.onrender.com
+          {meta.last_built && <span> · datos al {meta.last_built}</span>}
+          {meta.pipeline_script && (
+            <span> · producido por <a className="cite-script" target="_blank" rel="noreferrer"
+              href={'https://github.com/cesarchavezp29/peru-observatorio/blob/master/' +
+                (meta.pipeline_script.startsWith('pipeline') ? meta.pipeline_script.split(' ')[0] : 'pipeline/manifest.csv')}>
+              {meta.pipeline_script.split(' ')[0].replace('pipeline/', '').replace('pipeline-archive', 'archivo')}</a></span>
+          )}
           {meta.geo_level && schema !== 'censos' && (
             <span className="chart-caution"> · estimación muestral: departamentos pequeños con cautela</span>
           )}

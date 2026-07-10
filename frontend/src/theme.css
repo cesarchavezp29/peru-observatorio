@@ -1056,3 +1056,5 @@ td.cmp-nat { text-align: right; padding: 8px 12px; border-bottom: 1px solid var(
 
 .chart-cite { font-size: 11px; color: var(--text-mute); margin: 2px 0 10px; font-weight: 600; }
 .chart-caution { color: #9c6b2f; }
+
+.cite-script { color: var(--accent); font-weight: 700; }

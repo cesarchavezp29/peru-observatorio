@@ -55,6 +55,7 @@ def _load_catalog() -> None:
     rows = _con.execute(
         "SELECT schema, table_name, source_file, theme_key, theme_label, "
         "topic_key, topic_label, family, time_window, "
+        "pipeline_script, last_built, "
         "title, n_rows, n_cols, columns FROM meta.catalog ORDER BY schema, title"
     ).fetchall()
     for r in rows:
@@ -64,8 +65,9 @@ def _load_catalog() -> None:
             "theme_key": r[3], "theme_label": r[4],
             "topic_key": r[5], "topic_label": r[6],
             "family": r[7] or None, "window": r[8] or None,
-            "title": r[9], "n_rows": r[10], "n_cols": r[11],
-            "columns": r[12].split(","),
+            "pipeline_script": r[9] or None, "last_built": r[10] or None,
+            "title": r[11], "n_rows": r[12], "n_cols": r[13],
+            "columns": r[14].split(","),
         }
     # column types
     for (schema, table) in CATALOG:

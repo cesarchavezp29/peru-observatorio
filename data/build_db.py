@@ -18,6 +18,16 @@ import duckdb
 import catalog as cat
 
 HERE = Path(__file__).resolve().parent
+MANIFEST = HERE.parent / "pipeline" / "manifest.csv"
+
+
+def load_manifest() -> dict:
+    """table stem -> producing_script (el contrato de procedencia por tabla)."""
+    import csv
+    if not MANIFEST.exists():
+        return {}
+    with open(MANIFEST, newline="", encoding="utf-8") as f:
+        return {r["table"]: r["producing_script"] for r in csv.DictReader(f)}
 SRC = Path(r"D:\ENAHO_ANALYSIS\datasets")
 LOCAL = HERE / "datasets"
 DB_PATH = HERE / "observatorio.duckdb"
@@ -63,6 +73,7 @@ def main():
         con.execute(f"CREATE SCHEMA IF NOT EXISTS {s}")
     con.execute("CREATE SCHEMA IF NOT EXISTS meta")
 
+    manifest = load_manifest()
     rows = []
     seen: dict[str, str] = {}  # table_name -> file (detect collisions)
     for p in files:
@@ -75,6 +86,9 @@ def main():
         theme_key, theme_label = cat.theme_for(stem, schema)
         topic_key, topic_label = cat.topic_for(stem, schema)
         family, window = cat.family_for(stem)
+        pipeline_script = manifest.get(stem, "")
+        from datetime import datetime, timezone
+        last_built = datetime.fromtimestamp(p.stat().st_mtime, tz=timezone.utc).strftime("%Y-%m-%d")
         local = (LOCAL / p.name).as_posix()
         try:
             con.execute(
@@ -113,6 +127,8 @@ def main():
             "topic_label": topic_label,
             "family": family or "",
             "window": window or "",
+            "pipeline_script": pipeline_script,
+            "last_built": last_built,
             "title": cat.title_for(stem),
             "n_rows": n,
             "n_cols": len(cols),
@@ -126,15 +142,17 @@ def main():
             schema VARCHAR, table_name VARCHAR, source_file VARCHAR,
             theme_key VARCHAR, theme_label VARCHAR,
             topic_key VARCHAR, topic_label VARCHAR,
-            family VARCHAR, time_window VARCHAR, title VARCHAR,
+            family VARCHAR, time_window VARCHAR,
+            pipeline_script VARCHAR, last_built VARCHAR, title VARCHAR,
             n_rows BIGINT, n_cols INTEGER, columns VARCHAR
         )
     """)
     con.executemany(
-        "INSERT INTO meta.catalog VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)",
+        "INSERT INTO meta.catalog VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
         [[r["schema"], r["table_name"], r["source_file"], r["theme_key"],
           r["theme_label"], r["topic_key"], r["topic_label"], r["family"],
-          r["window"], r["title"], r["n_rows"], r["n_cols"], r["columns"]]
+          r["window"], r["pipeline_script"], r["last_built"],
+          r["title"], r["n_rows"], r["n_cols"], r["columns"]]
         for r in rows],
     )
     con.close()
