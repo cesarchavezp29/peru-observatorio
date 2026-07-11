@@ -1,0 +1,1105 @@
+periodo,origen,destino,personas,n
+2007-2011,Agropecuario/Pesca,Agropecuario/Pesca,154609,727
+2007-2011,Comercio,Comercio,82111,246
+2007-2011,Manufactura,Manufactura,35438,82
+2007-2011,Educacion,Educacion,29149,84
+2007-2011,Transporte,Transporte,23978,68
+2007-2011,Otros Servicios,Otros Servicios,23768,62
+2007-2011,Construccion,Construccion,20751,48
+2007-2011,Restaurantes/Hoteles,Restaurantes/Hoteles,19540,66
+2007-2011,Adm. Publica,Adm. Publica,14114,42
+2007-2011,Salud,Salud,13604,33
+2007-2011,Agropecuario/Pesca,Comercio,11986,45
+2007-2011,Comercio,Otros Servicios,8361,25
+2007-2011,Comercio,Agropecuario/Pesca,6643,26
+2007-2011,Manufactura,Comercio,5720,18
+2007-2011,Comercio,Manufactura,5661,16
+2007-2011,Otros Servicios,Comercio,5492,16
+2007-2011,Manufactura,Agropecuario/Pesca,4852,18
+2007-2011,Agropecuario/Pesca,Manufactura,4818,17
+2007-2011,Restaurantes/Hoteles,Otros Servicios,4583,13
+2007-2011,Manufactura,Otros Servicios,4486,10
+2007-2011,Otros Servicios,Transporte,4432,10
+2007-2011,Agropecuario/Pesca,Otros Servicios,4210,15
+2007-2011,Agropecuario/Pesca,Construccion,4176,12
+2007-2011,Transporte,Comercio,4148,11
+2007-2011,Agropecuario/Pesca,Restaurantes/Hoteles,4014,12
+2007-2011,Comercio,Restaurantes/Hoteles,3914,15
+2007-2011,Transporte,Agropecuario/Pesca,3767,10
+2007-2011,Comercio,Transporte,3667,9
+2007-2011,Otros Servicios,Manufactura,3454,7
+2007-2011,Restaurantes/Hoteles,Agropecuario/Pesca,3363,12
+2007-2011,Construccion,Otros Servicios,3279,6
+2007-2011,Agropecuario/Pesca,Transporte,3245,12
+2007-2011,Construccion,Agropecuario/Pesca,3186,9
+2007-2011,Otros Servicios,Educacion,2844,5
+2007-2011,Comercio,Educacion,2820,5
+2007-2011,Adm. Publica,Comercio,2776,4
+2007-2011,Agropecuario/Pesca,Adm. Publica,2703,13
+2007-2011,Otros Servicios,Construccion,2419,6
+2007-2011,Manufactura,Restaurantes/Hoteles,2302,8
+2007-2011,Adm. Publica,Construccion,2284,7
+2007-2011,Educacion,Adm. Publica,2159,3
+2007-2011,Otros Servicios,Salud,2085,5
+2007-2011,Otros Servicios,Agropecuario/Pesca,2081,7
+2007-2011,Restaurantes/Hoteles,Comercio,2063,12
+2007-2011,Manufactura,Educacion,1949,4
+2007-2011,Comercio,Construccion,1901,7
+2007-2011,Adm. Publica,Agropecuario/Pesca,1771,12
+2007-2011,Agropecuario/Pesca,Mineria,1748,7
+2007-2011,Otros Servicios,Adm. Publica,1688,8
+2007-2011,Otros Servicios,Restaurantes/Hoteles,1624,6
+2007-2011,Mineria,Mineria,1598,6
+2007-2011,Comercio,Adm. Publica,1567,4
+2007-2011,Salud,Comercio,1545,5
+2007-2011,Transporte,Otros Servicios,1460,5
+2007-2011,Salud,Otros Servicios,1337,2
+2007-2011,Transporte,Educacion,1293,3
+2007-2011,Transporte,Construccion,1203,4
+2007-2011,Construccion,Transporte,1162,4
+2007-2011,Manufactura,Construccion,1080,3
+2007-2011,Adm. Publica,Manufactura,1064,3
+2007-2011,Restaurantes/Hoteles,Educacion,1023,2
+2007-2011,Mineria,Comercio,991,1
+2007-2011,Mineria,Transporte,933,4
+2007-2011,Restaurantes/Hoteles,Construccion,895,2
+2007-2011,Salud,Adm. Publica,875,6
+2007-2011,Construccion,Comercio,866,3
+2007-2011,Adm. Publica,Mineria,808,1
+2007-2011,Manufactura,Transporte,767,5
+2007-2011,Construccion,Manufactura,726,1
+2007-2011,Construccion,Adm. Publica,716,2
+2007-2011,Comercio,Salud,682,1
+2007-2011,Mineria,Manufactura,661,2
+2007-2011,Educacion,Transporte,655,2
+2007-2011,Educacion,Restaurantes/Hoteles,607,1
+2007-2011,Agropecuario/Pesca,Salud,594,3
+2007-2011,Comercio,Electricidad/Agua,574,1
+2007-2011,Transporte,Adm. Publica,522,3
+2007-2011,Educacion,Otros Servicios,517,2
+2007-2011,Restaurantes/Hoteles,Transporte,472,3
+2007-2011,Transporte,Manufactura,453,3
+2007-2011,Construccion,Mineria,422,2
+2007-2011,Restaurantes/Hoteles,Manufactura,413,2
+2007-2011,Adm. Publica,Educacion,364,1
+2007-2011,Agropecuario/Pesca,Educacion,349,2
+2007-2011,Construccion,Restaurantes/Hoteles,347,1
+2007-2011,Adm. Publica,Restaurantes/Hoteles,332,2
+2007-2011,Comercio,Mineria,308,3
+2007-2011,Agropecuario/Pesca,Electricidad/Agua,287,1
+2007-2011,Adm. Publica,Electricidad/Agua,238,1
+2007-2011,Adm. Publica,Salud,202,2
+2007-2011,Adm. Publica,Transporte,183,1
+2007-2011,Transporte,Restaurantes/Hoteles,178,1
+2007-2011,Otros Servicios,Mineria,156,1
+2007-2011,Manufactura,Adm. Publica,146,1
+2007-2011,Mineria,Agropecuario/Pesca,144,2
+2007-2011,Mineria,Adm. Publica,126,1
+2007-2011,Educacion,Comercio,115,2
+2007-2011,Mineria,Construccion,100,1
+2007-2011,Construccion,Electricidad/Agua,98,1
+2007-2011,Electricidad/Agua,Electricidad/Agua,53,1
+2007-2011,Mineria,Restaurantes/Hoteles,33,1
+2011-2015,Agropecuario/Pesca,Agropecuario/Pesca,274954,1441
+2011-2015,Comercio,Comercio,121323,360
+2011-2015,Otros Servicios,Otros Servicios,73766,150
+2011-2015,Manufactura,Manufactura,58631,131
+2011-2015,Educacion,Educacion,53981,161
+2011-2015,Transporte,Transporte,49388,120
+2011-2015,Construccion,Construccion,48694,121
+2011-2015,Restaurantes/Hoteles,Restaurantes/Hoteles,34397,114
+2011-2015,Adm. Publica,Adm. Publica,21006,66
+2011-2015,Comercio,Otros Servicios,19956,40
+2011-2015,Otros Servicios,Comercio,18382,48
+2011-2015,Agropecuario/Pesca,Comercio,16945,66
+2011-2015,Manufactura,Comercio,15105,35
+2011-2015,Salud,Salud,14842,37
+2011-2015,Comercio,Agropecuario/Pesca,13548,61
+2011-2015,Agropecuario/Pesca,Manufactura,12819,46
+2011-2015,Otros Servicios,Manufactura,11137,22
+2011-2015,Comercio,Restaurantes/Hoteles,10189,32
+2011-2015,Manufactura,Agropecuario/Pesca,9621,38
+2011-2015,Manufactura,Otros Servicios,9030,16
+2011-2015,Comercio,Manufactura,8877,23
+2011-2015,Restaurantes/Hoteles,Otros Servicios,8772,25
+2011-2015,Comercio,Transporte,8638,19
+2011-2015,Agropecuario/Pesca,Construccion,8168,34
+2011-2015,Agropecuario/Pesca,Restaurantes/Hoteles,8156,26
+2011-2015,Restaurantes/Hoteles,Comercio,7735,26
+2011-2015,Otros Servicios,Restaurantes/Hoteles,7712,26
+2011-2015,Mineria,Mineria,7636,25
+2011-2015,Otros Servicios,Construccion,6854,13
+2011-2015,Agropecuario/Pesca,Otros Servicios,6478,27
+2011-2015,Restaurantes/Hoteles,Agropecuario/Pesca,6144,26
+2011-2015,Restaurantes/Hoteles,Manufactura,6113,13
+2011-2015,Construccion,Agropecuario/Pesca,5665,25
+2011-2015,Restaurantes/Hoteles,Transporte,5435,11
+2011-2015,Otros Servicios,Educacion,5139,10
+2011-2015,Transporte,Otros Servicios,4934,13
+2011-2015,Transporte,Comercio,4743,14
+2011-2015,Comercio,Educacion,4586,12
+2011-2015,Agropecuario/Pesca,Transporte,4348,20
+2011-2015,Adm. Publica,Otros Servicios,4183,8
+2011-2015,Otros Servicios,Salud,4071,7
+2011-2015,Comercio,Construccion,3987,10
+2011-2015,Adm. Publica,Construccion,3933,14
+2011-2015,Transporte,Agropecuario/Pesca,3846,15
+2011-2015,Manufactura,Transporte,3517,10
+2011-2015,Adm. Publica,Salud,3516,4
+2011-2015,Otros Servicios,Adm. Publica,3232,10
+2011-2015,Adm. Publica,Agropecuario/Pesca,3207,24
+2011-2015,Salud,Adm. Publica,3181,7
+2011-2015,Educacion,Otros Servicios,3164,8
+2011-2015,Mineria,Agropecuario/Pesca,3052,8
+2011-2015,Comercio,Adm. Publica,2725,9
+2011-2015,Construccion,Manufactura,2609,5
+2011-2015,Agropecuario/Pesca,Adm. Publica,2521,12
+2011-2015,Salud,Agropecuario/Pesca,2476,5
+2011-2015,Manufactura,Salud,2473,4
+2011-2015,Educacion,Adm. Publica,2469,7
+2011-2015,Manufactura,Construccion,2444,6
+2011-2015,Comercio,Electricidad/Agua,2357,3
+2011-2015,Restaurantes/Hoteles,Construccion,2354,4
+2011-2015,Construccion,Restaurantes/Hoteles,2273,4
+2011-2015,Construccion,Otros Servicios,2258,6
+2011-2015,Otros Servicios,Agropecuario/Pesca,2211,9
+2011-2015,Manufactura,Educacion,2113,2
+2011-2015,Electricidad/Agua,Electricidad/Agua,2063,6
+2011-2015,Mineria,Otros Servicios,2026,5
+2011-2015,Educacion,Comercio,2005,3
+2011-2015,Construccion,Comercio,1968,8
+2011-2015,Construccion,Transporte,1968,9
+2011-2015,Manufactura,Restaurantes/Hoteles,1902,8
+2011-2015,Adm. Publica,Transporte,1832,5
+2011-2015,Manufactura,Adm. Publica,1726,7
+2011-2015,Otros Servicios,Transporte,1608,5
+2011-2015,Mineria,Construccion,1591,5
+2011-2015,Transporte,Construccion,1564,3
+2011-2015,Comercio,Salud,1441,4
+2011-2015,Transporte,Restaurantes/Hoteles,1392,6
+2011-2015,Adm. Publica,Educacion,1351,5
+2011-2015,Adm. Publica,Manufactura,1349,2
+2011-2015,Agropecuario/Pesca,Educacion,1286,4
+2011-2015,Otros Servicios,Electricidad/Agua,1267,3
+2011-2015,Educacion,Manufactura,1265,2
+2011-2015,Electricidad/Agua,Construccion,1263,2
+2011-2015,Transporte,Manufactura,1225,4
+2011-2015,Mineria,Manufactura,1188,1
+2011-2015,Salud,Manufactura,1143,1
+2011-2015,Restaurantes/Hoteles,Educacion,1095,4
+2011-2015,Salud,Comercio,1085,3
+2011-2015,Agropecuario/Pesca,Salud,1034,4
+2011-2015,Transporte,Adm. Publica,1019,5
+2011-2015,Construccion,Adm. Publica,972,6
+2011-2015,Agropecuario/Pesca,Mineria,817,2
+2011-2015,Electricidad/Agua,Adm. Publica,778,4
+2011-2015,Construccion,Mineria,748,2
+2011-2015,Restaurantes/Hoteles,Salud,747,3
+2011-2015,Otros Servicios,Mineria,535,1
+2011-2015,Educacion,Restaurantes/Hoteles,513,2
+2011-2015,Mineria,Restaurantes/Hoteles,508,2
+2011-2015,Mineria,Comercio,506,2
+2011-2015,Adm. Publica,Comercio,484,2
+2011-2015,Educacion,Salud,404,1
+2011-2015,Mineria,Transporte,402,2
+2011-2015,Mineria,Electricidad/Agua,399,1
+2011-2015,Salud,Otros Servicios,396,1
+2011-2015,Educacion,Agropecuario/Pesca,389,3
+2011-2015,Agropecuario/Pesca,Electricidad/Agua,358,1
+2011-2015,Adm. Publica,Restaurantes/Hoteles,329,2
+2011-2015,Transporte,Educacion,217,1
+2011-2015,Construccion,Salud,208,1
+2011-2015,Construccion,Electricidad/Agua,191,2
+2011-2015,Educacion,Construccion,165,1
+2011-2015,Adm. Publica,Mineria,151,1
+2011-2015,Electricidad/Agua,Otros Servicios,139,1
+2011-2015,Salud,Restaurantes/Hoteles,112,1
+2011-2015,Electricidad/Agua,Restaurantes/Hoteles,51,1
+2012-2016,Agropecuario/Pesca,Agropecuario/Pesca,140357,667
+2012-2016,Comercio,Comercio,71390,201
+2012-2016,Otros Servicios,Otros Servicios,43933,75
+2012-2016,Educacion,Educacion,27884,83
+2012-2016,Construccion,Construccion,26083,58
+2012-2016,Manufactura,Manufactura,21157,45
+2012-2016,Transporte,Transporte,20657,52
+2012-2016,Restaurantes/Hoteles,Restaurantes/Hoteles,18093,53
+2012-2016,Adm. Publica,Adm. Publica,12362,39
+2012-2016,Agropecuario/Pesca,Manufactura,10749,25
+2012-2016,Salud,Salud,9440,16
+2012-2016,Comercio,Agropecuario/Pesca,8823,34
+2012-2016,Comercio,Otros Servicios,6201,13
+2012-2016,Agropecuario/Pesca,Construccion,5702,23
+2012-2016,Agropecuario/Pesca,Comercio,5539,23
+2012-2016,Mineria,Mineria,4988,15
+2012-2016,Otros Servicios,Agropecuario/Pesca,4877,12
+2012-2016,Construccion,Agropecuario/Pesca,4821,16
+2012-2016,Manufactura,Agropecuario/Pesca,4764,14
+2012-2016,Manufactura,Comercio,4741,15
+2012-2016,Construccion,Otros Servicios,4497,10
+2012-2016,Comercio,Transporte,3809,10
+2012-2016,Agropecuario/Pesca,Otros Servicios,3551,12
+2012-2016,Otros Servicios,Restaurantes/Hoteles,3308,10
+2012-2016,Comercio,Restaurantes/Hoteles,3081,9
+2012-2016,Comercio,Manufactura,3080,6
+2012-2016,Agropecuario/Pesca,Transporte,3051,10
+2012-2016,Restaurantes/Hoteles,Comercio,2970,13
+2012-2016,Adm. Publica,Agropecuario/Pesca,2942,13
+2012-2016,Manufactura,Construccion,2637,4
+2012-2016,Otros Servicios,Manufactura,2565,7
+2012-2016,Construccion,Transporte,2481,6
+2012-2016,Manufactura,Otros Servicios,2278,3
+2012-2016,Agropecuario/Pesca,Adm. Publica,2273,9
+2012-2016,Manufactura,Restaurantes/Hoteles,2242,6
+2012-2016,Transporte,Agropecuario/Pesca,2208,9
+2012-2016,Otros Servicios,Adm. Publica,2137,4
+2012-2016,Restaurantes/Hoteles,Agropecuario/Pesca,2042,8
+2012-2016,Comercio,Educacion,1984,6
+2012-2016,Otros Servicios,Transporte,1900,4
+2012-2016,Otros Servicios,Mineria,1822,3
+2012-2016,Restaurantes/Hoteles,Otros Servicios,1818,8
+2012-2016,Otros Servicios,Construccion,1795,5
+2012-2016,Agropecuario/Pesca,Restaurantes/Hoteles,1785,7
+2012-2016,Otros Servicios,Educacion,1764,3
+2012-2016,Transporte,Otros Servicios,1710,6
+2012-2016,Restaurantes/Hoteles,Manufactura,1610,7
+2012-2016,Adm. Publica,Educacion,1544,6
+2012-2016,Otros Servicios,Comercio,1389,5
+2012-2016,Construccion,Comercio,1294,3
+2012-2016,Educacion,Comercio,1247,4
+2012-2016,Construccion,Adm. Publica,1239,1
+2012-2016,Comercio,Electricidad/Agua,1208,1
+2012-2016,Salud,Educacion,1195,1
+2012-2016,Restaurantes/Hoteles,Adm. Publica,1151,3
+2012-2016,Salud,Otros Servicios,1147,1
+2012-2016,Construccion,Manufactura,1111,6
+2012-2016,Adm. Publica,Comercio,1052,5
+2012-2016,Mineria,Agropecuario/Pesca,1049,5
+2012-2016,Educacion,Otros Servicios,1033,4
+2012-2016,Transporte,Adm. Publica,916,4
+2012-2016,Comercio,Mineria,858,1
+2012-2016,Comercio,Construccion,857,3
+2012-2016,Salud,Comercio,810,3
+2012-2016,Comercio,Adm. Publica,802,6
+2012-2016,Adm. Publica,Salud,782,3
+2012-2016,Mineria,Otros Servicios,769,1
+2012-2016,Adm. Publica,Otros Servicios,685,3
+2012-2016,Construccion,Mineria,681,4
+2012-2016,Agropecuario/Pesca,Salud,651,2
+2012-2016,Electricidad/Agua,Electricidad/Agua,608,3
+2012-2016,Electricidad/Agua,Comercio,583,1
+2012-2016,Salud,Agropecuario/Pesca,566,1
+2012-2016,Transporte,Comercio,563,3
+2012-2016,Salud,Adm. Publica,545,1
+2012-2016,Restaurantes/Hoteles,Educacion,543,2
+2012-2016,Adm. Publica,Transporte,525,3
+2012-2016,Educacion,Transporte,489,1
+2012-2016,Salud,Construccion,461,1
+2012-2016,Mineria,Construccion,448,1
+2012-2016,Manufactura,Adm. Publica,440,3
+2012-2016,Educacion,Manufactura,380,1
+2012-2016,Construccion,Educacion,368,1
+2012-2016,Mineria,Transporte,361,2
+2012-2016,Adm. Publica,Manufactura,345,2
+2012-2016,Manufactura,Transporte,341,2
+2012-2016,Educacion,Agropecuario/Pesca,314,2
+2012-2016,Construccion,Restaurantes/Hoteles,313,1
+2012-2016,Restaurantes/Hoteles,Mineria,271,1
+2012-2016,Mineria,Adm. Publica,261,1
+2012-2016,Adm. Publica,Construccion,253,2
+2012-2016,Restaurantes/Hoteles,Transporte,231,1
+2012-2016,Otros Servicios,Salud,201,1
+2012-2016,Transporte,Mineria,198,1
+2012-2016,Transporte,Construccion,189,1
+2012-2016,Agropecuario/Pesca,Educacion,186,1
+2012-2016,Adm. Publica,Restaurantes/Hoteles,180,1
+2012-2016,Manufactura,Educacion,176,1
+2012-2016,Educacion,Adm. Publica,168,1
+2012-2016,Electricidad/Agua,Construccion,155,1
+2012-2016,Restaurantes/Hoteles,Electricidad/Agua,72,1
+2012-2016,Restaurantes/Hoteles,Salud,66,1
+2012-2016,Manufactura,Mineria,64,1
+2012-2016,Transporte,Restaurantes/Hoteles,59,1
+2012-2016,Electricidad/Agua,Restaurantes/Hoteles,49,1
+2013-2017,Agropecuario/Pesca,Agropecuario/Pesca,181860,1158
+2013-2017,Comercio,Comercio,80528,330
+2013-2017,Otros Servicios,Otros Servicios,43340,135
+2013-2017,Manufactura,Manufactura,36723,119
+2013-2017,Educacion,Educacion,34805,153
+2013-2017,Transporte,Transporte,25720,86
+2013-2017,Construccion,Construccion,22824,77
+2013-2017,Adm. Publica,Adm. Publica,15146,66
+2013-2017,Restaurantes/Hoteles,Restaurantes/Hoteles,14108,79
+2013-2017,Comercio,Agropecuario/Pesca,13167,55
+2013-2017,Agropecuario/Pesca,Comercio,11348,63
+2013-2017,Manufactura,Agropecuario/Pesca,11334,50
+2013-2017,Comercio,Otros Servicios,11160,38
+2013-2017,Comercio,Restaurantes/Hoteles,10774,42
+2013-2017,Salud,Salud,9387,33
+2013-2017,Restaurantes/Hoteles,Comercio,7453,21
+2013-2017,Construccion,Agropecuario/Pesca,7232,33
+2013-2017,Agropecuario/Pesca,Manufactura,6495,28
+2013-2017,Otros Servicios,Comercio,6279,23
+2013-2017,Comercio,Manufactura,6118,22
+2013-2017,Restaurantes/Hoteles,Otros Servicios,5906,16
+2013-2017,Comercio,Transporte,5728,13
+2013-2017,Agropecuario/Pesca,Otros Servicios,5662,26
+2013-2017,Manufactura,Comercio,5060,20
+2013-2017,Otros Servicios,Restaurantes/Hoteles,4777,16
+2013-2017,Mineria,Mineria,4596,24
+2013-2017,Agropecuario/Pesca,Transporte,4248,20
+2013-2017,Manufactura,Otros Servicios,3931,15
+2013-2017,Restaurantes/Hoteles,Agropecuario/Pesca,3714,19
+2013-2017,Otros Servicios,Adm. Publica,3706,15
+2013-2017,Construccion,Otros Servicios,3405,8
+2013-2017,Otros Servicios,Manufactura,3265,10
+2013-2017,Restaurantes/Hoteles,Manufactura,3139,11
+2013-2017,Manufactura,Construccion,3065,10
+2013-2017,Adm. Publica,Agropecuario/Pesca,3006,16
+2013-2017,Agropecuario/Pesca,Adm. Publica,2876,12
+2013-2017,Otros Servicios,Agropecuario/Pesca,2867,17
+2013-2017,Transporte,Agropecuario/Pesca,2849,11
+2013-2017,Transporte,Otros Servicios,2830,10
+2013-2017,Agropecuario/Pesca,Construccion,2636,15
+2013-2017,Agropecuario/Pesca,Restaurantes/Hoteles,2593,17
+2013-2017,Otros Servicios,Transporte,2531,7
+2013-2017,Otros Servicios,Educacion,2348,7
+2013-2017,Construccion,Comercio,2240,7
+2013-2017,Comercio,Adm. Publica,2220,9
+2013-2017,Transporte,Construccion,2210,8
+2013-2017,Comercio,Educacion,2124,8
+2013-2017,Adm. Publica,Comercio,2039,8
+2013-2017,Salud,Comercio,1859,5
+2013-2017,Adm. Publica,Otros Servicios,1816,8
+2013-2017,Manufactura,Restaurantes/Hoteles,1816,6
+2013-2017,Salud,Otros Servicios,1796,4
+2013-2017,Construccion,Manufactura,1766,7
+2013-2017,Transporte,Manufactura,1760,4
+2013-2017,Electricidad/Agua,Electricidad/Agua,1754,7
+2013-2017,Educacion,Otros Servicios,1633,4
+2013-2017,Adm. Publica,Educacion,1361,6
+2013-2017,Adm. Publica,Construccion,1165,3
+2013-2017,Otros Servicios,Salud,1144,5
+2013-2017,Transporte,Comercio,1050,4
+2013-2017,Agropecuario/Pesca,Educacion,1047,5
+2013-2017,Educacion,Comercio,1017,4
+2013-2017,Construccion,Educacion,1002,3
+2013-2017,Comercio,Construccion,956,5
+2013-2017,Otros Servicios,Construccion,952,2
+2013-2017,Restaurantes/Hoteles,Transporte,910,4
+2013-2017,Construccion,Adm. Publica,874,3
+2013-2017,Restaurantes/Hoteles,Salud,859,2
+2013-2017,Salud,Adm. Publica,855,5
+2013-2017,Mineria,Construccion,807,3
+2013-2017,Manufactura,Adm. Publica,776,3
+2013-2017,Comercio,Mineria,775,3
+2013-2017,Manufactura,Transporte,717,3
+2013-2017,Agropecuario/Pesca,Mineria,708,4
+2013-2017,Educacion,Adm. Publica,703,4
+2013-2017,Manufactura,Salud,653,4
+2013-2017,Mineria,Agropecuario/Pesca,590,4
+2013-2017,Mineria,Comercio,580,3
+2013-2017,Transporte,Electricidad/Agua,562,3
+2013-2017,Transporte,Mineria,543,3
+2013-2017,Adm. Publica,Transporte,519,3
+2013-2017,Educacion,Agropecuario/Pesca,484,3
+2013-2017,Educacion,Manufactura,453,2
+2013-2017,Educacion,Transporte,441,2
+2013-2017,Transporte,Adm. Publica,435,2
+2013-2017,Electricidad/Agua,Manufactura,424,1
+2013-2017,Adm. Publica,Restaurantes/Hoteles,420,3
+2013-2017,Mineria,Transporte,419,1
+2013-2017,Transporte,Restaurantes/Hoteles,412,2
+2013-2017,Agropecuario/Pesca,Salud,402,4
+2013-2017,Restaurantes/Hoteles,Electricidad/Agua,387,1
+2013-2017,Comercio,Electricidad/Agua,374,1
+2013-2017,Salud,Agropecuario/Pesca,373,1
+2013-2017,Salud,Manufactura,349,2
+2013-2017,Transporte,Educacion,303,2
+2013-2017,Transporte,Salud,302,1
+2013-2017,Salud,Educacion,299,1
+2013-2017,Otros Servicios,Mineria,259,1
+2013-2017,Electricidad/Agua,Transporte,247,1
+2013-2017,Mineria,Manufactura,243,1
+2013-2017,Otros Servicios,Electricidad/Agua,218,1
+2013-2017,Construccion,Mineria,162,1
+2013-2017,Mineria,Otros Servicios,162,1
+2013-2017,Comercio,Salud,155,1
+2013-2017,Construccion,Restaurantes/Hoteles,154,1
+2013-2017,Manufactura,Educacion,144,1
+2013-2017,Salud,Transporte,143,1
+2013-2017,Construccion,Transporte,132,2
+2013-2017,Adm. Publica,Salud,101,1
+2013-2017,Electricidad/Agua,Comercio,63,1
+2013-2017,Educacion,Salud,45,1
+2013-2017,Manufactura,Mineria,42,1
+2014-2018,Agropecuario/Pesca,Agropecuario/Pesca,186415,1111
+2014-2018,Comercio,Comercio,77180,298
+2014-2018,Otros Servicios,Otros Servicios,44477,109
+2014-2018,Manufactura,Manufactura,31247,102
+2014-2018,Educacion,Educacion,31074,143
+2014-2018,Transporte,Transporte,26000,77
+2014-2018,Construccion,Construccion,23762,64
+2014-2018,Restaurantes/Hoteles,Restaurantes/Hoteles,19843,95
+2014-2018,Adm. Publica,Adm. Publica,14871,62
+2014-2018,Comercio,Otros Servicios,12911,36
+2014-2018,Agropecuario/Pesca,Comercio,10403,60
+2014-2018,Comercio,Agropecuario/Pesca,9486,44
+2014-2018,Salud,Salud,8811,30
+2014-2018,Comercio,Restaurantes/Hoteles,8175,31
+2014-2018,Agropecuario/Pesca,Manufactura,7794,29
+2014-2018,Manufactura,Agropecuario/Pesca,7563,30
+2014-2018,Otros Servicios,Comercio,7463,23
+2014-2018,Manufactura,Comercio,6925,20
+2014-2018,Comercio,Manufactura,6149,18
+2014-2018,Construccion,Agropecuario/Pesca,5580,25
+2014-2018,Mineria,Mineria,5222,20
+2014-2018,Agropecuario/Pesca,Adm. Publica,4630,14
+2014-2018,Otros Servicios,Adm. Publica,4464,11
+2014-2018,Agropecuario/Pesca,Restaurantes/Hoteles,4332,23
+2014-2018,Restaurantes/Hoteles,Otros Servicios,4243,13
+2014-2018,Restaurantes/Hoteles,Comercio,3829,24
+2014-2018,Otros Servicios,Manufactura,3465,9
+2014-2018,Agropecuario/Pesca,Construccion,3431,13
+2014-2018,Agropecuario/Pesca,Transporte,3307,16
+2014-2018,Agropecuario/Pesca,Otros Servicios,3142,18
+2014-2018,Manufactura,Otros Servicios,3117,10
+2014-2018,Adm. Publica,Otros Servicios,2861,10
+2014-2018,Transporte,Agropecuario/Pesca,2855,13
+2014-2018,Adm. Publica,Agropecuario/Pesca,2560,14
+2014-2018,Restaurantes/Hoteles,Agropecuario/Pesca,2497,10
+2014-2018,Comercio,Transporte,2464,9
+2014-2018,Otros Servicios,Agropecuario/Pesca,2412,13
+2014-2018,Construccion,Adm. Publica,2368,6
+2014-2018,Construccion,Restaurantes/Hoteles,2233,4
+2014-2018,Manufactura,Restaurantes/Hoteles,2194,8
+2014-2018,Otros Servicios,Restaurantes/Hoteles,2104,10
+2014-2018,Comercio,Educacion,2058,7
+2014-2018,Educacion,Comercio,2046,3
+2014-2018,Transporte,Comercio,2019,6
+2014-2018,Adm. Publica,Comercio,1972,7
+2014-2018,Educacion,Adm. Publica,1961,7
+2014-2018,Otros Servicios,Construccion,1956,6
+2014-2018,Manufactura,Transporte,1919,4
+2014-2018,Construccion,Transporte,1904,5
+2014-2018,Adm. Publica,Transporte,1836,6
+2014-2018,Restaurantes/Hoteles,Salud,1836,5
+2014-2018,Comercio,Adm. Publica,1743,8
+2014-2018,Agropecuario/Pesca,Mineria,1542,4
+2014-2018,Construccion,Manufactura,1535,4
+2014-2018,Electricidad/Agua,Agropecuario/Pesca,1502,2
+2014-2018,Transporte,Otros Servicios,1411,5
+2014-2018,Construccion,Comercio,1378,7
+2014-2018,Adm. Publica,Educacion,1372,6
+2014-2018,Transporte,Adm. Publica,1372,3
+2014-2018,Transporte,Construccion,1351,6
+2014-2018,Otros Servicios,Educacion,1346,6
+2014-2018,Transporte,Manufactura,1323,4
+2014-2018,Construccion,Otros Servicios,1317,5
+2014-2018,Manufactura,Construccion,1211,8
+2014-2018,Electricidad/Agua,Electricidad/Agua,1208,4
+2014-2018,Salud,Otros Servicios,1179,4
+2014-2018,Comercio,Salud,1140,3
+2014-2018,Transporte,Restaurantes/Hoteles,1118,4
+2014-2018,Salud,Adm. Publica,1109,5
+2014-2018,Mineria,Otros Servicios,977,4
+2014-2018,Adm. Publica,Construccion,964,5
+2014-2018,Comercio,Electricidad/Agua,949,1
+2014-2018,Manufactura,Salud,894,2
+2014-2018,Comercio,Construccion,843,4
+2014-2018,Salud,Restaurantes/Hoteles,833,1
+2014-2018,Mineria,Construccion,794,2
+2014-2018,Educacion,Otros Servicios,720,2
+2014-2018,Educacion,Agropecuario/Pesca,678,5
+2014-2018,Otros Servicios,Mineria,652,4
+2014-2018,Otros Servicios,Transporte,596,3
+2014-2018,Mineria,Agropecuario/Pesca,572,4
+2014-2018,Manufactura,Educacion,524,2
+2014-2018,Restaurantes/Hoteles,Transporte,487,2
+2014-2018,Adm. Publica,Restaurantes/Hoteles,452,3
+2014-2018,Adm. Publica,Salud,435,2
+2014-2018,Mineria,Transporte,416,1
+2014-2018,Agropecuario/Pesca,Salud,391,3
+2014-2018,Restaurantes/Hoteles,Manufactura,368,3
+2014-2018,Agropecuario/Pesca,Educacion,336,2
+2014-2018,Restaurantes/Hoteles,Educacion,329,3
+2014-2018,Manufactura,Adm. Publica,305,2
+2014-2018,Transporte,Electricidad/Agua,303,1
+2014-2018,Salud,Manufactura,288,1
+2014-2018,Transporte,Educacion,288,1
+2014-2018,Mineria,Restaurantes/Hoteles,259,1
+2014-2018,Agropecuario/Pesca,Electricidad/Agua,249,1
+2014-2018,Manufactura,Mineria,225,1
+2014-2018,Restaurantes/Hoteles,Construccion,216,1
+2014-2018,Electricidad/Agua,Mineria,209,1
+2014-2018,Educacion,Manufactura,200,2
+2014-2018,Salud,Educacion,199,1
+2014-2018,Restaurantes/Hoteles,Adm. Publica,189,1
+2014-2018,Electricidad/Agua,Comercio,162,1
+2014-2018,Electricidad/Agua,Otros Servicios,162,1
+2014-2018,Otros Servicios,Salud,160,1
+2014-2018,Otros Servicios,Electricidad/Agua,84,1
+2014-2018,Educacion,Salud,55,1
+2014-2018,Educacion,Restaurantes/Hoteles,3,1
+2015-2019,Agropecuario/Pesca,Agropecuario/Pesca,187137,1120
+2015-2019,Comercio,Comercio,94867,328
+2015-2019,Otros Servicios,Otros Servicios,40830,126
+2015-2019,Manufactura,Manufactura,36676,97
+2015-2019,Transporte,Transporte,29582,89
+2015-2019,Construccion,Construccion,27471,61
+2015-2019,Restaurantes/Hoteles,Restaurantes/Hoteles,27401,106
+2015-2019,Educacion,Educacion,26527,103
+2015-2019,Adm. Publica,Adm. Publica,18538,65
+2015-2019,Comercio,Agropecuario/Pesca,12739,59
+2015-2019,Comercio,Manufactura,10271,28
+2015-2019,Salud,Salud,9960,32
+2015-2019,Manufactura,Comercio,9520,24
+2015-2019,Agropecuario/Pesca,Manufactura,9044,47
+2015-2019,Comercio,Otros Servicios,9036,35
+2015-2019,Agropecuario/Pesca,Comercio,8945,55
+2015-2019,Manufactura,Agropecuario/Pesca,8836,39
+2015-2019,Restaurantes/Hoteles,Comercio,8684,32
+2015-2019,Manufactura,Otros Servicios,7758,21
+2015-2019,Otros Servicios,Comercio,7032,24
+2015-2019,Construccion,Comercio,6883,10
+2015-2019,Comercio,Restaurantes/Hoteles,6361,26
+2015-2019,Restaurantes/Hoteles,Otros Servicios,5585,14
+2015-2019,Agropecuario/Pesca,Restaurantes/Hoteles,5065,24
+2015-2019,Agropecuario/Pesca,Construccion,4903,24
+2015-2019,Manufactura,Construccion,4834,9
+2015-2019,Manufactura,Transporte,4719,9
+2015-2019,Agropecuario/Pesca,Otros Servicios,4620,26
+2015-2019,Transporte,Agropecuario/Pesca,3899,15
+2015-2019,Otros Servicios,Restaurantes/Hoteles,3892,14
+2015-2019,Construccion,Agropecuario/Pesca,3792,18
+2015-2019,Otros Servicios,Educacion,3760,6
+2015-2019,Construccion,Otros Servicios,3699,11
+2015-2019,Otros Servicios,Agropecuario/Pesca,3360,16
+2015-2019,Construccion,Transporte,3325,9
+2015-2019,Agropecuario/Pesca,Transporte,3145,14
+2015-2019,Restaurantes/Hoteles,Manufactura,3020,10
+2015-2019,Mineria,Mineria,2989,13
+2015-2019,Comercio,Transporte,2926,10
+2015-2019,Electricidad/Agua,Otros Servicios,2898,3
+2015-2019,Agropecuario/Pesca,Adm. Publica,2732,15
+2015-2019,Otros Servicios,Transporte,2577,8
+2015-2019,Transporte,Comercio,2517,9
+2015-2019,Salud,Adm. Publica,2446,6
+2015-2019,Restaurantes/Hoteles,Agropecuario/Pesca,2445,16
+2015-2019,Construccion,Manufactura,2409,7
+2015-2019,Construccion,Electricidad/Agua,2334,3
+2015-2019,Adm. Publica,Otros Servicios,2280,10
+2015-2019,Transporte,Construccion,2210,8
+2015-2019,Otros Servicios,Construccion,2178,7
+2015-2019,Otros Servicios,Adm. Publica,2136,8
+2015-2019,Comercio,Construccion,1762,5
+2015-2019,Adm. Publica,Salud,1706,4
+2015-2019,Comercio,Salud,1672,4
+2015-2019,Transporte,Otros Servicios,1649,5
+2015-2019,Transporte,Manufactura,1629,3
+2015-2019,Comercio,Adm. Publica,1598,6
+2015-2019,Otros Servicios,Manufactura,1567,7
+2015-2019,Educacion,Adm. Publica,1473,6
+2015-2019,Educacion,Manufactura,1397,3
+2015-2019,Agropecuario/Pesca,Mineria,1367,6
+2015-2019,Construccion,Adm. Publica,1333,5
+2015-2019,Adm. Publica,Construccion,1317,4
+2015-2019,Construccion,Educacion,1270,2
+2015-2019,Transporte,Mineria,1249,6
+2015-2019,Restaurantes/Hoteles,Transporte,1211,3
+2015-2019,Salud,Comercio,1209,4
+2015-2019,Mineria,Otros Servicios,1199,5
+2015-2019,Adm. Publica,Comercio,1153,3
+2015-2019,Mineria,Comercio,1130,3
+2015-2019,Adm. Publica,Agropecuario/Pesca,1111,10
+2015-2019,Mineria,Manufactura,1111,2
+2015-2019,Restaurantes/Hoteles,Educacion,1087,3
+2015-2019,Agropecuario/Pesca,Salud,1040,5
+2015-2019,Educacion,Otros Servicios,1007,2
+2015-2019,Otros Servicios,Electricidad/Agua,988,4
+2015-2019,Restaurantes/Hoteles,Adm. Publica,930,5
+2015-2019,Adm. Publica,Mineria,897,3
+2015-2019,Mineria,Transporte,882,3
+2015-2019,Construccion,Mineria,860,4
+2015-2019,Transporte,Restaurantes/Hoteles,859,2
+2015-2019,Salud,Otros Servicios,845,1
+2015-2019,Salud,Educacion,688,3
+2015-2019,Mineria,Agropecuario/Pesca,682,2
+2015-2019,Manufactura,Restaurantes/Hoteles,653,3
+2015-2019,Manufactura,Mineria,631,1
+2015-2019,Restaurantes/Hoteles,Construccion,608,2
+2015-2019,Comercio,Electricidad/Agua,583,2
+2015-2019,Adm. Publica,Restaurantes/Hoteles,582,5
+2015-2019,Mineria,Restaurantes/Hoteles,578,2
+2015-2019,Educacion,Construccion,572,1
+2015-2019,Comercio,Educacion,565,2
+2015-2019,Manufactura,Educacion,514,1
+2015-2019,Salud,Transporte,471,2
+2015-2019,Agropecuario/Pesca,Educacion,466,3
+2015-2019,Salud,Agropecuario/Pesca,421,4
+2015-2019,Restaurantes/Hoteles,Salud,410,1
+2015-2019,Educacion,Agropecuario/Pesca,409,3
+2015-2019,Salud,Manufactura,376,2
+2015-2019,Educacion,Restaurantes/Hoteles,320,2
+2015-2019,Manufactura,Salud,273,1
+2015-2019,Adm. Publica,Educacion,269,2
+2015-2019,Electricidad/Agua,Electricidad/Agua,267,4
+2015-2019,Mineria,Construccion,245,1
+2015-2019,Adm. Publica,Transporte,239,3
+2015-2019,Construccion,Salud,197,2
+2015-2019,Educacion,Comercio,192,1
+2015-2019,Educacion,Transporte,175,2
+2015-2019,Salud,Construccion,144,1
+2015-2019,Manufactura,Adm. Publica,132,1
+2015-2019,Electricidad/Agua,Agropecuario/Pesca,78,1
+2015-2019,Construccion,Restaurantes/Hoteles,46,1
+2016-2020,Agropecuario/Pesca,Agropecuario/Pesca,210024,1273
+2016-2020,Comercio,Comercio,72978,266
+2016-2020,Manufactura,Manufactura,26296,90
+2016-2020,Otros Servicios,Otros Servicios,26261,76
+2016-2020,Educacion,Educacion,22500,117
+2016-2020,Transporte,Transporte,19134,63
+2016-2020,Adm. Publica,Adm. Publica,18076,66
+2016-2020,Construccion,Construccion,17206,50
+2016-2020,Salud,Salud,14943,58
+2016-2020,Restaurantes/Hoteles,Restaurantes/Hoteles,11281,49
+2016-2020,Comercio,Agropecuario/Pesca,10309,55
+2016-2020,Restaurantes/Hoteles,Comercio,9040,22
+2016-2020,Manufactura,Agropecuario/Pesca,8396,36
+2016-2020,Otros Servicios,Comercio,7400,21
+2016-2020,Restaurantes/Hoteles,Manufactura,6465,8
+2016-2020,Comercio,Otros Servicios,5503,17
+2016-2020,Manufactura,Comercio,5330,18
+2016-2020,Construccion,Agropecuario/Pesca,5283,26
+2016-2020,Otros Servicios,Manufactura,5177,8
+2016-2020,Agropecuario/Pesca,Comercio,5013,29
+2016-2020,Comercio,Restaurantes/Hoteles,4984,18
+2016-2020,Comercio,Manufactura,4868,19
+2016-2020,Restaurantes/Hoteles,Agropecuario/Pesca,4550,23
+2016-2020,Transporte,Comercio,4355,11
+2016-2020,Otros Servicios,Agropecuario/Pesca,4225,17
+2016-2020,Comercio,Transporte,4059,13
+2016-2020,Transporte,Construccion,3996,9
+2016-2020,Transporte,Agropecuario/Pesca,3716,19
+2016-2020,Otros Servicios,Restaurantes/Hoteles,3505,9
+2016-2020,Agropecuario/Pesca,Manufactura,3370,15
+2016-2020,Otros Servicios,Adm. Publica,3370,10
+2016-2020,Manufactura,Construccion,3345,5
+2016-2020,Agropecuario/Pesca,Construccion,2816,12
+2016-2020,Adm. Publica,Agropecuario/Pesca,2715,13
+2016-2020,Salud,Otros Servicios,2638,3
+2016-2020,Agropecuario/Pesca,Otros Servicios,2595,10
+2016-2020,Restaurantes/Hoteles,Otros Servicios,2498,9
+2016-2020,Educacion,Adm. Publica,2444,7
+2016-2020,Manufactura,Otros Servicios,2421,5
+2016-2020,Construccion,Transporte,2315,7
+2016-2020,Educacion,Comercio,2256,4
+2016-2020,Restaurantes/Hoteles,Transporte,2221,4
+2016-2020,Agropecuario/Pesca,Salud,2199,5
+2016-2020,Construccion,Manufactura,2159,2
+2016-2020,Otros Servicios,Transporte,2108,3
+2016-2020,Agropecuario/Pesca,Adm. Publica,2061,11
+2016-2020,Comercio,Construccion,2022,5
+2016-2020,Adm. Publica,Educacion,2021,12
+2016-2020,Manufactura,Transporte,1997,3
+2016-2020,Transporte,Otros Servicios,1922,6
+2016-2020,Agropecuario/Pesca,Educacion,1866,6
+2016-2020,Agropecuario/Pesca,Transporte,1865,10
+2016-2020,Agropecuario/Pesca,Restaurantes/Hoteles,1850,15
+2016-2020,Adm. Publica,Transporte,1835,5
+2016-2020,Adm. Publica,Construccion,1644,6
+2016-2020,Electricidad/Agua,Electricidad/Agua,1624,6
+2016-2020,Adm. Publica,Salud,1549,6
+2016-2020,Adm. Publica,Restaurantes/Hoteles,1399,3
+2016-2020,Comercio,Educacion,1391,5
+2016-2020,Construccion,Comercio,1368,4
+2016-2020,Manufactura,Restaurantes/Hoteles,1363,5
+2016-2020,Restaurantes/Hoteles,Construccion,1360,2
+2016-2020,Salud,Comercio,1344,6
+2016-2020,Mineria,Mineria,1265,6
+2016-2020,Restaurantes/Hoteles,Adm. Publica,1250,4
+2016-2020,Electricidad/Agua,Comercio,1152,1
+2016-2020,Construccion,Adm. Publica,1150,5
+2016-2020,Comercio,Adm. Publica,1069,6
+2016-2020,Educacion,Otros Servicios,1006,3
+2016-2020,Salud,Agropecuario/Pesca,995,6
+2016-2020,Construccion,Electricidad/Agua,990,3
+2016-2020,Comercio,Electricidad/Agua,924,2
+2016-2020,Comercio,Salud,878,3
+2016-2020,Adm. Publica,Otros Servicios,868,3
+2016-2020,Otros Servicios,Construccion,861,3
+2016-2020,Mineria,Agropecuario/Pesca,848,3
+2016-2020,Comercio,Mineria,843,2
+2016-2020,Otros Servicios,Educacion,843,3
+2016-2020,Mineria,Comercio,787,3
+2016-2020,Otros Servicios,Mineria,772,1
+2016-2020,Otros Servicios,Salud,694,5
+2016-2020,Electricidad/Agua,Construccion,653,1
+2016-2020,Electricidad/Agua,Otros Servicios,584,1
+2016-2020,Salud,Adm. Publica,552,3
+2016-2020,Transporte,Mineria,514,1
+2016-2020,Construccion,Otros Servicios,385,3
+2016-2020,Transporte,Educacion,361,3
+2016-2020,Manufactura,Electricidad/Agua,343,1
+2016-2020,Educacion,Construccion,342,2
+2016-2020,Mineria,Electricidad/Agua,332,1
+2016-2020,Adm. Publica,Comercio,330,3
+2016-2020,Manufactura,Mineria,316,1
+2016-2020,Transporte,Electricidad/Agua,296,1
+2016-2020,Transporte,Adm. Publica,287,2
+2016-2020,Educacion,Agropecuario/Pesca,285,5
+2016-2020,Transporte,Manufactura,253,1
+2016-2020,Electricidad/Agua,Agropecuario/Pesca,214,1
+2016-2020,Educacion,Manufactura,207,1
+2016-2020,Salud,Construccion,182,1
+2016-2020,Agropecuario/Pesca,Electricidad/Agua,173,1
+2016-2020,Transporte,Restaurantes/Hoteles,159,1
+2016-2020,Electricidad/Agua,Restaurantes/Hoteles,137,1
+2016-2020,Adm. Publica,Manufactura,121,1
+2016-2020,Construccion,Restaurantes/Hoteles,94,1
+2016-2020,Adm. Publica,Mineria,84,1
+2016-2020,Construccion,Educacion,69,1
+2016-2020,Manufactura,Adm. Publica,57,1
+2016-2020,Restaurantes/Hoteles,Mineria,54,1
+2016-2020,Mineria,Manufactura,44,1
+2016-2020,Manufactura,Educacion,36,1
+2016-2020,Restaurantes/Hoteles,Salud,5,1
+2017-2021,Agropecuario/Pesca,Agropecuario/Pesca,179689,1142
+2017-2021,Comercio,Comercio,83698,318
+2017-2021,Otros Servicios,Otros Servicios,41423,108
+2017-2021,Educacion,Educacion,35203,124
+2017-2021,Transporte,Transporte,30135,97
+2017-2021,Construccion,Construccion,30026,89
+2017-2021,Manufactura,Manufactura,29538,86
+2017-2021,Restaurantes/Hoteles,Restaurantes/Hoteles,22026,72
+2017-2021,Adm. Publica,Adm. Publica,17383,67
+2017-2021,Comercio,Agropecuario/Pesca,15152,76
+2017-2021,Restaurantes/Hoteles,Comercio,14566,42
+2017-2021,Comercio,Manufactura,12570,29
+2017-2021,Manufactura,Comercio,10594,28
+2017-2021,Agropecuario/Pesca,Comercio,10236,45
+2017-2021,Otros Servicios,Comercio,10068,30
+2017-2021,Salud,Salud,9142,33
+2017-2021,Comercio,Otros Servicios,8697,21
+2017-2021,Manufactura,Agropecuario/Pesca,6735,31
+2017-2021,Comercio,Restaurantes/Hoteles,6448,20
+2017-2021,Agropecuario/Pesca,Adm. Publica,6253,28
+2017-2021,Transporte,Comercio,5996,20
+2017-2021,Construccion,Agropecuario/Pesca,5485,24
+2017-2021,Agropecuario/Pesca,Construccion,5431,25
+2017-2021,Agropecuario/Pesca,Manufactura,5193,25
+2017-2021,Restaurantes/Hoteles,Otros Servicios,4423,16
+2017-2021,Otros Servicios,Adm. Publica,4322,11
+2017-2021,Comercio,Construccion,4051,12
+2017-2021,Transporte,Agropecuario/Pesca,3920,20
+2017-2021,Otros Servicios,Manufactura,3737,9
+2017-2021,Otros Servicios,Restaurantes/Hoteles,3615,14
+2017-2021,Manufactura,Construccion,3547,9
+2017-2021,Otros Servicios,Agropecuario/Pesca,3530,17
+2017-2021,Mineria,Mineria,3423,15
+2017-2021,Restaurantes/Hoteles,Agropecuario/Pesca,3373,22
+2017-2021,Manufactura,Otros Servicios,3269,11
+2017-2021,Otros Servicios,Construccion,3130,13
+2017-2021,Construccion,Transporte,3049,7
+2017-2021,Adm. Publica,Salud,3008,9
+2017-2021,Transporte,Construccion,2866,7
+2017-2021,Comercio,Transporte,2538,9
+2017-2021,Otros Servicios,Salud,2516,4
+2017-2021,Manufactura,Transporte,2404,8
+2017-2021,Agropecuario/Pesca,Restaurantes/Hoteles,2337,10
+2017-2021,Comercio,Adm. Publica,2326,9
+2017-2021,Restaurantes/Hoteles,Salud,2260,5
+2017-2021,Construccion,Manufactura,2211,7
+2017-2021,Otros Servicios,Educacion,2169,5
+2017-2021,Transporte,Adm. Publica,2098,2
+2017-2021,Educacion,Agropecuario/Pesca,2084,7
+2017-2021,Restaurantes/Hoteles,Transporte,1938,4
+2017-2021,Otros Servicios,Transporte,1888,5
+2017-2021,Adm. Publica,Agropecuario/Pesca,1829,9
+2017-2021,Agropecuario/Pesca,Otros Servicios,1797,12
+2017-2021,Adm. Publica,Construccion,1791,7
+2017-2021,Manufactura,Restaurantes/Hoteles,1717,7
+2017-2021,Construccion,Comercio,1696,5
+2017-2021,Electricidad/Agua,Otros Servicios,1631,2
+2017-2021,Comercio,Salud,1563,5
+2017-2021,Restaurantes/Hoteles,Manufactura,1513,8
+2017-2021,Agropecuario/Pesca,Mineria,1472,5
+2017-2021,Adm. Publica,Otros Servicios,1470,6
+2017-2021,Agropecuario/Pesca,Transporte,1428,8
+2017-2021,Educacion,Otros Servicios,1402,3
+2017-2021,Construccion,Adm. Publica,1391,3
+2017-2021,Mineria,Agropecuario/Pesca,1319,5
+2017-2021,Electricidad/Agua,Electricidad/Agua,1267,8
+2017-2021,Comercio,Mineria,1266,2
+2017-2021,Manufactura,Adm. Publica,1182,4
+2017-2021,Educacion,Construccion,1167,2
+2017-2021,Transporte,Otros Servicios,1158,6
+2017-2021,Comercio,Educacion,1067,5
+2017-2021,Electricidad/Agua,Manufactura,1046,1
+2017-2021,Educacion,Comercio,998,6
+2017-2021,Manufactura,Educacion,911,2
+2017-2021,Construccion,Mineria,903,2
+2017-2021,Educacion,Adm. Publica,850,5
+2017-2021,Salud,Otros Servicios,777,3
+2017-2021,Transporte,Manufactura,776,3
+2017-2021,Mineria,Manufactura,753,3
+2017-2021,Construccion,Otros Servicios,696,5
+2017-2021,Adm. Publica,Manufactura,681,2
+2017-2021,Mineria,Restaurantes/Hoteles,653,1
+2017-2021,Agropecuario/Pesca,Educacion,623,5
+2017-2021,Mineria,Comercio,610,2
+2017-2021,Transporte,Salud,599,2
+2017-2021,Transporte,Mineria,564,1
+2017-2021,Electricidad/Agua,Agropecuario/Pesca,554,2
+2017-2021,Transporte,Restaurantes/Hoteles,478,3
+2017-2021,Educacion,Salud,470,2
+2017-2021,Educacion,Manufactura,443,2
+2017-2021,Educacion,Restaurantes/Hoteles,427,2
+2017-2021,Adm. Publica,Transporte,344,2
+2017-2021,Agropecuario/Pesca,Electricidad/Agua,343,2
+2017-2021,Construccion,Electricidad/Agua,332,1
+2017-2021,Salud,Comercio,331,2
+2017-2021,Mineria,Transporte,313,2
+2017-2021,Electricidad/Agua,Construccion,307,1
+2017-2021,Restaurantes/Hoteles,Mineria,296,1
+2017-2021,Adm. Publica,Comercio,293,1
+2017-2021,Restaurantes/Hoteles,Educacion,285,2
+2017-2021,Electricidad/Agua,Transporte,270,1
+2017-2021,Restaurantes/Hoteles,Adm. Publica,252,3
+2017-2021,Otros Servicios,Electricidad/Agua,248,1
+2017-2021,Adm. Publica,Restaurantes/Hoteles,246,1
+2017-2021,Adm. Publica,Educacion,236,2
+2017-2021,Transporte,Educacion,213,1
+2017-2021,Salud,Agropecuario/Pesca,210,2
+2017-2021,Salud,Adm. Publica,203,2
+2017-2021,Construccion,Restaurantes/Hoteles,198,1
+2017-2021,Transporte,Electricidad/Agua,166,1
+2017-2021,Agropecuario/Pesca,Salud,133,1
+2017-2021,Mineria,Construccion,129,2
+2017-2021,Construccion,Educacion,99,2
+2017-2021,Educacion,Transporte,24,1
+2018-2022,Agropecuario/Pesca,Agropecuario/Pesca,194978,1221
+2018-2022,Comercio,Comercio,96148,333
+2018-2022,Otros Servicios,Otros Servicios,32218,106
+2018-2022,Manufactura,Manufactura,29594,87
+2018-2022,Transporte,Transporte,28573,99
+2018-2022,Educacion,Educacion,25981,107
+2018-2022,Construccion,Construccion,24601,68
+2018-2022,Restaurantes/Hoteles,Restaurantes/Hoteles,18984,76
+2018-2022,Adm. Publica,Adm. Publica,15551,59
+2018-2022,Salud,Salud,11107,38
+2018-2022,Otros Servicios,Comercio,10384,26
+2018-2022,Comercio,Otros Servicios,9849,29
+2018-2022,Restaurantes/Hoteles,Comercio,9784,36
+2018-2022,Agropecuario/Pesca,Comercio,8782,53
+2018-2022,Comercio,Restaurantes/Hoteles,8143,26
+2018-2022,Agropecuario/Pesca,Construccion,8065,29
+2018-2022,Comercio,Agropecuario/Pesca,7776,42
+2018-2022,Comercio,Transporte,7369,20
+2018-2022,Comercio,Manufactura,7068,16
+2018-2022,Manufactura,Comercio,6733,19
+2018-2022,Transporte,Comercio,6233,16
+2018-2022,Manufactura,Agropecuario/Pesca,5695,28
+2018-2022,Construccion,Agropecuario/Pesca,4956,21
+2018-2022,Agropecuario/Pesca,Manufactura,4931,30
+2018-2022,Otros Servicios,Manufactura,4930,10
+2018-2022,Otros Servicios,Agropecuario/Pesca,4730,18
+2018-2022,Otros Servicios,Restaurantes/Hoteles,4710,15
+2018-2022,Agropecuario/Pesca,Transporte,3981,18
+2018-2022,Otros Servicios,Adm. Publica,3844,11
+2018-2022,Manufactura,Otros Servicios,3767,12
+2018-2022,Restaurantes/Hoteles,Manufactura,3694,12
+2018-2022,Agropecuario/Pesca,Restaurantes/Hoteles,3672,22
+2018-2022,Manufactura,Restaurantes/Hoteles,3428,6
+2018-2022,Adm. Publica,Agropecuario/Pesca,3390,17
+2018-2022,Manufactura,Transporte,3345,6
+2018-2022,Comercio,Adm. Publica,3343,11
+2018-2022,Agropecuario/Pesca,Adm. Publica,3197,25
+2018-2022,Manufactura,Mineria,3131,4
+2018-2022,Comercio,Construccion,3127,9
+2018-2022,Restaurantes/Hoteles,Otros Servicios,3041,10
+2018-2022,Adm. Publica,Otros Servicios,2885,9
+2018-2022,Agropecuario/Pesca,Otros Servicios,2877,13
+2018-2022,Construccion,Transporte,2661,7
+2018-2022,Transporte,Agropecuario/Pesca,2564,12
+2018-2022,Otros Servicios,Transporte,2404,6
+2018-2022,Restaurantes/Hoteles,Agropecuario/Pesca,2397,17
+2018-2022,Manufactura,Construccion,2257,5
+2018-2022,Construccion,Otros Servicios,2249,6
+2018-2022,Transporte,Adm. Publica,2143,6
+2018-2022,Electricidad/Agua,Comercio,2118,2
+2018-2022,Otros Servicios,Construccion,2112,5
+2018-2022,Transporte,Construccion,2096,6
+2018-2022,Adm. Publica,Manufactura,1976,3
+2018-2022,Transporte,Otros Servicios,1822,7
+2018-2022,Mineria,Agropecuario/Pesca,1808,7
+2018-2022,Educacion,Comercio,1753,4
+2018-2022,Educacion,Otros Servicios,1704,4
+2018-2022,Construccion,Manufactura,1619,6
+2018-2022,Otros Servicios,Educacion,1619,6
+2018-2022,Restaurantes/Hoteles,Transporte,1612,2
+2018-2022,Otros Servicios,Salud,1603,7
+2018-2022,Agropecuario/Pesca,Mineria,1502,7
+2018-2022,Manufactura,Adm. Publica,1474,6
+2018-2022,Transporte,Mineria,1451,2
+2018-2022,Educacion,Restaurantes/Hoteles,1432,3
+2018-2022,Salud,Adm. Publica,1378,5
+2018-2022,Transporte,Manufactura,1373,4
+2018-2022,Mineria,Mineria,1344,16
+2018-2022,Educacion,Agropecuario/Pesca,1246,7
+2018-2022,Electricidad/Agua,Otros Servicios,1235,1
+2018-2022,Electricidad/Agua,Electricidad/Agua,1177,4
+2018-2022,Construccion,Adm. Publica,1176,5
+2018-2022,Educacion,Manufactura,1167,4
+2018-2022,Otros Servicios,Electricidad/Agua,1166,1
+2018-2022,Restaurantes/Hoteles,Construccion,986,3
+2018-2022,Adm. Publica,Restaurantes/Hoteles,973,5
+2018-2022,Educacion,Transporte,958,1
+2018-2022,Comercio,Educacion,944,5
+2018-2022,Comercio,Mineria,934,4
+2018-2022,Adm. Publica,Comercio,917,8
+2018-2022,Construccion,Comercio,797,3
+2018-2022,Adm. Publica,Transporte,780,5
+2018-2022,Construccion,Restaurantes/Hoteles,758,3
+2018-2022,Educacion,Salud,746,3
+2018-2022,Salud,Comercio,721,4
+2018-2022,Comercio,Electricidad/Agua,622,3
+2018-2022,Adm. Publica,Construccion,576,2
+2018-2022,Mineria,Transporte,553,4
+2018-2022,Transporte,Electricidad/Agua,454,2
+2018-2022,Agropecuario/Pesca,Salud,453,2
+2018-2022,Adm. Publica,Salud,432,2
+2018-2022,Salud,Agropecuario/Pesca,369,2
+2018-2022,Electricidad/Agua,Agropecuario/Pesca,360,2
+2018-2022,Adm. Publica,Educacion,355,2
+2018-2022,Mineria,Restaurantes/Hoteles,311,1
+2018-2022,Agropecuario/Pesca,Educacion,286,2
+2018-2022,Otros Servicios,Mineria,283,1
+2018-2022,Transporte,Salud,283,1
+2018-2022,Mineria,Construccion,269,1
+2018-2022,Manufactura,Salud,263,1
+2018-2022,Comercio,Salud,247,3
+2018-2022,Mineria,Manufactura,219,1
+2018-2022,Salud,Manufactura,175,2
+2018-2022,Educacion,Adm. Publica,167,2
+2018-2022,Construccion,Mineria,165,1
+2018-2022,Salud,Otros Servicios,147,1
+2018-2022,Transporte,Restaurantes/Hoteles,106,1
+2018-2022,Mineria,Otros Servicios,74,1
+2018-2022,Educacion,Construccion,62,1
+2018-2022,Construccion,Electricidad/Agua,55,1
+2018-2022,Adm. Publica,Mineria,52,1
+2018-2022,Restaurantes/Hoteles,Educacion,39,1
+2018-2022,Mineria,Adm. Publica,18,1
+2019-2023,Agropecuario/Pesca,Agropecuario/Pesca,205349,1240
+2019-2023,Comercio,Comercio,98098,321
+2019-2023,Otros Servicios,Otros Servicios,50351,134
+2019-2023,Transporte,Transporte,40592,107
+2019-2023,Manufactura,Manufactura,30130,95
+2019-2023,Restaurantes/Hoteles,Restaurantes/Hoteles,27628,95
+2019-2023,Educacion,Educacion,23166,101
+2019-2023,Construccion,Construccion,22051,70
+2019-2023,Salud,Salud,19905,62
+2019-2023,Adm. Publica,Adm. Publica,18306,69
+2019-2023,Manufactura,Comercio,13901,26
+2019-2023,Otros Servicios,Comercio,10812,33
+2019-2023,Agropecuario/Pesca,Comercio,9756,53
+2019-2023,Comercio,Agropecuario/Pesca,9044,42
+2019-2023,Comercio,Manufactura,8780,23
+2019-2023,Agropecuario/Pesca,Construccion,8577,30
+2019-2023,Agropecuario/Pesca,Restaurantes/Hoteles,7962,37
+2019-2023,Restaurantes/Hoteles,Comercio,7064,25
+2019-2023,Comercio,Otros Servicios,7009,29
+2019-2023,Construccion,Agropecuario/Pesca,6943,22
+2019-2023,Comercio,Restaurantes/Hoteles,6263,29
+2019-2023,Otros Servicios,Transporte,5801,12
+2019-2023,Transporte,Construccion,5575,10
+2019-2023,Restaurantes/Hoteles,Otros Servicios,5409,16
+2019-2023,Comercio,Construccion,5349,13
+2019-2023,Agropecuario/Pesca,Otros Servicios,4721,21
+2019-2023,Otros Servicios,Agropecuario/Pesca,4462,21
+2019-2023,Otros Servicios,Salud,4340,9
+2019-2023,Otros Servicios,Manufactura,4247,13
+2019-2023,Agropecuario/Pesca,Transporte,4055,20
+2019-2023,Transporte,Agropecuario/Pesca,4039,19
+2019-2023,Manufactura,Agropecuario/Pesca,4014,17
+2019-2023,Construccion,Transporte,3723,11
+2019-2023,Educacion,Comercio,3648,9
+2019-2023,Mineria,Mineria,3517,15
+2019-2023,Restaurantes/Hoteles,Manufactura,3215,13
+2019-2023,Comercio,Transporte,3094,7
+2019-2023,Agropecuario/Pesca,Manufactura,3030,14
+2019-2023,Comercio,Adm. Publica,3021,6
+2019-2023,Agropecuario/Pesca,Adm. Publica,2997,16
+2019-2023,Otros Servicios,Construccion,2922,7
+2019-2023,Construccion,Otros Servicios,2889,5
+2019-2023,Otros Servicios,Adm. Publica,2807,9
+2019-2023,Otros Servicios,Restaurantes/Hoteles,2779,13
+2019-2023,Transporte,Comercio,2669,13
+2019-2023,Restaurantes/Hoteles,Agropecuario/Pesca,2608,19
+2019-2023,Construccion,Comercio,2319,4
+2019-2023,Transporte,Restaurantes/Hoteles,2173,6
+2019-2023,Adm. Publica,Agropecuario/Pesca,2149,11
+2019-2023,Manufactura,Otros Servicios,2114,5
+2019-2023,Construccion,Manufactura,1955,4
+2019-2023,Comercio,Salud,1717,6
+2019-2023,Salud,Otros Servicios,1654,5
+2019-2023,Comercio,Educacion,1625,4
+2019-2023,Educacion,Agropecuario/Pesca,1536,11
+2019-2023,Construccion,Educacion,1490,2
+2019-2023,Adm. Publica,Otros Servicios,1483,8
+2019-2023,Electricidad/Agua,Otros Servicios,1403,3
+2019-2023,Salud,Adm. Publica,1359,7
+2019-2023,Manufactura,Construccion,1325,4
+2019-2023,Salud,Comercio,1290,1
+2019-2023,Manufactura,Mineria,1210,2
+2019-2023,Adm. Publica,Educacion,1157,5
+2019-2023,Adm. Publica,Manufactura,1115,2
+2019-2023,Comercio,Mineria,1103,3
+2019-2023,Adm. Publica,Restaurantes/Hoteles,1016,5
+2019-2023,Otros Servicios,Educacion,986,3
+2019-2023,Agropecuario/Pesca,Mineria,975,6
+2019-2023,Mineria,Agropecuario/Pesca,973,7
+2019-2023,Mineria,Manufactura,715,2
+2019-2023,Restaurantes/Hoteles,Educacion,680,1
+2019-2023,Electricidad/Agua,Comercio,655,2
+2019-2023,Electricidad/Agua,Electricidad/Agua,634,4
+2019-2023,Manufactura,Restaurantes/Hoteles,632,4
+2019-2023,Educacion,Otros Servicios,631,4
+2019-2023,Construccion,Electricidad/Agua,627,3
+2019-2023,Salud,Restaurantes/Hoteles,620,1
+2019-2023,Adm. Publica,Salud,616,4
+2019-2023,Restaurantes/Hoteles,Construccion,604,2
+2019-2023,Comercio,Electricidad/Agua,574,2
+2019-2023,Adm. Publica,Comercio,567,3
+2019-2023,Transporte,Adm. Publica,557,2
+2019-2023,Mineria,Transporte,549,3
+2019-2023,Transporte,Manufactura,539,2
+2019-2023,Agropecuario/Pesca,Salud,507,3
+2019-2023,Transporte,Mineria,480,3
+2019-2023,Otros Servicios,Electricidad/Agua,446,2
+2019-2023,Manufactura,Transporte,428,1
+2019-2023,Adm. Publica,Transporte,426,1
+2019-2023,Salud,Transporte,409,1
+2019-2023,Adm. Publica,Electricidad/Agua,386,3
+2019-2023,Transporte,Otros Servicios,349,4
+2019-2023,Agropecuario/Pesca,Electricidad/Agua,334,2
+2019-2023,Mineria,Construccion,333,1
+2019-2023,Restaurantes/Hoteles,Salud,332,1
+2019-2023,Adm. Publica,Construccion,317,1
+2019-2023,Agropecuario/Pesca,Educacion,290,2
+2019-2023,Mineria,Otros Servicios,274,2
+2019-2023,Electricidad/Agua,Construccion,270,1
+2019-2023,Restaurantes/Hoteles,Transporte,264,1
+2019-2023,Construccion,Adm. Publica,253,3
+2019-2023,Manufactura,Adm. Publica,237,1
+2019-2023,Manufactura,Educacion,228,1
+2019-2023,Transporte,Educacion,192,1
+2019-2023,Transporte,Electricidad/Agua,192,1
+2019-2023,Educacion,Restaurantes/Hoteles,180,1
+2019-2023,Manufactura,Salud,162,2
+2019-2023,Construccion,Restaurantes/Hoteles,149,1
+2019-2023,Electricidad/Agua,Mineria,149,1
+2019-2023,Otros Servicios,Mineria,69,1
+2019-2023,Mineria,Restaurantes/Hoteles,15,1
+2019-2023,Educacion,Manufactura,5,1
+2019-2023,Restaurantes/Hoteles,Adm. Publica,5,1

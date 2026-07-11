@@ -39,7 +39,7 @@ const STARS = {
   barras: ['gic_periodos', 'trust_by_institution_2025', 'eea_concentracion_industria', 'engel_elasticidades_2025'],
   mapa: ['gini_departamento_tiempo', 'indicadores_departamento_2025', 'income_real_province_2021_2025'],
   carrera: ['gini_departamento_tiempo', 'panel_departamento_2004_2025'],
-  red: ['migracion_od_departamento', 'empleo_sector_flujo_2007_2011'],
+  red: ['migracion_od_departamento', 'empleo_sector_flujo_paneles'],
   flujos: ['migracion_od_departamento'],
   matriz: ['panel_movilidad_quintil_2007_2011', 'panel_movilidad_quintil_2019_2023'],
 }

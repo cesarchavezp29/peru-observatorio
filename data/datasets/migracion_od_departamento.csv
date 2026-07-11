@@ -1,1975 +1,1975 @@
-anio,origen,destino,personas
-2018,Junin,Lima,31312
-2018,Ancash,Lima,20752
-2018,Piura,Lima,20522
-2018,Loreto,Lima,19568
-2018,Lima,Junin,19523
-2018,Lima,Lambayeque,18520
-2018,Lambayeque,Lima,17604
-2018,Lima,Piura,16632
-2018,Cajamarca,Lima,15860
-2018,Lima,Huanuco,13859
-2018,Lima,San Martin,12228
-2018,San Martin,Lima,12001
-2018,La Libertad,Lima,11057
-2018,Arequipa,Lima,10883
-2018,Lima,Arequipa,10836
-2018,Lima,Ancash,9703
-2018,Ica,Lima,9367
-2018,Ucayali,Lima,9363
-2018,Cusco,Lima,8682
-2018,Lima,Loreto,8677
-2018,Lima,La Libertad,8597
-2018,Huanuco,Lima,7860
-2018,Ayacucho,Lima,7808
-2018,Amazonas,Lima,7542
-2018,Tacna,Lima,7318
-2018,Lima,Ucayali,7169
-2018,Puno,Arequipa,7151
-2018,Cajamarca,Lambayeque,6918
-2018,Arequipa,Cusco,6768
-2018,Lima,Ayacucho,6160
-2018,Loreto,Ucayali,6037
-2018,Lima,Apurimac,5811
-2018,Lima,Cusco,5307
-2018,San Martin,Amazonas,5276
-2018,Huancavelica,Junin,5243
-2018,Cusco,Arequipa,5173
-2018,Loreto,San Martin,5110
-2018,Pasco,Lima,4861
-2018,Lambayeque,San Martin,4778
-2018,Lima,Amazonas,4773
-2018,Lambayeque,Cajamarca,4664
-2018,La Libertad,Ancash,4511
-2018,San Martin,Huanuco,4372
-2018,Piura,La Libertad,4278
-2018,Huanuco,Ucayali,4200
-2018,Tumbes,Lima,4141
-2018,Lambayeque,La Libertad,4119
-2018,Huancavelica,Lima,4091
-2018,Amazonas,Lambayeque,3989
-2018,Ucayali,San Martin,3921
-2018,Lima,Puno,3878
-2018,Lima,Pasco,3863
-2018,Cusco,Puno,3737
-2018,Ayacucho,Cusco,3679
-2018,Ucayali,Loreto,3648
-2018,Arequipa,Puno,3588
-2018,Cusco,Madre de Dios,3550
-2018,Lima,Ica,3528
-2018,Lambayeque,Amazonas,3516
-2018,Cajamarca,La Libertad,3429
-2018,Piura,Lambayeque,3331
-2018,Lima,Cajamarca,3192
-2018,Apurimac,Lima,3045
-2018,Huanuco,Junin,2919
-2018,Lima,Huancavelica,2861
-2018,Huanuco,Pasco,2856
-2018,Tumbes,La Libertad,2805
-2018,Amazonas,San Martin,2733
-2018,San Martin,Loreto,2572
-2018,Lima,Tumbes,2542
-2018,Madre de Dios,Lima,2474
-2018,Madre de Dios,Cusco,2352
-2018,Ucayali,Ancash,2325
-2018,Ancash,La Libertad,2312
-2018,La Libertad,Piura,2276
-2018,Amazonas,Cajamarca,2207
-2018,Ucayali,Junin,2203
-2018,San Martin,Cajamarca,2174
-2018,San Martin,Lambayeque,2167
-2018,San Martin,Ucayali,2104
-2018,Arequipa,Tacna,2098
-2018,Loreto,Lambayeque,2018
-2018,Junin,Pasco,2008
-2018,Moquegua,Arequipa,2002
-2018,Lambayeque,Piura,1992
-2018,Cajamarca,Amazonas,1967
-2018,Pasco,Huanuco,1923
-2018,Madre de Dios,Puno,1903
-2018,Puno,Tacna,1863
-2018,Ucayali,Huanuco,1863
-2018,Junin,Loreto,1817
-2018,Madre de Dios,Arequipa,1795
-2018,Cajamarca,San Martin,1774
-2018,Ayacucho,Arequipa,1740
-2018,Lima,Madre de Dios,1691
-2018,Ancash,Huanuco,1681
-2018,Lima,Tacna,1672
-2018,Piura,Tumbes,1659
-2018,Loreto,Ica,1647
-2018,Arequipa,Ayacucho,1602
-2018,Huanuco,Ancash,1589
-2018,San Martin,La Libertad,1577
-2018,La Libertad,San Martin,1539
-2018,Moquegua,Tacna,1530
-2018,Cajamarca,Loreto,1487
-2018,Puno,Cusco,1469
-2018,Loreto,Piura,1436
-2018,Ayacucho,Junin,1357
-2018,Cajamarca,Piura,1346
-2018,Huancavelica,Ica,1307
-2018,Piura,Loreto,1306
-2018,La Libertad,Cajamarca,1296
-2018,Piura,San Martin,1291
-2018,Ica,Ayacucho,1266
-2018,Cusco,Ayacucho,1223
-2018,Huanuco,San Martin,1213
-2018,Lambayeque,Loreto,1199
-2018,San Martin,Junin,1198
-2018,Junin,Cajamarca,1177
-2018,La Libertad,Junin,1170
-2018,Apurimac,Junin,1168
-2018,Ucayali,Ayacucho,1130
-2018,Junin,Huancavelica,1033
-2018,La Libertad,Loreto,1030
-2018,Puno,Madre de Dios,1020
-2018,Tacna,Moquegua,1018
-2018,Junin,Huanuco,1012
-2018,La Libertad,Amazonas,1003
-2018,Ica,Huancavelica,979
-2018,Junin,Ica,978
-2018,Lima,Moquegua,966
-2018,Arequipa,Moquegua,944
-2018,Arequipa,Ica,930
-2018,Huanuco,Lambayeque,928
-2018,Ayacucho,Huancavelica,926
-2018,Tumbes,Ancash,897
-2018,Puno,Junin,896
-2018,Loreto,La Libertad,895
-2018,Ancash,San Martin,873
-2018,Junin,San Martin,867
-2018,Tacna,Puno,866
-2018,Arequipa,Cajamarca,847
-2018,La Libertad,Lambayeque,817
-2018,Amazonas,La Libertad,807
-2018,Huancavelica,Ayacucho,779
-2018,Cusco,Apurimac,769
-2018,Puno,Moquegua,755
-2018,Madre de Dios,Ucayali,751
-2018,Puno,San Martin,723
-2018,Tumbes,Loreto,709
-2018,Apurimac,Cusco,683
-2018,Cusco,Junin,674
-2018,Junin,Ancash,666
-2018,Huanuco,Piura,657
-2018,Cusco,San Martin,639
-2018,Junin,Arequipa,620
-2018,Huancavelica,Pasco,605
-2018,Ica,Apurimac,599
-2018,Ucayali,Madre de Dios,599
-2018,Moquegua,Puno,598
-2018,Pasco,Junin,587
-2018,Madre de Dios,Junin,580
-2018,Cajamarca,Cusco,558
-2018,Huanuco,La Libertad,552
-2018,Moquegua,Lima,551
-2018,La Libertad,Huanuco,528
-2018,Ayacucho,Puno,524
-2018,La Libertad,Arequipa,516
-2018,Ancash,Junin,506
-2018,Madre de Dios,Ica,491
-2018,Cusco,Tacna,481
-2018,Arequipa,Junin,480
-2018,Cusco,La Libertad,475
-2018,Ayacucho,Ica,470
-2018,Arequipa,Apurimac,468
-2018,Puno,Ayacucho,468
-2018,Arequipa,Madre de Dios,463
-2018,La Libertad,Cusco,461
-2018,Loreto,Madre de Dios,452
-2018,Junin,Ucayali,451
-2018,Ayacucho,Apurimac,446
-2018,Cajamarca,Junin,424
-2018,Huanuco,Loreto,424
-2018,Cajamarca,Ica,421
-2018,Cusco,Loreto,408
-2018,Ica,Pasco,407
-2018,Ica,Amazonas,403
-2018,Ancash,Pasco,396
-2018,Apurimac,Arequipa,394
-2018,Pasco,Ucayali,394
-2018,La Libertad,Ucayali,392
-2018,Ica,Arequipa,388
-2018,Junin,Ayacucho,388
-2018,Ica,Ucayali,386
-2018,La Libertad,Ayacucho,382
-2018,Tacna,Apurimac,378
-2018,Amazonas,Arequipa,358
-2018,Ica,Loreto,349
-2018,San Martin,Cusco,337
-2018,Arequipa,Ancash,332
-2018,Piura,Arequipa,329
-2018,Arequipa,Lambayeque,327
-2018,Ancash,Cajamarca,325
-2018,Ucayali,Tacna,312
-2018,Tumbes,Lambayeque,307
-2018,Lambayeque,Ica,304
-2018,Junin,Madre de Dios,299
-2018,San Martin,Ancash,297
-2018,San Martin,Piura,287
-2018,Cusco,Ucayali,285
-2018,Amazonas,Ancash,280
-2018,Amazonas,Loreto,279
-2018,Apurimac,Ica,269
-2018,Ancash,Piura,267
-2018,Arequipa,Ucayali,243
-2018,Ica,Madre de Dios,243
-2018,Ucayali,Cusco,240
-2018,Puno,Huancavelica,239
-2018,Moquegua,Huanuco,237
-2018,Pasco,Loreto,237
-2018,Ayacucho,Piura,231
-2018,Cajamarca,Ancash,224
-2018,Cusco,Moquegua,224
-2018,Loreto,Arequipa,216
-2018,Puno,Apurimac,216
-2018,San Martin,Ica,210
-2018,Huancavelica,Cusco,186
-2018,Ica,San Martin,185
-2018,Piura,Ancash,185
-2018,Ucayali,La Libertad,184
-2018,Lambayeque,Junin,183
-2018,Tacna,Arequipa,179
-2018,Piura,Ucayali,176
-2018,Amazonas,Ucayali,175
-2018,Ica,Puno,162
-2018,Junin,La Libertad,154
-2018,La Libertad,Tumbes,151
-2018,Loreto,Apurimac,151
-2018,Tumbes,Piura,141
-2018,San Martin,Madre de Dios,139
-2018,Apurimac,Moquegua,135
-2018,Ica,Moquegua,134
-2018,Pasco,Lambayeque,133
-2018,Cajamarca,Madre de Dios,127
-2018,San Martin,Moquegua,127
-2018,Pasco,Ayacucho,126
-2018,Arequipa,San Martin,120
-2018,Loreto,Tacna,118
-2018,Ica,Ancash,112
-2018,Lambayeque,Tumbes,112
-2018,Tumbes,Arequipa,112
-2018,Junin,Apurimac,110
-2018,Lambayeque,Ancash,109
-2018,Ucayali,Arequipa,105
-2018,Lambayeque,Ucayali,101
-2018,Apurimac,Madre de Dios,96
-2018,Loreto,Ayacucho,92
-2018,Amazonas,Madre de Dios,90
-2018,La Libertad,Madre de Dios,90
-2018,Loreto,Pasco,88
-2018,Piura,Amazonas,88
-2018,Loreto,Tumbes,86
-2018,Ica,Junin,81
-2018,Cajamarca,Ucayali,78
-2018,Junin,Moquegua,78
-2018,Loreto,Moquegua,77
-2018,Tacna,Madre de Dios,77
-2018,Amazonas,Pasco,75
-2018,Cajamarca,Tumbes,75
-2018,La Libertad,Moquegua,75
-2018,Lambayeque,Huanuco,74
-2018,Amazonas,Tumbes,67
-2018,Puno,Piura,63
-2018,Loreto,Amazonas,62
-2018,Tumbes,Moquegua,60
-2018,Arequipa,Amazonas,59
-2018,Ucayali,Amazonas,59
-2018,Apurimac,Tacna,57
-2018,Junin,Tacna,53
-2018,Ancash,Tumbes,51
-2018,Lambayeque,Arequipa,47
-2018,La Libertad,Pasco,46
-2018,Ucayali,Pasco,42
-2018,Cajamarca,Tacna,40
-2018,Huanuco,Tacna,40
-2018,Apurimac,Pasco,38
-2018,Ancash,Ucayali,37
-2018,Cajamarca,Arequipa,37
-2018,Ancash,Madre de Dios,23
-2018,Ayacucho,Madre de Dios,23
-2018,Ayacucho,La Libertad,22
-2018,Huanuco,Madre de Dios,22
-2018,La Libertad,Tacna,16
-2018,Lambayeque,Tacna,16
-2018,Tacna,Ica,9
-2018,Moquegua,Madre de Dios,6
-2018,Piura,Madre de Dios,5
-2018,Arequipa,Loreto,3
-2019,Lima,Junin,20946
-2019,Junin,Lima,20634
-2019,Loreto,Lima,19231
-2019,Lima,La Libertad,18433
-2019,Piura,Lima,18058
-2019,San Martin,Lima,17707
-2019,Ancash,Lima,15588
-2019,Lima,San Martin,14892
-2019,Lima,Piura,13535
-2019,Lima,Ayacucho,12918
-2019,Lima,Ancash,12895
-2019,Lima,Lambayeque,12821
-2019,Lambayeque,Lima,12664
-2019,Puno,Arequipa,12207
-2019,Lima,Loreto,11534
-2019,Huanuco,Lima,11292
-2019,Lima,Huanuco,11028
-2019,Cajamarca,Lima,10512
-2019,Cajamarca,La Libertad,10199
-2019,Cusco,Lima,10154
-2019,Lima,Arequipa,9096
-2019,Lima,Ucayali,8858
-2019,Ica,Lima,8546
-2019,La Libertad,Lima,8361
-2019,Lima,Cusco,8018
-2019,Huancavelica,Lima,7699
-2019,Pasco,Junin,7326
-2019,Amazonas,Lima,6824
-2019,Arequipa,Lima,6587
-2019,Arequipa,Cusco,6534
-2019,Cajamarca,Lambayeque,6410
-2019,Loreto,San Martin,5875
-2019,Lima,Cajamarca,5673
-2019,Ayacucho,Lima,5130
-2019,Lima,Amazonas,5119
-2019,Cusco,Arequipa,5071
-2019,Lima,Ica,4973
-2019,Loreto,Ucayali,4883
-2019,Apurimac,Lima,4816
-2019,Cusco,Madre de Dios,4671
-2019,Arequipa,Puno,4658
-2019,Lima,Apurimac,4643
-2019,Ucayali,Lima,4384
-2019,Lambayeque,Amazonas,4292
-2019,Junin,Pasco,4134
-2019,Lima,Pasco,4086
-2019,Cusco,Apurimac,4012
-2019,San Martin,Loreto,3991
-2019,Puno,Tacna,3922
-2019,Lima,Puno,3782
-2019,Moquegua,Arequipa,3645
-2019,Amazonas,San Martin,3519
-2019,Madre de Dios,Cusco,3456
-2019,Moquegua,Lima,3362
-2019,Cusco,Puno,3335
-2019,Piura,Lambayeque,3126
-2019,Apurimac,Arequipa,3047
-2019,Puno,Lima,3002
-2019,La Libertad,San Martin,2965
-2019,Lambayeque,Piura,2850
-2019,San Martin,Lambayeque,2778
-2019,Ica,Ayacucho,2774
-2019,Amazonas,Cajamarca,2716
-2019,Huancavelica,Junin,2635
-2019,La Libertad,Piura,2461
-2019,Lambayeque,Loreto,2443
-2019,Tacna,Lima,2402
-2019,Pasco,Lima,2397
-2019,Lambayeque,San Martin,2350
-2019,Cusco,Ayacucho,2318
-2019,San Martin,La Libertad,2241
-2019,Madre de Dios,Puno,2201
-2019,Ucayali,Junin,2171
-2019,Huanuco,Ucayali,2169
-2019,Tumbes,Piura,2152
-2019,Ucayali,Loreto,2133
-2019,San Martin,Amazonas,2052
-2019,La Libertad,Ica,2043
-2019,Ucayali,Huanuco,1948
-2019,Huanuco,San Martin,1929
-2019,La Libertad,Cajamarca,1928
-2019,Arequipa,Tacna,1819
-2019,Apurimac,Cusco,1774
-2019,Cajamarca,Amazonas,1743
-2019,Junin,Ucayali,1735
-2019,Lima,Tacna,1727
-2019,Lambayeque,Cajamarca,1691
-2019,Cajamarca,San Martin,1675
-2019,Tacna,Puno,1672
-2019,Moquegua,Puno,1589
-2019,La Libertad,Loreto,1571
-2019,San Martin,Ucayali,1547
-2019,San Martin,Cajamarca,1523
-2019,Lima,Huancavelica,1467
-2019,Cusco,La Libertad,1466
-2019,Piura,Tumbes,1413
-2019,Madre de Dios,Lima,1398
-2019,Ancash,Huanuco,1327
-2019,Lima,Tumbes,1326
-2019,Moquegua,Tacna,1320
-2019,Ica,Apurimac,1318
-2019,La Libertad,Amazonas,1279
-2019,Pasco,Huanuco,1261
-2019,Arequipa,Apurimac,1257
-2019,Puno,Cusco,1256
-2019,Lima,Madre de Dios,1212
-2019,Pasco,La Libertad,1204
-2019,Cusco,Junin,1195
-2019,Ayacucho,Apurimac,1192
-2019,Ayacucho,Ica,1173
-2019,Arequipa,Moquegua,1171
-2019,La Libertad,Ancash,1153
-2019,Piura,San Martin,1055
-2019,Junin,Huancavelica,1033
-2019,La Libertad,Lambayeque,1029
-2019,Arequipa,Piura,1005
-2019,Arequipa,Madre de Dios,990
-2019,Huanuco,Pasco,981
-2019,Tacna,Arequipa,956
-2019,Loreto,Cajamarca,952
-2019,Huancavelica,Ica,936
-2019,Tacna,Moquegua,902
-2019,Piura,La Libertad,887
-2019,Cajamarca,Piura,855
-2019,Junin,Arequipa,849
-2019,Cajamarca,Loreto,848
-2019,Lambayeque,La Libertad,840
-2019,Ayacucho,Huancavelica,832
-2019,Amazonas,La Libertad,823
-2019,Junin,Ayacucho,795
-2019,La Libertad,Cusco,761
-2019,Huancavelica,Pasco,750
-2019,Lima,Moquegua,732
-2019,Arequipa,Ica,731
-2019,Junin,Ancash,723
-2019,San Martin,Huanuco,711
-2019,San Martin,Piura,688
-2019,Pasco,Ica,671
-2019,Cajamarca,Huanuco,652
-2019,Cusco,Piura,627
-2019,Ucayali,San Martin,627
-2019,Ucayali,Arequipa,605
-2019,Ayacucho,Cusco,599
-2019,Ucayali,La Libertad,590
-2019,Junin,Piura,582
-2019,Ica,Huancavelica,572
-2019,Piura,Ayacucho,570
-2019,Amazonas,Lambayeque,567
-2019,Ancash,La Libertad,557
-2019,Lambayeque,Arequipa,547
-2019,Huanuco,Madre de Dios,520
-2019,Junin,Cusco,512
-2019,Ancash,Piura,510
-2019,Moquegua,Ica,509
-2019,Loreto,Lambayeque,506
-2019,Junin,Huanuco,478
-2019,Madre de Dios,Ica,477
-2019,Puno,Madre de Dios,469
-2019,Loreto,Amazonas,467
-2019,Puno,Moquegua,455
-2019,Piura,Junin,452
-2019,Ucayali,Ayacucho,450
-2019,Apurimac,La Libertad,443
-2019,Junin,San Martin,438
-2019,Tumbes,Loreto,423
-2019,Piura,Loreto,415
-2019,Loreto,Pasco,412
-2019,Junin,La Libertad,409
-2019,Apurimac,Junin,407
-2019,Junin,Ica,405
-2019,Cusco,Tacna,401
-2019,La Libertad,Tumbes,398
-2019,Madre de Dios,Apurimac,398
-2019,La Libertad,Arequipa,395
-2019,Ayacucho,Arequipa,389
-2019,Puno,Ucayali,386
-2019,Arequipa,San Martin,377
-2019,Huanuco,Junin,374
-2019,Ayacucho,Huanuco,373
-2019,Lambayeque,Tumbes,372
-2019,Loreto,Huanuco,368
-2019,Piura,Arequipa,358
-2019,Tacna,Loreto,352
-2019,Cusco,Lambayeque,348
-2019,Ucayali,Pasco,344
-2019,Huancavelica,Lambayeque,338
-2019,Loreto,La Libertad,336
-2019,Huanuco,Arequipa,324
-2019,Lambayeque,Ucayali,323
-2019,Ica,Amazonas,322
-2019,Moquegua,Piura,316
-2019,Ucayali,Madre de Dios,305
-2019,San Martin,Ayacucho,291
-2019,Tumbes,Lambayeque,291
-2019,Pasco,Ucayali,288
-2019,Ancash,Cajamarca,287
-2019,Puno,Ayacucho,267
-2019,Huancavelica,San Martin,264
-2019,Ica,Lambayeque,260
-2019,Madre de Dios,San Martin,258
-2019,Piura,Ica,258
-2019,Puno,Loreto,255
-2019,Cajamarca,Madre de Dios,251
-2019,Huanuco,Ancash,244
-2019,Huancavelica,Ayacucho,242
-2019,La Libertad,Apurimac,239
-2019,Tacna,Ucayali,238
-2019,Ica,Arequipa,237
-2019,Cajamarca,Apurimac,227
-2019,Cajamarca,Pasco,223
-2019,Ancash,Tumbes,219
-2019,San Martin,Madre de Dios,218
-2019,San Martin,Moquegua,218
-2019,Amazonas,Piura,211
-2019,Ancash,Ica,205
-2019,Ancash,Ayacucho,192
-2019,Ica,Loreto,190
-2019,Cajamarca,Ancash,184
-2019,La Libertad,Huanuco,182
-2019,Cajamarca,Tumbes,180
-2019,Ancash,Pasco,179
-2019,Apurimac,Puno,171
-2019,Apurimac,Loreto,166
-2019,Arequipa,Ayacucho,164
-2019,Moquegua,Ancash,160
-2019,Cusco,Huancavelica,159
-2019,Apurimac,Ayacucho,153
-2019,Madre de Dios,Ucayali,151
-2019,Junin,Loreto,148
-2019,Loreto,Tacna,147
-2019,Huanuco,Lambayeque,145
-2019,Ica,Madre de Dios,145
-2019,Junin,Lambayeque,145
-2019,Loreto,Huancavelica,144
-2019,Puno,Tumbes,137
-2019,Loreto,Apurimac,133
-2019,Madre de Dios,Ayacucho,133
-2019,Loreto,Ancash,131
-2019,Ancash,Apurimac,129
-2019,Apurimac,Madre de Dios,127
-2019,Loreto,Arequipa,126
-2019,Amazonas,Loreto,124
-2019,Ayacucho,Loreto,122
-2019,Cusco,Ucayali,119
-2019,Ancash,Arequipa,117
-2019,Pasco,Apurimac,114
-2019,Huanuco,Tacna,102
-2019,Madre de Dios,Tacna,102
-2019,Ucayali,Tacna,102
-2019,Ayacucho,Moquegua,86
-2019,Ica,Moquegua,86
-2019,Huancavelica,Amazonas,84
-2019,La Libertad,Pasco,82
-2019,Madre de Dios,Amazonas,81
-2019,Moquegua,Amazonas,79
-2019,Apurimac,Moquegua,75
-2019,Tacna,Amazonas,73
-2019,Huanuco,Amazonas,72
-2019,Ancash,Tacna,70
-2019,Madre de Dios,Arequipa,68
-2019,La Libertad,Ucayali,66
-2019,Junin,Madre de Dios,65
-2019,Ucayali,Moquegua,65
-2019,Cajamarca,Arequipa,63
-2019,Arequipa,Tumbes,59
-2019,Huanuco,Tumbes,59
-2019,Arequipa,Pasco,57
-2019,Piura,Amazonas,57
-2019,Tacna,San Martin,55
-2019,Cajamarca,Moquegua,53
-2019,Ica,Tumbes,45
-2019,Apurimac,Tacna,41
-2019,Ancash,Madre de Dios,39
-2019,Ayacucho,Tacna,39
-2019,Piura,Madre de Dios,36
-2019,Cajamarca,Ucayali,34
-2019,Loreto,Madre de Dios,25
-2019,Ayacucho,Madre de Dios,20
-2019,Ayacucho,La Libertad,17
-2019,La Libertad,Tacna,12
-2019,Tacna,Madre de Dios,12
-2019,Loreto,Tumbes,11
-2019,Lambayeque,Moquegua,8
-2019,Huanuco,Loreto,6
-2019,Tumbes,Ancash,6
-2019,Cusco,Loreto,3
-2020,Junin,Lima,24300
-2020,Ancash,Lima,22530
-2020,Lima,Loreto,19120
-2020,Lima,Junin,18003
-2020,Lima,San Martin,15903
-2020,Lima,Huanuco,15358
-2020,Lima,Lambayeque,14475
-2020,Loreto,Lima,13954
-2020,Cajamarca,Lima,13860
-2020,Lima,Ancash,13393
-2020,Lima,La Libertad,13110
-2020,Cusco,Lima,11400
-2020,Piura,Lima,10992
-2020,Lima,Piura,10940
-2020,Ucayali,Lima,10478
-2020,Apurimac,Lima,9676
-2020,Lima,Ucayali,7866
-2020,Lima,Cusco,7835
-2020,Huanuco,Lima,7766
-2020,Amazonas,Lima,7626
-2020,Lima,Arequipa,7618
-2020,Puno,Arequipa,7282
-2020,Ayacucho,Lima,7268
-2020,Lima,Ayacucho,7047
-2020,Cusco,Arequipa,6147
-2020,Lima,Apurimac,6113
-2020,Lima,Ica,5984
-2020,Lima,Amazonas,5942
-2020,Lima,Pasco,5692
-2020,Arequipa,Lima,5671
-2020,Loreto,Ucayali,5533
-2020,Cajamarca,La Libertad,5464
-2020,Ica,Lima,5412
-2020,Cajamarca,Lambayeque,5404
-2020,Arequipa,Cusco,5127
-2020,Pasco,Lima,4903
-2020,Lima,Puno,4872
-2020,Amazonas,Lambayeque,4856
-2020,Lima,Cajamarca,4811
-2020,Pasco,Huanuco,4743
-2020,San Martin,Lima,4581
-2020,Loreto,San Martin,4550
-2020,La Libertad,Lima,4505
-2020,Puno,Lima,4070
-2020,Pasco,Junin,3953
-2020,Lima,Huancavelica,3938
-2020,Cajamarca,Piura,3692
-2020,Cusco,Puno,3625
-2020,Huanuco,Ucayali,3325
-2020,Ucayali,Loreto,3272
-2020,Huancavelica,Junin,3137
-2020,Tacna,Puno,3088
-2020,Lambayeque,Ancash,3085
-2020,San Martin,Lambayeque,2967
-2020,La Libertad,Piura,2841
-2020,Huancavelica,Ica,2671
-2020,Junin,Huancavelica,2605
-2020,Arequipa,Puno,2556
-2020,La Libertad,San Martin,2538
-2020,Cajamarca,Amazonas,2522
-2020,Ica,Huancavelica,2440
-2020,Lambayeque,Amazonas,2324
-2020,Lambayeque,Piura,2207
-2020,San Martin,Loreto,2129
-2020,Loreto,La Libertad,2076
-2020,Lambayeque,Lima,2026
-2020,Junin,Ica,2004
-2020,Moquegua,Arequipa,1986
-2020,Arequipa,Moquegua,1978
-2020,Ucayali,Junin,1955
-2020,Arequipa,Tacna,1948
-2020,Huancavelica,Lima,1861
-2020,San Martin,Huanuco,1850
-2020,La Libertad,Cajamarca,1771
-2020,Cajamarca,San Martin,1760
-2020,Ayacucho,Ica,1731
-2020,Ica,Piura,1708
-2020,Ica,Arequipa,1698
-2020,San Martin,Amazonas,1697
-2020,Piura,La Libertad,1682
-2020,Piura,Lambayeque,1681
-2020,Loreto,Huanuco,1634
-2020,Apurimac,Junin,1632
-2020,Arequipa,Ayacucho,1617
-2020,Huanuco,San Martin,1585
-2020,Lambayeque,San Martin,1577
-2020,Ayacucho,Junin,1571
-2020,Puno,Moquegua,1554
-2020,Ucayali,Huanuco,1550
-2020,Cusco,Ayacucho,1531
-2020,Cusco,Madre de Dios,1530
-2020,Huanuco,Pasco,1475
-2020,Moquegua,Puno,1464
-2020,Cajamarca,Tumbes,1437
-2020,Lambayeque,Cajamarca,1401
-2020,Ica,Ayacucho,1358
-2020,La Libertad,Lambayeque,1319
-2020,Ucayali,San Martin,1313
-2020,Huanuco,Lambayeque,1285
-2020,La Libertad,Ancash,1273
-2020,Lima,Tacna,1268
-2020,Tumbes,Piura,1176
-2020,Ancash,La Libertad,1133
-2020,Piura,Tumbes,1123
-2020,Cusco,Junin,1119
-2020,Ica,Cajamarca,1093
-2020,San Martin,La Libertad,1090
-2020,Pasco,Loreto,1041
-2020,Puno,Tacna,1026
-2020,Lima,Moquegua,1015
-2020,Apurimac,Cusco,991
-2020,Cusco,Apurimac,957
-2020,Ayacucho,Huancavelica,919
-2020,Ica,Apurimac,893
-2020,Junin,Pasco,852
-2020,Amazonas,Piura,850
-2020,Lima,Madre de Dios,820
-2020,Lambayeque,Loreto,806
-2020,Loreto,Amazonas,790
-2020,San Martin,Ucayali,771
-2020,Arequipa,Junin,767
-2020,Huancavelica,Ayacucho,751
-2020,Ucayali,La Libertad,738
-2020,Pasco,Apurimac,699
-2020,Tacna,Moquegua,695
-2020,Ayacucho,Cusco,686
-2020,Junin,Ayacucho,669
-2020,Loreto,Ayacucho,666
-2020,Pasco,Arequipa,659
-2020,Tacna,Lima,629
-2020,San Martin,Cajamarca,625
-2020,Puno,Ayacucho,622
-2020,Apurimac,Madre de Dios,616
-2020,Junin,Apurimac,614
-2020,Moquegua,Tacna,614
-2020,Lima,Tumbes,605
-2020,Tacna,Arequipa,592
-2020,San Martin,Piura,588
-2020,Ancash,Cusco,586
-2020,Lambayeque,La Libertad,578
-2020,Huancavelica,San Martin,572
-2020,Tacna,San Martin,572
-2020,Apurimac,Arequipa,569
-2020,Amazonas,San Martin,565
-2020,San Martin,Madre de Dios,561
-2020,Apurimac,Ica,558
-2020,Piura,San Martin,534
-2020,Puno,Junin,512
-2020,Loreto,Ica,509
-2020,Cajamarca,Loreto,499
-2020,Piura,Ancash,497
-2020,Ayacucho,Arequipa,476
-2020,Piura,Arequipa,471
-2020,Tumbes,Lima,448
-2020,Apurimac,Tacna,444
-2020,Junin,San Martin,437
-2020,Cusco,Moquegua,432
-2020,Arequipa,Apurimac,416
-2020,Pasco,Ucayali,395
-2020,Ica,Loreto,394
-2020,Ancash,Cajamarca,390
-2020,Moquegua,Junin,389
-2020,Cusco,Tacna,379
-2020,Puno,Cusco,376
-2020,Arequipa,Lambayeque,364
-2020,Piura,Ayacucho,363
-2020,Tacna,Lambayeque,360
-2020,Ayacucho,Lambayeque,358
-2020,Amazonas,Loreto,356
-2020,Ayacucho,Apurimac,355
-2020,Ucayali,Ica,293
-2020,Pasco,San Martin,291
-2020,Apurimac,Puno,289
-2020,La Libertad,Amazonas,285
-2020,Ayacucho,Amazonas,283
-2020,Madre de Dios,Lambayeque,273
-2020,Arequipa,San Martin,253
-2020,Arequipa,Madre de Dios,251
-2020,Madre de Dios,Puno,248
-2020,Ancash,San Martin,243
-2020,Piura,Ucayali,242
-2020,Cajamarca,Madre de Dios,239
-2020,Lambayeque,Tumbes,237
-2020,Junin,Ucayali,220
-2020,Huancavelica,Pasco,212
-2020,La Libertad,Loreto,210
-2020,Piura,Huanuco,210
-2020,Ancash,Huanuco,206
-2020,Tacna,Ucayali,199
-2020,Tumbes,Loreto,186
-2020,La Libertad,Tacna,182
-2020,Pasco,Ica,182
-2020,Huanuco,Loreto,181
-2020,Ucayali,Pasco,180
-2020,La Libertad,Puno,179
-2020,Huanuco,Tacna,177
-2020,Ica,Ancash,176
-2020,San Martin,Ancash,176
-2020,Tumbes,Ancash,175
-2020,Ucayali,Amazonas,175
-2020,Puno,Ica,174
-2020,Junin,Loreto,166
-2020,Apurimac,Ayacucho,165
-2020,Arequipa,Huanuco,153
-2020,La Libertad,Moquegua,153
-2020,Cajamarca,Ayacucho,149
-2020,Amazonas,Huanuco,143
-2020,Cajamarca,Ancash,141
-2020,Cusco,La Libertad,140
-2020,Huanuco,Ayacucho,132
-2020,Ayacucho,San Martin,131
-2020,Cajamarca,Tacna,128
-2020,Huanuco,Junin,128
-2020,Ucayali,Lambayeque,128
-2020,Puno,Apurimac,127
-2020,Arequipa,Ucayali,124
-2020,Lambayeque,Ucayali,124
-2020,Puno,Madre de Dios,122
-2020,Piura,Madre de Dios,119
-2020,Huancavelica,Apurimac,118
-2020,Amazonas,Madre de Dios,114
-2020,Loreto,Apurimac,114
-2020,Madre de Dios,Apurimac,114
-2020,San Martin,Apurimac,114
-2020,Piura,Loreto,111
-2020,Ica,Ucayali,108
-2020,Cusco,Lambayeque,106
-2020,Tacna,Apurimac,104
-2020,Huanuco,Amazonas,100
-2020,La Libertad,Arequipa,95
-2020,Ucayali,Moquegua,93
-2020,Ucayali,Madre de Dios,90
-2020,Arequipa,La Libertad,89
-2020,Tumbes,La Libertad,81
-2020,Ancash,Pasco,80
-2020,Loreto,Pasco,80
-2020,Lambayeque,Pasco,78
-2020,Ica,Moquegua,72
-2020,Loreto,Madre de Dios,72
-2020,Loreto,Tacna,71
-2020,Ica,Amazonas,69
-2020,Cusco,Ucayali,68
-2020,Piura,Amazonas,62
-2020,Cajamarca,Moquegua,54
-2020,Ica,Tacna,48
-2020,Lambayeque,Moquegua,40
-2020,Puno,Amazonas,32
-2020,Ica,Junin,31
-2020,San Martin,Ayacucho,16
-2020,La Libertad,Tumbes,15
-2020,Loreto,Tumbes,13
-2020,Huancavelica,Tacna,12
-2020,Loreto,Moquegua,8
-2020,Tacna,La Libertad,8
-2020,Amazonas,Cajamarca,7
-2020,Ayacucho,Madre de Dios,7
-2020,Piura,Tacna,7
-2020,Ucayali,Tacna,5
-2020,Ancash,Madre de Dios,4
-2020,Arequipa,Huancavelica,1
-2021,Lima,San Martin,27393
-2021,Junin,Lima,25103
-2021,Lima,Lambayeque,24097
-2021,Lima,Junin,22523
-2021,Loreto,Lima,22332
-2021,Lima,Piura,21597
-2021,Ancash,Lima,20620
-2021,Lima,Ancash,20524
-2021,Lima,La Libertad,19519
-2021,Lima,Loreto,18973
-2021,Lima,Huanuco,18065
-2021,La Libertad,Lima,14965
-2021,Lima,Ica,12774
-2021,Lima,Ayacucho,12581
-2021,Cusco,Lima,12476
-2021,Cajamarca,Lima,12233
-2021,Huanuco,Lima,11924
-2021,Lima,Ucayali,10899
-2021,Lima,Apurimac,10774
-2021,Tacna,Puno,10706
-2021,Puno,Arequipa,10479
-2021,Ayacucho,Lima,10289
-2021,Lambayeque,Lima,10235
-2021,Pasco,Junin,10161
-2021,Arequipa,Puno,10022
-2021,Cusco,Arequipa,9452
-2021,Pasco,Lima,9377
-2021,Lambayeque,Cajamarca,9303
-2021,Lima,Arequipa,9191
-2021,Arequipa,Cusco,9102
-2021,Lima,Amazonas,9024
-2021,Lima,Cajamarca,8876
-2021,Huancavelica,Lima,8819
-2021,Cajamarca,La Libertad,8422
-2021,Lima,Pasco,7794
-2021,Ucayali,Lima,7590
-2021,Lima,Cusco,7293
-2021,Apurimac,Lima,7262
-2021,Cusco,Apurimac,7130
-2021,Cajamarca,Lambayeque,6455
-2021,Ica,Lima,6154
-2021,Junin,Huancavelica,5841
-2021,San Martin,Loreto,5605
-2021,Amazonas,San Martin,5590
-2021,Piura,Lima,5373
-2021,Lima,Huancavelica,5347
-2021,San Martin,Lima,5197
-2021,Arequipa,Lima,4780
-2021,Ancash,La Libertad,4775
-2021,Huanuco,Ucayali,4716
-2021,Puno,Tacna,4642
-2021,Cusco,Puno,4572
-2021,La Libertad,Cajamarca,4516
-2021,Ica,Ayacucho,4473
-2021,Loreto,Ucayali,4255
-2021,Cajamarca,San Martin,4229
-2021,San Martin,Piura,4162
-2021,Lambayeque,San Martin,3908
-2021,Amazonas,Lambayeque,3681
-2021,Ucayali,Loreto,3620
-2021,Ucayali,San Martin,3530
-2021,Arequipa,Tacna,3447
-2021,San Martin,Lambayeque,3412
-2021,Pasco,Huanuco,3295
-2021,Piura,Huanuco,3291
-2021,Junin,Cusco,3258
-2021,La Libertad,Ancash,3163
-2021,San Martin,Cajamarca,3146
-2021,Lambayeque,Amazonas,3003
-2021,Huancavelica,Junin,2972
-2021,Cajamarca,Piura,2945
-2021,Cajamarca,Amazonas,2915
-2021,Lima,Tacna,2770
-2021,Lambayeque,La Libertad,2702
-2021,Lima,Puno,2644
-2021,La Libertad,San Martin,2641
-2021,Puno,Cusco,2608
-2021,Loreto,San Martin,2450
-2021,San Martin,Huanuco,2363
-2021,Ucayali,Huanuco,2355
-2021,Madre de Dios,Cusco,2307
-2021,San Martin,Madre de Dios,2146
-2021,Junin,Pasco,2097
-2021,Ica,Piura,2096
-2021,San Martin,Ucayali,2081
-2021,Tumbes,Lambayeque,2052
-2021,Ica,Huancavelica,2051
-2021,Apurimac,Cusco,2045
-2021,Huanuco,Pasco,2027
-2021,La Libertad,Lambayeque,2014
-2021,Piura,San Martin,2005
-2021,Cusco,Madre de Dios,1983
-2021,Moquegua,Arequipa,1943
-2021,Ayacucho,Huancavelica,1927
-2021,Loreto,Piura,1914
-2021,Madre de Dios,San Martin,1914
-2021,Ayacucho,Ica,1898
-2021,Arequipa,Moquegua,1858
-2021,Lambayeque,Piura,1828
-2021,Huanuco,San Martin,1822
-2021,Lima,Tumbes,1808
-2021,Piura,La Libertad,1805
-2021,Huanuco,Junin,1739
-2021,Lima,Moquegua,1660
-2021,San Martin,La Libertad,1656
-2021,San Martin,Amazonas,1652
-2021,Puno,Moquegua,1608
-2021,Huanuco,Madre de Dios,1522
-2021,Arequipa,Apurimac,1509
-2021,Puno,Madre de Dios,1481
-2021,Loreto,Ica,1386
-2021,Puno,Lima,1327
-2021,Piura,Tumbes,1277
-2021,San Martin,Junin,1265
-2021,Piura,Arequipa,1245
-2021,Tumbes,Lima,1242
-2021,Tumbes,Loreto,1235
-2021,Ayacucho,Junin,1212
-2021,Arequipa,Ica,1190
-2021,Piura,Cajamarca,1118
-2021,Ancash,Piura,1107
-2021,Pasco,San Martin,1104
-2021,Ayacucho,Cusco,1089
-2021,San Martin,Ayacucho,1082
-2021,Moquegua,Lima,1045
-2021,Ica,Arequipa,1038
-2021,Junin,Huanuco,1022
-2021,Ayacucho,Apurimac,1004
-2021,Cusco,Ayacucho,997
-2021,Piura,Lambayeque,981
-2021,La Libertad,Ayacucho,980
-2021,Ucayali,Junin,926
-2021,Huancavelica,Ica,894
-2021,La Libertad,Amazonas,876
-2021,Lambayeque,Loreto,827
-2021,Apurimac,Ayacucho,799
-2021,Moquegua,Puno,796
-2021,Piura,Ayacucho,771
-2021,Loreto,Amazonas,758
-2021,Junin,La Libertad,745
-2021,La Libertad,Piura,741
-2021,Lambayeque,Tumbes,727
-2021,Apurimac,Ica,726
-2021,Tacna,Moquegua,720
-2021,Lima,Madre de Dios,715
-2021,Ica,Tumbes,703
-2021,Tumbes,Piura,702
-2021,Junin,Arequipa,698
-2021,Piura,Loreto,694
-2021,Huanuco,Ancash,680
-2021,Piura,Ica,663
-2021,Cajamarca,Loreto,642
-2021,La Libertad,Arequipa,637
-2021,Pasco,Ucayali,619
-2021,Apurimac,Arequipa,617
-2021,Junin,Ayacucho,617
-2021,Apurimac,Puno,608
-2021,La Libertad,Loreto,585
-2021,Loreto,Madre de Dios,579
-2021,Cusco,Junin,572
-2021,Cajamarca,Ica,570
-2021,Tacna,Arequipa,563
-2021,Ancash,Ica,560
-2021,Huanuco,Cusco,560
-2021,Junin,Ucayali,553
-2021,Huancavelica,San Martin,552
-2021,Moquegua,Ucayali,551
-2021,Moquegua,La Libertad,533
-2021,Piura,Amazonas,525
-2021,Ayacucho,Arequipa,509
-2021,Lambayeque,Ancash,502
-2021,Ica,Puno,494
-2021,Loreto,La Libertad,494
-2021,Arequipa,La Libertad,463
-2021,Amazonas,La Libertad,461
-2021,San Martin,Ancash,455
-2021,Cajamarca,Ucayali,436
-2021,Apurimac,Madre de Dios,428
-2021,Cusco,Moquegua,423
-2021,Ayacucho,Ucayali,417
-2021,Amazonas,Piura,415
-2021,Cusco,Ucayali,376
-2021,Amazonas,Cajamarca,372
-2021,Ayacucho,Puno,368
-2021,Tacna,Ancash,362
-2021,Ica,Moquegua,354
-2021,Madre de Dios,Puno,354
-2021,Ica,Apurimac,353
-2021,Ancash,Huanuco,352
-2021,Arequipa,Ucayali,327
-2021,Puno,Ayacucho,319
-2021,Moquegua,Tacna,314
-2021,La Libertad,Tumbes,312
-2021,Arequipa,Madre de Dios,296
-2021,Junin,Apurimac,295
-2021,Ayacucho,Loreto,276
-2021,Tacna,Lima,269
-2021,Amazonas,Lima,265
-2021,Ayacucho,Moquegua,262
-2021,Huancavelica,Pasco,259
-2021,Puno,Ancash,259
-2021,Ayacucho,Madre de Dios,255
-2021,Piura,Ucayali,255
-2021,Lambayeque,Huanuco,253
-2021,Tumbes,Huanuco,239
-2021,Huanuco,Ica,238
-2021,Ica,Ucayali,238
-2021,Huancavelica,Ucayali,237
-2021,Arequipa,Huanuco,231
-2021,Tacna,Ucayali,231
-2021,Loreto,Pasco,225
-2021,Ayacucho,Huanuco,222
-2021,Piura,Moquegua,222
-2021,Cusco,Ica,221
-2021,Huanuco,Amazonas,219
-2021,Lambayeque,Junin,217
-2021,Amazonas,Madre de Dios,216
-2021,Apurimac,Junin,214
-2021,Tumbes,Amazonas,213
-2021,Piura,Ancash,207
-2021,Loreto,Apurimac,203
-2021,Lambayeque,Apurimac,202
-2021,Ica,Amazonas,195
-2021,Huanuco,Tacna,193
-2021,Arequipa,Ayacucho,187
-2021,Junin,Ancash,187
-2021,Ucayali,Moquegua,187
-2021,Ucayali,Tumbes,183
-2021,Ancash,San Martin,178
-2021,Ica,San Martin,178
-2021,Madre de Dios,Huanuco,176
-2021,Tacna,Ayacucho,172
-2021,Huancavelica,Ayacucho,171
-2021,Amazonas,Loreto,165
-2021,Ancash,Tacna,165
-2021,Piura,Apurimac,164
-2021,Ancash,Ayacucho,161
-2021,Madre de Dios,Loreto,158
-2021,Tacna,Apurimac,151
-2021,Cusco,Huancavelica,150
-2021,Junin,Madre de Dios,149
-2021,Apurimac,Ucayali,143
-2021,Pasco,Ayacucho,138
-2021,Tumbes,Cajamarca,135
-2021,Huanuco,Loreto,132
-2021,Ancash,Lambayeque,130
-2021,Ucayali,Lambayeque,128
-2021,Ica,Lambayeque,125
-2021,Tacna,Loreto,118
-2021,Ucayali,Madre de Dios,115
-2021,Arequipa,San Martin,103
-2021,Lambayeque,Ucayali,103
-2021,San Martin,Pasco,100
-2021,Ucayali,Ica,99
-2021,Huancavelica,Arequipa,91
-2021,La Libertad,Ica,91
-2021,Moquegua,Amazonas,90
-2021,Tumbes,San Martin,89
-2021,Cajamarca,Madre de Dios,84
-2021,Loreto,Tacna,84
-2021,Arequipa,Junin,83
-2021,Cusco,Tacna,74
-2021,Junin,Tacna,74
-2021,Madre de Dios,Ayacucho,72
-2021,Loreto,Moquegua,69
-2021,Puno,Amazonas,67
-2021,Madre de Dios,Tacna,57
-2021,Apurimac,Tacna,55
-2021,La Libertad,Apurimac,55
-2021,Huancavelica,Madre de Dios,37
-2021,La Libertad,Moquegua,19
-2021,Madre de Dios,Moquegua,19
-2021,Ica,Madre de Dios,17
-2021,Piura,Tacna,17
-2021,Ica,Tacna,13
-2021,Cajamarca,Tumbes,12
-2021,Loreto,Tumbes,11
-2021,Tacna,Tumbes,11
-2021,San Martin,Tacna,6
-2021,La Libertad,Madre de Dios,5
-2021,Ucayali,Tacna,5
-2021,Ancash,Loreto,1
-2021,Arequipa,Huancavelica,1
-2021,Junin,Loreto,1
-2021,Loreto,Huanuco,1
-2022,Lima,Junin,27865
-2022,Ancash,Lima,25229
-2022,Lima,Piura,25198
-2022,Lima,Loreto,23055
-2022,Junin,Lima,21302
-2022,Lima,San Martin,19951
-2022,Cajamarca,Lima,17842
-2022,Lima,Lambayeque,17242
-2022,Lima,Arequipa,16263
-2022,Lima,Huanuco,15942
-2022,Lima,Ayacucho,15510
-2022,Loreto,Lima,14052
-2022,Lima,Ancash,13916
-2022,Lima,Ucayali,13636
-2022,Lima,La Libertad,13138
-2022,Lima,Cajamarca,12929
-2022,Cusco,Lima,12552
-2022,Lima,Ica,12361
-2022,Lambayeque,Lima,12038
-2022,Lima,Apurimac,11083
-2022,Huanuco,Lima,10832
-2022,Arequipa,Puno,10596
-2022,Huancavelica,Lima,10556
-2022,San Martin,Lima,9852
-2022,Cusco,Arequipa,9445
-2022,Ayacucho,Lima,9149
-2022,Cajamarca,La Libertad,9065
-2022,Puno,Arequipa,9026
-2022,Piura,Lima,8895
-2022,Lima,Pasco,8687
-2022,Huancavelica,Junin,8565
-2022,Lima,Huancavelica,8394
-2022,La Libertad,Lima,8371
-2022,Lima,Cusco,8143
-2022,Lima,Amazonas,8132
-2022,Ica,Lima,7739
-2022,Arequipa,Cusco,7587
-2022,Arequipa,Lima,7151
-2022,Lima,Puno,6013
-2022,Apurimac,Lima,5935
-2022,Cusco,Apurimac,5837
-2022,Tacna,Lima,5818
-2022,Puno,Tacna,5754
-2022,Ayacucho,Cusco,5120
-2022,Lambayeque,La Libertad,4997
-2022,Junin,Huancavelica,4827
-2022,La Libertad,Cajamarca,4799
-2022,Pasco,Lima,4778
-2022,Cajamarca,Amazonas,4723
-2022,San Martin,La Libertad,4690
-2022,Cusco,Madre de Dios,4560
-2022,Cajamarca,Lambayeque,4494
-2022,Puno,Cusco,4469
-2022,Amazonas,Lima,4120
-2022,Lambayeque,Cajamarca,3683
-2022,Loreto,Ucayali,3590
-2022,Huanuco,Ucayali,3500
-2022,Junin,Ucayali,3487
-2022,Ayacucho,Junin,3385
-2022,La Libertad,San Martin,3373
-2022,Loreto,San Martin,3336
-2022,Amazonas,Lambayeque,3293
-2022,Cajamarca,San Martin,3210
-2022,Moquegua,Puno,3189
-2022,Lambayeque,Piura,3125
-2022,Moquegua,Lima,3012
-2022,Arequipa,Apurimac,2977
-2022,San Martin,Ucayali,2929
-2022,Piura,San Martin,2922
-2022,Ucayali,Lima,2880
-2022,Junin,Huanuco,2867
-2022,Ica,Ayacucho,2849
-2022,Huanuco,Pasco,2847
-2022,Puno,Lima,2841
-2022,Ancash,La Libertad,2767
-2022,Junin,Pasco,2743
-2022,Arequipa,Piura,2689
-2022,Ayacucho,Ica,2676
-2022,Pasco,Huanuco,2639
-2022,Lambayeque,San Martin,2634
-2022,Junin,Ayacucho,2621
-2022,Tacna,Puno,2594
-2022,San Martin,Lambayeque,2499
-2022,Ancash,Cajamarca,2495
-2022,Cusco,Puno,2446
-2022,Amazonas,San Martin,2443
-2022,San Martin,Piura,2307
-2022,San Martin,Cajamarca,2274
-2022,Loreto,Ica,2235
-2022,Lima,Madre de Dios,2216
-2022,Ucayali,Huanuco,2166
-2022,Ucayali,Loreto,2164
-2022,La Libertad,Loreto,2138
-2022,Arequipa,Moquegua,2101
-2022,Moquegua,Arequipa,2101
-2022,San Martin,Loreto,2097
-2022,San Martin,Huanuco,2094
-2022,Ucayali,Junin,2042
-2022,Pasco,Junin,2041
-2022,Lima,Tacna,2008
-2022,Junin,Ica,1996
-2022,Apurimac,Cusco,1992
-2022,Arequipa,Ayacucho,1971
-2022,Piura,Lambayeque,1958
-2022,Ica,Piura,1951
-2022,Ancash,Huanuco,1947
-2022,La Libertad,Lambayeque,1921
-2022,Ucayali,Madre de Dios,1867
-2022,Ucayali,San Martin,1831
-2022,Ica,Huancavelica,1782
-2022,Amazonas,La Libertad,1690
-2022,Lambayeque,Amazonas,1666
-2022,Puno,Moquegua,1570
-2022,Cusco,Ayacucho,1564
-2022,Lima,Moquegua,1541
-2022,Loreto,Cusco,1537
-2022,Cusco,Tacna,1506
-2022,Lambayeque,Ancash,1475
-2022,La Libertad,Piura,1471
-2022,Ucayali,Lambayeque,1453
-2022,Piura,La Libertad,1439
-2022,Tacna,Moquegua,1437
-2022,Cusco,Junin,1422
-2022,Ucayali,Ica,1385
-2022,Tumbes,Ica,1375
-2022,Piura,Cajamarca,1318
-2022,Ancash,Arequipa,1251
-2022,Huancavelica,Ayacucho,1225
-2022,Madre de Dios,Junin,1202
-2022,Piura,Tumbes,1202
-2022,Ica,Apurimac,1190
-2022,Ica,Loreto,1184
-2022,Piura,Loreto,1179
-2022,Tacna,Arequipa,1067
-2022,Junin,Apurimac,1012
-2022,Tacna,La Libertad,1002
-2022,Loreto,Junin,982
-2022,Ucayali,La Libertad,974
-2022,Piura,Ancash,950
-2022,Amazonas,Cajamarca,935
-2022,Apurimac,Arequipa,930
-2022,Arequipa,Madre de Dios,881
-2022,Puno,Cajamarca,880
-2022,Arequipa,Ica,879
-2022,Puno,Ica,875
-2022,Junin,Ancash,847
-2022,Cusco,Ucayali,842
-2022,Apurimac,Ica,841
-2022,Huanuco,San Martin,832
-2022,Lima,Tumbes,820
-2022,Arequipa,Tacna,797
-2022,Puno,Madre de Dios,795
-2022,Ica,Huanuco,782
-2022,Ancash,San Martin,777
-2022,Tacna,Cusco,768
-2022,Ica,Ucayali,735
-2022,Tumbes,Lambayeque,726
-2022,Pasco,Ucayali,711
-2022,Huanuco,Junin,700
-2022,Ayacucho,Ucayali,690
-2022,San Martin,Amazonas,685
-2022,Arequipa,Junin,683
-2022,Ancash,Ica,664
-2022,Tumbes,Piura,654
-2022,Apurimac,Junin,644
-2022,Pasco,San Martin,641
-2022,Junin,Loreto,638
-2022,Ancash,Apurimac,622
-2022,Lambayeque,Tumbes,609
-2022,Loreto,Huanuco,591
-2022,Ica,Lambayeque,585
-2022,Tumbes,Cajamarca,579
-2022,Ayacucho,Huancavelica,578
-2022,Puno,Apurimac,565
-2022,Junin,Madre de Dios,509
-2022,La Libertad,Ancash,496
-2022,Ancash,Piura,476
-2022,Huanuco,Arequipa,459
-2022,Ucayali,Cajamarca,450
-2022,Huancavelica,Ica,447
-2022,Pasco,Arequipa,447
-2022,La Libertad,Amazonas,446
-2022,Lambayeque,Loreto,436
-2022,San Martin,Junin,426
-2022,Cusco,San Martin,421
-2022,Huancavelica,Arequipa,411
-2022,Junin,Lambayeque,390
-2022,Huanuco,Madre de Dios,377
-2022,Tumbes,La Libertad,372
-2022,Ancash,Lambayeque,363
-2022,Piura,Ucayali,350
-2022,Moquegua,Tacna,349
-2022,Piura,Amazonas,344
-2022,Huanuco,Ica,342
-2022,La Libertad,Tumbes,334
-2022,San Martin,Madre de Dios,332
-2022,Amazonas,Loreto,325
-2022,Arequipa,Loreto,325
-2022,Ayacucho,Madre de Dios,325
-2022,Ayacucho,Apurimac,321
-2022,Cajamarca,Tumbes,318
-2022,Huanuco,Loreto,313
-2022,Piura,Arequipa,307
-2022,Ancash,Amazonas,303
-2022,Ayacucho,Arequipa,302
-2022,La Libertad,Junin,299
-2022,La Libertad,Ica,290
-2022,Huancavelica,Pasco,289
-2022,Madre de Dios,Puno,288
-2022,Piura,Ica,281
-2022,Ica,Amazonas,280
-2022,Madre de Dios,Cusco,279
-2022,Lambayeque,Ica,275
-2022,Pasco,Ica,275
-2022,Loreto,La Libertad,273
-2022,Madre de Dios,Ucayali,272
-2022,Apurimac,Madre de Dios,271
-2022,Huanuco,Tacna,266
-2022,Ancash,Cusco,261
-2022,Cajamarca,Pasco,246
-2022,La Libertad,Ucayali,246
-2022,Puno,Junin,243
-2022,Cajamarca,Loreto,242
-2022,Amazonas,Junin,233
-2022,Cajamarca,Cusco,229
-2022,Ica,San Martin,215
-2022,Cajamarca,Ancash,212
-2022,Cusco,Pasco,202
-2022,Arequipa,Lambayeque,195
-2022,San Martin,Arequipa,193
-2022,Moquegua,Ucayali,182
-2022,Lambayeque,Ucayali,173
-2022,Huancavelica,Ucayali,172
-2022,Ucayali,Tumbes,159
-2022,Ica,Arequipa,154
-2022,Huanuco,Huancavelica,152
-2022,Arequipa,San Martin,150
-2022,Arequipa,Cajamarca,149
-2022,Pasco,Amazonas,143
-2022,Amazonas,Madre de Dios,142
-2022,Madre de Dios,Loreto,142
-2022,Apurimac,Ayacucho,140
-2022,Cusco,Moquegua,140
-2022,Madre de Dios,Apurimac,139
-2022,Pasco,Ayacucho,136
-2022,Tumbes,Lima,127
-2022,Arequipa,Huanuco,123
-2022,Loreto,Piura,120
-2022,Ancash,Tacna,101
-2022,Ica,Pasco,99
-2022,Madre de Dios,Lima,99
-2022,Ucayali,Pasco,98
-2022,Ancash,Ucayali,92
-2022,Tumbes,San Martin,90
-2022,Ancash,Pasco,88
-2022,Junin,Arequipa,87
-2022,Cajamarca,Arequipa,85
-2022,Puno,Pasco,77
-2022,Huanuco,Apurimac,73
-2022,Lambayeque,Huanuco,71
-2022,Ucayali,Moquegua,71
-2022,Amazonas,Ucayali,68
-2022,Cajamarca,Ucayali,68
-2022,Cajamarca,Piura,59
-2022,Loreto,Madre de Dios,55
-2022,Ucayali,Tacna,52
-2022,Cajamarca,Moquegua,43
-2022,Cajamarca,Madre de Dios,39
-2022,Arequipa,Tumbes,37
-2022,Piura,Moquegua,35
-2022,Cajamarca,Tacna,32
-2022,Lambayeque,Tacna,32
-2022,San Martin,Moquegua,31
-2022,Huanuco,Tumbes,29
-2022,La Libertad,Madre de Dios,20
-2022,Tacna,Madre de Dios,20
-2022,Lambayeque,Moquegua,19
-2022,Tumbes,Tacna,12
-2022,San Martin,Tumbes,10
-2022,Loreto,Tacna,7
-2022,Madre de Dios,Tacna,7
-2022,Apurimac,Tacna,6
-2022,La Libertad,Tacna,6
-2022,Puno,Loreto,2
-2022,Ancash,Loreto,1
-2022,Arequipa,Huancavelica,1
-2023,Lima,Junin,37913
-2023,Ancash,Lima,24798
-2023,Junin,Lima,24187
-2023,Piura,Lima,23563
-2023,Loreto,Lima,22427
-2023,Lima,Lambayeque,20233
-2023,Lima,Piura,19466
-2023,Lima,Huanuco,18890
-2023,Lima,Loreto,18784
-2023,Lima,San Martin,18674
-2023,Lima,Ancash,18155
-2023,Cusco,Lima,16528
-2023,Lambayeque,Lima,16103
-2023,Cusco,Arequipa,15671
-2023,Lima,Cajamarca,15608
-2023,Cajamarca,Lima,14756
-2023,Lima,Ayacucho,14145
-2023,San Martin,Lima,13978
-2023,Ayacucho,Lima,13840
-2023,Puno,Arequipa,13411
-2023,Lima,Ica,13328
-2023,Huanuco,Lima,12049
-2023,Lima,Amazonas,11646
-2023,Cajamarca,La Libertad,11021
-2023,Ucayali,Lima,10088
-2023,Lima,Ucayali,9995
-2023,Lima,Huancavelica,9849
-2023,Lima,La Libertad,9825
-2023,Lima,Apurimac,9688
-2023,Arequipa,Cusco,9386
-2023,Lima,Arequipa,9252
-2023,Lima,Pasco,8457
-2023,Apurimac,Lima,8299
-2023,Puno,Tacna,7627
-2023,La Libertad,Lima,7331
-2023,Lima,Cusco,6922
-2023,Arequipa,Puno,6731
-2023,Loreto,Ucayali,6688
-2023,Loreto,San Martin,6552
-2023,Pasco,Lima,5918
-2023,Lambayeque,La Libertad,5548
-2023,Tumbes,Lima,5492
-2023,Madre de Dios,Cusco,5339
-2023,Pasco,Huanuco,5027
-2023,Arequipa,Lima,4911
-2023,Apurimac,Cusco,4862
-2023,Puno,Lima,4749
-2023,Cajamarca,Lambayeque,4652
-2023,San Martin,Loreto,4625
-2023,Lambayeque,Cajamarca,4398
-2023,Cusco,Ayacucho,4229
-2023,Cusco,Madre de Dios,4117
-2023,Ayacucho,Cusco,4075
-2023,Cajamarca,San Martin,3670
-2023,Huancavelica,Lima,3620
-2023,Lima,Tacna,3543
-2023,Cusco,Puno,3465
-2023,Amazonas,La Libertad,3443
-2023,Huancavelica,Junin,3264
-2023,Junin,Huancavelica,3259
-2023,Apurimac,Arequipa,3230
-2023,Ica,Lima,3216
-2023,La Libertad,San Martin,3157
-2023,Amazonas,Cajamarca,3133
-2023,Piura,Arequipa,3086
-2023,Ayacucho,Ica,2904
-2023,Ancash,La Libertad,2888
-2023,Huanuco,Ucayali,2753
-2023,Junin,Cusco,2703
-2023,Ayacucho,Junin,2666
-2023,Moquegua,Tacna,2609
-2023,Huanuco,Pasco,2460
-2023,Ucayali,San Martin,2378
-2023,Ica,Huancavelica,2346
-2023,Lambayeque,Amazonas,2342
-2023,Ica,Ayacucho,2338
-2023,Lima,Puno,2327
-2023,Ucayali,Loreto,2323
-2023,Lambayeque,Ancash,2299
-2023,San Martin,Amazonas,2299
-2023,Amazonas,Lambayeque,2296
-2023,Tacna,Puno,2252
-2023,San Martin,Cajamarca,2170
-2023,Cajamarca,Amazonas,2169
-2023,Amazonas,San Martin,2158
-2023,San Martin,Lambayeque,2091
-2023,Arequipa,Ica,2048
-2023,Apurimac,Puno,1947
-2023,Puno,Cusco,1919
-2023,Junin,Ayacucho,1898
-2023,Junin,Pasco,1892
-2023,Lambayeque,San Martin,1876
-2023,Cajamarca,Piura,1867
-2023,Piura,San Martin,1865
-2023,Huanuco,La Libertad,1844
-2023,Huancavelica,Ica,1831
-2023,Arequipa,Moquegua,1732
-2023,Piura,La Libertad,1709
-2023,La Libertad,Ancash,1700
-2023,Ucayali,Huanuco,1687
-2023,Pasco,Junin,1667
-2023,San Martin,Huanuco,1653
-2023,San Martin,Ucayali,1568
-2023,Piura,Tumbes,1566
-2023,Puno,Cajamarca,1564
-2023,La Libertad,Amazonas,1554
-2023,Lambayeque,Piura,1551
-2023,Ayacucho,Huancavelica,1546
-2023,Arequipa,Tacna,1531
-2023,Piura,Lambayeque,1513
-2023,Ica,Apurimac,1512
-2023,Cusco,Apurimac,1434
-2023,Lima,Madre de Dios,1432
-2023,Junin,San Martin,1370
-2023,Ica,Arequipa,1253
-2023,Tacna,Arequipa,1251
-2023,Huanuco,Junin,1172
-2023,Lambayeque,Loreto,1156
-2023,La Libertad,Cajamarca,1150
-2023,Amazonas,Lima,1147
-2023,Ayacucho,Ucayali,1140
-2023,Huanuco,Madre de Dios,1121
-2023,Loreto,Ancash,1117
-2023,Arequipa,Junin,1085
-2023,San Martin,Madre de Dios,1073
-2023,Junin,Ucayali,1069
-2023,Tacna,Lima,1047
-2023,Lima,Tumbes,1012
-2023,Arequipa,San Martin,1003
-2023,Puno,Ucayali,995
-2023,Apurimac,Ayacucho,970
-2023,Ica,Puno,957
-2023,Lima,Moquegua,901
-2023,La Libertad,Piura,900
-2023,Puno,Moquegua,876
-2023,Huanuco,Arequipa,860
-2023,Junin,Huanuco,855
-2023,Ayacucho,Apurimac,830
-2023,Arequipa,Loreto,826
-2023,La Libertad,Ucayali,821
-2023,Junin,Ica,817
-2023,La Libertad,Ica,815
-2023,Arequipa,La Libertad,808
-2023,Puno,Madre de Dios,806
-2023,Apurimac,Ica,794
-2023,Madre de Dios,Arequipa,790
-2023,Arequipa,Apurimac,789
-2023,La Libertad,Cusco,789
-2023,Lambayeque,Ayacucho,787
-2023,Moquegua,Arequipa,746
-2023,Arequipa,Huanuco,735
-2023,Cajamarca,Apurimac,716
-2023,Cusco,Ucayali,702
-2023,Moquegua,Lima,701
-2023,San Martin,La Libertad,700
-2023,Cajamarca,Madre de Dios,691
-2023,Madre de Dios,Ucayali,685
-2023,Tacna,La Libertad,678
-2023,Ucayali,Madre de Dios,665
-2023,Amazonas,Ucayali,663
-2023,Tacna,Moquegua,652
-2023,Moquegua,Puno,648
-2023,La Libertad,Loreto,625
-2023,San Martin,Piura,624
-2023,Madre de Dios,Apurimac,623
-2023,Piura,Ancash,605
-2023,Ucayali,Pasco,599
-2023,Ancash,San Martin,591
-2023,Huanuco,Loreto,577
-2023,Cusco,Tacna,575
-2023,Cusco,Moquegua,555
-2023,Ayacucho,Arequipa,552
-2023,Huanuco,San Martin,552
-2023,Ayacucho,Amazonas,543
-2023,La Libertad,Lambayeque,538
-2023,Ucayali,Ica,529
-2023,Apurimac,Madre de Dios,518
-2023,Junin,Apurimac,510
-2023,San Martin,Arequipa,486
-2023,Huancavelica,Ayacucho,485
-2023,Loreto,Ica,480
-2023,Cusco,Ancash,474
-2023,Arequipa,Piura,471
-2023,Huanuco,Piura,471
-2023,Amazonas,Ancash,464
-2023,Arequipa,Madre de Dios,462
-2023,Arequipa,Ucayali,453
-2023,Loreto,Arequipa,441
-2023,Piura,Cusco,438
-2023,Apurimac,Pasco,429
-2023,Loreto,La Libertad,408
-2023,Ayacucho,Pasco,403
-2023,Ancash,Ucayali,381
-2023,Ica,Piura,368
-2023,Madre de Dios,Loreto,367
-2023,Ucayali,Lambayeque,363
-2023,Cusco,Junin,360
-2023,Pasco,Ucayali,359
-2023,Piura,Huancavelica,357
-2023,Ayacucho,Puno,353
-2023,Ayacucho,Madre de Dios,331
-2023,Huanuco,Huancavelica,317
-2023,Tacna,Huancavelica,317
-2023,Junin,Puno,310
-2023,La Libertad,Huanuco,305
-2023,Ica,Loreto,304
-2023,San Martin,Ancash,303
-2023,Madre de Dios,Ancash,300
-2023,Piura,Ica,288
-2023,Cajamarca,Junin,268
-2023,Junin,La Libertad,266
-2023,Ica,Junin,260
-2023,Ucayali,Tumbes,258
-2023,Pasco,Ica,256
-2023,Cajamarca,Ancash,250
-2023,Loreto,Huanuco,250
-2023,Huanuco,Ancash,247
-2023,Loreto,Amazonas,241
-2023,Ancash,Huanuco,238
-2023,Junin,Madre de Dios,228
-2023,Huancavelica,Loreto,222
-2023,Pasco,Cusco,219
-2023,Tumbes,Ucayali,208
-2023,Pasco,Madre de Dios,191
-2023,Ancash,Arequipa,184
-2023,Moquegua,Madre de Dios,180
-2023,Pasco,Loreto,179
-2023,Arequipa,Pasco,173
-2023,Loreto,Madre de Dios,169
-2023,Cajamarca,Tumbes,163
-2023,Tacna,Loreto,163
-2023,Piura,Amazonas,162
-2023,Tumbes,Amazonas,162
-2023,Ucayali,Huancavelica,157
-2023,Apurimac,Huancavelica,154
-2023,Piura,Apurimac,154
-2023,Lambayeque,Tumbes,150
-2023,Ica,San Martin,149
-2023,Ayacucho,Loreto,140
-2023,Tumbes,San Martin,140
-2023,Lambayeque,Huanuco,132
-2023,Ucayali,Amazonas,131
-2023,Cusco,Loreto,130
-2023,Apurimac,Huanuco,127
-2023,Piura,Huanuco,127
-2023,Tacna,Ancash,113
-2023,Apurimac,Tumbes,104
-2023,Ayacucho,San Martin,94
-2023,Ancash,Pasco,88
-2023,Tacna,Huanuco,88
-2023,Cajamarca,Pasco,86
-2023,San Martin,Pasco,86
-2023,San Martin,Moquegua,80
-2023,Ica,Tacna,77
-2023,Cajamarca,Ica,75
-2023,Huanuco,Moquegua,74
-2023,Ica,Amazonas,71
-2023,San Martin,Tacna,71
-2023,Huanuco,Amazonas,64
-2023,La Libertad,Madre de Dios,58
-2023,Ancash,Huancavelica,51
-2023,Ica,Moquegua,50
-2023,Loreto,Moquegua,50
-2023,Lambayeque,Moquegua,41
-2023,Ancash,Tacna,39
-2023,Madre de Dios,Tacna,34
-2023,Puno,Junin,26
-2023,Piura,Tacna,24
-2023,Piura,Ucayali,21
-2023,Ica,Madre de Dios,16
-2023,Arequipa,Cajamarca,12
-2023,Tumbes,Madre de Dios,8
-2023,Cajamarca,Tacna,6
-2023,Ucayali,Tacna,5
-2023,Cajamarca,Huanuco,3
-2024,Lima,Junin,29455
-2024,Lima,Huanuco,27789
-2024,Lima,Piura,25200
-2024,Lima,Loreto,21368
-2024,Junin,Lima,20758
-2024,Piura,Lima,20104
-2024,Apurimac,Lima,20096
-2024,Ancash,Lima,19277
-2024,Lima,Ancash,19086
-2024,Cajamarca,Lima,17698
-2024,Lima,San Martin,17117
-2024,Huanuco,Lima,16736
-2024,Lima,Ica,15880
-2024,Loreto,Lima,14801
-2024,Lima,La Libertad,14431
-2024,Lima,Lambayeque,14280
-2024,Lima,Ayacucho,11675
-2024,Huancavelica,Lima,11384
-2024,Loreto,Ucayali,11297
-2024,Lima,Ucayali,10085
-2024,Lima,Cajamarca,9931
-2024,Lima,Arequipa,8872
-2024,Ayacucho,Lima,8182
-2024,Amazonas,Lima,8026
-2024,Lima,Apurimac,8007
-2024,Arequipa,Puno,7711
-2024,Puno,Arequipa,7652
-2024,Cusco,Arequipa,7413
-2024,Lima,Amazonas,7293
-2024,Lima,Pasco,7173
-2024,Cajamarca,Lambayeque,6921
-2024,Cajamarca,La Libertad,6773
-2024,Lima,Huancavelica,6459
-2024,La Libertad,Lima,6369
-2024,Lima,Cusco,6336
-2024,Arequipa,Lima,6283
-2024,Tumbes,Piura,6202
-2024,Arequipa,Cusco,6103
-2024,Pasco,Huanuco,6094
-2024,San Martin,Lima,6080
-2024,Moquegua,Arequipa,6046
-2024,Lima,Puno,5886
-2024,Puno,Tacna,5832
-2024,Pasco,Lima,5411
-2024,Huancavelica,Junin,5235
-2024,Lambayeque,Lima,5053
-2024,San Martin,Loreto,5034
-2024,Ayacucho,Junin,4681
-2024,Cajamarca,San Martin,4526
-2024,Loreto,San Martin,4461
-2024,Junin,Huancavelica,4432
-2024,Junin,Pasco,4401
-2024,Ucayali,Lima,4298
-2024,Tacna,Puno,4230
-2024,Cusco,Lima,4112
-2024,Cajamarca,Amazonas,4087
-2024,Ayacucho,Ica,3977
-2024,Lima,Tacna,3885
-2024,Moquegua,Puno,3818
-2024,La Libertad,Ancash,3712
-2024,San Martin,Lambayeque,3589
-2024,Cusco,Madre de Dios,3519
-2024,Amazonas,San Martin,3385
-2024,Tacna,Lima,3341
-2024,Huanuco,Ucayali,3150
-2024,Huanuco,San Martin,3141
-2024,Pasco,Junin,3008
-2024,Ayacucho,Huancavelica,2972
-2024,Ayacucho,Cusco,2970
-2024,Ucayali,Loreto,2872
-2024,San Martin,Huanuco,2570
-2024,Ucayali,San Martin,2551
-2024,Ica,Lima,2495
-2024,Lambayeque,Amazonas,2462
-2024,Arequipa,Ayacucho,2428
-2024,Ica,Huancavelica,2411
-2024,Huanuco,Pasco,2392
-2024,Junin,Ucayali,2330
-2024,Ucayali,Ica,2315
-2024,Amazonas,La Libertad,2275
-2024,Madre de Dios,Cusco,2275
-2024,Ica,Apurimac,2270
-2024,Amazonas,Lambayeque,2187
-2024,Piura,San Martin,2104
-2024,Arequipa,Tacna,2080
-2024,San Martin,Cajamarca,2064
-2024,Lambayeque,San Martin,2031
-2024,San Martin,La Libertad,1965
-2024,Puno,Madre de Dios,1907
-2024,La Libertad,Piura,1897
-2024,San Martin,Amazonas,1854
-2024,La Libertad,Cajamarca,1834
-2024,Ica,Loreto,1764
-2024,Lambayeque,La Libertad,1725
-2024,Arequipa,Moquegua,1724
-2024,Ucayali,Huanuco,1710
-2024,Huanuco,Junin,1684
-2024,Ucayali,Junin,1646
-2024,San Martin,Ucayali,1641
-2024,Apurimac,Ica,1605
-2024,La Libertad,San Martin,1599
-2024,Puno,Cajamarca,1575
-2024,Puno,Moquegua,1549
-2024,Ancash,La Libertad,1538
-2024,Amazonas,Loreto,1523
-2024,San Martin,Madre de Dios,1503
-2024,Amazonas,Cajamarca,1486
-2024,Apurimac,Madre de Dios,1411
-2024,Moquegua,Tacna,1395
-2024,Tumbes,Cusco,1380
-2024,Piura,Ancash,1362
-2024,Lima,Madre de Dios,1359
-2024,Tacna,Arequipa,1343
-2024,Huanuco,Ancash,1321
-2024,Huancavelica,Ica,1313
-2024,Huanuco,Ica,1294
-2024,Tumbes,San Martin,1284
-2024,Cusco,Apurimac,1278
-2024,Puno,Lambayeque,1234
-2024,Puno,San Martin,1225
-2024,Junin,San Martin,1220
-2024,Arequipa,Ucayali,1196
-2024,Piura,Tumbes,1158
-2024,Huancavelica,San Martin,1155
-2024,La Libertad,Amazonas,1135
-2024,Madre de Dios,Lima,1114
-2024,Apurimac,Arequipa,1106
-2024,La Libertad,Junin,1080
-2024,Lima,Tumbes,1068
-2024,Cusco,Ayacucho,1064
-2024,Junin,Cajamarca,1035
-2024,Loreto,Ica,991
-2024,Ayacucho,Apurimac,980
-2024,La Libertad,Lambayeque,976
-2024,Piura,Loreto,960
-2024,Ancash,Amazonas,955
-2024,Junin,La Libertad,946
-2024,Puno,Ucayali,928
-2024,Lambayeque,Piura,917
-2024,Madre de Dios,Puno,894
-2024,Piura,Arequipa,886
-2024,Junin,Arequipa,866
-2024,Lambayeque,Loreto,837
-2024,Loreto,Puno,837
-2024,San Martin,Ayacucho,836
-2024,La Libertad,Arequipa,830
-2024,Amazonas,Ucayali,824
-2024,Junin,Ayacucho,821
-2024,Junin,Huanuco,817
-2024,Arequipa,Ica,787
-2024,Ayacucho,Pasco,780
-2024,Ica,La Libertad,779
-2024,Cajamarca,Huanuco,776
-2024,Arequipa,Madre de Dios,772
-2024,Piura,Lambayeque,764
-2024,Apurimac,Cusco,738
-2024,San Martin,Piura,727
-2024,Cusco,Tacna,671
-2024,Junin,Ica,666
-2024,Lambayeque,Ica,664
-2024,Cusco,Puno,657
-2024,Huanuco,Huancavelica,637
-2024,Lambayeque,Ancash,601
-2024,Loreto,Cajamarca,597
-2024,Arequipa,Junin,586
-2024,Ica,Ayacucho,574
-2024,Ica,Lambayeque,570
-2024,Junin,Lambayeque,549
-2024,Loreto,La Libertad,537
-2024,Ancash,Lambayeque,536
-2024,Ucayali,Madre de Dios,517
-2024,Lima,Moquegua,512
-2024,Lambayeque,Cajamarca,497
-2024,La Libertad,Huanuco,484
-2024,Ica,Moquegua,480
-2024,La Libertad,Tumbes,461
-2024,Ica,Junin,447
-2024,Arequipa,La Libertad,441
-2024,Ica,Ucayali,437
-2024,Loreto,Amazonas,421
-2024,Tacna,Ucayali,421
-2024,Madre de Dios,Lambayeque,411
-2024,Apurimac,Junin,409
-2024,Pasco,San Martin,408
-2024,Tacna,Moquegua,387
-2024,Moquegua,Apurimac,383
-2024,Puno,Apurimac,383
-2024,La Libertad,Madre de Dios,378
-2024,Ayacucho,Arequipa,361
-2024,Cusco,Ucayali,353
-2024,Tumbes,Lambayeque,349
-2024,Arequipa,Apurimac,343
-2024,Huancavelica,Apurimac,343
-2024,Ucayali,Ayacucho,334
-2024,Cusco,Huancavelica,308
-2024,Pasco,Tumbes,307
-2024,Ica,Madre de Dios,306
-2024,Puno,Huancavelica,301
-2024,Amazonas,Ancash,295
-2024,Ayacucho,Ucayali,295
-2024,Cajamarca,Ucayali,292
-2024,Ayacucho,Loreto,288
-2024,La Libertad,Loreto,288
-2024,Ancash,Arequipa,283
-2024,Loreto,Madre de Dios,283
-2024,Tumbes,Ancash,282
-2024,Puno,Cusco,281
-2024,Ancash,Piura,280
-2024,La Libertad,Ica,280
-2024,Puno,Lima,278
-2024,Madre de Dios,Arequipa,277
-2024,Ayacucho,Madre de Dios,271
-2024,Madre de Dios,Junin,271
-2024,Puno,Ica,266
-2024,Pasco,Ica,263
-2024,Piura,Cajamarca,262
-2024,Madre de Dios,Ucayali,259
-2024,Piura,La Libertad,259
-2024,Ancash,Ica,253
-2024,Ayacucho,Piura,247
-2024,Ancash,Huanuco,245
-2024,Ica,Arequipa,238
-2024,Ica,Ancash,236
-2024,Ucayali,Ancash,236
-2024,Huancavelica,Ayacucho,231
-2024,San Martin,Arequipa,231
-2024,Huanuco,Arequipa,230
-2024,Ancash,Junin,226
-2024,Cusco,Junin,223
-2024,Arequipa,Ancash,222
-2024,Cajamarca,Junin,220
-2024,Moquegua,Ucayali,218
-2024,Apurimac,Ancash,217
-2024,Arequipa,Pasco,199
-2024,Apurimac,Pasco,197
-2024,Ucayali,Pasco,197
-2024,Ucayali,Amazonas,196
-2024,Loreto,Tacna,189
-2024,Lambayeque,Madre de Dios,179
-2024,Cusco,Ancash,177
-2024,Cajamarca,Arequipa,172
-2024,Madre de Dios,Apurimac,167
-2024,Huancavelica,Ucayali,165
-2024,Ancash,Huancavelica,164
-2024,Lambayeque,Tumbes,164
-2024,Tacna,Ayacucho,164
-2024,Junin,Moquegua,158
-2024,Ica,Amazonas,153
-2024,Piura,Moquegua,151
-2024,Cajamarca,Tumbes,149
-2024,Loreto,Huanuco,146
-2024,Madre de Dios,Huanuco,146
-2024,Pasco,Ucayali,144
-2024,Madre de Dios,San Martin,143
-2024,Huancavelica,Amazonas,142
-2024,Puno,Loreto,141
-2024,Piura,Amazonas,138
-2024,Apurimac,Ucayali,130
-2024,Cusco,Huanuco,121
-2024,Ucayali,Tacna,112
-2024,San Martin,Pasco,98
-2024,Ancash,San Martin,90
-2024,Cusco,Amazonas,80
-2024,Amazonas,Pasco,79
-2024,Arequipa,Amazonas,74
-2024,Cajamarca,Tacna,59
-2024,Pasco,Huancavelica,55
-2024,Cajamarca,Piura,49
-2024,Piura,Junin,40
-2024,Ancash,Tacna,39
-2024,Lambayeque,Tacna,39
-2024,Huanuco,Moquegua,38
-2024,Piura,Madre de Dios,38
-2024,Piura,Ucayali,38
-2024,San Martin,Moquegua,38
-2024,Huanuco,Tacna,37
-2024,Madre de Dios,Tacna,37
-2024,Tacna,Madre de Dios,20
-2024,Ica,Cusco,15
-2024,Huanuco,Madre de Dios,9
-2024,San Martin,Tumbes,8
-2024,Cajamarca,Loreto,5
-2024,Cusco,Loreto,2
-2024,Madre de Dios,Loreto,1
+anio,origen,destino,personas,n
+2018,Junin,Lima,31312,46
+2018,Ancash,Lima,20752,37
+2018,Piura,Lima,20522,42
+2018,Loreto,Lima,19568,40
+2018,Lima,Junin,19523,79
+2018,Lima,Lambayeque,18520,70
+2018,Lambayeque,Lima,17604,31
+2018,Lima,Piura,16632,74
+2018,Cajamarca,Lima,15860,23
+2018,Lima,Huanuco,13859,67
+2018,Lima,San Martin,12228,81
+2018,San Martin,Lima,12001,14
+2018,La Libertad,Lima,11057,28
+2018,Arequipa,Lima,10883,14
+2018,Lima,Arequipa,10836,59
+2018,Lima,Ancash,9703,56
+2018,Ica,Lima,9367,14
+2018,Ucayali,Lima,9363,14
+2018,Cusco,Lima,8682,15
+2018,Lima,Loreto,8677,53
+2018,Lima,La Libertad,8597,25
+2018,Huanuco,Lima,7860,12
+2018,Ayacucho,Lima,7808,16
+2018,Amazonas,Lima,7542,11
+2018,Tacna,Lima,7318,9
+2018,Lima,Ucayali,7169,53
+2018,Puno,Arequipa,7151,38
+2018,Cajamarca,Lambayeque,6918,33
+2018,Arequipa,Cusco,6768,16
+2018,Lima,Ayacucho,6160,30
+2018,Loreto,Ucayali,6037,49
+2018,Lima,Apurimac,5811,32
+2018,Lima,Cusco,5307,17
+2018,San Martin,Amazonas,5276,37
+2018,Huancavelica,Junin,5243,14
+2018,Cusco,Arequipa,5173,31
+2018,Loreto,San Martin,5110,40
+2018,Pasco,Lima,4861,7
+2018,Lambayeque,San Martin,4778,27
+2018,Lima,Amazonas,4773,45
+2018,Lambayeque,Cajamarca,4664,13
+2018,La Libertad,Ancash,4511,20
+2018,San Martin,Huanuco,4372,21
+2018,Piura,La Libertad,4278,9
+2018,Huanuco,Ucayali,4200,31
+2018,Tumbes,Lima,4141,10
+2018,Lambayeque,La Libertad,4119,10
+2018,Huancavelica,Lima,4091,7
+2018,Amazonas,Lambayeque,3989,13
+2018,Ucayali,San Martin,3921,8
+2018,Lima,Puno,3878,14
+2018,Lima,Pasco,3863,59
+2018,Cusco,Puno,3737,10
+2018,Ayacucho,Cusco,3679,11
+2018,Ucayali,Loreto,3648,21
+2018,Arequipa,Puno,3588,15
+2018,Cusco,Madre de Dios,3550,79
+2018,Lima,Ica,3528,24
+2018,Lambayeque,Amazonas,3516,36
+2018,Cajamarca,La Libertad,3429,14
+2018,Piura,Lambayeque,3331,12
+2018,Lima,Cajamarca,3192,10
+2018,Apurimac,Lima,3045,5
+2018,Huanuco,Junin,2919,9
+2018,Lima,Huancavelica,2861,20
+2018,Huanuco,Pasco,2856,43
+2018,Tumbes,La Libertad,2805,5
+2018,Amazonas,San Martin,2733,14
+2018,San Martin,Loreto,2572,14
+2018,Lima,Tumbes,2542,28
+2018,Madre de Dios,Lima,2474,5
+2018,Madre de Dios,Cusco,2352,11
+2018,Ucayali,Ancash,2325,7
+2018,Ancash,La Libertad,2312,5
+2018,La Libertad,Piura,2276,10
+2018,Amazonas,Cajamarca,2207,4
+2018,Ucayali,Junin,2203,8
+2018,San Martin,Cajamarca,2174,4
+2018,San Martin,Lambayeque,2167,11
+2018,San Martin,Ucayali,2104,16
+2018,Arequipa,Tacna,2098,32
+2018,Loreto,Lambayeque,2018,8
+2018,Junin,Pasco,2008,33
+2018,Moquegua,Arequipa,2002,13
+2018,Lambayeque,Piura,1992,9
+2018,Cajamarca,Amazonas,1967,13
+2018,Pasco,Huanuco,1923,9
+2018,Madre de Dios,Puno,1903,7
+2018,Puno,Tacna,1863,26
+2018,Ucayali,Huanuco,1863,10
+2018,Junin,Loreto,1817,7
+2018,Madre de Dios,Arequipa,1795,6
+2018,Cajamarca,San Martin,1774,11
+2018,Ayacucho,Arequipa,1740,4
+2018,Lima,Madre de Dios,1691,35
+2018,Ancash,Huanuco,1681,9
+2018,Lima,Tacna,1672,29
+2018,Piura,Tumbes,1659,26
+2018,Loreto,Ica,1647,10
+2018,Arequipa,Ayacucho,1602,7
+2018,Huanuco,Ancash,1589,12
+2018,San Martin,La Libertad,1577,7
+2018,La Libertad,San Martin,1539,12
+2018,Moquegua,Tacna,1530,19
+2018,Cajamarca,Loreto,1487,9
+2018,Puno,Cusco,1469,3
+2018,Loreto,Piura,1436,2
+2018,Ayacucho,Junin,1357,4
+2018,Cajamarca,Piura,1346,4
+2018,Huancavelica,Ica,1307,5
+2018,Piura,Loreto,1306,6
+2018,La Libertad,Cajamarca,1296,3
+2018,Piura,San Martin,1291,9
+2018,Ica,Ayacucho,1266,8
+2018,Cusco,Ayacucho,1223,4
+2018,Huanuco,San Martin,1213,9
+2018,Lambayeque,Loreto,1199,5
+2018,San Martin,Junin,1198,2
+2018,Junin,Cajamarca,1177,2
+2018,La Libertad,Junin,1170,4
+2018,Apurimac,Junin,1168,7
+2018,Ucayali,Ayacucho,1130,2
+2018,Junin,Huancavelica,1033,6
+2018,La Libertad,Loreto,1030,6
+2018,Puno,Madre de Dios,1020,22
+2018,Tacna,Moquegua,1018,20
+2018,Junin,Huanuco,1012,5
+2018,La Libertad,Amazonas,1003,9
+2018,Ica,Huancavelica,979,8
+2018,Junin,Ica,978,6
+2018,Lima,Moquegua,966,16
+2018,Arequipa,Moquegua,944,17
+2018,Arequipa,Ica,930,4
+2018,Huanuco,Lambayeque,928,4
+2018,Ayacucho,Huancavelica,926,3
+2018,Tumbes,Ancash,897,6
+2018,Puno,Junin,896,3
+2018,Loreto,La Libertad,895,2
+2018,Ancash,San Martin,873,4
+2018,Junin,San Martin,867,3
+2018,Tacna,Puno,866,5
+2018,Arequipa,Cajamarca,847,3
+2018,La Libertad,Lambayeque,817,6
+2018,Amazonas,La Libertad,807,2
+2018,Huancavelica,Ayacucho,779,6
+2018,Cusco,Apurimac,769,7
+2018,Puno,Moquegua,755,10
+2018,Madre de Dios,Ucayali,751,5
+2018,Puno,San Martin,723,3
+2018,Tumbes,Loreto,709,2
+2018,Apurimac,Cusco,683,2
+2018,Cusco,Junin,674,2
+2018,Junin,Ancash,666,3
+2018,Huanuco,Piura,657,1
+2018,Cusco,San Martin,639,5
+2018,Junin,Arequipa,620,5
+2018,Huancavelica,Pasco,605,6
+2018,Ica,Apurimac,599,4
+2018,Ucayali,Madre de Dios,599,20
+2018,Moquegua,Puno,598,2
+2018,Pasco,Junin,587,4
+2018,Madre de Dios,Junin,580,2
+2018,Cajamarca,Cusco,558,1
+2018,Huanuco,La Libertad,552,3
+2018,Moquegua,Lima,551,1
+2018,La Libertad,Huanuco,528,4
+2018,Ayacucho,Puno,524,1
+2018,La Libertad,Arequipa,516,2
+2018,Ancash,Junin,506,3
+2018,Madre de Dios,Ica,491,3
+2018,Cusco,Tacna,481,3
+2018,Arequipa,Junin,480,1
+2018,Cusco,La Libertad,475,1
+2018,Ayacucho,Ica,470,3
+2018,Arequipa,Apurimac,468,3
+2018,Puno,Ayacucho,468,3
+2018,Arequipa,Madre de Dios,463,11
+2018,La Libertad,Cusco,461,2
+2018,Loreto,Madre de Dios,452,7
+2018,Junin,Ucayali,451,8
+2018,Ayacucho,Apurimac,446,2
+2018,Cajamarca,Junin,424,3
+2018,Huanuco,Loreto,424,2
+2018,Cajamarca,Ica,421,2
+2018,Cusco,Loreto,408,2
+2018,Ica,Pasco,407,2
+2018,Ica,Amazonas,403,5
+2018,Ancash,Pasco,396,5
+2018,Apurimac,Arequipa,394,2
+2018,Pasco,Ucayali,394,6
+2018,La Libertad,Ucayali,392,2
+2018,Ica,Arequipa,388,4
+2018,Junin,Ayacucho,388,2
+2018,Ica,Ucayali,386,2
+2018,La Libertad,Ayacucho,382,3
+2018,Tacna,Apurimac,378,2
+2018,Amazonas,Arequipa,358,2
+2018,Ica,Loreto,349,2
+2018,San Martin,Cusco,337,1
+2018,Arequipa,Ancash,332,1
+2018,Piura,Arequipa,329,3
+2018,Arequipa,Lambayeque,327,2
+2018,Ancash,Cajamarca,325,1
+2018,Ucayali,Tacna,312,2
+2018,Tumbes,Lambayeque,307,1
+2018,Lambayeque,Ica,304,2
+2018,Junin,Madre de Dios,299,7
+2018,San Martin,Ancash,297,2
+2018,San Martin,Piura,287,1
+2018,Cusco,Ucayali,285,3
+2018,Amazonas,Ancash,280,2
+2018,Amazonas,Loreto,279,2
+2018,Apurimac,Ica,269,2
+2018,Ancash,Piura,267,1
+2018,Arequipa,Ucayali,243,3
+2018,Ica,Madre de Dios,243,5
+2018,Ucayali,Cusco,240,1
+2018,Puno,Huancavelica,239,2
+2018,Moquegua,Huanuco,237,1
+2018,Pasco,Loreto,237,3
+2018,Ayacucho,Piura,231,1
+2018,Cajamarca,Ancash,224,2
+2018,Cusco,Moquegua,224,3
+2018,Loreto,Arequipa,216,4
+2018,Puno,Apurimac,216,2
+2018,San Martin,Ica,210,1
+2018,Huancavelica,Cusco,186,1
+2018,Ica,San Martin,185,3
+2018,Piura,Ancash,185,1
+2018,Ucayali,La Libertad,184,1
+2018,Lambayeque,Junin,183,1
+2018,Tacna,Arequipa,179,1
+2018,Piura,Ucayali,176,1
+2018,Amazonas,Ucayali,175,1
+2018,Ica,Puno,162,1
+2018,Junin,La Libertad,154,1
+2018,La Libertad,Tumbes,151,2
+2018,Loreto,Apurimac,151,1
+2018,Tumbes,Piura,141,1
+2018,San Martin,Madre de Dios,139,6
+2018,Apurimac,Moquegua,135,2
+2018,Ica,Moquegua,134,4
+2018,Pasco,Lambayeque,133,1
+2018,Cajamarca,Madre de Dios,127,2
+2018,San Martin,Moquegua,127,2
+2018,Pasco,Ayacucho,126,1
+2018,Arequipa,San Martin,120,1
+2018,Loreto,Tacna,118,3
+2018,Ica,Ancash,112,1
+2018,Lambayeque,Tumbes,112,2
+2018,Tumbes,Arequipa,112,1
+2018,Junin,Apurimac,110,1
+2018,Lambayeque,Ancash,109,1
+2018,Ucayali,Arequipa,105,1
+2018,Lambayeque,Ucayali,101,1
+2018,Apurimac,Madre de Dios,96,5
+2018,Loreto,Ayacucho,92,1
+2018,Amazonas,Madre de Dios,90,1
+2018,La Libertad,Madre de Dios,90,1
+2018,Loreto,Pasco,88,3
+2018,Piura,Amazonas,88,1
+2018,Loreto,Tumbes,86,1
+2018,Ica,Junin,81,1
+2018,Cajamarca,Ucayali,78,1
+2018,Junin,Moquegua,78,1
+2018,Loreto,Moquegua,77,1
+2018,Tacna,Madre de Dios,77,3
+2018,Amazonas,Pasco,75,2
+2018,Cajamarca,Tumbes,75,1
+2018,La Libertad,Moquegua,75,1
+2018,Lambayeque,Huanuco,74,3
+2018,Amazonas,Tumbes,67,1
+2018,Puno,Piura,63,1
+2018,Loreto,Amazonas,62,1
+2018,Tumbes,Moquegua,60,1
+2018,Arequipa,Amazonas,59,1
+2018,Ucayali,Amazonas,59,1
+2018,Apurimac,Tacna,57,2
+2018,Junin,Tacna,53,1
+2018,Ancash,Tumbes,51,1
+2018,Lambayeque,Arequipa,47,1
+2018,La Libertad,Pasco,46,1
+2018,Ucayali,Pasco,42,1
+2018,Cajamarca,Tacna,40,1
+2018,Huanuco,Tacna,40,1
+2018,Apurimac,Pasco,38,1
+2018,Ancash,Ucayali,37,1
+2018,Cajamarca,Arequipa,37,1
+2018,Ancash,Madre de Dios,23,1
+2018,Ayacucho,Madre de Dios,23,1
+2018,Ayacucho,La Libertad,22,1
+2018,Huanuco,Madre de Dios,22,2
+2018,La Libertad,Tacna,16,1
+2018,Lambayeque,Tacna,16,1
+2018,Tacna,Ica,9,1
+2018,Moquegua,Madre de Dios,6,1
+2018,Piura,Madre de Dios,5,1
+2018,Arequipa,Loreto,3,1
+2019,Lima,Junin,20946,63
+2019,Junin,Lima,20634,32
+2019,Loreto,Lima,19231,34
+2019,Lima,La Libertad,18433,52
+2019,Piura,Lima,18058,28
+2019,San Martin,Lima,17707,25
+2019,Ancash,Lima,15588,39
+2019,Lima,San Martin,14892,78
+2019,Lima,Piura,13535,67
+2019,Lima,Ayacucho,12918,61
+2019,Lima,Ancash,12895,60
+2019,Lima,Lambayeque,12821,55
+2019,Lambayeque,Lima,12664,22
+2019,Puno,Arequipa,12207,47
+2019,Lima,Loreto,11534,62
+2019,Huanuco,Lima,11292,19
+2019,Lima,Huanuco,11028,56
+2019,Cajamarca,Lima,10512,18
+2019,Cajamarca,La Libertad,10199,29
+2019,Cusco,Lima,10154,13
+2019,Lima,Arequipa,9096,38
+2019,Lima,Ucayali,8858,73
+2019,Ica,Lima,8546,13
+2019,La Libertad,Lima,8361,14
+2019,Lima,Cusco,8018,26
+2019,Huancavelica,Lima,7699,10
+2019,Pasco,Junin,7326,14
+2019,Amazonas,Lima,6824,10
+2019,Arequipa,Lima,6587,12
+2019,Arequipa,Cusco,6534,16
+2019,Cajamarca,Lambayeque,6410,28
+2019,Loreto,San Martin,5875,45
+2019,Lima,Cajamarca,5673,17
+2019,Ayacucho,Lima,5130,7
+2019,Lima,Amazonas,5119,55
+2019,Cusco,Arequipa,5071,23
+2019,Lima,Ica,4973,29
+2019,Loreto,Ucayali,4883,40
+2019,Apurimac,Lima,4816,7
+2019,Cusco,Madre de Dios,4671,65
+2019,Arequipa,Puno,4658,11
+2019,Lima,Apurimac,4643,31
+2019,Ucayali,Lima,4384,8
+2019,Lambayeque,Amazonas,4292,33
+2019,Junin,Pasco,4134,32
+2019,Lima,Pasco,4086,29
+2019,Cusco,Apurimac,4012,16
+2019,San Martin,Loreto,3991,24
+2019,Puno,Tacna,3922,39
+2019,Lima,Puno,3782,9
+2019,Moquegua,Arequipa,3645,9
+2019,Amazonas,San Martin,3519,23
+2019,Madre de Dios,Cusco,3456,9
+2019,Moquegua,Lima,3362,7
+2019,Cusco,Puno,3335,14
+2019,Piura,Lambayeque,3126,13
+2019,Apurimac,Arequipa,3047,6
+2019,Puno,Lima,3002,3
+2019,La Libertad,San Martin,2965,15
+2019,Lambayeque,Piura,2850,14
+2019,San Martin,Lambayeque,2778,10
+2019,Ica,Ayacucho,2774,11
+2019,Amazonas,Cajamarca,2716,9
+2019,Huancavelica,Junin,2635,15
+2019,La Libertad,Piura,2461,5
+2019,Lambayeque,Loreto,2443,11
+2019,Tacna,Lima,2402,5
+2019,Pasco,Lima,2397,2
+2019,Lambayeque,San Martin,2350,12
+2019,Cusco,Ayacucho,2318,11
+2019,San Martin,La Libertad,2241,7
+2019,Madre de Dios,Puno,2201,5
+2019,Ucayali,Junin,2171,11
+2019,Huanuco,Ucayali,2169,18
+2019,Tumbes,Piura,2152,9
+2019,Ucayali,Loreto,2133,13
+2019,San Martin,Amazonas,2052,20
+2019,La Libertad,Ica,2043,5
+2019,Ucayali,Huanuco,1948,11
+2019,Huanuco,San Martin,1929,13
+2019,La Libertad,Cajamarca,1928,6
+2019,Arequipa,Tacna,1819,28
+2019,Apurimac,Cusco,1774,4
+2019,Cajamarca,Amazonas,1743,20
+2019,Junin,Ucayali,1735,13
+2019,Lima,Tacna,1727,31
+2019,Lambayeque,Cajamarca,1691,3
+2019,Cajamarca,San Martin,1675,12
+2019,Tacna,Puno,1672,3
+2019,Moquegua,Puno,1589,6
+2019,La Libertad,Loreto,1571,10
+2019,San Martin,Ucayali,1547,12
+2019,San Martin,Cajamarca,1523,4
+2019,Lima,Huancavelica,1467,9
+2019,Cusco,La Libertad,1466,3
+2019,Piura,Tumbes,1413,12
+2019,Madre de Dios,Lima,1398,3
+2019,Ancash,Huanuco,1327,7
+2019,Lima,Tumbes,1326,16
+2019,Moquegua,Tacna,1320,32
+2019,Ica,Apurimac,1318,8
+2019,La Libertad,Amazonas,1279,14
+2019,Pasco,Huanuco,1261,6
+2019,Arequipa,Apurimac,1257,8
+2019,Puno,Cusco,1256,4
+2019,Lima,Madre de Dios,1212,23
+2019,Pasco,La Libertad,1204,3
+2019,Cusco,Junin,1195,3
+2019,Ayacucho,Apurimac,1192,4
+2019,Ayacucho,Ica,1173,5
+2019,Arequipa,Moquegua,1171,18
+2019,La Libertad,Ancash,1153,7
+2019,Piura,San Martin,1055,5
+2019,Junin,Huancavelica,1033,10
+2019,La Libertad,Lambayeque,1029,4
+2019,Arequipa,Piura,1005,3
+2019,Arequipa,Madre de Dios,990,21
+2019,Huanuco,Pasco,981,13
+2019,Tacna,Arequipa,956,4
+2019,Loreto,Cajamarca,952,1
+2019,Huancavelica,Ica,936,4
+2019,Tacna,Moquegua,902,13
+2019,Piura,La Libertad,887,2
+2019,Cajamarca,Piura,855,4
+2019,Junin,Arequipa,849,3
+2019,Cajamarca,Loreto,848,4
+2019,Lambayeque,La Libertad,840,2
+2019,Ayacucho,Huancavelica,832,6
+2019,Amazonas,La Libertad,823,2
+2019,Junin,Ayacucho,795,4
+2019,La Libertad,Cusco,761,1
+2019,Huancavelica,Pasco,750,4
+2019,Lima,Moquegua,732,13
+2019,Arequipa,Ica,731,4
+2019,Junin,Ancash,723,2
+2019,San Martin,Huanuco,711,3
+2019,San Martin,Piura,688,2
+2019,Pasco,Ica,671,3
+2019,Cajamarca,Huanuco,652,3
+2019,Cusco,Piura,627,2
+2019,Ucayali,San Martin,627,2
+2019,Ucayali,Arequipa,605,1
+2019,Ayacucho,Cusco,599,2
+2019,Ucayali,La Libertad,590,2
+2019,Junin,Piura,582,2
+2019,Ica,Huancavelica,572,4
+2019,Piura,Ayacucho,570,4
+2019,Amazonas,Lambayeque,567,3
+2019,Ancash,La Libertad,557,3
+2019,Lambayeque,Arequipa,547,1
+2019,Huanuco,Madre de Dios,520,10
+2019,Junin,Cusco,512,2
+2019,Ancash,Piura,510,3
+2019,Moquegua,Ica,509,3
+2019,Loreto,Lambayeque,506,2
+2019,Junin,Huanuco,478,3
+2019,Madre de Dios,Ica,477,3
+2019,Puno,Madre de Dios,469,8
+2019,Loreto,Amazonas,467,3
+2019,Puno,Moquegua,455,5
+2019,Piura,Junin,452,2
+2019,Ucayali,Ayacucho,450,1
+2019,Apurimac,La Libertad,443,1
+2019,Junin,San Martin,438,4
+2019,Tumbes,Loreto,423,2
+2019,Piura,Loreto,415,4
+2019,Loreto,Pasco,412,2
+2019,Junin,La Libertad,409,1
+2019,Apurimac,Junin,407,3
+2019,Junin,Ica,405,4
+2019,Cusco,Tacna,401,9
+2019,La Libertad,Tumbes,398,3
+2019,Madre de Dios,Apurimac,398,3
+2019,La Libertad,Arequipa,395,2
+2019,Ayacucho,Arequipa,389,2
+2019,Puno,Ucayali,386,2
+2019,Arequipa,San Martin,377,2
+2019,Huanuco,Junin,374,2
+2019,Ayacucho,Huanuco,373,2
+2019,Lambayeque,Tumbes,372,7
+2019,Loreto,Huanuco,368,2
+2019,Piura,Arequipa,358,4
+2019,Tacna,Loreto,352,2
+2019,Cusco,Lambayeque,348,1
+2019,Ucayali,Pasco,344,4
+2019,Huancavelica,Lambayeque,338,1
+2019,Loreto,La Libertad,336,1
+2019,Huanuco,Arequipa,324,2
+2019,Lambayeque,Ucayali,323,3
+2019,Ica,Amazonas,322,4
+2019,Moquegua,Piura,316,1
+2019,Ucayali,Madre de Dios,305,11
+2019,San Martin,Ayacucho,291,3
+2019,Tumbes,Lambayeque,291,2
+2019,Pasco,Ucayali,288,3
+2019,Ancash,Cajamarca,287,1
+2019,Puno,Ayacucho,267,2
+2019,Huancavelica,San Martin,264,2
+2019,Ica,Lambayeque,260,1
+2019,Madre de Dios,San Martin,258,2
+2019,Piura,Ica,258,1
+2019,Puno,Loreto,255,1
+2019,Cajamarca,Madre de Dios,251,3
+2019,Huanuco,Ancash,244,1
+2019,Huancavelica,Ayacucho,242,2
+2019,La Libertad,Apurimac,239,2
+2019,Tacna,Ucayali,238,2
+2019,Ica,Arequipa,237,2
+2019,Cajamarca,Apurimac,227,2
+2019,Cajamarca,Pasco,223,2
+2019,Ancash,Tumbes,219,4
+2019,San Martin,Madre de Dios,218,6
+2019,San Martin,Moquegua,218,3
+2019,Amazonas,Piura,211,1
+2019,Ancash,Ica,205,1
+2019,Ancash,Ayacucho,192,1
+2019,Ica,Loreto,190,1
+2019,Cajamarca,Ancash,184,2
+2019,La Libertad,Huanuco,182,1
+2019,Cajamarca,Tumbes,180,3
+2019,Ancash,Pasco,179,2
+2019,Apurimac,Puno,171,1
+2019,Apurimac,Loreto,166,1
+2019,Arequipa,Ayacucho,164,1
+2019,Moquegua,Ancash,160,1
+2019,Cusco,Huancavelica,159,1
+2019,Apurimac,Ayacucho,153,1
+2019,Madre de Dios,Ucayali,151,4
+2019,Junin,Loreto,148,1
+2019,Loreto,Tacna,147,4
+2019,Huanuco,Lambayeque,145,1
+2019,Ica,Madre de Dios,145,1
+2019,Junin,Lambayeque,145,1
+2019,Loreto,Huancavelica,144,1
+2019,Puno,Tumbes,137,1
+2019,Loreto,Apurimac,133,1
+2019,Madre de Dios,Ayacucho,133,1
+2019,Loreto,Ancash,131,1
+2019,Ancash,Apurimac,129,1
+2019,Apurimac,Madre de Dios,127,2
+2019,Loreto,Arequipa,126,1
+2019,Amazonas,Loreto,124,1
+2019,Ayacucho,Loreto,122,1
+2019,Cusco,Ucayali,119,2
+2019,Ancash,Arequipa,117,4
+2019,Pasco,Apurimac,114,1
+2019,Huanuco,Tacna,102,2
+2019,Madre de Dios,Tacna,102,2
+2019,Ucayali,Tacna,102,2
+2019,Ayacucho,Moquegua,86,1
+2019,Ica,Moquegua,86,1
+2019,Huancavelica,Amazonas,84,1
+2019,La Libertad,Pasco,82,1
+2019,Madre de Dios,Amazonas,81,1
+2019,Moquegua,Amazonas,79,1
+2019,Apurimac,Moquegua,75,1
+2019,Tacna,Amazonas,73,1
+2019,Huanuco,Amazonas,72,1
+2019,Ancash,Tacna,70,2
+2019,Madre de Dios,Arequipa,68,1
+2019,La Libertad,Ucayali,66,2
+2019,Junin,Madre de Dios,65,2
+2019,Ucayali,Moquegua,65,1
+2019,Cajamarca,Arequipa,63,2
+2019,Arequipa,Tumbes,59,1
+2019,Huanuco,Tumbes,59,1
+2019,Arequipa,Pasco,57,1
+2019,Piura,Amazonas,57,1
+2019,Tacna,San Martin,55,1
+2019,Cajamarca,Moquegua,53,1
+2019,Ica,Tumbes,45,1
+2019,Apurimac,Tacna,41,1
+2019,Ancash,Madre de Dios,39,1
+2019,Ayacucho,Tacna,39,1
+2019,Piura,Madre de Dios,36,1
+2019,Cajamarca,Ucayali,34,1
+2019,Loreto,Madre de Dios,25,1
+2019,Ayacucho,Madre de Dios,20,2
+2019,Ayacucho,La Libertad,17,1
+2019,La Libertad,Tacna,12,1
+2019,Tacna,Madre de Dios,12,1
+2019,Loreto,Tumbes,11,1
+2019,Lambayeque,Moquegua,8,2
+2019,Huanuco,Loreto,6,2
+2019,Tumbes,Ancash,6,1
+2019,Cusco,Loreto,3,1
+2020,Junin,Lima,24300,34
+2020,Ancash,Lima,22530,31
+2020,Lima,Loreto,19120,99
+2020,Lima,Junin,18003,54
+2020,Lima,San Martin,15903,87
+2020,Lima,Huanuco,15358,69
+2020,Lima,Lambayeque,14475,57
+2020,Loreto,Lima,13954,20
+2020,Cajamarca,Lima,13860,14
+2020,Lima,Ancash,13393,65
+2020,Lima,La Libertad,13110,36
+2020,Cusco,Lima,11400,16
+2020,Piura,Lima,10992,18
+2020,Lima,Piura,10940,52
+2020,Ucayali,Lima,10478,12
+2020,Apurimac,Lima,9676,15
+2020,Lima,Ucayali,7866,59
+2020,Lima,Cusco,7835,21
+2020,Huanuco,Lima,7766,14
+2020,Amazonas,Lima,7626,11
+2020,Lima,Arequipa,7618,35
+2020,Puno,Arequipa,7282,25
+2020,Ayacucho,Lima,7268,7
+2020,Lima,Ayacucho,7047,36
+2020,Cusco,Arequipa,6147,27
+2020,Lima,Apurimac,6113,49
+2020,Lima,Ica,5984,29
+2020,Lima,Amazonas,5942,59
+2020,Lima,Pasco,5692,44
+2020,Arequipa,Lima,5671,13
+2020,Loreto,Ucayali,5533,39
+2020,Cajamarca,La Libertad,5464,13
+2020,Ica,Lima,5412,11
+2020,Cajamarca,Lambayeque,5404,29
+2020,Arequipa,Cusco,5127,13
+2020,Pasco,Lima,4903,5
+2020,Lima,Puno,4872,11
+2020,Amazonas,Lambayeque,4856,22
+2020,Lima,Cajamarca,4811,11
+2020,Pasco,Huanuco,4743,14
+2020,San Martin,Lima,4581,7
+2020,Loreto,San Martin,4550,33
+2020,La Libertad,Lima,4505,14
+2020,Puno,Lima,4070,5
+2020,Pasco,Junin,3953,8
+2020,Lima,Huancavelica,3938,30
+2020,Cajamarca,Piura,3692,10
+2020,Cusco,Puno,3625,8
+2020,Huanuco,Ucayali,3325,26
+2020,Ucayali,Loreto,3272,19
+2020,Huancavelica,Junin,3137,16
+2020,Tacna,Puno,3088,7
+2020,Lambayeque,Ancash,3085,6
+2020,San Martin,Lambayeque,2967,9
+2020,La Libertad,Piura,2841,10
+2020,Huancavelica,Ica,2671,19
+2020,Junin,Huancavelica,2605,20
+2020,Arequipa,Puno,2556,10
+2020,La Libertad,San Martin,2538,14
+2020,Cajamarca,Amazonas,2522,20
+2020,Ica,Huancavelica,2440,18
+2020,Lambayeque,Amazonas,2324,20
+2020,Lambayeque,Piura,2207,6
+2020,San Martin,Loreto,2129,13
+2020,Loreto,La Libertad,2076,5
+2020,Lambayeque,Lima,2026,5
+2020,Junin,Ica,2004,8
+2020,Moquegua,Arequipa,1986,4
+2020,Arequipa,Moquegua,1978,31
+2020,Ucayali,Junin,1955,11
+2020,Arequipa,Tacna,1948,20
+2020,Huancavelica,Lima,1861,2
+2020,San Martin,Huanuco,1850,11
+2020,La Libertad,Cajamarca,1771,6
+2020,Cajamarca,San Martin,1760,12
+2020,Ayacucho,Ica,1731,11
+2020,Ica,Piura,1708,4
+2020,Ica,Arequipa,1698,9
+2020,San Martin,Amazonas,1697,19
+2020,Piura,La Libertad,1682,3
+2020,Piura,Lambayeque,1681,6
+2020,Loreto,Huanuco,1634,10
+2020,Apurimac,Junin,1632,7
+2020,Arequipa,Ayacucho,1617,4
+2020,Huanuco,San Martin,1585,14
+2020,Lambayeque,San Martin,1577,10
+2020,Ayacucho,Junin,1571,8
+2020,Puno,Moquegua,1554,22
+2020,Ucayali,Huanuco,1550,11
+2020,Cusco,Ayacucho,1531,5
+2020,Cusco,Madre de Dios,1530,29
+2020,Huanuco,Pasco,1475,17
+2020,Moquegua,Puno,1464,6
+2020,Cajamarca,Tumbes,1437,8
+2020,Lambayeque,Cajamarca,1401,6
+2020,Ica,Ayacucho,1358,9
+2020,La Libertad,Lambayeque,1319,6
+2020,Ucayali,San Martin,1313,8
+2020,Huanuco,Lambayeque,1285,3
+2020,La Libertad,Ancash,1273,5
+2020,Lima,Tacna,1268,23
+2020,Tumbes,Piura,1176,3
+2020,Ancash,La Libertad,1133,2
+2020,Piura,Tumbes,1123,13
+2020,Cusco,Junin,1119,3
+2020,Ica,Cajamarca,1093,2
+2020,San Martin,La Libertad,1090,3
+2020,Pasco,Loreto,1041,4
+2020,Puno,Tacna,1026,21
+2020,Lima,Moquegua,1015,15
+2020,Apurimac,Cusco,991,2
+2020,Cusco,Apurimac,957,12
+2020,Ayacucho,Huancavelica,919,7
+2020,Ica,Apurimac,893,9
+2020,Junin,Pasco,852,7
+2020,Amazonas,Piura,850,2
+2020,Lima,Madre de Dios,820,17
+2020,Lambayeque,Loreto,806,2
+2020,Loreto,Amazonas,790,5
+2020,San Martin,Ucayali,771,12
+2020,Arequipa,Junin,767,5
+2020,Huancavelica,Ayacucho,751,6
+2020,Ucayali,La Libertad,738,3
+2020,Pasco,Apurimac,699,1
+2020,Tacna,Moquegua,695,12
+2020,Ayacucho,Cusco,686,3
+2020,Junin,Ayacucho,669,4
+2020,Loreto,Ayacucho,666,2
+2020,Pasco,Arequipa,659,1
+2020,Tacna,Lima,629,1
+2020,San Martin,Cajamarca,625,2
+2020,Puno,Ayacucho,622,2
+2020,Apurimac,Madre de Dios,616,6
+2020,Junin,Apurimac,614,4
+2020,Moquegua,Tacna,614,14
+2020,Lima,Tumbes,605,13
+2020,Tacna,Arequipa,592,2
+2020,San Martin,Piura,588,4
+2020,Ancash,Cusco,586,1
+2020,Lambayeque,La Libertad,578,3
+2020,Huancavelica,San Martin,572,1
+2020,Tacna,San Martin,572,1
+2020,Apurimac,Arequipa,569,1
+2020,Amazonas,San Martin,565,3
+2020,San Martin,Madre de Dios,561,20
+2020,Apurimac,Ica,558,2
+2020,Piura,San Martin,534,3
+2020,Puno,Junin,512,5
+2020,Loreto,Ica,509,2
+2020,Cajamarca,Loreto,499,7
+2020,Piura,Ancash,497,1
+2020,Ayacucho,Arequipa,476,5
+2020,Piura,Arequipa,471,4
+2020,Tumbes,Lima,448,2
+2020,Apurimac,Tacna,444,2
+2020,Junin,San Martin,437,3
+2020,Cusco,Moquegua,432,5
+2020,Arequipa,Apurimac,416,4
+2020,Pasco,Ucayali,395,5
+2020,Ica,Loreto,394,6
+2020,Ancash,Cajamarca,390,1
+2020,Moquegua,Junin,389,2
+2020,Cusco,Tacna,379,5
+2020,Puno,Cusco,376,2
+2020,Arequipa,Lambayeque,364,1
+2020,Piura,Ayacucho,363,3
+2020,Tacna,Lambayeque,360,1
+2020,Ayacucho,Lambayeque,358,1
+2020,Amazonas,Loreto,356,4
+2020,Ayacucho,Apurimac,355,4
+2020,Ucayali,Ica,293,1
+2020,Pasco,San Martin,291,2
+2020,Apurimac,Puno,289,1
+2020,La Libertad,Amazonas,285,4
+2020,Ayacucho,Amazonas,283,1
+2020,Madre de Dios,Lambayeque,273,1
+2020,Arequipa,San Martin,253,1
+2020,Arequipa,Madre de Dios,251,6
+2020,Madre de Dios,Puno,248,1
+2020,Ancash,San Martin,243,2
+2020,Piura,Ucayali,242,1
+2020,Cajamarca,Madre de Dios,239,1
+2020,Lambayeque,Tumbes,237,2
+2020,Junin,Ucayali,220,3
+2020,Huancavelica,Pasco,212,1
+2020,La Libertad,Loreto,210,1
+2020,Piura,Huanuco,210,1
+2020,Ancash,Huanuco,206,3
+2020,Tacna,Ucayali,199,1
+2020,Tumbes,Loreto,186,1
+2020,La Libertad,Tacna,182,6
+2020,Pasco,Ica,182,3
+2020,Huanuco,Loreto,181,2
+2020,Ucayali,Pasco,180,2
+2020,La Libertad,Puno,179,1
+2020,Huanuco,Tacna,177,8
+2020,Ica,Ancash,176,1
+2020,San Martin,Ancash,176,1
+2020,Tumbes,Ancash,175,1
+2020,Ucayali,Amazonas,175,2
+2020,Puno,Ica,174,1
+2020,Junin,Loreto,166,1
+2020,Apurimac,Ayacucho,165,1
+2020,Arequipa,Huanuco,153,1
+2020,La Libertad,Moquegua,153,2
+2020,Cajamarca,Ayacucho,149,1
+2020,Amazonas,Huanuco,143,1
+2020,Cajamarca,Ancash,141,1
+2020,Cusco,La Libertad,140,1
+2020,Huanuco,Ayacucho,132,1
+2020,Ayacucho,San Martin,131,1
+2020,Cajamarca,Tacna,128,2
+2020,Huanuco,Junin,128,1
+2020,Ucayali,Lambayeque,128,1
+2020,Puno,Apurimac,127,1
+2020,Arequipa,Ucayali,124,1
+2020,Lambayeque,Ucayali,124,1
+2020,Puno,Madre de Dios,122,9
+2020,Piura,Madre de Dios,119,1
+2020,Huancavelica,Apurimac,118,1
+2020,Amazonas,Madre de Dios,114,1
+2020,Loreto,Apurimac,114,1
+2020,Madre de Dios,Apurimac,114,1
+2020,San Martin,Apurimac,114,1
+2020,Piura,Loreto,111,1
+2020,Ica,Ucayali,108,3
+2020,Cusco,Lambayeque,106,2
+2020,Tacna,Apurimac,104,1
+2020,Huanuco,Amazonas,100,1
+2020,La Libertad,Arequipa,95,1
+2020,Ucayali,Moquegua,93,1
+2020,Ucayali,Madre de Dios,90,4
+2020,Arequipa,La Libertad,89,1
+2020,Tumbes,La Libertad,81,1
+2020,Ancash,Pasco,80,1
+2020,Loreto,Pasco,80,1
+2020,Lambayeque,Pasco,78,1
+2020,Ica,Moquegua,72,1
+2020,Loreto,Madre de Dios,72,6
+2020,Loreto,Tacna,71,2
+2020,Ica,Amazonas,69,1
+2020,Cusco,Ucayali,68,3
+2020,Piura,Amazonas,62,1
+2020,Cajamarca,Moquegua,54,2
+2020,Ica,Tacna,48,1
+2020,Lambayeque,Moquegua,40,1
+2020,Puno,Amazonas,32,1
+2020,Ica,Junin,31,1
+2020,San Martin,Ayacucho,16,1
+2020,La Libertad,Tumbes,15,1
+2020,Loreto,Tumbes,13,1
+2020,Huancavelica,Tacna,12,2
+2020,Loreto,Moquegua,8,2
+2020,Tacna,La Libertad,8,1
+2020,Amazonas,Cajamarca,7,1
+2020,Ayacucho,Madre de Dios,7,1
+2020,Piura,Tacna,7,1
+2020,Ucayali,Tacna,5,1
+2020,Ancash,Madre de Dios,4,1
+2020,Arequipa,Huancavelica,1,1
+2021,Lima,San Martin,27393,114
+2021,Junin,Lima,25103,38
+2021,Lima,Lambayeque,24097,77
+2021,Lima,Junin,22523,79
+2021,Loreto,Lima,22332,29
+2021,Lima,Piura,21597,74
+2021,Ancash,Lima,20620,30
+2021,Lima,Ancash,20524,82
+2021,Lima,La Libertad,19519,50
+2021,Lima,Loreto,18973,112
+2021,Lima,Huanuco,18065,85
+2021,La Libertad,Lima,14965,18
+2021,Lima,Ica,12774,65
+2021,Lima,Ayacucho,12581,57
+2021,Cusco,Lima,12476,16
+2021,Cajamarca,Lima,12233,12
+2021,Huanuco,Lima,11924,17
+2021,Lima,Ucayali,10899,89
+2021,Lima,Apurimac,10774,63
+2021,Tacna,Puno,10706,13
+2021,Puno,Arequipa,10479,35
+2021,Ayacucho,Lima,10289,11
+2021,Lambayeque,Lima,10235,14
+2021,Pasco,Junin,10161,22
+2021,Arequipa,Puno,10022,23
+2021,Cusco,Arequipa,9452,36
+2021,Pasco,Lima,9377,14
+2021,Lambayeque,Cajamarca,9303,18
+2021,Lima,Arequipa,9191,52
+2021,Arequipa,Cusco,9102,17
+2021,Lima,Amazonas,9024,83
+2021,Lima,Cajamarca,8876,26
+2021,Huancavelica,Lima,8819,8
+2021,Cajamarca,La Libertad,8422,17
+2021,Lima,Pasco,7794,82
+2021,Ucayali,Lima,7590,8
+2021,Lima,Cusco,7293,20
+2021,Apurimac,Lima,7262,9
+2021,Cusco,Apurimac,7130,31
+2021,Cajamarca,Lambayeque,6455,25
+2021,Ica,Lima,6154,7
+2021,Junin,Huancavelica,5841,35
+2021,San Martin,Loreto,5605,20
+2021,Amazonas,San Martin,5590,27
+2021,Piura,Lima,5373,10
+2021,Lima,Huancavelica,5347,33
+2021,San Martin,Lima,5197,6
+2021,Arequipa,Lima,4780,8
+2021,Ancash,La Libertad,4775,11
+2021,Huanuco,Ucayali,4716,44
+2021,Puno,Tacna,4642,54
+2021,Cusco,Puno,4572,11
+2021,La Libertad,Cajamarca,4516,12
+2021,Ica,Ayacucho,4473,22
+2021,Loreto,Ucayali,4255,24
+2021,Cajamarca,San Martin,4229,20
+2021,San Martin,Piura,4162,8
+2021,Lambayeque,San Martin,3908,24
+2021,Amazonas,Lambayeque,3681,16
+2021,Ucayali,Loreto,3620,26
+2021,Ucayali,San Martin,3530,15
+2021,Arequipa,Tacna,3447,20
+2021,San Martin,Lambayeque,3412,11
+2021,Pasco,Huanuco,3295,7
+2021,Piura,Huanuco,3291,5
+2021,Junin,Cusco,3258,9
+2021,La Libertad,Ancash,3163,7
+2021,San Martin,Cajamarca,3146,9
+2021,Lambayeque,Amazonas,3003,16
+2021,Huancavelica,Junin,2972,10
+2021,Cajamarca,Piura,2945,6
+2021,Cajamarca,Amazonas,2915,22
+2021,Lima,Tacna,2770,27
+2021,Lambayeque,La Libertad,2702,5
+2021,Lima,Puno,2644,7
+2021,La Libertad,San Martin,2641,21
+2021,Puno,Cusco,2608,4
+2021,Loreto,San Martin,2450,13
+2021,San Martin,Huanuco,2363,12
+2021,Ucayali,Huanuco,2355,16
+2021,Madre de Dios,Cusco,2307,4
+2021,San Martin,Madre de Dios,2146,10
+2021,Junin,Pasco,2097,25
+2021,Ica,Piura,2096,5
+2021,San Martin,Ucayali,2081,22
+2021,Tumbes,Lambayeque,2052,6
+2021,Ica,Huancavelica,2051,14
+2021,Apurimac,Cusco,2045,6
+2021,Huanuco,Pasco,2027,22
+2021,La Libertad,Lambayeque,2014,11
+2021,Piura,San Martin,2005,11
+2021,Cusco,Madre de Dios,1983,37
+2021,Moquegua,Arequipa,1943,6
+2021,Ayacucho,Huancavelica,1927,12
+2021,Loreto,Piura,1914,5
+2021,Madre de Dios,San Martin,1914,8
+2021,Ayacucho,Ica,1898,7
+2021,Arequipa,Moquegua,1858,30
+2021,Lambayeque,Piura,1828,7
+2021,Huanuco,San Martin,1822,14
+2021,Lima,Tumbes,1808,28
+2021,Piura,La Libertad,1805,3
+2021,Huanuco,Junin,1739,7
+2021,Lima,Moquegua,1660,23
+2021,San Martin,La Libertad,1656,3
+2021,San Martin,Amazonas,1652,16
+2021,Puno,Moquegua,1608,19
+2021,Huanuco,Madre de Dios,1522,6
+2021,Arequipa,Apurimac,1509,9
+2021,Puno,Madre de Dios,1481,14
+2021,Loreto,Ica,1386,5
+2021,Puno,Lima,1327,3
+2021,Piura,Tumbes,1277,11
+2021,San Martin,Junin,1265,5
+2021,Piura,Arequipa,1245,5
+2021,Tumbes,Lima,1242,2
+2021,Tumbes,Loreto,1235,4
+2021,Ayacucho,Junin,1212,5
+2021,Arequipa,Ica,1190,5
+2021,Piura,Cajamarca,1118,4
+2021,Ancash,Piura,1107,2
+2021,Pasco,San Martin,1104,2
+2021,Ayacucho,Cusco,1089,2
+2021,San Martin,Ayacucho,1082,3
+2021,Moquegua,Lima,1045,1
+2021,Ica,Arequipa,1038,5
+2021,Junin,Huanuco,1022,5
+2021,Ayacucho,Apurimac,1004,6
+2021,Cusco,Ayacucho,997,6
+2021,Piura,Lambayeque,981,5
+2021,La Libertad,Ayacucho,980,2
+2021,Ucayali,Junin,926,2
+2021,Huancavelica,Ica,894,4
+2021,La Libertad,Amazonas,876,8
+2021,Lambayeque,Loreto,827,3
+2021,Apurimac,Ayacucho,799,4
+2021,Moquegua,Puno,796,3
+2021,Piura,Ayacucho,771,9
+2021,Loreto,Amazonas,758,5
+2021,Junin,La Libertad,745,2
+2021,La Libertad,Piura,741,4
+2021,Lambayeque,Tumbes,727,10
+2021,Apurimac,Ica,726,3
+2021,Tacna,Moquegua,720,14
+2021,Lima,Madre de Dios,715,15
+2021,Ica,Tumbes,703,4
+2021,Tumbes,Piura,702,5
+2021,Junin,Arequipa,698,4
+2021,Piura,Loreto,694,3
+2021,Huanuco,Ancash,680,3
+2021,Piura,Ica,663,3
+2021,Cajamarca,Loreto,642,3
+2021,La Libertad,Arequipa,637,2
+2021,Pasco,Ucayali,619,5
+2021,Apurimac,Arequipa,617,2
+2021,Junin,Ayacucho,617,4
+2021,Apurimac,Puno,608,2
+2021,La Libertad,Loreto,585,3
+2021,Loreto,Madre de Dios,579,7
+2021,Cusco,Junin,572,3
+2021,Cajamarca,Ica,570,2
+2021,Tacna,Arequipa,563,5
+2021,Ancash,Ica,560,3
+2021,Huanuco,Cusco,560,2
+2021,Junin,Ucayali,553,5
+2021,Huancavelica,San Martin,552,1
+2021,Moquegua,Ucayali,551,2
+2021,Moquegua,La Libertad,533,1
+2021,Piura,Amazonas,525,7
+2021,Ayacucho,Arequipa,509,2
+2021,Lambayeque,Ancash,502,1
+2021,Ica,Puno,494,1
+2021,Loreto,La Libertad,494,1
+2021,Arequipa,La Libertad,463,1
+2021,Amazonas,La Libertad,461,1
+2021,San Martin,Ancash,455,1
+2021,Cajamarca,Ucayali,436,3
+2021,Apurimac,Madre de Dios,428,5
+2021,Cusco,Moquegua,423,5
+2021,Ayacucho,Ucayali,417,5
+2021,Amazonas,Piura,415,1
+2021,Cusco,Ucayali,376,6
+2021,Amazonas,Cajamarca,372,1
+2021,Ayacucho,Puno,368,1
+2021,Tacna,Ancash,362,1
+2021,Ica,Moquegua,354,4
+2021,Madre de Dios,Puno,354,1
+2021,Ica,Apurimac,353,3
+2021,Ancash,Huanuco,352,2
+2021,Arequipa,Ucayali,327,3
+2021,Puno,Ayacucho,319,2
+2021,Moquegua,Tacna,314,9
+2021,La Libertad,Tumbes,312,6
+2021,Arequipa,Madre de Dios,296,9
+2021,Junin,Apurimac,295,2
+2021,Ayacucho,Loreto,276,1
+2021,Tacna,Lima,269,1
+2021,Amazonas,Lima,265,1
+2021,Ayacucho,Moquegua,262,3
+2021,Huancavelica,Pasco,259,1
+2021,Puno,Ancash,259,1
+2021,Ayacucho,Madre de Dios,255,5
+2021,Piura,Ucayali,255,3
+2021,Lambayeque,Huanuco,253,1
+2021,Tumbes,Huanuco,239,1
+2021,Huanuco,Ica,238,1
+2021,Ica,Ucayali,238,1
+2021,Huancavelica,Ucayali,237,2
+2021,Arequipa,Huanuco,231,1
+2021,Tacna,Ucayali,231,2
+2021,Loreto,Pasco,225,2
+2021,Ayacucho,Huanuco,222,1
+2021,Piura,Moquegua,222,3
+2021,Cusco,Ica,221,1
+2021,Huanuco,Amazonas,219,3
+2021,Lambayeque,Junin,217,1
+2021,Amazonas,Madre de Dios,216,5
+2021,Apurimac,Junin,214,1
+2021,Tumbes,Amazonas,213,3
+2021,Piura,Ancash,207,2
+2021,Loreto,Apurimac,203,2
+2021,Lambayeque,Apurimac,202,1
+2021,Ica,Amazonas,195,3
+2021,Huanuco,Tacna,193,4
+2021,Arequipa,Ayacucho,187,2
+2021,Junin,Ancash,187,1
+2021,Ucayali,Moquegua,187,1
+2021,Ucayali,Tumbes,183,1
+2021,Ancash,San Martin,178,2
+2021,Ica,San Martin,178,2
+2021,Madre de Dios,Huanuco,176,1
+2021,Tacna,Ayacucho,172,1
+2021,Huancavelica,Ayacucho,171,3
+2021,Amazonas,Loreto,165,1
+2021,Ancash,Tacna,165,4
+2021,Piura,Apurimac,164,3
+2021,Ancash,Ayacucho,161,1
+2021,Madre de Dios,Loreto,158,1
+2021,Tacna,Apurimac,151,1
+2021,Cusco,Huancavelica,150,1
+2021,Junin,Madre de Dios,149,2
+2021,Apurimac,Ucayali,143,2
+2021,Pasco,Ayacucho,138,1
+2021,Tumbes,Cajamarca,135,1
+2021,Huanuco,Loreto,132,1
+2021,Ancash,Lambayeque,130,1
+2021,Ucayali,Lambayeque,128,1
+2021,Ica,Lambayeque,125,1
+2021,Tacna,Loreto,118,1
+2021,Ucayali,Madre de Dios,115,3
+2021,Arequipa,San Martin,103,1
+2021,Lambayeque,Ucayali,103,3
+2021,San Martin,Pasco,100,1
+2021,Ucayali,Ica,99,2
+2021,Huancavelica,Arequipa,91,1
+2021,La Libertad,Ica,91,2
+2021,Moquegua,Amazonas,90,1
+2021,Tumbes,San Martin,89,1
+2021,Cajamarca,Madre de Dios,84,2
+2021,Loreto,Tacna,84,1
+2021,Arequipa,Junin,83,1
+2021,Cusco,Tacna,74,4
+2021,Junin,Tacna,74,5
+2021,Madre de Dios,Ayacucho,72,1
+2021,Loreto,Moquegua,69,1
+2021,Puno,Amazonas,67,1
+2021,Madre de Dios,Tacna,57,2
+2021,Apurimac,Tacna,55,1
+2021,La Libertad,Apurimac,55,1
+2021,Huancavelica,Madre de Dios,37,1
+2021,La Libertad,Moquegua,19,1
+2021,Madre de Dios,Moquegua,19,1
+2021,Ica,Madre de Dios,17,3
+2021,Piura,Tacna,17,1
+2021,Ica,Tacna,13,2
+2021,Cajamarca,Tumbes,12,1
+2021,Loreto,Tumbes,11,1
+2021,Tacna,Tumbes,11,1
+2021,San Martin,Tacna,6,1
+2021,La Libertad,Madre de Dios,5,1
+2021,Ucayali,Tacna,5,1
+2021,Ancash,Loreto,1,1
+2021,Arequipa,Huancavelica,1,1
+2021,Junin,Loreto,1,1
+2021,Loreto,Huanuco,1,1
+2022,Lima,Junin,27865,93
+2022,Ancash,Lima,25229,45
+2022,Lima,Piura,25198,61
+2022,Lima,Loreto,23055,100
+2022,Junin,Lima,21302,34
+2022,Lima,San Martin,19951,95
+2022,Cajamarca,Lima,17842,22
+2022,Lima,Lambayeque,17242,72
+2022,Lima,Arequipa,16263,75
+2022,Lima,Huanuco,15942,82
+2022,Lima,Ayacucho,15510,71
+2022,Loreto,Lima,14052,35
+2022,Lima,Ancash,13916,65
+2022,Lima,Ucayali,13636,103
+2022,Lima,La Libertad,13138,34
+2022,Lima,Cajamarca,12929,41
+2022,Cusco,Lima,12552,11
+2022,Lima,Ica,12361,75
+2022,Lambayeque,Lima,12038,19
+2022,Lima,Apurimac,11083,64
+2022,Huanuco,Lima,10832,19
+2022,Arequipa,Puno,10596,18
+2022,Huancavelica,Lima,10556,10
+2022,San Martin,Lima,9852,15
+2022,Cusco,Arequipa,9445,46
+2022,Ayacucho,Lima,9149,9
+2022,Cajamarca,La Libertad,9065,23
+2022,Puno,Arequipa,9026,40
+2022,Piura,Lima,8895,17
+2022,Lima,Pasco,8687,86
+2022,Huancavelica,Junin,8565,19
+2022,Lima,Huancavelica,8394,44
+2022,La Libertad,Lima,8371,8
+2022,Lima,Cusco,8143,23
+2022,Lima,Amazonas,8132,88
+2022,Ica,Lima,7739,14
+2022,Arequipa,Cusco,7587,24
+2022,Arequipa,Lima,7151,8
+2022,Lima,Puno,6013,16
+2022,Apurimac,Lima,5935,7
+2022,Cusco,Apurimac,5837,27
+2022,Tacna,Lima,5818,4
+2022,Puno,Tacna,5754,58
+2022,Ayacucho,Cusco,5120,13
+2022,Lambayeque,La Libertad,4997,15
+2022,Junin,Huancavelica,4827,28
+2022,La Libertad,Cajamarca,4799,15
+2022,Pasco,Lima,4778,5
+2022,Cajamarca,Amazonas,4723,39
+2022,San Martin,La Libertad,4690,11
+2022,Cusco,Madre de Dios,4560,49
+2022,Cajamarca,Lambayeque,4494,18
+2022,Puno,Cusco,4469,6
+2022,Amazonas,Lima,4120,5
+2022,Lambayeque,Cajamarca,3683,10
+2022,Loreto,Ucayali,3590,30
+2022,Huanuco,Ucayali,3500,32
+2022,Junin,Ucayali,3487,23
+2022,Ayacucho,Junin,3385,15
+2022,La Libertad,San Martin,3373,27
+2022,Loreto,San Martin,3336,19
+2022,Amazonas,Lambayeque,3293,17
+2022,Cajamarca,San Martin,3210,17
+2022,Moquegua,Puno,3189,5
+2022,Lambayeque,Piura,3125,10
+2022,Moquegua,Lima,3012,5
+2022,Arequipa,Apurimac,2977,12
+2022,San Martin,Ucayali,2929,24
+2022,Piura,San Martin,2922,7
+2022,Ucayali,Lima,2880,12
+2022,Junin,Huanuco,2867,11
+2022,Ica,Ayacucho,2849,11
+2022,Huanuco,Pasco,2847,27
+2022,Puno,Lima,2841,7
+2022,Ancash,La Libertad,2767,8
+2022,Junin,Pasco,2743,29
+2022,Arequipa,Piura,2689,6
+2022,Ayacucho,Ica,2676,11
+2022,Pasco,Huanuco,2639,16
+2022,Lambayeque,San Martin,2634,14
+2022,Junin,Ayacucho,2621,10
+2022,Tacna,Puno,2594,8
+2022,San Martin,Lambayeque,2499,8
+2022,Ancash,Cajamarca,2495,4
+2022,Cusco,Puno,2446,3
+2022,Amazonas,San Martin,2443,13
+2022,San Martin,Piura,2307,6
+2022,San Martin,Cajamarca,2274,9
+2022,Loreto,Ica,2235,9
+2022,Lima,Madre de Dios,2216,28
+2022,Ucayali,Huanuco,2166,13
+2022,Ucayali,Loreto,2164,12
+2022,La Libertad,Loreto,2138,8
+2022,Arequipa,Moquegua,2101,28
+2022,Moquegua,Arequipa,2101,8
+2022,San Martin,Loreto,2097,13
+2022,San Martin,Huanuco,2094,11
+2022,Ucayali,Junin,2042,9
+2022,Pasco,Junin,2041,6
+2022,Lima,Tacna,2008,17
+2022,Junin,Ica,1996,10
+2022,Apurimac,Cusco,1992,7
+2022,Arequipa,Ayacucho,1971,4
+2022,Piura,Lambayeque,1958,9
+2022,Ica,Piura,1951,5
+2022,Ancash,Huanuco,1947,6
+2022,La Libertad,Lambayeque,1921,7
+2022,Ucayali,Madre de Dios,1867,16
+2022,Ucayali,San Martin,1831,13
+2022,Ica,Huancavelica,1782,11
+2022,Amazonas,La Libertad,1690,4
+2022,Lambayeque,Amazonas,1666,17
+2022,Puno,Moquegua,1570,22
+2022,Cusco,Ayacucho,1564,4
+2022,Lima,Moquegua,1541,21
+2022,Loreto,Cusco,1537,2
+2022,Cusco,Tacna,1506,13
+2022,Lambayeque,Ancash,1475,4
+2022,La Libertad,Piura,1471,6
+2022,Ucayali,Lambayeque,1453,4
+2022,Piura,La Libertad,1439,4
+2022,Tacna,Moquegua,1437,17
+2022,Cusco,Junin,1422,5
+2022,Ucayali,Ica,1385,7
+2022,Tumbes,Ica,1375,5
+2022,Piura,Cajamarca,1318,5
+2022,Ancash,Arequipa,1251,5
+2022,Huancavelica,Ayacucho,1225,11
+2022,Madre de Dios,Junin,1202,2
+2022,Piura,Tumbes,1202,16
+2022,Ica,Apurimac,1190,9
+2022,Ica,Loreto,1184,4
+2022,Piura,Loreto,1179,4
+2022,Tacna,Arequipa,1067,8
+2022,Junin,Apurimac,1012,5
+2022,Tacna,La Libertad,1002,2
+2022,Loreto,Junin,982,4
+2022,Ucayali,La Libertad,974,3
+2022,Piura,Ancash,950,2
+2022,Amazonas,Cajamarca,935,2
+2022,Apurimac,Arequipa,930,3
+2022,Arequipa,Madre de Dios,881,12
+2022,Puno,Cajamarca,880,2
+2022,Arequipa,Ica,879,4
+2022,Puno,Ica,875,3
+2022,Junin,Ancash,847,4
+2022,Cusco,Ucayali,842,8
+2022,Apurimac,Ica,841,4
+2022,Huanuco,San Martin,832,7
+2022,Lima,Tumbes,820,17
+2022,Arequipa,Tacna,797,13
+2022,Puno,Madre de Dios,795,14
+2022,Ica,Huanuco,782,5
+2022,Ancash,San Martin,777,5
+2022,Tacna,Cusco,768,1
+2022,Ica,Ucayali,735,6
+2022,Tumbes,Lambayeque,726,2
+2022,Pasco,Ucayali,711,7
+2022,Huanuco,Junin,700,3
+2022,Ayacucho,Ucayali,690,4
+2022,San Martin,Amazonas,685,10
+2022,Arequipa,Junin,683,1
+2022,Ancash,Ica,664,6
+2022,Tumbes,Piura,654,3
+2022,Apurimac,Junin,644,1
+2022,Pasco,San Martin,641,2
+2022,Junin,Loreto,638,2
+2022,Ancash,Apurimac,622,2
+2022,Lambayeque,Tumbes,609,4
+2022,Loreto,Huanuco,591,3
+2022,Ica,Lambayeque,585,2
+2022,Tumbes,Cajamarca,579,1
+2022,Ayacucho,Huancavelica,578,4
+2022,Puno,Apurimac,565,4
+2022,Junin,Madre de Dios,509,5
+2022,La Libertad,Ancash,496,2
+2022,Ancash,Piura,476,1
+2022,Huanuco,Arequipa,459,2
+2022,Ucayali,Cajamarca,450,1
+2022,Huancavelica,Ica,447,3
+2022,Pasco,Arequipa,447,2
+2022,La Libertad,Amazonas,446,4
+2022,Lambayeque,Loreto,436,2
+2022,San Martin,Junin,426,2
+2022,Cusco,San Martin,421,1
+2022,Huancavelica,Arequipa,411,2
+2022,Junin,Lambayeque,390,1
+2022,Huanuco,Madre de Dios,377,2
+2022,Tumbes,La Libertad,372,3
+2022,Ancash,Lambayeque,363,1
+2022,Piura,Ucayali,350,2
+2022,Moquegua,Tacna,349,8
+2022,Piura,Amazonas,344,4
+2022,Huanuco,Ica,342,2
+2022,La Libertad,Tumbes,334,5
+2022,San Martin,Madre de Dios,332,8
+2022,Amazonas,Loreto,325,1
+2022,Arequipa,Loreto,325,1
+2022,Ayacucho,Madre de Dios,325,8
+2022,Ayacucho,Apurimac,321,2
+2022,Cajamarca,Tumbes,318,2
+2022,Huanuco,Loreto,313,1
+2022,Piura,Arequipa,307,3
+2022,Ancash,Amazonas,303,2
+2022,Ayacucho,Arequipa,302,1
+2022,La Libertad,Junin,299,1
+2022,La Libertad,Ica,290,1
+2022,Huancavelica,Pasco,289,2
+2022,Madre de Dios,Puno,288,1
+2022,Piura,Ica,281,1
+2022,Ica,Amazonas,280,4
+2022,Madre de Dios,Cusco,279,1
+2022,Lambayeque,Ica,275,1
+2022,Pasco,Ica,275,1
+2022,Loreto,La Libertad,273,1
+2022,Madre de Dios,Ucayali,272,2
+2022,Apurimac,Madre de Dios,271,4
+2022,Huanuco,Tacna,266,5
+2022,Ancash,Cusco,261,1
+2022,Cajamarca,Pasco,246,3
+2022,La Libertad,Ucayali,246,5
+2022,Puno,Junin,243,1
+2022,Cajamarca,Loreto,242,2
+2022,Amazonas,Junin,233,1
+2022,Cajamarca,Cusco,229,1
+2022,Ica,San Martin,215,2
+2022,Cajamarca,Ancash,212,1
+2022,Cusco,Pasco,202,2
+2022,Arequipa,Lambayeque,195,1
+2022,San Martin,Arequipa,193,1
+2022,Moquegua,Ucayali,182,3
+2022,Lambayeque,Ucayali,173,2
+2022,Huancavelica,Ucayali,172,3
+2022,Ucayali,Tumbes,159,1
+2022,Ica,Arequipa,154,2
+2022,Huanuco,Huancavelica,152,1
+2022,Arequipa,San Martin,150,1
+2022,Arequipa,Cajamarca,149,3
+2022,Pasco,Amazonas,143,1
+2022,Amazonas,Madre de Dios,142,3
+2022,Madre de Dios,Loreto,142,1
+2022,Apurimac,Ayacucho,140,1
+2022,Cusco,Moquegua,140,4
+2022,Madre de Dios,Apurimac,139,1
+2022,Pasco,Ayacucho,136,1
+2022,Tumbes,Lima,127,1
+2022,Arequipa,Huanuco,123,1
+2022,Loreto,Piura,120,2
+2022,Ancash,Tacna,101,3
+2022,Ica,Pasco,99,1
+2022,Madre de Dios,Lima,99,1
+2022,Ucayali,Pasco,98,1
+2022,Ancash,Ucayali,92,2
+2022,Tumbes,San Martin,90,1
+2022,Ancash,Pasco,88,1
+2022,Junin,Arequipa,87,1
+2022,Cajamarca,Arequipa,85,2
+2022,Puno,Pasco,77,1
+2022,Huanuco,Apurimac,73,1
+2022,Lambayeque,Huanuco,71,1
+2022,Ucayali,Moquegua,71,1
+2022,Amazonas,Ucayali,68,1
+2022,Cajamarca,Ucayali,68,1
+2022,Cajamarca,Piura,59,1
+2022,Loreto,Madre de Dios,55,2
+2022,Ucayali,Tacna,52,4
+2022,Cajamarca,Moquegua,43,2
+2022,Cajamarca,Madre de Dios,39,1
+2022,Arequipa,Tumbes,37,4
+2022,Piura,Moquegua,35,1
+2022,Cajamarca,Tacna,32,1
+2022,Lambayeque,Tacna,32,1
+2022,San Martin,Moquegua,31,1
+2022,Huanuco,Tumbes,29,3
+2022,La Libertad,Madre de Dios,20,3
+2022,Tacna,Madre de Dios,20,3
+2022,Lambayeque,Moquegua,19,1
+2022,Tumbes,Tacna,12,2
+2022,San Martin,Tumbes,10,1
+2022,Loreto,Tacna,7,1
+2022,Madre de Dios,Tacna,7,1
+2022,Apurimac,Tacna,6,1
+2022,La Libertad,Tacna,6,1
+2022,Puno,Loreto,2,1
+2022,Ancash,Loreto,1,1
+2022,Arequipa,Huancavelica,1,1
+2023,Lima,Junin,37913,105
+2023,Ancash,Lima,24798,26
+2023,Junin,Lima,24187,34
+2023,Piura,Lima,23563,20
+2023,Loreto,Lima,22427,37
+2023,Lima,Lambayeque,20233,69
+2023,Lima,Piura,19466,55
+2023,Lima,Huanuco,18890,73
+2023,Lima,Loreto,18784,106
+2023,Lima,San Martin,18674,95
+2023,Lima,Ancash,18155,76
+2023,Cusco,Lima,16528,16
+2023,Lambayeque,Lima,16103,28
+2023,Cusco,Arequipa,15671,57
+2023,Lima,Cajamarca,15608,41
+2023,Cajamarca,Lima,14756,17
+2023,Lima,Ayacucho,14145,58
+2023,San Martin,Lima,13978,15
+2023,Ayacucho,Lima,13840,18
+2023,Puno,Arequipa,13411,37
+2023,Lima,Ica,13328,66
+2023,Huanuco,Lima,12049,20
+2023,Lima,Amazonas,11646,93
+2023,Cajamarca,La Libertad,11021,26
+2023,Ucayali,Lima,10088,18
+2023,Lima,Ucayali,9995,78
+2023,Lima,Huancavelica,9849,62
+2023,Lima,La Libertad,9825,30
+2023,Lima,Apurimac,9688,53
+2023,Arequipa,Cusco,9386,27
+2023,Lima,Arequipa,9252,38
+2023,Lima,Pasco,8457,58
+2023,Apurimac,Lima,8299,9
+2023,Puno,Tacna,7627,64
+2023,La Libertad,Lima,7331,17
+2023,Lima,Cusco,6922,23
+2023,Arequipa,Puno,6731,18
+2023,Loreto,Ucayali,6688,40
+2023,Loreto,San Martin,6552,32
+2023,Pasco,Lima,5918,8
+2023,Lambayeque,La Libertad,5548,12
+2023,Tumbes,Lima,5492,9
+2023,Madre de Dios,Cusco,5339,19
+2023,Pasco,Huanuco,5027,19
+2023,Arequipa,Lima,4911,10
+2023,Apurimac,Cusco,4862,12
+2023,Puno,Lima,4749,7
+2023,Cajamarca,Lambayeque,4652,13
+2023,San Martin,Loreto,4625,20
+2023,Lambayeque,Cajamarca,4398,14
+2023,Cusco,Ayacucho,4229,13
+2023,Cusco,Madre de Dios,4117,51
+2023,Ayacucho,Cusco,4075,10
+2023,Cajamarca,San Martin,3670,20
+2023,Huancavelica,Lima,3620,5
+2023,Lima,Tacna,3543,31
+2023,Cusco,Puno,3465,4
+2023,Amazonas,La Libertad,3443,5
+2023,Huancavelica,Junin,3264,14
+2023,Junin,Huancavelica,3259,20
+2023,Apurimac,Arequipa,3230,13
+2023,Ica,Lima,3216,10
+2023,La Libertad,San Martin,3157,27
+2023,Amazonas,Cajamarca,3133,3
+2023,Piura,Arequipa,3086,7
+2023,Ayacucho,Ica,2904,16
+2023,Ancash,La Libertad,2888,7
+2023,Huanuco,Ucayali,2753,21
+2023,Junin,Cusco,2703,4
+2023,Ayacucho,Junin,2666,11
+2023,Moquegua,Tacna,2609,27
+2023,Huanuco,Pasco,2460,29
+2023,Ucayali,San Martin,2378,11
+2023,Ica,Huancavelica,2346,13
+2023,Lambayeque,Amazonas,2342,23
+2023,Ica,Ayacucho,2338,12
+2023,Lima,Puno,2327,6
+2023,Ucayali,Loreto,2323,12
+2023,Lambayeque,Ancash,2299,5
+2023,San Martin,Amazonas,2299,23
+2023,Amazonas,Lambayeque,2296,8
+2023,Tacna,Puno,2252,4
+2023,San Martin,Cajamarca,2170,8
+2023,Cajamarca,Amazonas,2169,26
+2023,Amazonas,San Martin,2158,15
+2023,San Martin,Lambayeque,2091,7
+2023,Arequipa,Ica,2048,9
+2023,Apurimac,Puno,1947,5
+2023,Puno,Cusco,1919,5
+2023,Junin,Ayacucho,1898,9
+2023,Junin,Pasco,1892,18
+2023,Lambayeque,San Martin,1876,16
+2023,Cajamarca,Piura,1867,6
+2023,Piura,San Martin,1865,12
+2023,Huanuco,La Libertad,1844,5
+2023,Huancavelica,Ica,1831,7
+2023,Arequipa,Moquegua,1732,28
+2023,Piura,La Libertad,1709,4
+2023,La Libertad,Ancash,1700,6
+2023,Ucayali,Huanuco,1687,9
+2023,Pasco,Junin,1667,5
+2023,San Martin,Huanuco,1653,10
+2023,San Martin,Ucayali,1568,10
+2023,Piura,Tumbes,1566,14
+2023,Puno,Cajamarca,1564,3
+2023,La Libertad,Amazonas,1554,11
+2023,Lambayeque,Piura,1551,5
+2023,Ayacucho,Huancavelica,1546,10
+2023,Arequipa,Tacna,1531,22
+2023,Piura,Lambayeque,1513,6
+2023,Ica,Apurimac,1512,10
+2023,Cusco,Apurimac,1434,8
+2023,Lima,Madre de Dios,1432,29
+2023,Junin,San Martin,1370,4
+2023,Ica,Arequipa,1253,2
+2023,Tacna,Arequipa,1251,5
+2023,Huanuco,Junin,1172,5
+2023,Lambayeque,Loreto,1156,7
+2023,La Libertad,Cajamarca,1150,7
+2023,Amazonas,Lima,1147,4
+2023,Ayacucho,Ucayali,1140,6
+2023,Huanuco,Madre de Dios,1121,6
+2023,Loreto,Ancash,1117,3
+2023,Arequipa,Junin,1085,4
+2023,San Martin,Madre de Dios,1073,10
+2023,Junin,Ucayali,1069,12
+2023,Tacna,Lima,1047,2
+2023,Lima,Tumbes,1012,14
+2023,Arequipa,San Martin,1003,3
+2023,Puno,Ucayali,995,6
+2023,Apurimac,Ayacucho,970,2
+2023,Ica,Puno,957,3
+2023,Lima,Moquegua,901,17
+2023,La Libertad,Piura,900,3
+2023,Puno,Moquegua,876,15
+2023,Huanuco,Arequipa,860,3
+2023,Junin,Huanuco,855,6
+2023,Ayacucho,Apurimac,830,4
+2023,Arequipa,Loreto,826,4
+2023,La Libertad,Ucayali,821,7
+2023,Junin,Ica,817,3
+2023,La Libertad,Ica,815,3
+2023,Arequipa,La Libertad,808,2
+2023,Puno,Madre de Dios,806,13
+2023,Apurimac,Ica,794,3
+2023,Madre de Dios,Arequipa,790,5
+2023,Arequipa,Apurimac,789,5
+2023,La Libertad,Cusco,789,2
+2023,Lambayeque,Ayacucho,787,2
+2023,Moquegua,Arequipa,746,4
+2023,Arequipa,Huanuco,735,1
+2023,Cajamarca,Apurimac,716,2
+2023,Cusco,Ucayali,702,6
+2023,Moquegua,Lima,701,2
+2023,San Martin,La Libertad,700,1
+2023,Cajamarca,Madre de Dios,691,4
+2023,Madre de Dios,Ucayali,685,4
+2023,Tacna,La Libertad,678,5
+2023,Ucayali,Madre de Dios,665,7
+2023,Amazonas,Ucayali,663,3
+2023,Tacna,Moquegua,652,10
+2023,Moquegua,Puno,648,2
+2023,La Libertad,Loreto,625,4
+2023,San Martin,Piura,624,2
+2023,Madre de Dios,Apurimac,623,4
+2023,Piura,Ancash,605,2
+2023,Ucayali,Pasco,599,7
+2023,Ancash,San Martin,591,4
+2023,Huanuco,Loreto,577,2
+2023,Cusco,Tacna,575,4
+2023,Cusco,Moquegua,555,8
+2023,Ayacucho,Arequipa,552,5
+2023,Huanuco,San Martin,552,4
+2023,Ayacucho,Amazonas,543,2
+2023,La Libertad,Lambayeque,538,2
+2023,Ucayali,Ica,529,2
+2023,Apurimac,Madre de Dios,518,3
+2023,Junin,Apurimac,510,2
+2023,San Martin,Arequipa,486,3
+2023,Huancavelica,Ayacucho,485,1
+2023,Loreto,Ica,480,2
+2023,Cusco,Ancash,474,1
+2023,Arequipa,Piura,471,1
+2023,Huanuco,Piura,471,1
+2023,Amazonas,Ancash,464,1
+2023,Arequipa,Madre de Dios,462,7
+2023,Arequipa,Ucayali,453,3
+2023,Loreto,Arequipa,441,2
+2023,Piura,Cusco,438,2
+2023,Apurimac,Pasco,429,6
+2023,Loreto,La Libertad,408,1
+2023,Ayacucho,Pasco,403,5
+2023,Ancash,Ucayali,381,2
+2023,Ica,Piura,368,1
+2023,Madre de Dios,Loreto,367,2
+2023,Ucayali,Lambayeque,363,1
+2023,Cusco,Junin,360,2
+2023,Pasco,Ucayali,359,3
+2023,Piura,Huancavelica,357,1
+2023,Ayacucho,Puno,353,1
+2023,Ayacucho,Madre de Dios,331,11
+2023,Huanuco,Huancavelica,317,2
+2023,Tacna,Huancavelica,317,2
+2023,Junin,Puno,310,1
+2023,La Libertad,Huanuco,305,2
+2023,Ica,Loreto,304,1
+2023,San Martin,Ancash,303,1
+2023,Madre de Dios,Ancash,300,1
+2023,Piura,Ica,288,1
+2023,Cajamarca,Junin,268,1
+2023,Junin,La Libertad,266,1
+2023,Ica,Junin,260,1
+2023,Ucayali,Tumbes,258,3
+2023,Pasco,Ica,256,1
+2023,Cajamarca,Ancash,250,1
+2023,Loreto,Huanuco,250,1
+2023,Huanuco,Ancash,247,1
+2023,Loreto,Amazonas,241,4
+2023,Ancash,Huanuco,238,3
+2023,Junin,Madre de Dios,228,3
+2023,Huancavelica,Loreto,222,1
+2023,Pasco,Cusco,219,1
+2023,Tumbes,Ucayali,208,1
+2023,Pasco,Madre de Dios,191,1
+2023,Ancash,Arequipa,184,1
+2023,Moquegua,Madre de Dios,180,2
+2023,Pasco,Loreto,179,1
+2023,Arequipa,Pasco,173,2
+2023,Loreto,Madre de Dios,169,8
+2023,Cajamarca,Tumbes,163,2
+2023,Tacna,Loreto,163,1
+2023,Piura,Amazonas,162,1
+2023,Tumbes,Amazonas,162,1
+2023,Ucayali,Huancavelica,157,1
+2023,Apurimac,Huancavelica,154,1
+2023,Piura,Apurimac,154,1
+2023,Lambayeque,Tumbes,150,1
+2023,Ica,San Martin,149,1
+2023,Ayacucho,Loreto,140,1
+2023,Tumbes,San Martin,140,1
+2023,Lambayeque,Huanuco,132,2
+2023,Ucayali,Amazonas,131,2
+2023,Cusco,Loreto,130,1
+2023,Apurimac,Huanuco,127,1
+2023,Piura,Huanuco,127,1
+2023,Tacna,Ancash,113,1
+2023,Apurimac,Tumbes,104,1
+2023,Ayacucho,San Martin,94,1
+2023,Ancash,Pasco,88,1
+2023,Tacna,Huanuco,88,1
+2023,Cajamarca,Pasco,86,1
+2023,San Martin,Pasco,86,1
+2023,San Martin,Moquegua,80,2
+2023,Ica,Tacna,77,1
+2023,Cajamarca,Ica,75,1
+2023,Huanuco,Moquegua,74,1
+2023,Ica,Amazonas,71,1
+2023,San Martin,Tacna,71,2
+2023,Huanuco,Amazonas,64,1
+2023,La Libertad,Madre de Dios,58,4
+2023,Ancash,Huancavelica,51,1
+2023,Ica,Moquegua,50,1
+2023,Loreto,Moquegua,50,1
+2023,Lambayeque,Moquegua,41,1
+2023,Ancash,Tacna,39,1
+2023,Madre de Dios,Tacna,34,1
+2023,Puno,Junin,26,1
+2023,Piura,Tacna,24,4
+2023,Piura,Ucayali,21,1
+2023,Ica,Madre de Dios,16,2
+2023,Arequipa,Cajamarca,12,2
+2023,Tumbes,Madre de Dios,8,1
+2023,Cajamarca,Tacna,6,1
+2023,Ucayali,Tacna,5,1
+2023,Cajamarca,Huanuco,3,1
+2024,Lima,Junin,29455,93
+2024,Lima,Huanuco,27789,89
+2024,Lima,Piura,25200,72
+2024,Lima,Loreto,21368,104
+2024,Junin,Lima,20758,23
+2024,Piura,Lima,20104,31
+2024,Apurimac,Lima,20096,17
+2024,Ancash,Lima,19277,29
+2024,Lima,Ancash,19086,68
+2024,Cajamarca,Lima,17698,18
+2024,Lima,San Martin,17117,88
+2024,Huanuco,Lima,16736,21
+2024,Lima,Ica,15880,74
+2024,Loreto,Lima,14801,23
+2024,Lima,La Libertad,14431,35
+2024,Lima,Lambayeque,14280,49
+2024,Lima,Ayacucho,11675,51
+2024,Huancavelica,Lima,11384,14
+2024,Loreto,Ucayali,11297,64
+2024,Lima,Ucayali,10085,58
+2024,Lima,Cajamarca,9931,21
+2024,Lima,Arequipa,8872,33
+2024,Ayacucho,Lima,8182,9
+2024,Amazonas,Lima,8026,7
+2024,Lima,Apurimac,8007,43
+2024,Arequipa,Puno,7711,24
+2024,Puno,Arequipa,7652,31
+2024,Cusco,Arequipa,7413,30
+2024,Lima,Amazonas,7293,67
+2024,Lima,Pasco,7173,53
+2024,Cajamarca,Lambayeque,6921,24
+2024,Cajamarca,La Libertad,6773,24
+2024,Lima,Huancavelica,6459,34
+2024,La Libertad,Lima,6369,15
+2024,Lima,Cusco,6336,25
+2024,Arequipa,Lima,6283,9
+2024,Tumbes,Piura,6202,18
+2024,Arequipa,Cusco,6103,19
+2024,Pasco,Huanuco,6094,20
+2024,San Martin,Lima,6080,11
+2024,Moquegua,Arequipa,6046,17
+2024,Lima,Puno,5886,17
+2024,Puno,Tacna,5832,60
+2024,Pasco,Lima,5411,5
+2024,Huancavelica,Junin,5235,16
+2024,Lambayeque,Lima,5053,10
+2024,San Martin,Loreto,5034,19
+2024,Ayacucho,Junin,4681,16
+2024,Cajamarca,San Martin,4526,22
+2024,Loreto,San Martin,4461,19
+2024,Junin,Huancavelica,4432,26
+2024,Junin,Pasco,4401,39
+2024,Ucayali,Lima,4298,13
+2024,Tacna,Puno,4230,9
+2024,Cusco,Lima,4112,5
+2024,Cajamarca,Amazonas,4087,38
+2024,Ayacucho,Ica,3977,21
+2024,Lima,Tacna,3885,25
+2024,Moquegua,Puno,3818,7
+2024,La Libertad,Ancash,3712,12
+2024,San Martin,Lambayeque,3589,12
+2024,Cusco,Madre de Dios,3519,47
+2024,Amazonas,San Martin,3385,17
+2024,Tacna,Lima,3341,4
+2024,Huanuco,Ucayali,3150,18
+2024,Huanuco,San Martin,3141,17
+2024,Pasco,Junin,3008,14
+2024,Ayacucho,Huancavelica,2972,11
+2024,Ayacucho,Cusco,2970,5
+2024,Ucayali,Loreto,2872,16
+2024,San Martin,Huanuco,2570,14
+2024,Ucayali,San Martin,2551,9
+2024,Ica,Lima,2495,5
+2024,Lambayeque,Amazonas,2462,19
+2024,Arequipa,Ayacucho,2428,10
+2024,Ica,Huancavelica,2411,14
+2024,Huanuco,Pasco,2392,22
+2024,Junin,Ucayali,2330,17
+2024,Ucayali,Ica,2315,10
+2024,Amazonas,La Libertad,2275,5
+2024,Madre de Dios,Cusco,2275,8
+2024,Ica,Apurimac,2270,13
+2024,Amazonas,Lambayeque,2187,6
+2024,Piura,San Martin,2104,7
+2024,Arequipa,Tacna,2080,24
+2024,San Martin,Cajamarca,2064,8
+2024,Lambayeque,San Martin,2031,9
+2024,San Martin,La Libertad,1965,6
+2024,Puno,Madre de Dios,1907,21
+2024,La Libertad,Piura,1897,5
+2024,San Martin,Amazonas,1854,21
+2024,La Libertad,Cajamarca,1834,6
+2024,Ica,Loreto,1764,7
+2024,Lambayeque,La Libertad,1725,5
+2024,Arequipa,Moquegua,1724,28
+2024,Ucayali,Huanuco,1710,11
+2024,Huanuco,Junin,1684,5
+2024,Ucayali,Junin,1646,6
+2024,San Martin,Ucayali,1641,14
+2024,Apurimac,Ica,1605,7
+2024,La Libertad,San Martin,1599,11
+2024,Puno,Cajamarca,1575,3
+2024,Puno,Moquegua,1549,20
+2024,Ancash,La Libertad,1538,4
+2024,Amazonas,Loreto,1523,11
+2024,San Martin,Madre de Dios,1503,12
+2024,Amazonas,Cajamarca,1486,6
+2024,Apurimac,Madre de Dios,1411,9
+2024,Moquegua,Tacna,1395,28
+2024,Tumbes,Cusco,1380,2
+2024,Piura,Ancash,1362,3
+2024,Lima,Madre de Dios,1359,24
+2024,Tacna,Arequipa,1343,6
+2024,Huanuco,Ancash,1321,6
+2024,Huancavelica,Ica,1313,6
+2024,Huanuco,Ica,1294,6
+2024,Tumbes,San Martin,1284,6
+2024,Cusco,Apurimac,1278,6
+2024,Puno,Lambayeque,1234,3
+2024,Puno,San Martin,1225,3
+2024,Junin,San Martin,1220,3
+2024,Arequipa,Ucayali,1196,6
+2024,Piura,Tumbes,1158,19
+2024,Huancavelica,San Martin,1155,3
+2024,La Libertad,Amazonas,1135,8
+2024,Madre de Dios,Lima,1114,1
+2024,Apurimac,Arequipa,1106,4
+2024,La Libertad,Junin,1080,3
+2024,Lima,Tumbes,1068,14
+2024,Cusco,Ayacucho,1064,3
+2024,Junin,Cajamarca,1035,3
+2024,Loreto,Ica,991,6
+2024,Ayacucho,Apurimac,980,6
+2024,La Libertad,Lambayeque,976,3
+2024,Piura,Loreto,960,4
+2024,Ancash,Amazonas,955,3
+2024,Junin,La Libertad,946,2
+2024,Puno,Ucayali,928,7
+2024,Lambayeque,Piura,917,3
+2024,Madre de Dios,Puno,894,2
+2024,Piura,Arequipa,886,3
+2024,Junin,Arequipa,866,5
+2024,Lambayeque,Loreto,837,3
+2024,Loreto,Puno,837,2
+2024,San Martin,Ayacucho,836,5
+2024,La Libertad,Arequipa,830,3
+2024,Amazonas,Ucayali,824,4
+2024,Junin,Ayacucho,821,4
+2024,Junin,Huanuco,817,8
+2024,Arequipa,Ica,787,3
+2024,Ayacucho,Pasco,780,7
+2024,Ica,La Libertad,779,2
+2024,Cajamarca,Huanuco,776,3
+2024,Arequipa,Madre de Dios,772,12
+2024,Piura,Lambayeque,764,3
+2024,Apurimac,Cusco,738,7
+2024,San Martin,Piura,727,2
+2024,Cusco,Tacna,671,5
+2024,Junin,Ica,666,4
+2024,Lambayeque,Ica,664,5
+2024,Cusco,Puno,657,2
+2024,Huanuco,Huancavelica,637,3
+2024,Lambayeque,Ancash,601,1
+2024,Loreto,Cajamarca,597,2
+2024,Arequipa,Junin,586,1
+2024,Ica,Ayacucho,574,2
+2024,Ica,Lambayeque,570,2
+2024,Junin,Lambayeque,549,1
+2024,Loreto,La Libertad,537,1
+2024,Ancash,Lambayeque,536,1
+2024,Ucayali,Madre de Dios,517,13
+2024,Lima,Moquegua,512,6
+2024,Lambayeque,Cajamarca,497,2
+2024,La Libertad,Huanuco,484,4
+2024,Ica,Moquegua,480,3
+2024,La Libertad,Tumbes,461,3
+2024,Ica,Junin,447,2
+2024,Arequipa,La Libertad,441,1
+2024,Ica,Ucayali,437,4
+2024,Loreto,Amazonas,421,6
+2024,Tacna,Ucayali,421,2
+2024,Madre de Dios,Lambayeque,411,1
+2024,Apurimac,Junin,409,2
+2024,Pasco,San Martin,408,1
+2024,Tacna,Moquegua,387,5
+2024,Moquegua,Apurimac,383,1
+2024,Puno,Apurimac,383,3
+2024,La Libertad,Madre de Dios,378,2
+2024,Ayacucho,Arequipa,361,2
+2024,Cusco,Ucayali,353,5
+2024,Tumbes,Lambayeque,349,2
+2024,Arequipa,Apurimac,343,1
+2024,Huancavelica,Apurimac,343,1
+2024,Ucayali,Ayacucho,334,2
+2024,Cusco,Huancavelica,308,1
+2024,Pasco,Tumbes,307,2
+2024,Ica,Madre de Dios,306,2
+2024,Puno,Huancavelica,301,2
+2024,Amazonas,Ancash,295,3
+2024,Ayacucho,Ucayali,295,2
+2024,Cajamarca,Ucayali,292,2
+2024,Ayacucho,Loreto,288,1
+2024,La Libertad,Loreto,288,1
+2024,Ancash,Arequipa,283,1
+2024,Loreto,Madre de Dios,283,2
+2024,Tumbes,Ancash,282,1
+2024,Puno,Cusco,281,1
+2024,Ancash,Piura,280,1
+2024,La Libertad,Ica,280,4
+2024,Puno,Lima,278,1
+2024,Madre de Dios,Arequipa,277,1
+2024,Ayacucho,Madre de Dios,271,4
+2024,Madre de Dios,Junin,271,1
+2024,Puno,Ica,266,1
+2024,Pasco,Ica,263,1
+2024,Piura,Cajamarca,262,1
+2024,Madre de Dios,Ucayali,259,2
+2024,Piura,La Libertad,259,4
+2024,Ancash,Ica,253,1
+2024,Ayacucho,Piura,247,1
+2024,Ancash,Huanuco,245,7
+2024,Ica,Arequipa,238,2
+2024,Ica,Ancash,236,1
+2024,Ucayali,Ancash,236,1
+2024,Huancavelica,Ayacucho,231,2
+2024,San Martin,Arequipa,231,2
+2024,Huanuco,Arequipa,230,3
+2024,Ancash,Junin,226,1
+2024,Cusco,Junin,223,1
+2024,Arequipa,Ancash,222,1
+2024,Cajamarca,Junin,220,1
+2024,Moquegua,Ucayali,218,1
+2024,Apurimac,Ancash,217,1
+2024,Arequipa,Pasco,199,2
+2024,Apurimac,Pasco,197,2
+2024,Ucayali,Pasco,197,2
+2024,Ucayali,Amazonas,196,3
+2024,Loreto,Tacna,189,5
+2024,Lambayeque,Madre de Dios,179,1
+2024,Cusco,Ancash,177,1
+2024,Cajamarca,Arequipa,172,1
+2024,Madre de Dios,Apurimac,167,1
+2024,Huancavelica,Ucayali,165,1
+2024,Ancash,Huancavelica,164,1
+2024,Lambayeque,Tumbes,164,3
+2024,Tacna,Ayacucho,164,1
+2024,Junin,Moquegua,158,2
+2024,Ica,Amazonas,153,1
+2024,Piura,Moquegua,151,1
+2024,Cajamarca,Tumbes,149,2
+2024,Loreto,Huanuco,146,1
+2024,Madre de Dios,Huanuco,146,1
+2024,Pasco,Ucayali,144,2
+2024,Madre de Dios,San Martin,143,1
+2024,Huancavelica,Amazonas,142,2
+2024,Puno,Loreto,141,1
+2024,Piura,Amazonas,138,1
+2024,Apurimac,Ucayali,130,2
+2024,Cusco,Huanuco,121,2
+2024,Ucayali,Tacna,112,3
+2024,San Martin,Pasco,98,1
+2024,Ancash,San Martin,90,1
+2024,Cusco,Amazonas,80,1
+2024,Amazonas,Pasco,79,1
+2024,Arequipa,Amazonas,74,1
+2024,Cajamarca,Tacna,59,1
+2024,Pasco,Huancavelica,55,1
+2024,Cajamarca,Piura,49,3
+2024,Piura,Junin,40,1
+2024,Ancash,Tacna,39,1
+2024,Lambayeque,Tacna,39,1
+2024,Huanuco,Moquegua,38,1
+2024,Piura,Madre de Dios,38,1
+2024,Piura,Ucayali,38,1
+2024,San Martin,Moquegua,38,1
+2024,Huanuco,Tacna,37,1
+2024,Madre de Dios,Tacna,37,1
+2024,Tacna,Madre de Dios,20,3
+2024,Ica,Cusco,15,1
+2024,Huanuco,Madre de Dios,9,1
+2024,San Martin,Tumbes,8,1
+2024,Cajamarca,Loreto,5,2
+2024,Cusco,Loreto,2,1
+2024,Madre de Dios,Loreto,1,1
