@@ -25,6 +25,7 @@ const Adivina = lazy(() => import('./components/Adivina'))
 const Dibuja = lazy(() => import('./components/Dibuja'))
 const DosPerus = lazy(() => import('./components/DosPerus'))
 const Movilidad = lazy(() => import('./components/Movilidad'))
+const Agenda = lazy(() => import('./components/Agenda'))
 import { LangProvider, useLang } from './i18n'
 
 function LangToggle() {
@@ -61,7 +62,7 @@ function AppShell() {
       ['/ensayos', 'Ensayos'], ['/historia', 'Historia de la pobreza'],
       ['/desigualdad', 'Historia de la desigualdad'],
       ['/metodologia', 'Metodología'], ['/dpto/', 'Ficha departamental'],
-      ['/graficos', 'Gráficos'], ['/tema/', 'Temas'], ['/distrito', 'Mi distrito'], ['/preguntas', 'El Perú en preguntas'], ['/quienvoto', 'El mapa de la grieta'], ['/movilidad', 'Movilidad educativa'], ['/tuvida', 'El Perú de tu vida'], ['/adivina', 'Adivina el Perú'], ['/dibuja', 'Dibuja la línea'], ['/dosperus', 'Dos Perús'],
+      ['/graficos', 'Gráficos'], ['/tema/', 'Temas'], ['/distrito', 'Mi distrito'], ['/preguntas', 'El Perú en preguntas'], ['/quienvoto', 'El mapa de la grieta'], ['/movilidad', 'Movilidad educativa'], ['/agenda', 'La agenda pendiente'], ['/tuvida', 'El Perú de tu vida'], ['/adivina', 'Adivina el Perú'], ['/dibuja', 'Dibuja la línea'], ['/dosperus', 'Dos Perús'],
     ]
     const hit = titles.find(([p]) => path.startsWith(p))
     document.title = (hit ? hit[1] + ' · ' : '') + 'Observatorio de Datos del Perú'
@@ -74,6 +75,7 @@ function AppShell() {
       '/tuvida': 'Pon tu año de nacimiento y mira cómo cambió el Perú mientras crecías.',
       '/adivina': 'Adivina las cifras del Perú y compara tu intuición con los datos oficiales.',
       '/dibuja': 'Dibuja lo que crees que pasó con la pobreza y mira la realidad encima de tu trazo.',
+      '/agenda': 'Qué debe mejorar el Perú: las seis series que no se movieron mientras el país crecía, con sus datos en vivo.',
     }
     const d = DESCS[Object.keys(DESCS).find((k) => path.startsWith(k))]
     const tag = document.querySelector('meta[name="description"]')
@@ -137,6 +139,7 @@ function AppShell() {
                 <Route path="/preguntas" element={<Preguntas />} />
                 <Route path="/quienvoto" element={<QuienVoto />} />
                 <Route path="/movilidad" element={<Movilidad />} />
+                <Route path="/agenda" element={<Agenda />} />
                 <Route path="/tuvida" element={<TuVida />} />
                 <Route path="/adivina" element={<Adivina />} />
                 <Route path="/dibuja" element={<Dibuja />} />

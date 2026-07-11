@@ -169,6 +169,7 @@ def sitemap():
     base = "https://peruobservatorio.onrender.com"
     fixed = ["", "/preguntas", "/tuvida", "/adivina", "/dibuja", "/dosperus",
              "/historia", "/desigualdad", "/quienvoto", "/graficos",
+             "/movilidad", "/agenda",
              "/comparar", "/correlacion", "/distrito", "/metodologia",
              "/datos", "/ensayos"] + [f"/tema/{k}" for k in (
                  "pobreza", "ingreso", "empleo", "educacion", "salud",
