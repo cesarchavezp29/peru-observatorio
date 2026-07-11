@@ -502,6 +502,7 @@ _TITLES = {
     "endes_hijos_educacion_tiempo": "Hijos por mujer segun educacion (2004-2024)",
     "endes_hijos_area_tiempo": "Hijos por mujer: urbano vs rural (2004-2024)",
     "endes_edad_primer_hijo_educacion": "Edad al primer hijo segun educacion",
+    "endes_anemia_desnutricion_tiempo": "Salud infantil: anemia vs desnutricion cronica (2005-2024)",
 }
 
 
