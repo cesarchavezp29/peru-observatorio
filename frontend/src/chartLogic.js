@@ -345,6 +345,11 @@ export function buildOption({ rows, x, series, type, ytitle, xIsDept, rankBars }
   const valAxis = {
     type: 'value', name: ytitle ? labelFor(ytitle) : '',
     nameTextStyle: { color: axisColor, align: horizontal ? 'center' : 'left' },
+    // adaptive scale: zoom the axis to the data range instead of pinning 0, so a
+    // series that lives in a narrow band (informality 72-84%, a Gini 0.40-0.49)
+    // shows its movement. Bars and stacked areas MUST keep the 0 baseline — a
+    // bar cut off above 0 misrepresents magnitude, and a stack is a part-of-whole.
+    scale: (base === 'line' && !stacked) || base === 'scatter',
     axisLabel: { color: axisColor, formatter: (v) => fmtNum(v) },
     splitLine: { lineStyle: { color: gridColor } },
     axisLine: { show: false }, axisTick: { show: false },
