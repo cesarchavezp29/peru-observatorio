@@ -486,6 +486,7 @@ _TITLES = {
     "censo_urbanizacion_1993_2017": "Urbanización del Perú: tres censos (1993-2017)",
     "censo_urbanizacion_departamento": "Urbanización por departamento (censos 1993-2017)",
     "censo_lengua_departamento": "Lengua originaria por departamento (censos 1981-2017)",
+    "censo_condiciones_vida_provincia": "Condiciones de vida por provincia: índice de privación en cuatro censos (1981-2017)",
     "paises_gini_tiempo_wdi": "Desigualdad: Perú vs vecinos (Gini, Banco Mundial)",
     "paises_pobreza685_wdi": "Pobreza comparable: Perú vs vecinos ($6.85/día, Banco Mundial)",
     "voto_keiko_departamento": "Voto por Keiko Fujimori por departamento (2021 y 2026)",

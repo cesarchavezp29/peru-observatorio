@@ -26,6 +26,7 @@ const Dibuja = lazy(() => import('./components/Dibuja'))
 const DosPerus = lazy(() => import('./components/DosPerus'))
 const Movilidad = lazy(() => import('./components/Movilidad'))
 const Agenda = lazy(() => import('./components/Agenda'))
+const Censos = lazy(() => import('./components/Censos'))
 import { LangProvider, useLang } from './i18n'
 
 function LangToggle() {
@@ -76,6 +77,7 @@ function AppShell() {
       '/adivina': 'Adivina las cifras del Perú y compara tu intuición con los datos oficiales.',
       '/dibuja': 'Dibuja lo que crees que pasó con la pobreza y mira la realidad encima de tu trazo.',
       '/agenda': 'Qué debe mejorar el Perú: las seis series que no se movieron mientras el país crecía, con sus datos en vivo.',
+      '/censos': 'Condiciones de vida por provincia en cuatro censos: el índice de privación cayó de 63 a 34 entre 1981 y 2017.',
     }
     const d = DESCS[Object.keys(DESCS).find((k) => path.startsWith(k))]
     const tag = document.querySelector('meta[name="description"]')
@@ -140,6 +142,7 @@ function AppShell() {
                 <Route path="/quienvoto" element={<QuienVoto />} />
                 <Route path="/movilidad" element={<Movilidad />} />
                 <Route path="/agenda" element={<Agenda />} />
+                <Route path="/censos" element={<Censos />} />
                 <Route path="/tuvida" element={<TuVida />} />
                 <Route path="/adivina" element={<Adivina />} />
                 <Route path="/dibuja" element={<Dibuja />} />
