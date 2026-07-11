@@ -10,7 +10,7 @@ import { buildOption, deptName } from '../chartLogic'
 
 // A full-size, live chart embedded on the home page next to a short narrative.
 export default function StoryChart({
-  kicker, title, lede, schema, table, kind, series, x, mapCol,
+  kicker, title, lede, schema, table, kind, series, x, mapCol, ylabel,
   entityCol = 'dep', timeCol, flow, level = 'dept', height = 380, reverse, cta = 'Explora el dato →', href,
 }) {
   const nav = useNavigate()
@@ -34,8 +34,8 @@ export default function StoryChart({
     const clean = rows
       .map((r) => ({ ...r, [series]: (r[series] == null || r[series] === '') ? NaN : Number(r[series]) }))
       .filter((r) => Number.isFinite(r[series]))
-    return buildOption({ rows: clean, x, series: [series], type: 'line', ytitle: series })
-  }, [rows, kind, series, x])
+    return buildOption({ rows: clean, x, series: [series], type: 'line', ytitle: ylabel || series })
+  }, [rows, kind, series, x, ylabel])
 
   // flow map: show the most recent year only (rows carry a year axis)
   const flowRows = useMemo(() => {

@@ -18,7 +18,7 @@ export default function Agenda() {
       <div className="section-label">Frente 1 · La informalidad no baja de 72%</div>
       <StoryChart kicker="EMPLEO" title="La línea que no baja"
         kind="line" schema="enaho" table="informalidad_reconstruida"
-        series="informal_reconstruido" x="year"
+        series="informal_reconstruido" x="year" ylabel="Empleo informal (%)"
         cta="Explora el indicador →"
         lede="Empleo informal como % de la población ocupada, 2005-2025. Dos décadas de crecimiento compraron ocho puntos, de ~80% a 72%, y ahí se plantó desde 2016." />
       <p className="mov-texto">Tres de cada cuatro trabajadores peruanos siguen sin
@@ -38,7 +38,7 @@ export default function Agenda() {
       <div className="section-label">Frente 2 · Salud: cobertura récord, acceso congelado</div>
       <StoryChart kicker="SALUD" title="El seguro llegó, la consulta no"
         kind="line" reverse schema="enaho" table="atencion_salud_tiempo"
-        series="seek_all" x="year"
+        series="seek_all" x="year" ylabel="Consultó a un profesional (%)"
         cta="Explora el indicador →"
         lede="% de personas con un problema de salud que consultó a un profesional, 2007-2025. El aseguramiento pasó de 37% a 93% de la población en el mismo periodo. La consulta sigue en un tercio." />
       <p className="mov-texto">Es el contraste más incómodo del observatorio. El SIS
@@ -56,7 +56,7 @@ export default function Agenda() {
       <div className="section-label">Frente 3 · Educación: más acceso, la misma herencia</div>
       <StoryChart kicker="JÓVENES" title="Uno de cada cinco, dos décadas seguidas"
         kind="line" schema="enaho" table="neet_juvenil_tiempo_2004_2025"
-        series="Total" x="year"
+        series="Total" x="year" ylabel="Jóvenes ni-ni 15-24 (%)"
         cta="Explora el indicador →"
         lede="% de jóvenes de 15-24 que ni estudia ni trabaja, 2004-2025. De 25% a 22% en veintiún años, con salto a 33% en 2020. La serie que el crecimiento no tocó." />
       <p className="mov-texto">La matrícula subió para todos y cada cohorte estudió más
@@ -75,7 +75,7 @@ export default function Agenda() {
       <div className="section-label">Frente 4 · Género: paridad educativa sin paridad de paga</div>
       <StoryChart kicker="BRECHA SALARIAL" title="El título no cierra la brecha"
         kind="line" reverse schema="enaho" table="brecha_salarial_grupos_tiempo_2004_2025"
-        series="univ" x="year"
+        series="univ" x="year" ylabel="Paga femenina / masculina (universitarios)"
         cta="Explora el indicador →"
         lede="Ingreso laboral femenino como proporción del masculino entre asalariados con educación universitaria, 2004-2025. Plano en ~0.85 durante veinte años." />
       <p className="mov-texto">Las mujeres alcanzaron y superaron a los hombres en
@@ -94,7 +94,7 @@ export default function Agenda() {
       <div className="section-label">Frente 5 · Una economía que no cambia de forma</div>
       <StoryChart kicker="ESTRUCTURA" title="El empleo vulnerable se atascó"
         kind="line" schema="enaho" table="estructura_empleo_2004_2025"
-        series="vulnerable" x="year"
+        series="vulnerable" x="year" ylabel="Empleo vulnerable OIT (%)"
         cta="Explora el indicador →"
         lede="Empleo vulnerable (independientes + trabajo familiar no remunerado, definición OIT) como % del empleo, 2004-2025. Bajó de 53% a 44% y dejó de bajar hace una década." />
       <p className="mov-texto">Los paneles de la ENAHO siguen a los mismos trabajadores
@@ -113,7 +113,7 @@ export default function Agenda() {
       <div className="section-label">Frente 6 · Un Estado en el que nadie confía</div>
       <StoryChart kicker="INSTITUCIONES" title="El derrumbe de la representación"
         kind="line" reverse schema="enaho" table="confianza_instituciones_tiempo_2007_2025"
-        series="Congreso" x="year"
+        series="Congreso" x="year" ylabel="Confía en el Congreso (%)"
         cta="Explora el indicador →"
         lede="% que confía en el Congreso, 2007-2025. De 12.7% a 3.5%. Los partidos políticos están en 2.8%. La institución más confiada del país es la Iglesia, con 44%." />
       <p className="mov-texto">Este frente es distinto a los cinco anteriores porque no
