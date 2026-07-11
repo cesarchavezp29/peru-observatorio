@@ -18,7 +18,10 @@ export default function FeaturedChart({ schema, table, series, x, type = 'line',
 
   const option = useMemo(() => {
     if (!rows?.length) return null
-    const clean = rows.map((r) => ({ ...r, [series]: Number(r[series]) }))
+    // null/'' must stay out of the line: Number(null) is 0 and fabricates a 0% point
+    const clean = rows
+      .map((r) => ({ ...r, [series]: (r[series] == null || r[series] === '') ? NaN : Number(r[series]) }))
+      .filter((r) => Number.isFinite(r[series]))
     return buildOption({ rows: clean, x, series: [series], type, ytitle: series,
       xIsDept: false })
   }, [rows, x, series, type])
