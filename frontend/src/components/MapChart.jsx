@@ -3,8 +3,8 @@ import * as echarts from 'echarts'
 import { buildMapOption } from '../chartLogic'
 
 const MAPS = {
-  dept: { name: 'peru_dept', url: 'geo/peru_departments.geojson' },
-  prov: { name: 'peru_prov', url: 'geo/peru_provinces.geojson' },
+  dept: { name: 'peru_dept', url: '/geo/peru_departments.geojson' },
+  prov: { name: 'peru_prov', url: '/geo/peru_provinces.geojson' },
 }
 const _registered = {} // level -> Promise, so each geojson registers only once
 

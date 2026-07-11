@@ -7,10 +7,10 @@ let _cent = null
 
 function ensure() {
   if (!_geo) {
-    _geo = fetch('geo/peru_departments.geojson').then((r) => r.json())
+    _geo = fetch('/geo/peru_departments.geojson').then((r) => r.json())
       .then((g) => { echarts.registerMap('peru_dept', g); return true })
   }
-  if (!_cent) _cent = fetch('geo/dept_centroids.json').then((r) => r.json())
+  if (!_cent) _cent = fetch('/geo/dept_centroids.json').then((r) => r.json())
   return Promise.all([_geo, _cent]).then(([, c]) => c)
 }
 

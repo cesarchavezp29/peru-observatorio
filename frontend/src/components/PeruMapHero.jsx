@@ -52,7 +52,7 @@ export default function PeruMapHero() {
   const [geo, setGeo] = useState(null)
   const [hover, setHover] = useState(null)
   useEffect(() => {
-    fetch('geo/peru_departments.geojson').then((r) => r.json()).then(setGeo).catch(() => {})
+    fetch('/geo/peru_departments.geojson').then((r) => r.json()).then(setGeo).catch(() => {})
   }, [])
   const proj = useMemo(() => (geo ? project(geo) : null), [geo])
   if (!proj) return <div className="hero-map" />
