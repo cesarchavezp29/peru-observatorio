@@ -342,14 +342,36 @@ export function buildOption({ rows, x, series, type, ytitle, xIsDept, rankBars }
       rotate: !horizontal && cats.length > 12 && typeof cats[0] === 'string' ? 35 : 0 },
     axisTick: { show: false },
   }
+
+  // Tight adaptive value range: pin the axis to the data band (+ small padding,
+  // snapped to a round step) instead of the 0 baseline, so a series that lives
+  // in a narrow band (informality 72-84%, a Gini 0.40-0.49) fills the frame and
+  // its movement is visible. ECharts' own `scale:true` rounds too loosely, so we
+  // compute it. Bars and stacked areas KEEP the 0 baseline — a bar cut off above
+  // 0 misrepresents magnitude, and a stack is a part-of-a-whole.
+  let vMin, vMax
+  if ((base === 'line' && !stacked) || base === 'scatter') {
+    const vals = []
+    for (const r of workRows) for (const s of series) {
+      const n = toNum(r[s]); if (Number.isFinite(n)) vals.push(n)
+    }
+    if (vals.length) {
+      const mn = Math.min(...vals), mx = Math.max(...vals), range = mx - mn
+      if (range > 0) {
+        const step = Math.pow(10, Math.floor(Math.log10(range))) / 5
+        const pad = range * 0.12
+        vMin = Math.round((Math.floor((mn - pad) / step) * step) * 1e6) / 1e6
+        vMax = Math.round((Math.ceil((mx + pad) / step) * step) * 1e6) / 1e6
+        // don't pad into negatives on inherently non-negative data (%, ratios):
+        // clamp the floor to 0 so an axis never shows -6 for a share
+        if (mn >= 0 && vMin < 0) vMin = 0
+      }
+    }
+  }
   const valAxis = {
     type: 'value', name: ytitle ? labelFor(ytitle) : '',
     nameTextStyle: { color: axisColor, align: horizontal ? 'center' : 'left' },
-    // adaptive scale: zoom the axis to the data range instead of pinning 0, so a
-    // series that lives in a narrow band (informality 72-84%, a Gini 0.40-0.49)
-    // shows its movement. Bars and stacked areas MUST keep the 0 baseline — a
-    // bar cut off above 0 misrepresents magnitude, and a stack is a part-of-whole.
-    scale: (base === 'line' && !stacked) || base === 'scatter',
+    ...(vMin != null ? { min: vMin, max: vMax } : {}),
     axisLabel: { color: axisColor, formatter: (v) => fmtNum(v) },
     splitLine: { lineStyle: { color: gridColor } },
     axisLine: { show: false }, axisTick: { show: false },
